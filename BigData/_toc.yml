@@ -1,9 +1,12 @@
 # Table of content
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
+- file: goals
+
+# Default jupyterbook pages, to remove later
 - file: intro
-- file: content
   sections:
+    - file: content
     - file: markdown
     - file: notebooks
 - file: computations
