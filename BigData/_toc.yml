@@ -2,6 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: goals
+- file: test
 
 # Default jupyterbook pages, to remove later
 - file: intro
