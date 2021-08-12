@@ -4,6 +4,7 @@
 - file: goals
 - file: test
 - file: data_storage
+- file: format_metadata
 
 # Default jupyterbook pages, to remove later
 - file: intro
