@@ -12,3 +12,5 @@
     - file: content
     - file: markdown
     - file: notebooks
+    - file: different_tools.md
+    
