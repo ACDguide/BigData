@@ -5,6 +5,7 @@
 - file: test
 - file: data_storage
 - file: format_metadata
+- file: computations
 
 # Default jupyterbook pages, to remove later
 - file: intro
@@ -13,4 +14,3 @@
     - file: markdown
     - file: notebooks
     - file: different_tools.md
-    
