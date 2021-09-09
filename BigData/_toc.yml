@@ -5,6 +5,7 @@
 - file: test
 - file: data_storage
 - file: format_metadata
+- file: accessing_data
 - file: computations
 
 # Default jupyterbook pages, to remove later
