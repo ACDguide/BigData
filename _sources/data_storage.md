@@ -9,24 +9,25 @@ When working with climate data, we are often interested in datasets which are ma
 
 Traditionally, climate data have been stored as GRIB (GRIdded Binary) or NetCDF (Network Common Data Format) files. These file formats support large array data and metadata. NetCDF files can be subset to extract data over specified dimension ranges, including remotely over the internet using the [OPeNDAP protocol](https://www.opendap.org/) via THREDDS, Hyrax or PyDAP. NetCDF4 supports data "chunking" to optimise performance for particular read patterns.
 
-With the rise of cloud computing, the need for data formats that can perform more optimally with parallelised access patterns has emerged. Zarr (zipped archive) is an alternate way to store climate data, whereby each netCDF "chunk" is written to a unique "object", thereby permitting much higher levels of efficient parallelised access. However, on a traditional filesystem, each chunk is written as an individual file, which can affect quota limits. To avoid this problem, Zarr representations of dataset may be stored in a zip file so they are reduced to a single file-object, without loss of performance with tools like `xarray`. 
+With the rise of cloud computing, the need for data formats that can perform more optimally with parallelised access patterns has emerged. Zarr (zipped archive) is an alternate way to store climate data, whereby each netCDF "chunk" is written to a unique "object", thereby permitting much higher levels of efficient parallelised access. However, on a traditional filesystem, each chunk is written as an individual file, which can affect quota limits. To avoid this problem, the Zarr representation of a dataset may be stored in a zip file so they are reduced to a single file-object, without loss of performance with tools like `xarray`. 
 
-Zarr is thus a format which we are particularly interested in, but it's lack of widespread tool support at this time means it may limit reach if we only store data in this format.
-An interesting recent development is support for zarr as a storage back-end for netCDF, thereby potentially offerring the best of both worlds.
+Zarr is thus a format which we are particularly interested in, but its lack of widespread tool support at this time means it may limit reach if we only store data in this format.
+An interesting recent development is support for zarr as a storage back-end for netCDF, thereby potentially offering the best of both worlds.
 
 ### NetCDF
 [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) is the data format most commonly used in climate science. It is an open data format with full self-described metadata, though it is up to the data creator to ensure the metadata meets any relevant standards, such as the [CF Convention](http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html).
 
 ### Zarr
-[Zarr](https://zarr.readthedocs.io/en/stable/) is a new data format that is optimised for cloud interaction with data. Zarr is a portmanteau of "zipped archive", it is used by python's Xarray to more performantly store data, by writing a separate file object for each data chunk. This makes data indexing and access much than on a monolithic netCDF file, and performance improvements are seen on local HPC storage as well as cloud.
+[Zarr](https://zarr.readthedocs.io/en/stable/) is a new data format that is optimised for cloud interaction with data. Zarr is a portmanteau of "zipped archive", it is used by python's `xarray` to more performantly store data, by writing a separate file object for each data chunk. This makes data indexing and access much faster than on a monolithic netCDF file, and performance improvements are seen on local HPC storage as well as cloud.
 
 ### NetCDF: what's under the hood?
-NetCDF is traditionally backed by [HDF5](https://www.hdfgroup.org/solutions/hdf5/), a self-describing metadata open data format which is extensible and underpins many large-scale data formats, e.g. HDFITS 
-An alternative storage back-end for netCDF has recently been released (since 4.8.0) enabling a netCDF to be written as a zarr.
+NetCDF4 is traditionally backed by [HDF5](https://www.hdfgroup.org/solutions/hdf5/), a self-describing metadata open data format which is extensible and underpins many large-scale data formats, e.g. HDFITS.
+
+An alternative storage back-end for netCDF has recently been released (since v4.8.0) enabling a netCDF to be written as a zarr.
 
 ### Other large-scale data formats
 
-There are a few other file formats often used for large-scale data storage.
+There are a few other file formats often used for large-scale data storage that we come across in climate science.
 
 | format | comment |
 |--------|---------|
@@ -71,7 +72,7 @@ This test was done in project `p66`, members of that project should be able to s
 `ncgen -4 -lb -o "file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file" /g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc`
 fails (you can test this yourself, just `module load netcdf/4.8.0`).
 
-1. I took a netCDF file, dumped it to its plain ASCII representation (.cdl), 
+1. I dumped the input netCDF file to its plain ASCII representation (.cdl), 
 `ncdump /g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc > tas_Amon_hist_ACCESS-CM2_test.cdl`
 This needed to be edited to change the time dimension from `UNLIMITED` to the actual length of the time dimension in that file (`1980` in this case).
 
@@ -82,7 +83,7 @@ This produces a directory which looks like a filename
 `drwxr-s--- 10 ct5255 p66     16384 Jul 16 16:58 tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz` 
 
 which contains each dimension and variable as subdirectories, which in terms contain numbered files representing each data chunk.
-This can (as far as I can tell), be read with `xarray.open_zarr` 
+This can (I believe), be read with `xarray.open_zarr` 
 
 3. It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn't be enabled in the current version.
 So this is not possible 
