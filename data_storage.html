@@ -238,6 +238,13 @@
   <a class="reference internal nav-link" href="#netcdf-zarr">
    NetCDF-Zarr
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-we-found">
+     What we found
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -252,10 +259,14 @@
                 
   <div class="section" id="data-storage-methods-for-big-datasets">
 <h1>Data storage methods for big datasets<a class="headerlink" href="#data-storage-methods-for-big-datasets" title="Permalink to this headline">¶</a></h1>
-<p>Putting information about data storage techniques here.</p>
+<p>This page describes data storage formats and techniques.</p>
 <div class="section" id="about-large-scale-data">
 <h2>About large-scale data<a class="headerlink" href="#about-large-scale-data" title="Permalink to this headline">¶</a></h2>
-<p>NetCDF, Zarr and why we use them</p>
+<p>When working with climate data, we are often interested in datasets which are many terabytes (TB) in size, up to even the petabyte (PB) scale. Computers typically have only GBs of RAM, and so even when working on clusters and HPCs, we need to consider how to structure our data for optimal read performance by others.</p>
+<p>Traditionally, climate data have been stored as GRIB (GRIdded Binary) or NetCDF (Network Common Data Format) files. These file formats support large array data and metadata. NetCDF files can be subset to extract data over specified dimension ranges, including remotely over the internet using the <a class="reference external" href="https://www.opendap.org/">OPeNDAP protocol</a> via THREDDS, Hyrax or PyDAP. NetCDF4 supports data “chunking” to optimise performance for particular read patterns.</p>
+<p>With the rise of cloud computing, the need for data formats that can perform more optimally with parallised access patterns has emerged. Zarr (Zipped archive?) is an alternate way to store climate data, whereby each netCDF “chunk” is written to a unique “object”, thereby permitting much higher levels of efficient parallelised access. However, on a traditional filesystem, each chunk is written as an individual file, which can affect quota limits. To avoid this problem, Zarr representations of dataset may be stored in a zip file so they are reduced to a single file-object, without loss of performance with tools like <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
+<p>Zarr is thus a format which we are particularly interested in, but it’s lack of widespread tool support at this time means it may limit reach if we only store data in this format.
+An interesting recent development is support for zarr as a storage back-end for netCDF, thereby potentially offerring the best of both worlds.</p>
 <div class="section" id="netcdf">
 <h3>NetCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a> is the data format most commonly used in climate science. It is an open data format with full self-described metadata, though it is up to the data creator to ensure the metadata meets any relevant standards, such as the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html">CF Convention</a>.</p>
@@ -267,23 +278,84 @@
 <div class="section" id="netcdf-what-s-under-the-hood">
 <h3>NetCDF: what’s under the hood?<a class="headerlink" href="#netcdf-what-s-under-the-hood" title="Permalink to this headline">¶</a></h3>
 <p>NetCDF is traditionally backed by <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a>, a self-describing metadata open data format which is extensible and underpins many large-scale data formats, e.g. HDFITS
-An alternative storage back-end for netCDF has recently been released enabling a netCDF to be written as a zarr.</p>
+An alternative storage back-end for netCDF has recently been released (since 4.8.0) enabling a netCDF to be written as a zarr.</p>
 </div>
 <div class="section" id="other-large-scale-data-formats">
 <h3>Other large-scale data formats<a class="headerlink" href="#other-large-scale-data-formats" title="Permalink to this headline">¶</a></h3>
-<p>Also, Grib, GeoTIFF (COG), zip, others?</p>
+<p>There are a few other file formats often used for large-scale data storage.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>format</p></th>
+<th class="head"><p>comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GRIB</p></td>
+<td><p>Common in weather data</p></td>
+</tr>
+<tr class="row-odd"><td><p>GeoTIFF/CoG</p></td>
+<td><p>Cloud optimised geoTIFF, common in satellite data</p></td>
+</tr>
+<tr class="row-even"><td><p>Zip</p></td>
+<td><p>zip or tar are often used to make data more movable</p></td>
+</tr>
+<tr class="row-odd"><td><p>??</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>TO BE EXPANDED</p>
 </div>
 </div>
 <div class="section" id="advice-on-writing-large-datasets-efficiently">
 <h2>Advice on writing large datasets efficiently<a class="headerlink" href="#advice-on-writing-large-datasets-efficiently" title="Permalink to this headline">¶</a></h2>
 <p>CLEX CMS team have produced <a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/NetCDF_Compression_Tools">some useful advice</a> about storage of netCDF data. That page details deflation, shuffling, chunking, and command line tools to control file storage structure (some are specific to NCI).</p>
-<p>Also consider things like data and metadata standards and ease of use for other researchers or data consumers.
-Possible links to elsewhere in this book.</p>
+<p>Also consider things like data and metadata standards and ease of use for other researchers or data consumers.</p>
+<p><strong>Possible links to elsewhere in this book?</strong></p>
 </div>
 <div class="section" id="netcdf-zarr">
 <h2>NetCDF-Zarr<a class="headerlink" href="#netcdf-zarr" title="Permalink to this headline">¶</a></h2>
 <p>Since <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/entry/overview-of-zarr-support-in">netCDF v4.8.0</a>, support for zarr as a storage backend has been added.</p>
-<p>Write about what we found. (it kind of works, but not in a practical sense)</p>
+<ul class="simple">
+<li><p>When netCDF is built with zarr enabled, it is possible to write a netCDF file out in Zarr format.</p></li>
+<li><p>At this stage, reading of Zarr files is not yet enabled by the python NetCDF library, but that will be added in due course.</p></li>
+<li><p>netCDF 4.8.0 does not (yet) support for zip output, so at this stage, writing a netCDF file out in zarr format creates many file objects (one per chunk)</p></li>
+<li><p>“nczarr” does not support unlimited dimensions like HDF5 does, as such netCDFs must have all dimensions of defined length.</p></li>
+</ul>
+<div class="section" id="what-we-found">
+<h3>What we found<a class="headerlink" href="#what-we-found" title="Permalink to this headline">¶</a></h3>
+<p><strong>TL;DR: It kind of works, but not in a practical sense. It will be worth montioring updates to the netCDF zarr library over the next couple of years.</strong></p>
+<p>I took an existing netCDF file and attempted to convert it to zarr so we could test the conversion mechanism and performance.
+This test was done in project <code class="docutils literal notranslate"><span class="pre">p66</span></code>, members of that project should be able to see it: <code class="docutils literal notranslate"><span class="pre">/scratch/p66/ct5255/nczarr</span></code>.</p>
+<p><em>I attempted to write an existing netCDF file, which I knew would be fully compliant with all relevant standards, to Zarr format.</em></p>
+<ol class="simple">
+<li><p>Could not generate a zarr directly from the netCDF because it was not consistent with current nczarr limitations.
+<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span></code>
+fails (you can test this yourself, just <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">netcdf\4.8.0</span></code> first).</p></li>
+<li><p>I took a netCDF file, dumped it to its plain ASCII representation (.cdl),
+<code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span> <span class="pre">&gt;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code>
+This needed to be edited to change the time dimension from <code class="docutils literal notranslate"><span class="pre">UNLIMITED</span></code> to the actual length of the time dimension in that file (<code class="docutils literal notranslate"><span class="pre">1980</span></code> in this case).</p></li>
+<li><p>Then used <code class="docutils literal notranslate"><span class="pre">ncgen</span></code> to convert it to zarr:
+<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code> (per vague instructions at <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in">https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in</a>).
+This produces a directory which looks like a filename</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">drwxr-s---</span> <span class="pre">10</span> <span class="pre">ct5255</span> <span class="pre">p66</span>&#160;&#160;&#160;&#160; <span class="pre">16384</span> <span class="pre">Jul</span> <span class="pre">16</span> <span class="pre">16:58</span> <span class="pre">tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz</span></code></p>
+<p>which contains each dimension and variable as subdirectories, which in terms contain numbered files representing each data chunk.</p>
+<p>This can (as far as I can tell), be read with <code class="docutils literal notranslate"><span class="pre">xarray.open_zarr</span></code> - DOUGIE PLEASE TEST???</p>
+<ol class="simple">
+<li><p>It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn’t be enabled in the current version.
+So this is not possible
+<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip&quot;</span> <span class="pre">tas_</span> <span class="pre">Amon_hist_ACCESS-CM2_test.cdl</span></code>
+<code class="docutils literal notranslate"><span class="pre">ncgen:</span> <span class="pre">NetCDF:</span> <span class="pre">Attempt</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">feature</span> <span class="pre">that</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">turned</span> <span class="pre">on</span> <span class="pre">when</span> <span class="pre">netCDF</span> <span class="pre">was</span> <span class="pre">built.</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">(../../ncgen/genbin.c:genbin_netcdf:63)</span></code></p></li>
+</ol>
+<p>Findings:</p>
+<ul class="simple">
+<li><p>It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
+<li><p>It is not a good idea to write much data to zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
+<li><p>It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.</p></li>
+</ul>
+<p>NetCDF remains the standards-compliant file format for climate data which is broadly supported by many tools, but lack optimal parallel performance. As this library matures it should be possible eventually to store our data in standards- and tools-compliant netCDF format but with zarr performance.</p>
+</div>
 </div>
 </div>
 
