@@ -66,6 +66,8 @@ Since [netCDF v4.8.0](https://www.unidata.ucar.edu/blogs/developer/entry/overvie
 I took an existing netCDF file and attempted to convert it to zarr so we could test the conversion mechanism and performance.
 This test was done in project `p66`, members of that project should be able to see it: `/scratch/p66/ct5255/nczarr`. 
 
+Thanks to Dale Roberts at NCI for installing a new version of netCDF on Gadi to support these tests and rebuilding with a bunch of different flags as I tried and failed at things in this process!
+
 *I attempted to write an existing netCDF file, which I knew would be fully compliant with all relevant standards, to Zarr format.* 
 
 0. Could not generate a zarr directly from the netCDF because it was not consistent with current nczarr limitations.
