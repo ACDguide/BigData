@@ -2,16 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: goals
-- file: test
 - file: data_storage
 - file: format_metadata
 - file: accessing_data
 - file: computations
-
-# Default jupyterbook pages, to remove later
-- file: intro
-  sections:
-    - file: content
-    - file: markdown
-    - file: notebooks
-    - file: different_tools.md
+- file: different_tools.md
