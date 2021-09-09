@@ -332,6 +332,7 @@ An interesting recent development is support for zarr as a storage back-end for 
 <p><strong>TL;DR: It kind of works, but not in a practical sense. It will be worth montioring updates to the netCDF zarr library over the next couple of years.</strong></p>
 <p>I took an existing netCDF file and attempted to convert it to zarr so we could test the conversion mechanism and performance.
 This test was done in project <code class="docutils literal notranslate"><span class="pre">p66</span></code>, members of that project should be able to see it: <code class="docutils literal notranslate"><span class="pre">/scratch/p66/ct5255/nczarr</span></code>.</p>
+<p>Thanks to Dale Roberts at NCI for installing a new version of netCDF on Gadi to support these tests and rebuilding with a bunch of different flags as I tried and failed at things in this process!</p>
 <p><em>I attempted to write an existing netCDF file, which I knew would be fully compliant with all relevant standards, to Zarr format.</em></p>
 <ol class="simple">
 <li><p>Could not generate a zarr directly from the netCDF because it was not consistent with current nczarr limitations.
