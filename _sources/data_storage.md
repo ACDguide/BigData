@@ -43,6 +43,7 @@ CLEX CMS team have produced [some useful advice](http://climate-cms.wikis.unsw.e
 * shuffling, 
 * chunking, and 
 * command line tools to control file storage structure (some are specific to [NCI](https://nci.org.au/)).
+
 All of these things can have massive impacts on file performance for both regular access but in particular parallelised access using `dask`. Data will only be performant with a tool like `dask` if it is structured appropriately for the read patterns, and chunk arguments supplied to `xarray` must align with the chunk sizes the data is physically stored in, otherwise you can end up with *worse* performance.
 
 Also consider things like data and metadata standards and ease of use for other researchers or data consumers. For example, data should be [CF-compliant](http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html), but also consider [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3) for metadata, [UGRID](https://ugrid-conventions.github.io/ugrid-conventions/) for unstructured data, and [CMOR](https://pcmdi.github.io/cmor-site/) and other data request requirements for Earth System Grid Federation data submission.
@@ -81,7 +82,6 @@ This produces a directory which looks like a filename
 `drwxr-s--- 10 ct5255 p66     16384 Jul 16 16:58 tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz` 
 
 which contains each dimension and variable as subdirectories, which in terms contain numbered files representing each data chunk.
-
 This can (as far as I can tell), be read with `xarray.open_zarr` 
 
 3. It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn't be enabled in the current version.
