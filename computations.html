@@ -366,9 +366,13 @@
                 
   <div class="section" id="computations-with-large-datasets">
 <h1>Computations with large datasets<a class="headerlink" href="#computations-with-large-datasets" title="Permalink to this headline">¶</a></h1>
+<p>This notebook introduces a number of commonly-used tools for performing computations with large climate datasets, and demonstrates how common tasks are carried out on chunked data using tools like <code class="docutils literal notranslate"><span class="pre">dask</span></code></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This is setup for the plots later on in the notebook - on the website this</span>
+<span class="c1">## cell (and the cells making the diagrams) is hidden by default, using the &#39;hide-input&#39; cell tag</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numbers</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -667,7 +671,7 @@
 </div>
 <div class="section" id="time-resampling">
 <h3>Time Resampling<a class="headerlink" href="#time-resampling" title="Permalink to this headline">¶</a></h3>
-<p>Time resampling reduces the temporal frequency of a dataset, say from hourly to daily. You can generally specify the operation to perform - min, mean, max etc.</p>
+<p>Time resampling changes the temporal frequency of a dataset, say from hourly to daily. You can generally specify the operation to perform - min, mean, max etc. if going from a higher to lower frequency, or how values are interpolated if going from lower to higher frequency.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -706,7 +710,7 @@
 </div>
 <p><strong>Resources</strong></p>
 <ul class="simple">
-<li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.resample.html">resample</a> knows about time values, <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.coarsen.html">coarsen</a> uses sample counts but can work in all dimensions. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset strings</a> for how to specify different resample windows. Use a reduction operator like <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> etc. after either of these</p></li>
+<li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.resample.html">resample</a> knows about time values, <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.coarsen.html">coarsen</a> uses sample counts but can work in all dimensions. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset strings</a> for how to specify different resample windows. Use a reduction operator like <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> etc. after either of these to go from high to low frequency, or use <code class="docutils literal notranslate"><span class="pre">.resample().interpolate()</span></code> to go from low to high frequency</p></li>
 <li><p><strong>CDO</strong> see e.g. <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">mean</span></code> for means on different timescales</p></li>
 </ul>
 </div>
