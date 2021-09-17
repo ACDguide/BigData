@@ -293,6 +293,12 @@ An interesting recent development is support for zarr as a storage back-end for 
 <div class="section" id="zarr">
 <h3>Zarr<a class="headerlink" href="#zarr" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a> is a new data format that is optimised for cloud interaction with data. Zarr is a portmanteau of “zipped archive”, it is used by python’s <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to more performantly store data, by writing a separate file object for each data chunk. This makes data indexing and access much faster than on a monolithic netCDF file, and performance improvements are seen on local HPC storage as well as cloud.</p>
+<p>Tools (that we know of at this time) for converting files to zarr format include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.to_zarr.html">xarray</a></p></li>
+<li><p><a class="reference external" href="https://gdal.org/drivers/raster/zarr.html#examples">GDAL</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncgen</span></code> (see netCDF-zarr below)</p></li>
+</ul>
 </div>
 <div class="section" id="other-large-scale-data-formats">
 <h3>Other large-scale data formats<a class="headerlink" href="#other-large-scale-data-formats" title="Permalink to this headline">¶</a></h3>
