@@ -3,6 +3,8 @@
 #
 - file: goals
 - file: data_storage
+  sections:
+  - file : nczarr_test
 - file: format_metadata
 - file: accessing_data
 - file: computations
