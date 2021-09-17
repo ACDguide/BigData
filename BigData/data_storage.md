@@ -25,6 +25,11 @@ An alternative storage back-end for netCDF has recently been released (since v4.
 ### Zarr
 [Zarr](https://zarr.readthedocs.io/en/stable/) is a new data format that is optimised for cloud interaction with data. Zarr is a portmanteau of "zipped archive", it is used by python's `xarray` to more performantly store data, by writing a separate file object for each data chunk. This makes data indexing and access much faster than on a monolithic netCDF file, and performance improvements are seen on local HPC storage as well as cloud.
 
+Tools (that we know of at this time) for converting files to zarr format include:
+* [xarray](http://xarray.pydata.org/en/stable/generated/xarray.Dataset.to_zarr.html)
+* [GDAL](https://gdal.org/drivers/raster/zarr.html#examples)
+* `ncgen` (see netCDF-zarr below)
+
 ### Other large-scale data formats
 
 There are a few other file formats often used for large-scale data storage that we come across in climate science.
