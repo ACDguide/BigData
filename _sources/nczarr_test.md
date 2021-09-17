@@ -38,11 +38,11 @@ This can (I believe), be read with `xarray.open_zarr`
 4. It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn't be enabled in the current version.
 So this is not possible <br>
 `ncgen -4 -lb -o "file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip" tas_
-Amon_hist_ACCESS-CM2_test.cdl`</br></br>
+Amon_hist_ACCESS-CM2_test.cdl`</br>
 `ncgen: NetCDF: Attempt to use feature that was not turned on when netCDF was built. 
 (../../ncgen/genbin.c:genbin_netcdf:63)`
 
-### Findings: 
+## Findings: 
 * It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.
 * It is not a good idea to write much data to zarr format using this tool at the moment because it doesn't support the zip archiving, so uses a lot of inodes, which will affect quotas.
 * It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.

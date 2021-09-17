@@ -224,13 +224,11 @@
   <a class="reference internal nav-link" href="#description-of-tests-performed">
    Description of tests performed
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#findings">
-     Findings:
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findings">
+   Findings:
+  </a>
  </li>
 </ul>
 
@@ -275,17 +273,17 @@ and contains each dimension and variable as subdirectories, which in turn contai
 This can (I believe), be read with <code class="docutils literal notranslate"><span class="pre">xarray.open_zarr</span></code></p></li>
 <li><p>It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn’t be enabled in the current version.
 So this is not possible <br>
-<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip&quot;</span> <span class="pre">tas_</span> <span class="pre">Amon_hist_ACCESS-CM2_test.cdl</span></code></br></br>
+<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip&quot;</span> <span class="pre">tas_</span> <span class="pre">Amon_hist_ACCESS-CM2_test.cdl</span></code></br>
 <code class="docutils literal notranslate"><span class="pre">ncgen:</span> <span class="pre">NetCDF:</span> <span class="pre">Attempt</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">feature</span> <span class="pre">that</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">turned</span> <span class="pre">on</span> <span class="pre">when</span> <span class="pre">netCDF</span> <span class="pre">was</span> <span class="pre">built.</span>&#160; <span class="pre">(../../ncgen/genbin.c:genbin_netcdf:63)</span></code></p></li>
 </ol>
+</div>
 <div class="section" id="findings">
-<h3>Findings:<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h3>
+<h2>Findings:<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
 <li><p>It is not a good idea to write much data to zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
 <li><p>It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.</p></li>
 </ul>
-</div>
 </div>
 </div>
 
