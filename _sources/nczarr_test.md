@@ -46,3 +46,8 @@ Amon_hist_ACCESS-CM2_test.cdl`</br>
 * It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.
 * It is not a good idea to write much data to zarr format using this tool at the moment because it doesn't support the zip archiving, so uses a lot of inodes, which will affect quotas.
 * It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.
+
+
+## Other people's tests
+
+* IOOS compliance checker support for NCzarr [Git pull request](https://github.com/ioos/compliance-checker/pull/884).

@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -70,6 +70,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/logo.png" class="logo" alt="logo">
       
@@ -230,6 +234,11 @@
    Findings:
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-people-s-tests">
+   Other people’s tests
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -283,6 +292,12 @@ So this is not possible <br>
 <li><p>It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
 <li><p>It is not a good idea to write much data to zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
 <li><p>It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.</p></li>
+</ul>
+</div>
+<div class="section" id="other-people-s-tests">
+<h2>Other people’s tests<a class="headerlink" href="#other-people-s-tests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>IOOS compliance checker support for NCzarr <a class="reference external" href="https://github.com/ioos/compliance-checker/pull/884">Git pull request</a>.</p></li>
 </ul>
 </div>
 </div>
@@ -339,7 +354,7 @@ So this is not possible <br>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
