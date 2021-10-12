@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>In-depth nczarr testing &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Resources &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data formats, variables, and metadata" href="format_metadata.html" />
-    <link rel="prev" title="Data storage methods for big datasets" href="data_storage.html" />
+    <link rel="prev" title="Identifying which languages/tools are best suited to specific tasks" href="different_tools.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -94,18 +93,18 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="data_storage.html">
    Data storage methods for big datasets
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nczarr_test.html">
      In-depth
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -137,8 +136,8 @@
    Identifying which languages/tools are best suited to specific tasks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="resources.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Resources
   </a>
  </li>
@@ -183,7 +182,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/nczarr_test.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/resources.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,7 +202,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fnczarr_test.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fresources.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -230,18 +229,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description-of-tests-performed">
-   Description of tests performed
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#findings">
-   Findings:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-people-s-tests">
-   Other people’s tests
+  <a class="reference internal nav-link" href="#training">
+   Training
   </a>
  </li>
 </ul>
@@ -255,55 +249,88 @@
         
               <div>
                 
-  <div class="section" id="in-depth-nczarr-testing">
-<h1>In-depth <code class="docutils literal notranslate"><span class="pre">nczarr</span></code> testing<a class="headerlink" href="#in-depth-nczarr-testing" title="Permalink to this headline">¶</a></h1>
-<p>This page documents tests performed to understand the newly released <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/entry/overview-of-zarr-support-in">netCDF v4.8.0</a> library with zarr back-end support.</p>
-<ul class="simple">
-<li><p>When netCDF is built with zarr enabled, it is possible to write a netCDF file out in Zarr format.</p></li>
-<li><p>At this stage, reading of Zarr files is not yet enabled by the python NetCDF library, but that will be added in due course.</p></li>
-<li><p>netCDF 4.8.0 does not (yet) support zip output, so at this stage, writing a netCDF file out in zarr format creates many file objects (one per chunk)</p></li>
-<li><p>“nczarr” does not support unlimited dimensions like HDF5 does, as such netCDFs must have all dimensions of defined length.</p></li>
-</ul>
-<p><strong>TL;DR: It kind of works, but not in a practical sense. It will be worth montioring updates to the netCDF zarr library over the next couple of years.</strong></p>
-<div class="section" id="description-of-tests-performed">
-<h2>Description of tests performed<a class="headerlink" href="#description-of-tests-performed" title="Permalink to this headline">¶</a></h2>
-<p>We tested <code class="docutils literal notranslate"><span class="pre">nczarr</span></code> on NCI’s Gadi system.</p>
-<p>I took an existing netCDF file and attempted to convert it to zarr so we could test the conversion mechanism and performance.
-This test was done in project <code class="docutils literal notranslate"><span class="pre">p66</span></code>, members of that project should be able to see it: <code class="docutils literal notranslate"><span class="pre">/scratch/p66/ct5255/nczarr</span></code>.</p>
-<p>Thanks to Dale Roberts at NCI for installing a new version of netCDF on Gadi to support these tests and rebuilding with a bunch of different flags as I tried and failed at things in this process!</p>
-<p><em>I attempted to write an existing netCDF file, which I knew would be fully compliant with all relevant standards, to Zarr format.</em></p>
-<ol class="simple">
-<li><p>Could not generate a zarr directly from the netCDF because it was not consistent with current nczarr limitations. <br>
-<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span></code> <br>
-fails (you can test this yourself, just <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">netcdf/4.8.0</span></code>).</p></li>
-<li><p>I dumped the input netCDF file to its plain ASCII representation (.cdl), <br>
-<code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span> <span class="pre">&gt;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code> <br>
-This needed to be edited to change the time dimension from <code class="docutils literal notranslate"><span class="pre">UNLIMITED</span></code> to the actual length of the time dimension in that file (<code class="docutils literal notranslate"><span class="pre">1980</span></code> in this case).</p></li>
-<li><p>I then used <code class="docutils literal notranslate"><span class="pre">ncgen</span></code> to convert it to zarr: <br>
-<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code> <br> (per vague instructions at <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in">https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in</a>). <br>
-This produces a directory which looks like a filename <br>
-<code class="docutils literal notranslate"><span class="pre">drwxr-s---</span> <span class="pre">10</span> <span class="pre">ct5255</span> <span class="pre">p66</span>&#160;&#160;&#160;&#160; <span class="pre">16384</span> <span class="pre">Jul</span> <span class="pre">16</span> <span class="pre">16:58</span> <span class="pre">tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz</span></code><br>
-and contains each dimension and variable as subdirectories, which in turn contain numbered files representing each data chunk.<br>
-This can (I believe), be read with <code class="docutils literal notranslate"><span class="pre">xarray.open_zarr</span></code></p></li>
-<li><p>It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn’t be enabled in the current version.
-So this is not possible <br>
-<code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip&quot;</span> <span class="pre">tas_</span> <span class="pre">Amon_hist_ACCESS-CM2_test.cdl</span></code></br>
-<code class="docutils literal notranslate"><span class="pre">ncgen:</span> <span class="pre">NetCDF:</span> <span class="pre">Attempt</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">feature</span> <span class="pre">that</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">turned</span> <span class="pre">on</span> <span class="pre">when</span> <span class="pre">netCDF</span> <span class="pre">was</span> <span class="pre">built.</span>&#160; <span class="pre">(../../ncgen/genbin.c:genbin_netcdf:63)</span></code></p></li>
-</ol>
+  <div class="section" id="resources">
+<h1>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h1>
+<p>This page provides a list of resources related to working with large and challenging climate datasets. Brief descriptions and links to the resources are provided.</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Home">CLEX-CMS wiki</a></p></td>
+<td><p>Lots of info/links from Computation Modelling Systems team at the Climate Extremes ARC Centre of Excellence</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pangeo.io/cloud.html">Pangeo Cloud</a></p></td>
+<td><p>Experimental service providing cloud-based data science environments</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pangeo-forge.readthedocs.io/en/latest/">Pangeo-Forge</a></p></td>
+<td><p>Tool for extracting data from traditional repositories and adding them to the cloud</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://catalog.pangeo.io/browse/master/">Pangeo Data Catalog</a></p></td>
+<td><p>List of all datasets available on Pangeo Cloud</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://intake-esm.readthedocs.io/en/latest/">Intake-ESM</a></p></td>
+<td><p>Data cataloging utility for Earth System Models (ESMs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://coecms-training.github.io/parallel/README.html">CMS parallel tutorial</a></p></td>
+<td><p>Tips for xarray + dask analysis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.youtube.com/channel/UCSmoK6oWV9O0Hmyt9UdDNsQ">CMS youtube</a></p></td>
+<td><p>Recorded presentations on climate analysis / model runs</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://xarray.pydata.org/en/stable/">Xarray docs</a></p></td>
+<td><p>Python package for working with labelled, multi-dimensional arrays</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.dask.org/en/latest/">Dask docs</a></p></td>
+<td><p>Distributed computing</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="findings">
-<h2>Findings:<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
-<li><p>It is not a good idea to write much data to zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
-<li><p>It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.</p></li>
-</ul>
-</div>
-<div class="section" id="other-people-s-tests">
-<h2>Other people’s tests<a class="headerlink" href="#other-people-s-tests" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>IOOS compliance checker support for NCzarr <a class="reference external" href="https://github.com/ioos/compliance-checker/pull/884">Git pull request</a>.</p></li>
-</ul>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>CLEX Training</strong></p></td>
+<td><p>ARC Centre of Excellence computing training sessions</p></td>
+<td><p><a class="reference external" href="https://climateextremes.org.au/cms-videos/">Videos</a>, <a class="reference external" href="https://github.com/coecms-training">interactive notebooks</a>, <a class="reference external" href="https://www.youtube.com/user/COECSSCMS/videos">youtube channel</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Xarray tutorial</strong></p></td>
+<td><p>90-minute course introducing data scientists already familiar with Numpy to Xarray</p></td>
+<td><p><a class="reference external" href="https://www.youtube.com/watch?v=a339Q5F48UQ">Video</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PyAOS Training</strong></p></td>
+<td><p>Python for Atmosphere and Ocean Scientists - training materials</p></td>
+<td><p><a class="reference external" href="https://protect-au.mimecast.com/s/s22CCmOxBVhgDqm9u9kXDJ?domain=pyaos.github.io/">Website with links</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>An Introduction to Earth and Environmental Data Science</strong></p></td>
+<td><p>Course materials from Ryan Abernathey</p></td>
+<td><p><a class="reference external" href="https://earth-env-data-science.github.io/intro">Jupyter Book</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Intake-ESM – Making It Easier To Consume Climate Data</strong></p></td>
+<td><p>By Anderson Banihirwe (NCAR)</p></td>
+<td><p><a class="reference external" href="https://www.youtube.com/watch?v=zjjpByZ0nOk">Video screencast</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Research Software Engineering with Python</strong></p></td>
+<td><p>By Damien Irving et al</p></td>
+<td><p><a class="reference external" href="https://merely-useful.tech/py-rse/">eBook</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Intro to Dask</strong></p></td>
+<td><p>In Pangeo Gallery</p></td>
+<td><p><a class="reference external" href="https://gallery.pangeo.io/repos/pangeo-data/pangeo-tutorial-gallery/dask.html">Notebook (interactive via Binder or noninteractive on website)</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -337,23 +364,14 @@ So this is not possible <br>
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="data_storage.html" title="previous page">
+        <a class="left-prev" href="different_tools.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Data storage methods for big datasets</p>
+                <p class="prevnext-title">Identifying which languages/tools are best suited to specific tasks</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="format_metadata.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Data formats, variables, and metadata</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
