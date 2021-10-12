@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -242,6 +242,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stac-spatiotemporal-asset-catalog">
+   STAC (SpatioTemporal Asset Catalog)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-data-easily-searchable">
+     Making data easily searchable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intake">
    Intake
   </a>
@@ -249,6 +261,11 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-loading">
      Data loading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nci-data-collection-intake-catalogue">
+     NCI Data Collection Intake Catalogue
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -271,6 +288,18 @@
                 
   <div class="section" id="methods-of-accessing-data-and-metadata">
 <h1>Methods of accessing data and metadata<a class="headerlink" href="#methods-of-accessing-data-and-metadata" title="Permalink to this headline">¶</a></h1>
+<p>With the ever-increasing volume of climate data, it is crucial to be able to easily and quickly search for and access datasets of interest. Below are a few tools that may be useful.</p>
+<div class="section" id="stac-spatiotemporal-asset-catalog">
+<h2>STAC (SpatioTemporal Asset Catalog)<a class="headerlink" href="#stac-spatiotemporal-asset-catalog" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Enabling online search and discovery of geospatial assets”</p>
+</div></blockquote>
+<p><a class="reference external" href="https://stacspec.org">STAC</a> is a specification aimed at standardizing the language around geospatial datasets in order to increase accessability and interoperability across many datasets. It is for use with data stored in the cloud.</p>
+<div class="section" id="making-data-easily-searchable">
+<h3>Making data easily searchable<a class="headerlink" href="#making-data-easily-searchable" title="Permalink to this headline">¶</a></h3>
+<p>At its core, <code class="docutils literal notranslate"><span class="pre">STAC</span></code> provides a <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> file wrapper around any geospatial data (i.e. any data relating to the Earth). The goal of this wrapper file is to contain all relevant information that a user may want to search for when finding a dataset. In this way, <code class="docutils literal notranslate"><span class="pre">STAC</span></code> seeks to make all earth-related cloud-optimized datasets easily searchable, but does not provide the search tools themselves. <code class="docutils literal notranslate"><span class="pre">STAC</span></code> integrates well with a tool like <code class="docutils literal notranslate"><span class="pre">intake</span></code> that can search for and load the desired datasets.</p>
+</div>
+</div>
 <div class="section" id="intake">
 <h2>Intake<a class="headerlink" href="#intake" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -288,6 +317,10 @@
 <li><p><a class="reference external" href="https://intake-thredds.readthedocs.io/en/latest/">intake-thredds</a>: to retrieve data from THREDDS data servers (used by NCAR for example)</p></li>
 <li><p><a class="reference external" href="https://intake-xarray.readthedocs.io/en/latest/">intake-xarray</a>: to load datasets into <a class="reference external" href="http://xarray.pydata.org/en/stable/">Xarray</a> containers</p></li>
 </ul>
+</div>
+<div class="section" id="nci-data-collection-intake-catalogue">
+<h3>NCI Data Collection Intake Catalogue<a class="headerlink" href="#nci-data-collection-intake-catalogue" title="Permalink to this headline">¶</a></h3>
+<p>To access datasets stored at NCI (<a class="reference external" href="https://nci.org.au">National Computational Infrastructure</a>), there is a dedicated intake cataloge: <code class="docutils literal notranslate"><span class="pre">nci-intake-catalogue</span></code>. Usage and other information can be found on the <a class="reference external" href="https://github.com/coecms/nci-intake-catalogue">nci-intake github site</a>.</p>
 </div>
 <div class="section" id="other-features">
 <h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
