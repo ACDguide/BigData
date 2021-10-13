@@ -224,6 +224,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-tools-for-viewing-netcdf-data-and-metadata">
+   Simple tools for viewing netCDF data and metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-metadata-issues">
+   Common metadata issues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-dimension">
+     Time dimension
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-values">
+     Missing values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coordinates-and-grids">
+     Coordinates and grids
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chunking">
+   Chunking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata-standards">
+   Metadata standards
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -234,6 +279,42 @@
                 
   <div class="section" id="data-formats-variables-and-metadata">
 <h1>Data formats, variables, and metadata<a class="headerlink" href="#data-formats-variables-and-metadata" title="Permalink to this headline">¶</a></h1>
+<p>When using self-describing data formats (such as netCDF), it is important to understand the various attributes contained in the metadata, how to interact with them, and potential issues of which to remain aware.</p>
+<div class="section" id="simple-tools-for-viewing-netcdf-data-and-metadata">
+<h2>Simple tools for viewing netCDF data and metadata<a class="headerlink" href="#simple-tools-for-viewing-netcdf-data-and-metadata" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> command (contained within the standard netcdf module) is the most common way of probing netCDF files, particularly metadata attributes.</p>
+<ul class="simple">
+<li><p>Dimensions are listed first in ncdump, and descibe the overall structures of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be ‘real’ dimensions (such as time, lat, lon), or ‘pseudo’ dimensions (such as land-use tiles, or spectral bands), and can be described using values or strings.
+E.g. TBA</p></li>
+<li><p>Variables contain the bulk of the information with a netCDF file. Each is defined along one or more dimension, and is self-described with associated attributes. The attributes can technically include and be titled anything, however there are some common standards to which most data adheres (the most common of which is the CF conventions [link]), including bounds, units, standard_name, etc.</p></li>
+<li><p>Global attributes are those that descibe the entire dataset. While these are typically chosen according to the use case of the data and can vary significantly between modelling realms or scientific need, standards also exist for these. Common global attributes include data provenance information (i.e. where the data came from), license, and contact information.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncview</span></code> tool, while very simple, can easily display netCDF data and highlight metadata issues. This is because <code class="docutils literal notranslate"><span class="pre">ncview</span></code> looks for standard metadata attributes to quickly decide how to plot the data. Files that are missing vital attributes, or are otherwise lacking adequate description will quickly break <code class="docutils literal notranslate"><span class="pre">ncview</span></code>, allowing for a fast diagnostic tool for both metadata quality and the data itself.</p>
+</div>
+<div class="section" id="common-metadata-issues">
+<h2>Common metadata issues<a class="headerlink" href="#common-metadata-issues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="time-dimension">
+<h3>Time dimension<a class="headerlink" href="#time-dimension" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>UNLIMITED/record dimensions</p></li>
+<li><p>Calendars</p></li>
+<li><p>Units</p></li>
+</ul>
+</div>
+<div class="section" id="missing-values">
+<h3>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="coordinates-and-grids">
+<h3>Coordinates and grids<a class="headerlink" href="#coordinates-and-grids" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="chunking">
+<h2>Chunking<a class="headerlink" href="#chunking" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="metadata-standards">
+<h2>Metadata standards<a class="headerlink" href="#metadata-standards" title="Permalink to this headline">¶</a></h2>
+<p>Link to Governance pages on this?</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
