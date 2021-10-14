@@ -27,6 +27,9 @@ The `ncview` tool, while very simple, can easily display netCDF data and highlig
 #### Coordinates and grids
 
 
+#### Scaling & offsets
+
+
 ### Chunking
 
 
