@@ -26,3 +26,9 @@ This page provides a list of resources related to working with large and challen
 | **Intake-ESM -- Making It Easier To Consume Climate Data**	| By Anderson Banihirwe (NCAR)	| [Video screencast](https://www.youtube.com/watch?v=zjjpByZ0nOk)
 | **Research Software Engineering with Python** |	By Damien Irving et al	| [eBook](https://merely-useful.tech/py-rse/)
 |**Intro to Dask** |	In Pangeo Gallery	| [Notebook (interactive via Binder or noninteractive on website)](https://gallery.pangeo.io/repos/pangeo-data/pangeo-tutorial-gallery/dask.html)
+
+## Example workflows
+| Name | Description | Type |
+|------|-------------|------|
+| [CLEX-CMS Blog](https://climate-cms.org) | | Blog posts (usually as non-interactive Jupyter notebooks) |
+| [Pangeo Gallery](https://protect-au.mimecast.com/s/mbKuCoVzE9HgZm7QuoDaec?domain=gallery.pangeo.io/) | Collections of notebooks with workflow examples; notebooks can be run interactively on Binder or viewed directly on the website | Website with links to notebooks | 
