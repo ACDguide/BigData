@@ -2,29 +2,17 @@
 ## Python
 This is a free, open-source language that is a standard tool used in many organisations and industries. It interfaces with other programs and tools like ArcGIS. Packages like xarray are great for analysing large gridded time-series data in climate and environmental science fields. Python creates beautiful plots.
 
+### Data handling
+
 Os, sys, glob: to handle directories and files
 
-Numpy: numerical math 
+[Netcdf4](http://unidata.github.io/netcdf4-python/) - to handle netcdf files, it is an optional dependecy for xarray 
 
-Matplotlib: to create plots
-
-Other plotting packages: https://mode.com/blog/python-data-visualization-libraries/: plotly, seaborn, holoviews
-
-Pandas: timeseries, integrates with numpy 
-
-Xarray: gridded data, integrates with pandas, include basic plotting capabilities
-
-Dask: to parallelise tasks and manage memory more efficiently , integrates with xarray
-
-Calendar: to handle calendars and time information
-
-Netcdf4 - to handle netcdf files, usually integrated in tools like xarray, pandas
-
-hdf5, hdf4, h4netcdf, hdfeos2, hdfeos5, h5py, pyhdf - to handle various hdf formats they have different advantages
+hdf5, hdf4, h4netcdf, hdfeos2, hdfeos5, 
+[pytables](https://www.pytables.org/index.html) and [h5py](https://docs.h5py.org/en/stable/), pyhdf - to handle various hdf formats they have different advantages
 
 Pygrib -m to handle grib file
 
-Requests: download/upload from/to website (not specifically analysis but can be useful for data handling)
 
 Csv - to handle csv files
 
@@ -36,11 +24,40 @@ Rasterio, rasterstats, rio-xarray, geopandas, fiona - to handle raster and shape
 
 Zarr - 
 
-Specific tools:
+Calendar: to handle calendars and time information
+Cfcheker.py - checking against CF and ACDD conventions
+
+Siphon - to navigate thredds servers
+
+Requests: download/upload from/to website
+
+SQLAlchemy
+
+sqlite3
+
+
+### Analysis
+
+[Numpy](https://numpy.org/doc/stable/): numerical math 
+
+[Pandas](https://pandas.pydata.org/docs/index.html): built to work with tabular and timeseries data and make use of relational and label infomration associated with the main data. Pandas is useful to slice, index, group data in complex ways. It has timeseries specific functionalities that makes working with time axis much easier. Pandas is based on numpy, iit is itself the base for xarray and integrates well with other libraries. Pandas has two main data structures Series which is a 1-dimensional homogeneous array, and Dataframe which is a 2-dimensional tabular format. 
+
+[Xarray](http://xarray.pydata.org/en/stable/#): xarray is used to analyse gridded data,
+Xarray dependes on numpy and pandas, it can use several other python packages as optional dependencies. A full list is available on the [installation page](http://xarray.pydata.org/en/stable/getting-started-guide/installing.html) of its documentation. As long as these packages are already installed they can be used directly from xarray. Examples are matplotlib, dask and netcdf4. The hh5 conda enviroments available on the NCI servers will have all these dependencies with the exception of PyNIO and pseudonetcdf. 
+
+Dask: to parallelise tasks and manage memory more efficiently , integrates with xarray
+
+### Plotting
+Matplotlib: to create plots
+
+Other plotting packages: https://mode.com/blog/python-data-visualization-libraries/: plotly, seaborn, holoviews
+
+
+
+### Packages for specific analysis
 
 Iris - 
 
-Cfcheker.py - checking against CF and ACDD conventions
 
 marineHeatwaves / xmhw - calculate MHW statistics
 
@@ -56,7 +73,6 @@ Cdo - to call cdo operators (Scott has a regridding function that exploit this)
 
 Wrf-python -
 
-Siphon - to navigate thredds servers
 
 Xesmf - 
 
@@ -70,7 +86,7 @@ Earthpy -
 
 xgcm - work with offset grids
 
-Specific distributions:
+### Specific distributions
 
 Anaconda
 
