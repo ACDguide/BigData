@@ -32,3 +32,9 @@ This page provides a list of resources related to working with large and challen
 |------|-------------|------|
 | [CLEX-CMS Blog](https://climate-cms.org) | | Blog posts (usually as non-interactive Jupyter notebooks) |
 | [Pangeo Gallery](https://protect-au.mimecast.com/s/mbKuCoVzE9HgZm7QuoDaec?domain=gallery.pangeo.io/) | Collections of notebooks with workflow examples; notebooks can be run interactively on Binder or viewed directly on the website | Website with links to notebooks | 
+
+
+## Miscellaneous
+| Name | Description | Type |
+|------|-------------|------|
+| [Tips for running Pangeo workflows on Australian HPC](https://github.com/csiro-dcfp/pangeo_hpc) | | Github repo with scripts and written advice
