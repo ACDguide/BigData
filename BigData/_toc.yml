@@ -1,11 +1,23 @@
-format: jb-article
+format: jb-book
 root: goals
-sections:
-- file: data_storage
-  sections:
-  - file: nczarr_test
-- file: format_metadata
-- file: accessing_data
-- file: computations
-- file: different_tools.md
-- file: resources.md
+parts:
+  - caption: Storage methods for large datasets
+    chapters:
+    - file: data_storage
+      sections:
+      - file : nczarr_test
+  - caption: Data formats and metadata
+    chapters:
+    - file: format_metadata   
+  - caption: Methods of accessing data and metadata
+    chapters:
+    - file: accessing_data       
+  - caption: Computations with large datasets
+    chapters:
+    - file: computations     
+  - caption: Available tools
+    chapters:
+    - file: different_tools   
+  - caption: Resources
+    chapters:
+    - file: resources  

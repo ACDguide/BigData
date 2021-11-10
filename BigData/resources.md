@@ -2,7 +2,7 @@
 
 This page provides a list of resources related to working with large and challenging climate datasets. Brief descriptions and links to the resources are provided.
 
-## Documentation
+<details><summary><span style="font-size:xx-large;">Documentation</span></summary>
 
 | Name | Description |
 |-------|--------|
@@ -15,8 +15,10 @@ This page provides a list of resources related to working with large and challen
 | [CMS youtube](https://www.youtube.com/channel/UCSmoK6oWV9O0Hmyt9UdDNsQ) | Recorded presentations on climate analysis / model runs
 | [Xarray docs](http://xarray.pydata.org/en/stable/)| Python package for working with labelled, multi-dimensional arrays
 | [Dask docs](https://docs.dask.org/en/latest/)| Distributed computing
+</details>
 
-## Training
+<details><summary><span style="font-size:xx-large;">Training</span></summary>
+
 | Name | Description | Type |
 |------|-------------|------|
 |**CLEX Training** | ARC Centre of Excellence computing training sessions | [Videos](https://climateextremes.org.au/cms-videos/), [interactive notebooks](https://github.com/coecms-training), [youtube channel](https://www.youtube.com/user/COECSSCMS/videos)
@@ -26,9 +28,18 @@ This page provides a list of resources related to working with large and challen
 | **Intake-ESM -- Making It Easier To Consume Climate Data**	| By Anderson Banihirwe (NCAR)	| [Video screencast](https://www.youtube.com/watch?v=zjjpByZ0nOk)
 | **Research Software Engineering with Python** |	By Damien Irving et al	| [eBook](https://merely-useful.tech/py-rse/)
 |**Intro to Dask** |	In Pangeo Gallery	| [Notebook (interactive via Binder or noninteractive on website)](https://gallery.pangeo.io/repos/pangeo-data/pangeo-tutorial-gallery/dask.html)
+</details>
 
-## Example workflows
+<details><summary><span style="font-size:xx-large;">Example workflows</span></summary>
+
 | Name | Description | Type |
 |------|-------------|------|
 | [CLEX-CMS Blog](https://climate-cms.org) | | Blog posts (usually as non-interactive Jupyter notebooks) |
 | [Pangeo Gallery](https://protect-au.mimecast.com/s/mbKuCoVzE9HgZm7QuoDaec?domain=gallery.pangeo.io/) | Collections of notebooks with workflow examples; notebooks can be run interactively on Binder or viewed directly on the website | Website with links to notebooks | 
+</details>
+
+<details><summary><span style="font-size:xx-large;">Other resources</span></summary>
+
+| Name | Description | Type |
+|------|-------------|------|
+| [Tips for running Pangeo workflows on Australian HPC](https://github.com/csiro-dcfp/pangeo_hpc) | | Github repo with scripts and written advice
