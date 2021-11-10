@@ -35,4 +35,4 @@ The `ncview` tool, while very simple, can easily display netCDF data and highlig
 
 
 ### Metadata standards
-Link to Governance pages on this?
+Information about metadata standards and conventions can be found in the [Climate Data Guidelines](https://acdguide.github.io/Governance/concepts/conventions.html).
