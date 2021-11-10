@@ -20,4 +20,5 @@ parts:
     - file: different_tools   
   - caption: Resources
     chapters:
-    - file: resources  
+    - file: resources 
+    - file: help 
