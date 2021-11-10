@@ -1,10 +1,9 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-- file: goals
+format: jb-article
+root: goals
+sections:
 - file: data_storage
   sections:
-  - file : nczarr_test
+  - file: nczarr_test
 - file: format_metadata
 - file: accessing_data
 - file: computations
