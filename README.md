@@ -4,7 +4,7 @@
 
 ### Outline of steps to contribute
 1. Open an issue with any updates you think are needed. This is helpful to keep track of changes being made to the book.
-2. Make the updates/edits (see steps below) as a PR to the base repo.
+2. Make the updates/edits (see steps below) as a PR from your local fork to the base repo.
 3. Assign someone to review your PR (see steps below). 
 4. Merge the PR once it has been approved.
 
