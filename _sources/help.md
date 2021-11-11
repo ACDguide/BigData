@@ -15,5 +15,7 @@
 - GitHub - reach out to developers
 - topic-specific Slack workspaces (e.g. Dask, RSE)
 
+## Another header
+
 ## Take a look at this flowchart to help you figure out where to get help depending on your problem (created by Dougie Squire)
 ![Help Flowchart](images/help_flowchart.png)
