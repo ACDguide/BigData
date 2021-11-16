@@ -15,9 +15,7 @@
   - You can clone the base repo to your local computer (see instructions [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)) and use whatever editor you choose to make edits. If you do this, it is recommended that you add two remote repos by setting "origin" to your forked repo and "upstream" to the base repo (see instructions for adding remote repo [here](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories)). 
 - **Open a pull request (PR) to the base repo.** GitHub has made this easy for us with an option just above the list of files in our forked repo. You should see a banner that says something like "This branch is 1 commit ahead of ACDguide:main." To the right, there is a drop-down button to "Contribute" and "Create pull request". Click that and it takes you to a page that shows the updates you have made. Then click "Create pull request" and give the PR a title and description if needed. Then click "Submit" and your updates will show up in the "Pull Requests" tab of the base repo! To link your PR with its corresponding issue, type "Resolves #[issue-number]", and this will automatically close the issue that this PR resolves. If your PR does not resolve, but is related to an issue, then you can simply reference the issue by typing "#[issue-number]".
 
-<div class="alert alert-primary" role="alert">
-  No edits should be made to the main branch of ACDguide/BigData (the base repository), unless correcting minor typos.
-</div>
+**No edits should be made to the main branch of ACDguide/BigData (the base repository), unless correcting minor typos.**
 
 #### Reviewing/commenting on PRs
 - Assign someone to review your PR. This can be done by clicking the gear in the upper right of the PR next to "Assignees". A drop-down menu of all maintainers should appear and you can choose the appropriate person or people.
@@ -26,7 +24,7 @@
   - `Methods of accessing data`: Paige (@paigem)
   - `Data formats and metadata`: Chloe (@chloemackallah)
   - `Computations with large datasets`: Scott (@ScottWales)
-  - `Methods of data storage`: Alica and Paola (@AliciaTak and @paolap)
+  - `Methods of data storage`: Alicia and Paola (@AliciaTak and @paolap)
   - any other pages, for structural changes, or if you are unsure who to assign: Paige (@paigem)
 You can also assign multiple reviewers if you think your PR would benefit from other/more reviewers.
 
