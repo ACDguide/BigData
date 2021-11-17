@@ -44,6 +44,7 @@ While often climate models are run on a regular cartesian grid, sometimes other 
 
 - **Tripolar grids**
 Ocean models are often run on a tripolar grid to avoid the existence of a singularity at the North Pole. Instead a global grid is constructed with 3 poles all under conintenal land masses to permit non-ambiguous hydrodynamic modelling throughout the ocean basins. It may be necessary to "regrid" such data to a cartesian grid if it is to be combined with atmospheric data. Tools to do this include `xESMF` in python, as well as `NCO`, `CDO` and `GDAL`.
+Further information: See the [Computations](https://acdguide.github.io/BigData/computations.html) section of this book.
 
 - **Unstructured grids**
 Some models use mesh grids which conform to coastlines to permit higher resolution in areas of particular interest without needing to run the whole model at high resolution. In this case the `UGRID` convention may also be used, in which the file dimensions are required to specify mesh nodes, edges and faces and their connectivity. When plotting data on an unsturctured grid, reprojection may be required, though tools like `cartopy` typically make this task straightforward.
@@ -68,6 +69,8 @@ Since netCDF v4, netCDF data supports compression on disk, as well as breaking t
 Data which is expected to be used for timeseries analysis most often should be stored with chunks like e.g. `(744, 1, 1)`, so that each disk read extracts a lot of time steps at each point location. Conversely data that is used for spatial analysis is better stored with chunks like e.g. `(1, 180, 360)`, so that each disk read extracts an area at a single time step. For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like `(100, 180, 360)` which would result in chunks that are approximately `200MB`. This is reasonably computationally efficient, indeed general advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).
 
 Some tools like `xarray` can re-chunk on the fly on reading data, and if the `chunks` option is passed to `xr.open_dataset` then `dask` will be used under the hood to load the data in parallel. This seems like a great idea (!) and indeed it is, however a **note of caution** is that when specifying chunking, it is important to make sure the xarray chunk specification is a multiple of that used in the file, if they are a complete mis-match performance can end up worse than a serial load! To check the size of chunks stored on disk, use `ncdump -hs`.
+
+Further information: See the [Computations](https://acdguide.github.io/BigData/computations.html) section of this book.
 
 ### Metadata standards
 Information about metadata standards and conventions can be found in the [Climate Data Guidelines](https://acdguide.github.io/Governance/concepts/conventions.html).
