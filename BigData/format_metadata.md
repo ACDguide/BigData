@@ -53,10 +53,37 @@ While a typical climate model using cartesian coordinates will usually have both
 
 #### **Scaling & offsets**
 
+NetCDF has long supported using scale factors and offsets to reduce required precision in data storage, ie, enable reducing required disk space. These capabilities are rarely used these days, but some tools will still automatically write netCDFs that optimise disk use through applying a `scale_factor` (multiplicative correction) and `add_offset` (additive correction) in order to store data using let bits. Most tools like `NCO` and python's `xarray` are netCDF-aware and apply these corrections on loading, however MATLAB's netCDF operators do not automatically account for these corrections and they need to be applied manually.
+
+The scale_factor and add_offset form a linear equation of the form `y=mx+c`, where the true value of the data `dt` is found by the stored value `ds` multiplied by the `scale_factor`, and to this value we add the `add_offset`. 
+
+It is uncommon to need to worry about these corrections, but the hint that they may exist and not be applied on data load is if a sanity check of the data produces values that seem wildly wrong and often by a consistent factor.
+
+**NOTE** this is NOT used to convert between Celsius and Farenheit or Kelvin temperatures (although it could be!) so when working with data for which multiple common units exist, the cause of a failed sanity check is more likely that the units are not those expected.
 
 ### Chunking
 
+Since netCDF v4, netCDF data supports compression on disk, as well as breaking the storage of the data down into logical "chunks". This means instead of data being written from first to last dimension (for example all longitudes for each latitude for each time step), data can rather be written with a specified chunking which should align with expected most common read patterns. 
 
+Data which is expected to be used for timeseries analysis most often should be stored with chunks like e.g. `(744, 1, 1)`, so that each disk read extracts a lot of time steps at each point location. Conversely data that is used for spatial analysis is better stored with chunks like e.g. `(1, 180, 360)`, so that each disk read extracts an area at a single time step. For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like `(100, 180, 360)` which would result in chunks that are approximately `200MB`. This is reasonably computationally efficient, indeed general advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).
+
+Some tools like `xarray` can re-chunk on the fly on reading data, and if the `chunks` option is passed to `xr.open_dataset` then `dask` will be used under the hood to load the data in parallel. This seems like a great idea (!) and indeed it is, however a **note of caution** is that when specifying chunking, it is important to make sure the xarray chunk specification is a multiple of that used in the file, if they are a complete mis-match performance can end up worse than a serial load! To check the size of chunks stored on disk, use `ncdump -hs`.
 
 ### Metadata standards
 Information about metadata standards and conventions can be found in the [Climate Data Guidelines](https://acdguide.github.io/Governance/concepts/conventions.html).
+
+### Other issues to look out for
+
+While netCDF tools are improving constantly, there are still some discrepancies between what the format supports, and what tools reading the data support.
+
+A classic example is that since the move to HDF5 as a back end, netCDF4 data can support "groups", which is sort of like a directory structure inside the file in which like variables can be stored. Almost no tools can automatically deal with data stored in this way! The same goes for "ragged arrays" where different variables have different lengths (relevant to observed track data, e.g.). 
+
+Other issues can arise where a file has ***multiple similarly named dimensions*** (again, often around `time`). For example, [`xarray` is sometimes unable to open files](https://github.com/pydata/xarray/issues/2368) that are entirely standards compliant for this reason.
+
+Another problem can occur ***when dimensions are reordered*** for performance - for example we may wish to write a file in which `time` is the fastest changing variable instead of the slowest, that is, convert from `(time, lat, lon)` to `(lat, lon, time)`. This does not explicitly violate any standards, however it's commonly assumed that time is the first dimension, and so some tools (e.g. `CDO`) make this assumption and [produce an error when data is structured this way](https://github.com/ACDguide/BigData/issues/15).
+
+Finally, visualsiation tools like the Godiva2 ncWMS viewer in THREDDS servers occasionally don't cope with data which is not standards compliant (particulary around `standard_name`).
+
+*Other fun "gotchas" with netCDF data?* 
+
+We've probably missed a few common issues here, if so, please [open an issue](https://github.com/ACDguide/BigData/issues) and if it's a common one we'll add it to this page.
