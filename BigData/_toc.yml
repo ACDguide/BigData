@@ -17,7 +17,11 @@ parts:
     - file: computations     
   - caption: Available tools
     chapters:
-    - file: different_tools   
+    - file: tools/intro.md   
+      sections:
+      - file: tools/python.md   
+      - file: tools/rcran.md   
+      - file: tools/other.md   
   - caption: Resources
     chapters:
     - file: resources  

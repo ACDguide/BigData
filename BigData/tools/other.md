@@ -1,0 +1,16 @@
+# MATLAB
+MATLAB (Matrix Laboratory) is a licenced tool. It is the best tool when dealing with large matrices and matrix manipulations. It allows examining the content of data quickly in a built-in docked or undocked window within the tool to gain an overview of the pattern and structures presented in the data. This tool is helpful because many data types, for example, large image files and large tabular data, can be converted into matrices and analysed efficiently in MATLAB. MATLAB provides an easy-to-use environment with interactive applications, which is excellent for novel programmers. 
+
+As a licensed tool MATLAB might not be available to other researchers and collaborators, so even if you are producing data with MATLAB, avoid saving the data as `.mat` files, use the best alternative open source format instead.
+
+# NCO - NetCDF Operators
+[NetCDF Operators](http://nco.sourceforge.net/) is a toolkit of command-line operators to both handle and perform analysis on netCDF files. It is the tool of choice to add, rename, and modify attributes and variables. It can add internal compression to netCDF4 files and convert between different formats. It is also useful to concatenate files, performing averages and other simple mathematical operations on an entire variable, extracting or deleting variables. The advantage is that the results will be automatically saved in a netCDF file.
+
+# CDO - Climate Data Operators
+[CDO](https://code.mpimet.mpg.de/projects/cdo/), like NCO, is a large command-line tool set to handle and analyse climate and weather data. CDO can also work with GRIB files, in fact it is a useful tool to convert from GRIB to netCDF and vice versa. CDO can also be used to compress, convert and concatenate files, often in conjunction with another operation.
+
+One of the strengths of CDO is its ability to combine operations in succession of steps without creating intermediate files, using little additional memory in the process.
+
+CDO is useful to calculate climatologies, regrid datasets, select subset both spatially and temporally. It can be used to perform simple transformations across an entire variable as for NCO. It is useful to handle time axis operations as going from unlimited to limited dimension and setting a new reference time. CDO can integrate with other languages such as python using the `cdo` module.
+
+Limitations: specific versions can have issues with threading, meaning chained commands are not always safe. CDO **cannot** be built in threadsafe mode due to underpinning HDF dependencies which means some versions simply are not reliable and can cause random segfaults when using chained operations.
