@@ -180,9 +180,8 @@ Matplotlib: to create plots
 Other plotting packages: https://mode.com/blog/python-data-visualization-libraries/: plotly, seaborn, holoviews
 
 
-
-### CDO
-Cdo - to call cdo operators (Scott has a regridding function that exploit this)
+### Other
+CDO - to call cdo operators (Scott has a regridding function that exploit this)
 
 Wrf-python -
 
