@@ -24,4 +24,5 @@ parts:
       - file: tools/other.md   
   - caption: Resources
     chapters:
-    - file: resources  
+    - file: resources 
+    - file: help 
