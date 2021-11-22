@@ -18,7 +18,7 @@ The `ncview` tool, while very simple, can easily display netCDF data and highlig
 #### **Time dimension**
 - **UNLIMITED/record dimensions**
 
-Not all file formats support unlimited dimensions, and conversely netCDF4 supports exactly one unlimited dimension (the underlying HDF5 format supports multiple unlimited dimensions). Zarr does not support unlimited dimensions so conversion between the two can be an issue if this capability is important.
+Unlimited dimensions provide a data creator the opportunity to extend their dataset by appending new content to the file without having to rewrite the entire file (assuming the tools used permit `append` mode). This is particularly useful for datasets where we might want to add new observational data at later points in time, for example. Not all file formats support unlimited dimensions, and conversely netCDF4 supports exactly one unlimited dimension (the underlying HDF5 format supports multiple unlimited dimensions). Zarr does not support unlimited dimensions so conversion between the two can be an issue if this capability is important. It is common for netCDF files to contain `time` as an unlimited dimension (see [our netCDF-Zarr testing](https://acdguide.github.io/BigData/nczarr_test.html) for an example).
 
 - **Calendars**
 
@@ -30,31 +30,31 @@ The CF convention requires that time be defined with respect to a reference date
 
 - **Long timespans**
 
-Even if a calendar are units are clearly defined, not all datetime libraries are capable of dealing with dates far in the past or future. In this case it may be necessary to explicitly use "CFtime" when decoding a file in python, for example (e.g. in `xarray`, using `decode_cf=True`).
+Even if calendar units are clearly defined, not all datetime libraries are capable of dealing with dates far in the past or future. In this case it may be necessary to explicitly use "CFtime" when decoding a file in python, for example (e.g. in `xarray`, using `decode_cf=True`).
 
 #### **Missing values**
 
 NetCDF files should not contain "`NaN`" values. Indeed, each variable should include a `_FillValue` attribute which defines the numerical value of NaN in this dataset. Common values used are `-999` and `1e+20`. By setting this variable attribute, netCDF-aware tools are able to decode files appropriately restoring a NaN mask where these values are recorded in the file, meanwhile the file itself contains only valid numerical values.
 
-Some datasets, for example those derived from observations, may differentiate between NaN values, and missing values. Sometimes the value `0` is recorded for "no data" which can cause problems for variables like precipitaiton. It is important that the user is aware of how these concerns are handled in the dataset they are using.
+Some datasets, for example those derived from observations, may differentiate between NaN values, and missing values. Sometimes the value `0` is recorded for "no data" which can cause problems for variables like precipitation. It is important that the user is aware of how these concerns are handled in the dataset they are using.
 
 #### **Coordinates and grids**
 
 While often climate models are run on a regular cartesian grid, sometimes other grids are used in models which can cause confusion, both in terms of plotting and the coordinates used. A few examples follow.
 
 - **Tripolar grids**
-Ocean models are often run on a tripolar grid to avoid the existence of a singularity at the North Pole. Instead a global grid is constructed with 3 poles all under conintenal land masses to permit non-ambiguous hydrodynamic modelling throughout the ocean basins. It may be necessary to "regrid" such data to a cartesian grid if it is to be combined with atmospheric data. Tools to do this include `xESMF` in python, as well as `NCO`, `CDO` and `GDAL`.
+Ocean models are often run on a tripolar grid to avoid the existence of a singularity at the North Pole. Instead a global grid is constructed with 3 poles all under continental land masses to permit non-ambiguous hydrodynamic modelling throughout the ocean basins. It may be necessary to "regrid" such data to a cartesian grid if it is to be combined with atmospheric data. Tools to do this include `xESMF` in python, as well as `NCO`, `CDO` and `GDAL`.
 Further information: See the [Computations](https://acdguide.github.io/BigData/computations.html) section of this book.
 
 - **Unstructured grids**
-Some models use mesh grids which conform to coastlines to permit higher resolution in areas of particular interest without needing to run the whole model at high resolution. In this case the `UGRID` convention may also be used, in which the file dimensions are required to specify mesh nodes, edges and faces and their connectivity. When plotting data on an unsturctured grid, reprojection may be required, though tools like `cartopy` typically make this task straightforward.
+Some models use mesh grids which conform to coastlines to permit higher resolution in areas of particular interest without needing to run the whole model at high resolution. In this case the `UGRID` convention may also be used, in which the file dimensions are required to specify mesh nodes, edges and faces and their connectivity. When plotting data on an unstructured grid, reprojection may be required, though tools like `cartopy` typically make this task straightforward.
 
 - **Coordinates of non-cartesian grids**
-While a typical climate model using cartesian coordinates will usually have both dimensions and variables of "latitude" and "longitude", for other grid types it is typically to have other dimensions which are then mapped in 2 dimensions to latitude and longitude. There are many nomenclatures used for this, but it is not uncommon for a model to use dimensions like `i`, `j`, `nx`, `ny`, etc to define grid position, and then define variables `latitude(i,j)` to be a mapping of the coordinates onto projectable values.
+While a climate model using cartesian coordinates will usually have both dimensions and variables of "latitude" and "longitude", for other grid types it is typical to have other dimensions which are then mapped in 2 dimensions to latitude and longitude. There are many nomenclatures used for this, but it is not uncommon for a model to use dimensions like `i`, `j`, `nx`, `ny`, etc to define grid position, and then define variables `latitude(i,j)` to be a mapping of the coordinates onto projectable values.
 
 #### **Scaling & offsets**
 
-NetCDF has long supported using scale factors and offsets to reduce required precision in data storage, ie, enable reducing required disk space. These capabilities are rarely used these days, but some tools will still automatically write netCDFs that optimise disk use through applying a `scale_factor` (multiplicative correction) and `add_offset` (additive correction) in order to store data using let bits. Most tools like `NCO` and python's `xarray` are netCDF-aware and apply these corrections on loading, however MATLAB's netCDF operators do not automatically account for these corrections and they need to be applied manually.
+NetCDF has long supported using scale factors and offsets to reduce required precision in data storage, i.e., reducing required disk space. These capabilities are rarely used these days, but some tools will still automatically write netCDFs that optimise disk use through applying a `scale_factor` (multiplicative correction) and `add_offset` (additive correction) in order to store data using less bits. Most tools like `NCO` and python's `xarray` are netCDF-aware and apply these corrections on loading, however MATLAB's netCDF operators do not automatically account for these corrections and they need to be applied manually.
 
 The scale_factor and add_offset form a linear equation of the form `y=mx+c`, where the true value of the data `dt` is found by the stored value `ds` multiplied by the `scale_factor`, and to this value we add the `add_offset`. 
 
@@ -66,7 +66,7 @@ It is uncommon to need to worry about these corrections, but the hint that they 
 
 Since netCDF v4, netCDF data supports compression on disk, as well as breaking the storage of the data down into logical "chunks". This means instead of data being written from first to last dimension (for example all longitudes for each latitude for each time step), data can rather be written with a specified chunking which should align with expected most common read patterns. 
 
-Data which is expected to be used for timeseries analysis most often should be stored with chunks like e.g. `(744, 1, 1)`, so that each disk read extracts a lot of time steps at each point location. Conversely data that is used for spatial analysis is better stored with chunks like e.g. `(1, 180, 360)`, so that each disk read extracts an area at a single time step. For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like `(100, 180, 360)` which would result in chunks that are approximately `25MB`. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).
+Data with dimenions `(time, lat, lon)` that is expected to be used for timeseries analysis most often should be stored with chunks like e.g. `(744, 1, 1)`, so that each disk read extracts a lot of time steps at each point location. Conversely data that is used for spatial analysis is better stored with chunks like e.g. `(1, 180, 360)`, so that each disk read extracts an area at a single time step. For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like `(100, 180, 360)` which would result in chunks that are approximately `25MB`. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).
 
 Some tools like `xarray` can re-chunk on the fly on reading data, and if the `chunks` option is passed to `xr.open_dataset` then `dask` will be used under the hood to load the data in parallel. This seems like a great idea (!) and indeed it is, however a **note of caution** is that when specifying chunking, it is important to make sure the xarray chunk specification is a multiple of that used in the file, if they are a complete mis-match performance can end up worse than a serial load! To check the size of chunks stored on disk, use `ncdump -hs`.
 

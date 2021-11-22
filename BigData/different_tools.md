@@ -7,7 +7,7 @@ This page contains:
 - [NCO](#nco-netcdf-operators)
 - [CDO](#cdo-climate-data-operators)
 
-Other languages and tools exist which can work with netCDF data (e.g. C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for *analysis* of large scale (tyipcally netCDF) climate data.
+Other languages and tools exist which can work with netCDF data (e.g. C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for *analysis* of large scale (typically netCDF) climate data.
 
 ## Python 
 This is a free, open-source language that is a standard tool used in many organisations and industries. It interfaces with other programs and tools like ArcGIS. Packages like xarray are great for analysing large gridded time-series data in climate and environmental science fields. Python creates beautiful plots.
@@ -128,7 +128,7 @@ Recommended list of packages: https://support.rstudio.com/hc/en-us/articles/2010
 ## MATLAB
 MATLAB (Matrix Laboratory) is a licenced tool. It is a good tool when dealing with large matrices and matrix manipulations. It allows examining the content of data quickly in a built-in docked or undocked window within the tool to gain an overview of the pattern and structures presented in the data. This tool is helpful because many data types, for example, large image files and large tabular data, can be converted into matrices and analysed efficiently in MATLAB. MATLAB provides an easy-to-use environment with interactive applications, which is excellent for novice programmers. MATLAB also has excellent help resources and a useful online community. 
 
-As a licensed tool MATLAB might not be available to other researchers and collaborators, so even if you are producing data with Matlab, it is best to avoid saving the data as `.mat` files, use the best alternative open source format instead.
+As a licensed tool MATLAB might not be available to other researchers and collaborators, so even if you are producing data with Matlab, it is best to avoid saving the data as `.mat` files, and use the best alternative open source format instead.
 
 ## NCO - NetCDF Operators
 [NetCDF Operators](http://nco.sourceforge.net/) is a toolkit of command-line operators to both handle and perform analysis on netCDF files. It is the tool of choice to add, rename, and modify attributes and variables. It can add internal compression to netCDF4 files and convert between different formats. It is also useful to concatenate files, performing averages and other simple mathematical operations on an entire variable, extracting or deleting variables. The advantage is that the results will be automatically saved in a netCDF file.
@@ -139,6 +139,6 @@ As a licensed tool MATLAB might not be available to other researchers and collab
 
 One of the strengths of CDO is its ability to combine operations in succession of steps without creating intermediate files, using little additional memory in the process.
 
-CDO is useful to calculate climatologies, regrid datasets, select subset both spatially and temporally. It can be used to perform simple transformations across an entire variable as for NCO. It is useful to handle time axis operations as going from unlimited to limited dimension and setting a new reference time. CDO can integrate with other languages such as python using the `cdo` module.
+CDO is useful to calculate climatologies, regrid datasets, and select subsets both spatially and temporally. It can be used to perform simple transformations across an entire variable as for NCO. It is useful to handle time axis operations such as going from unlimited to limited dimension and setting a new reference time. CDO can integrate with other languages such as python using the `cdo` module.
 
 Limitations: specific versions can have issues with threading, meaning chained commands are not always safe. CDO **cannot** be built in threadsafe mode due to underpinning HDF dependencies which means some versions simply are not reliable and can cause random segfaults when using chained operations.
