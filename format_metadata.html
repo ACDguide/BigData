@@ -289,22 +289,30 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#time-dimension">
-     Time dimension
+     <strong>
+      Time dimension
+     </strong>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#missing-values">
-     Missing values
+     <strong>
+      Missing values
+     </strong>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coordinates-and-grids">
-     Coordinates and grids
+     <strong>
+      Coordinates and grids
+     </strong>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scaling-offsets">
-     Scaling &amp; offsets
+     <strong>
+      Scaling &amp; offsets
+     </strong>
     </a>
    </li>
   </ul>
@@ -317,6 +325,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metadata-standards">
    Metadata standards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-issues-to-look-out-for">
+   Other issues to look out for
   </a>
  </li>
 </ul>
@@ -335,41 +348,81 @@
 <p>When using self-describing data formats (such as netCDF), it is important to understand the various attributes contained in the metadata, how to interact with them, and potential issues of which to remain aware.</p>
 <div class="section" id="simple-tools-for-viewing-netcdf-data-and-metadata">
 <h2>Simple tools for viewing netCDF data and metadata<a class="headerlink" href="#simple-tools-for-viewing-netcdf-data-and-metadata" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> command (contained within the standard netcdf module) is the most common way of probing netCDF files, particularly metadata attributes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> command (contained within the standard netcdf library) is the most common way of probing netCDF files, particularly metadata attributes.</p>
 <ul class="simple">
-<li><p>Dimensions are listed first in ncdump, and descibe the overall structures of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be ‘real’ dimensions (such as time, lat, lon), or ‘pseudo’ dimensions (such as land-use tiles, or spectral bands), and can be described using values or strings.
-E.g. TBA</p></li>
-<li><p>Variables contain the bulk of the information with a netCDF file. Each is defined along one or more dimension, and is self-described with associated attributes. The attributes can technically include and be titled anything, however there are some common standards to which most data adheres (the most common of which is the CF conventions [link]), including bounds, units, standard_name, etc.</p></li>
-<li><p>Global attributes are those that descibe the entire dataset. While these are typically chosen according to the use case of the data and can vary significantly between modelling realms or scientific need, standards also exist for these. Common global attributes include data provenance information (i.e. where the data came from), license, and contact information.</p></li>
+<li><p>Dimensions are listed first in ncdump, and descibe the overall structure of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be ‘real’ dimensions (such as time, lat, lon), or ‘pseudo’ dimensions (such as land-use tiles, or spectral bands), and can be cardinal, continous or nominal, i.e. described using values or strings (such as a numbered or named list, or floating point values).</p></li>
+<li><p>Variables contain the bulk of the information with a netCDF file. Each is defined along one or more dimension, and is self-described with associate attributes. The variable attributes can technically include and be titled anything, however there are some common standards to which most data adheres (the most common of which is the <a class="reference external" href="http://cfconventions.org/">CF conventions</a>), including bounds, units, standard_name, etc.</p></li>
+<li><p>Global attributes descibe the entire dataset. While these are typically chosen according to the use case of the data and can vary significantly between modelling realms or scientific need, standards also exist for these. Common global attributes include title, data provenance information (i.e. where the data came from), license, and contact information, as well as any conventions implemented in the file.</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">ncview</span></code> tool, while very simple, can easily display netCDF data and highlight metadata issues. This is because <code class="docutils literal notranslate"><span class="pre">ncview</span></code> looks for standard metadata attributes to quickly decide how to plot the data. Files that are missing vital attributes, or are otherwise lacking adequate description will quickly break <code class="docutils literal notranslate"><span class="pre">ncview</span></code>, allowing for a fast diagnostic tool for both metadata quality and the data itself.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncview</span></code> tool, while very simple, can easily display netCDF data and highlight metadata issues. This is because <code class="docutils literal notranslate"><span class="pre">ncview</span></code> looks for standard metadata attributes to quickly decide how to plot the data. Files that are missing vital attributes, or are otherwise lacking adequate description will quickly break <code class="docutils literal notranslate"><span class="pre">ncview</span></code>, allowing for a fast diagnostic tool for both metadata quality and the data itself. Note that being a basic tool, it can not handle reprojections of non-cartesian grids, so plots may not <em>look</em> right, this tool is used to sanity check data, not assess its quality.</p>
 </div>
 <div class="section" id="common-metadata-issues">
 <h2>Common metadata issues<a class="headerlink" href="#common-metadata-issues" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="time-dimension">
-<h3>Time dimension<a class="headerlink" href="#time-dimension" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Time dimension</strong><a class="headerlink" href="#time-dimension" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>UNLIMITED/record dimensions</p></li>
-<li><p>Calendars</p></li>
-<li><p>Units</p></li>
+<li><p><strong>UNLIMITED/record dimensions</strong></p></li>
 </ul>
+<p>Unlimited dimensions provide a data creator the opportunity to extend their dataset by appending new content to the file without having to rewrite the entire file (assuming the tools used permit <code class="docutils literal notranslate"><span class="pre">append</span></code> mode). This is particularly useful for datasets where we might want to add new observational data at later points in time, for example. Not all file formats support unlimited dimensions, and conversely netCDF4 supports exactly one unlimited dimension (the underlying HDF5 format supports multiple unlimited dimensions). Zarr does not support unlimited dimensions so conversion between the two can be an issue if this capability is important. It is common for netCDF files to contain <code class="docutils literal notranslate"><span class="pre">time</span></code> as an unlimited dimension (see <a class="reference external" href="https://acdguide.github.io/BigData/nczarr_test.html">our netCDF-Zarr testing</a> for an example).</p>
+<ul class="simple">
+<li><p><strong>Calendars</strong></p></li>
+</ul>
+<p>Calendar issues are possibly the most common cause of frustration with climate data! Not all models use a gregorian calendar, which can make comparing data across models tricky. Furthermore not all calendars found in netCDF files are necessarily recognised by the datetime libraries commonly used in tools. It may sometimes be necessary to resample data into a recognised calendar, and tools like <code class="docutils literal notranslate"><span class="pre">xarray</span></code> support a <code class="docutils literal notranslate"><span class="pre">calendar</span></code> argument where a non-standard calendar is used.</p>
+<ul class="simple">
+<li><p><strong>Units</strong></p></li>
+</ul>
+<p>The CF convention requires that time be defined with respect to a reference date, using unambiguous units. That is, “seconds since”, “days since”, “years since” as appropriate. Some time units are not valid, for example “months since” is not a valid time unit as it is ambiguous whether a month is a fixed number of days, or always refers to a particular date in a month. Nevertheless, some seasonal data does use this unit, which can cause issues.</p>
+<ul class="simple">
+<li><p><strong>Long timespans</strong></p></li>
+</ul>
+<p>Even if calendar units are clearly defined, not all datetime libraries are capable of dealing with dates far in the past or future. In this case it may be necessary to explicitly use “CFtime” when decoding a file in python, for example (e.g. in <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, using <code class="docutils literal notranslate"><span class="pre">decode_cf=True</span></code>).</p>
 </div>
 <div class="section" id="missing-values">
-<h3>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Missing values</strong><a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<p>NetCDF files should not contain “<code class="docutils literal notranslate"><span class="pre">NaN</span></code>” values. Indeed, each variable should include a <code class="docutils literal notranslate"><span class="pre">_FillValue</span></code> attribute which defines the numerical value of NaN in this dataset. Common values used are <code class="docutils literal notranslate"><span class="pre">-999</span></code> and <code class="docutils literal notranslate"><span class="pre">1e+20</span></code>. By setting this variable attribute, netCDF-aware tools are able to decode files appropriately restoring a NaN mask where these values are recorded in the file, meanwhile the file itself contains only valid numerical values.</p>
+<p>Some datasets, for example those derived from observations, may differentiate between NaN values, and missing values. Sometimes the value <code class="docutils literal notranslate"><span class="pre">0</span></code> is recorded for “no data” which can cause problems for variables like precipitation. It is important that the user is aware of how these concerns are handled in the dataset they are using.</p>
 </div>
 <div class="section" id="coordinates-and-grids">
-<h3>Coordinates and grids<a class="headerlink" href="#coordinates-and-grids" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Coordinates and grids</strong><a class="headerlink" href="#coordinates-and-grids" title="Permalink to this headline">¶</a></h3>
+<p>While often climate models are run on a regular cartesian grid, sometimes other grids are used in models which can cause confusion, both in terms of plotting and the coordinates used. A few examples follow.</p>
+<ul class="simple">
+<li><p><strong>Tripolar grids</strong>
+Ocean models are often run on a tripolar grid to avoid the existence of a singularity at the North Pole. Instead a global grid is constructed with 3 poles all under continental land masses to permit non-ambiguous hydrodynamic modelling throughout the ocean basins. It may be necessary to “regrid” such data to a cartesian grid if it is to be combined with atmospheric data. Tools to do this include <code class="docutils literal notranslate"><span class="pre">xESMF</span></code> in python, as well as <code class="docutils literal notranslate"><span class="pre">NCO</span></code>, <code class="docutils literal notranslate"><span class="pre">CDO</span></code> and <code class="docutils literal notranslate"><span class="pre">GDAL</span></code>.
+Further information: See the <a class="reference external" href="https://acdguide.github.io/BigData/computations.html">Computations</a> section of this book.</p></li>
+<li><p><strong>Unstructured grids</strong>
+Some models use mesh grids which conform to coastlines to permit higher resolution in areas of particular interest without needing to run the whole model at high resolution. In this case the <code class="docutils literal notranslate"><span class="pre">UGRID</span></code> convention may also be used, in which the file dimensions are required to specify mesh nodes, edges and faces and their connectivity. When plotting data on an unstructured grid, reprojection may be required, though tools like <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> typically make this task straightforward.</p></li>
+<li><p><strong>Coordinates of non-cartesian grids</strong>
+While a climate model using cartesian coordinates will usually have both dimensions and variables of “latitude” and “longitude”, for other grid types it is typical to have other dimensions which are then mapped in 2 dimensions to latitude and longitude. There are many nomenclatures used for this, but it is not uncommon for a model to use dimensions like <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">ny</span></code>, etc to define grid position, and then define variables <code class="docutils literal notranslate"><span class="pre">latitude(i,j)</span></code> to be a mapping of the coordinates onto projectable values.</p></li>
+</ul>
 </div>
 <div class="section" id="scaling-offsets">
-<h3>Scaling &amp; offsets<a class="headerlink" href="#scaling-offsets" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Scaling &amp; offsets</strong><a class="headerlink" href="#scaling-offsets" title="Permalink to this headline">¶</a></h3>
+<p>NetCDF has long supported using scale factors and offsets to reduce required precision in data storage, i.e., reducing required disk space. These capabilities are rarely used these days, but some tools will still automatically write netCDFs that optimise disk use through applying a <code class="docutils literal notranslate"><span class="pre">scale_factor</span></code> (multiplicative correction) and <code class="docutils literal notranslate"><span class="pre">add_offset</span></code> (additive correction) in order to store data using less bits. Most tools like <code class="docutils literal notranslate"><span class="pre">NCO</span></code> and python’s <code class="docutils literal notranslate"><span class="pre">xarray</span></code> are netCDF-aware and apply these corrections on loading, however MATLAB’s netCDF operators do not automatically account for these corrections and they need to be applied manually.</p>
+<p>The scale_factor and add_offset form a linear equation of the form <code class="docutils literal notranslate"><span class="pre">y=mx+c</span></code>, where the true value of the data <code class="docutils literal notranslate"><span class="pre">dt</span></code> is found by the stored value <code class="docutils literal notranslate"><span class="pre">ds</span></code> multiplied by the <code class="docutils literal notranslate"><span class="pre">scale_factor</span></code>, and to this value we add the <code class="docutils literal notranslate"><span class="pre">add_offset</span></code>.</p>
+<p>It is uncommon to need to worry about these corrections, but the hint that they may exist and not be applied on data load is if a sanity check of the data produces values that seem wildly wrong and often by a consistent factor.</p>
+<p><strong>NOTE</strong> this is NOT used to convert between Celsius and Farenheit or Kelvin temperatures (although it could be!) so when working with data for which multiple common units exist, the cause of a failed sanity check is more likely that the units are not those expected.</p>
 </div>
 </div>
 <div class="section" id="chunking">
 <h2>Chunking<a class="headerlink" href="#chunking" title="Permalink to this headline">¶</a></h2>
+<p>Since netCDF v4, netCDF data supports compression on disk, as well as breaking the storage of the data down into logical “chunks”. This means instead of data being written from first to last dimension (for example all longitudes for each latitude for each time step), data can rather be written with a specified chunking which should align with expected most common read patterns.</p>
+<p>Data with dimenions <code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code> that is expected to be used for timeseries analysis most often should be stored with chunks like e.g. <code class="docutils literal notranslate"><span class="pre">(744,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>, so that each disk read extracts a lot of time steps at each point location. Conversely data that is used for spatial analysis is better stored with chunks like e.g. <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">180,</span> <span class="pre">360)</span></code>, so that each disk read extracts an area at a single time step. For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like <code class="docutils literal notranslate"><span class="pre">(100,</span> <span class="pre">180,</span> <span class="pre">360)</span></code> which would result in chunks that are approximately <code class="docutils literal notranslate"><span class="pre">25MB</span></code>. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).</p>
+<p>Some tools like <code class="docutils literal notranslate"><span class="pre">xarray</span></code> can re-chunk on the fly on reading data, and if the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> option is passed to <code class="docutils literal notranslate"><span class="pre">xr.open_dataset</span></code> then <code class="docutils literal notranslate"><span class="pre">dask</span></code> will be used under the hood to load the data in parallel. This seems like a great idea (!) and indeed it is, however a <strong>note of caution</strong> is that when specifying chunking, it is important to make sure the xarray chunk specification is a multiple of that used in the file, if they are a complete mis-match performance can end up worse than a serial load! To check the size of chunks stored on disk, use <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-hs</span></code>.</p>
+<p>Further information: See the <a class="reference external" href="https://acdguide.github.io/BigData/computations.html">Computations</a> section of this book.</p>
 </div>
 <div class="section" id="metadata-standards">
 <h2>Metadata standards<a class="headerlink" href="#metadata-standards" title="Permalink to this headline">¶</a></h2>
 <p>Information about metadata standards and conventions can be found in the <a class="reference external" href="https://acdguide.github.io/Governance/concepts/conventions.html">Climate Data Guidelines</a>.</p>
+</div>
+<div class="section" id="other-issues-to-look-out-for">
+<h2>Other issues to look out for<a class="headerlink" href="#other-issues-to-look-out-for" title="Permalink to this headline">¶</a></h2>
+<p>While netCDF tools are improving constantly, there are still some discrepancies between what the format supports, and what tools reading the data support.</p>
+<p>A classic example is that since the move to HDF5 as a back end, netCDF4 data can support “groups”, which is sort of like a directory structure inside the file in which like variables can be stored. Almost no tools can automatically deal with data stored in this way! The same goes for “ragged arrays” where different variables have different lengths (relevant to observed track data, e.g.).</p>
+<p>Other issues can arise where a file has <em><strong>multiple similarly named dimensions</strong></em> (again, often around <code class="docutils literal notranslate"><span class="pre">time</span></code>). For example, <a class="reference external" href="https://github.com/pydata/xarray/issues/2368"><code class="docutils literal notranslate"><span class="pre">xarray</span></code> is sometimes unable to open files</a> that are entirely standards compliant for this reason.</p>
+<p>Another problem can occur <em><strong>when dimensions are reordered</strong></em> for performance - for example we may wish to write a file in which <code class="docutils literal notranslate"><span class="pre">time</span></code> is the fastest changing variable instead of the slowest, that is, convert from <code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code> to <code class="docutils literal notranslate"><span class="pre">(lat,</span> <span class="pre">lon,</span> <span class="pre">time)</span></code>. This does not explicitly violate any standards, however it’s commonly assumed that time is the first dimension, and so some tools (e.g. <code class="docutils literal notranslate"><span class="pre">CDO</span></code>) make this assumption and <a class="reference external" href="https://github.com/ACDguide/BigData/issues/15">produce an error when data is structured this way</a>.</p>
+<p>Finally, visualsiation tools like the Godiva2 ncWMS viewer in THREDDS servers occasionally don’t cope with data which is not standards compliant (particulary around <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>).</p>
+<p><em>Other fun “gotchas” with netCDF data?</em></p>
+<p>We’ve probably missed a few common issues here, if so, please <a class="reference external" href="https://github.com/ACDguide/BigData/issues">open an issue</a> and if it’s a common one we’ll add it to this page.</p>
 </div>
 </div>
 
