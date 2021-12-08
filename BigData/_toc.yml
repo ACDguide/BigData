@@ -1,7 +1,6 @@
 format: jb-book
 root: intro
 parts:
-  - file: goals
   - caption: Data storage
     chapters:
     - file: data_storage
