@@ -1,5 +1,5 @@
 # Python
-This is a free, open-source language that is a standard tool used in many organisations and industries. It interfaces with other programs and tools like ArcGIS. Packages like xarray are great for analysing large gridded time-series data in climate and environmental science fields. Python creates beautiful plots.
+This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets. 
 
 ## Analysis
 
@@ -17,59 +17,45 @@ A growing plethora of scientific and mathematical Python-based packages are usin
 Extract from [numpy documentation](https://numpy.org/doc/stable/user/whatisnumpy.html)
 ````
 
-```` {dropdown} [**Pandas**](https://pandas.pydata.org/docs/index.html):
+```` {dropdown} [**Pandas: tabular labeled data**](https://pandas.pydata.org/docs/index.html):
 Built to work with tabular and timeseries data and make use of relational and label infomration associated with the main data. Pandas is useful to slice, index, group data in complex ways. It has timeseries specific functionalities that makes working with time axis much easier. Pandas is based on numpy, iit is itself the base for xarray and integrates well with other libraries. Pandas has two main data structures Series which is a 1-dimensional homogeneous array, and Dataframe which is a 2-dimensional tabular format. 
 ````
 
-```` {dropdown} [**Xarray**](http://xarray.pydata.org/en/stable/#)
-xarray (formerly xray) is an open source project and Python package that makes working with labelled multi-dimensional arrays simple, efficient, and fun!
+```` {dropdown} [**Xarray: multidimensional labeled data**](http://xarray.pydata.org/en/stable/#)
+xarray (formerly xray) is an open source project and Python package that makes working with labeled multi-dimensional arrays simple, efficient, and fun!
 
 Xarray introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy-like arrays, which allows for a more intuitive, more concise, and less error-prone developer experience. The package includes a large and growing library of domain-agnostic functions for advanced analytics and visualization with these data structures.
 
-Xarray is inspired by and borrows heavily from pandas, the popular data analysis package focused on labelled tabular data. It is particularly tailored to working with netCDF files, which were the source of xarray’s data model, and integrates tightly with dask for parallel computing.
+Xarray is inspired by and borrows heavily from pandas, the popular data analysis package focused on labeled tabular data. It is particularly tailored to working with netCDF files, which were the source of xarray’s data model, and integrates tightly with dask for parallel computing.
 Extract from [http://xarray documentation](http://xarray.pydata.org/en/stable/)
 Xarray dependes on numpy and pandas, it can use several other python packages as optional dependencies. A full list is available on the [installation page](http://xarray.pydata.org/en/stable/getting-started-guide/installing.html) of its documentation. As long as these packages are already installed they can be used directly from xarray. Examples are matplotlib, dask and netcdf4. The hh5 conda enviroments available on the NCI servers will have all these dependencies with the exception of PyNIO and pseudonetcdf. 
 ````
-When to use numpy vs pandas vs xarray:
-Numpy is at the base of many other scientific analysis packages (as pandas, xarray etc) so you are often dealing with numpy arrays when using them. If you are delaing with complex object then using pandas (for tabular data and/or timeseries) or xarray for geonspatial grid data is better. Pandas and xarray add overhead for smaller object, as they add a complexity which is not encessarily useful. Occasionally you might find yourself moving from one to the other to perfom a specific numerical oprationnin numpy 
-
-Multi-dimensional (a.k.a. N-dimensional, ND) arrays (sometimes called “tensors”) are an essential part of computational science. They are encountered in a wide range of fields, including physics, astronomy, geoscience, bioinformatics, engineering, finance, and deep learning. In Python, NumPy provides the fundamental data structure and API for working with raw ND arrays. However, real-world datasets are usually more than just raw numbers; they have labels which encode information about how the array values map to locations in space, time, etc.
-Xarray doesn’t just keep track of labels on arrays – it uses them to provide a powerful and concise interface. For example:
-
-* Apply operations over dimensions by name: x.sum('time').
-* Select values by label (or logical location) instead of integer location: x.loc['2014-01-01'] or x.sel(time='2014-01-01').
-* Mathematical operations (e.g., x - y) vectorize across multiple dimensions (array broadcasting) based on dimension names, not shape.
-* Easily use the split-apply-combine paradigm with groupby: x.groupby('time.dayofyear').mean().
-* Database-like alignment based on coordinate labels that smoothly handles missing values: x, y = xr.align(x, y, join='outer').
-* Keep track of arbitrary metadata in the form of a Python dictionary: x.attrs.
-
-Instead of axis labels, xarray uses named dimensions, which makes it easy to select data and apply operations over dimensions.
-NumPy array can only have one data type, while xarray can hold heterogeneous data in an ND array. It also makes NaN handling easier.
-Keep track of arbitrary metadata on your object with obj.attrs .
-Data structures
-Xarray has two data structures:
-DataArray — for a single data variable
-Dataset — a container for multiple DataArrays (data variables)
-There’s a distinction between data variables and coordinates, according to CF conventions. Xarray follows these conventions, but it mostly semantic and you don’t have to follow it. I see it like this: a data variable is the data of interest, and a coordinate is a label to describe the data of interest. For example latitude, longitude and time are coordinates while the temperature is a data variable. This is because we are interested in measuring temperatures, all the rest is describing the measurement (the data point). In xarray docs, they say:
-Coordinates indicate constant/fixed/independent quantities, unlike the varying/measured/dependent quantities that belong in data.
-O
+When to use numpy vs pandas vs xarray?<br>
+As most big climate data is multidimensional and stored as NetCDF files, xarray is usually the best tool to base your analysis. Still numpy and pandas can be faster than xarray for certain operations. For example pandas is faster for groupby operation and generally querying data.<br> 
+As numpy is the base of the other two packages even when your analysis is not fully based on numpy, you are often dealing with numpy arrays and operations when using them.<br> 
+Xarray provides several ways to convert your arrays to and from pandas dataframes and the arrays values are numpy arrays. So these three packages can and are often used interchangeably in the same analysis code.<br> 
+The table below provides a schematic of the main differences, more on the releationship between xarray and pandas is also available from the [xarray FAQ page](http://xarray.pydata.org/en/stable/getting-started-guide/faq.html).<br>
 
 ```{list-table}
 :header-rows: 1
 :name: np-pd-xr-table
 
-* - 
+* -  
   - Numpy
   - Pandas
   - Xarray
 * - Best use
   - numerical computions
   - tabular data analysis
-  - multidim labelled data analysis
+  - multidim labeled data analysis
 * - Data structure
   - homogeneous array
   - Series (columns), Dataframes (table)
   - Labelled data arrays and datasets
+* - Data input/output 
+  - Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and zarr. Can output binary, csv, txt files
+  - Read/write [many formats](https://pandas.pydata.org/docs/user_guide/io.html), including hdf5, for netcdf you ened other libraries
+  - best tool for netcdf, including multiple files at once, includes support for openDAP and compression, chunks can easily convert arrays to pandas and numpy (http://xarray.pydata.org/en/stable/user-guide/io.html)
 * - Vectorised operations
   - Yes 
   - Yes
@@ -89,6 +75,7 @@ O
 * - Based on
   - C uses multiple functionalities
   - R provides similar functions
+  - pandas
 * - memory use
   - more efficient
   - uses more memory
@@ -106,86 +93,101 @@ O
   - Yes
   - Yes
 ```
+
+
 ### Xarray based packages
 
-A list of the major ones is provided by on the [xarray documentation](http://xarray.pydata.org/en/stable/ecosystem.html)
+A list of the major ones is provided by on the [xarray documentation](http://xarray.pydata.org/en/stable/ecosystem.html).
 
+Some extends the formats supported by xarray, others are used for specific analysis:
 
-Dask: to parallelise tasks and manage memory more efficiently , integrates with xarray
+`rioxarray` - [rioxarray](https://corteva.github.io/rioxarray/stable/) is a xarray extension powered by rasterio to load raster data.
 
-## Packages for specific analysis
+`xgrads` - [xgrads](https://github.com/miniufo/xgrads) parses the ctl descriptor of GrADS binary data to load data as a xarray dataset.<br>
 
+`xgcm` - [xgcm]() extends the xarray data model to finite volume grid cells (common in General Circulation Models) and provides interpolation and difference operations for such grids.
 
-marineHeatwaves / xmhw - calculate MHW statistics
+`xclim` - [xclim](https://xclim.readthedocs.io/en/stable/) is a library of functions to compute climate indices from observations or model simulations.  
 
-CleF - discovering ESGF datasets at NCI
+`xESMF` - [xESMF](https://pangeo-xesmf.readthedocs.io/en/latest/) is a universal regridder for geospatial data. It is part of the Pangeo ecosystem.
 
-ClimTas - makes it easier to apply and extend dask functions
+`eof` - [eof](https://ajdawson.github.io/eofs/latest/) is used EOF (empirical orthogonal functions) analysis. NB eof has also an interface for Iris.
 
-Xclim - …
+`wrf-python` - [wrf-python](https://wrf-python.readthedocs.io/en/latest/) is a collection of diagnostic and interpolation routines for use with output of the Weather Research and Forecasting (WRF-ARW) Model.
 
-Cosima cookbook
+### Iris
+Iris is an alternative to xarray ...
+
+## Working in parallel
+`dask` - [dask](https://docs.dask.org/en/stable/) to parallelise tasks and manage memory more efficiently , integrates with numpy, pandas and xarray. In fact, dask arrays are built on numpy arrays and the dask dataframe is based on Pandas dataframe. Dask is a general purpose parallel programming solution.
+Dask allows to scale up your code and notebooks to a cluster, 
+Dask usually can work with your existing code with just small modifications, it will try to work out the best scaling based on the memory and cpus it detects on the system. You can tune dask performance using The thread/process mixture to deal with GIL-holding computations (which are rare in Numpy/Pandas/Scikit-Learn workflows)
+Partition size, like if should you have 100 MB chunks or 1 GB chunks
+dask support several data formats among which: HDF5, NetCDF, Zarr, GRIB 
+
+`multiprocessing` - 
+
+## running environment
+`jupyter` - The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+While jupyter is a python package it supports more than 40 languages including R, Julia and of course python.
+`jupyterlab` - JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones. 
+
 
 ## Data handling
 
 `os, sys, glob` - to handle directories and files
 
+`datetime` - to handle date and time information
+
+`calendar` - to handle calendars
+
+`csv` - to handle csv files
 
 `json` - to handle json files (often useful to store table information and pass schema, vocabularies and other dictionary style information to programs)
 
 `yaml` -  to handle yaml files - often use to handle program configurations
 
+`siphon` - to navigate thredds servers
+
+## Geospatial data handling
+
 `rasterio, rasterstats, rio-xarray, geopandas, fiona` - to handle raster and shapefiles
-
-
-## Packages to work with NetCDF
-
-`Iris` - 
 
 [Netcdf4](http://unidata.github.io/netcdf4-python/) - to handle netcdf files, it is an optional dependecy for xarray 
 
 `Zarr` - 
 
-`cfcheker.py` - checking against CF and ACDD conventions
-
-## Other formats
-
-`datetime` - to handle date and time information
-`calendar` - to handle calendars
 `hdf5, hdf4, h4netcdf, hdfeos2, hdfeos5,` 
 [pytables](https://www.pytables.org/index.html) and [h5py](https://docs.h5py.org/en/stable/), pyhdf - to handle various hdf formats they have different advantages
 
 Pygrib -m to handle grib file
 
 
-Csv - to handle csv files
+## Other packages not analysis but still useful
 
-## Web related packages
-
-`siphon` - to navigate thredds servers
 
 `requests` - download/upload from/to website
 
-## Database related packages
+`tlc`
 
-`SQLAlchemy`
 
-`sqlite3`
 
 
 ## Plotting
-Matplotlib: to create plots
+`matplotlib` - to create plots
 
 Other plotting packages: https://mode.com/blog/python-data-visualization-libraries/: plotly, seaborn, holoviews
 
 
-## Other
+## Interfaces to other software 
 CDO - to call cdo operators (Scott has a regridding function that exploit this)
 
 Wrf-python -
+`SQLAlchemy`
 
+`sqlite3`
 
-Xesmf - 
+## Random
 
 Udunits2 -
 
@@ -195,8 +197,10 @@ Eccodes -
 
 Earthpy -
 
-xgcm - work with offset grids
+`xgcm` - work with offset grids
 
+## GUI
+ `spyder` - good for reformed matlab users as it provides a very similar interface
 ## Specific toolsets
 
 [Anaconda](https://www.anaconda.com/): Contains pretty much all the python libraries you'd want to get started, great for newcomers but takes up a lot of space. Not recommended on shared systems with quotas but good on local laptops. Includes Spyder, a Matlab-like programming environment (IDE).
@@ -205,7 +209,20 @@ xgcm - work with offset grids
 
 [Pangeo](https://pangeo.io/): A community for analysis of large scale climate data. Built on tools like python, xarray, dask, iris, cartopy.
 
-scipy
+
+`scipy` - obsolete?
 
 
+## Packages developed by climate community for specific analysis
+Thes epackages were developed for very specific tasks from members of the climate community. While their scope is limited and the packages might be maintained on a need base, they still can be very useful as they have been tailored to the community needs.
+
+`marineHeatwaves` / `xmhw` - calculate MHW statistics
+
+`CleF` - discovering ESGF datasets at NCI
+
+`ClimTas` - makes it easier to apply and extend dask functions
+
+`Cosima cookbook`
+
+`cfcheker.py` - checking against CF and ACDD conventions
 
