@@ -1,3 +1,4 @@
+(my-label)=rcran
 # R
 This is a free, open-source statistical programming language. It is used mainly in research, but it is also a standard tool in many organisations. This tool is great for statistical analysis.
 

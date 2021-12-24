@@ -1,3 +1,4 @@
+(python)=
 # Python
 This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets. 
 
@@ -5,7 +6,8 @@ This is a free, open-source language that is a standard tool used in many organi
 
 The three main python packages used in climate science are numpy, pandas and xarray. Lots of the other analysis are based of them, xarray is itself based on pandas which is based on numpy.
 
-```` {dropdown} [**Numpy**](https://numpy.org/doc/stable/): numerical math 
+```` {dropdown} [**Numpy**](https://numpy.org/doc/stable/): numerical math
+:name: numpy 
 NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.
 
 At the core of the NumPy package, is the ndarray object. This encapsulates n-dimensional arrays of homogeneous data types, with many operations being performed in compiled code for performance. There are several important differences between NumPy arrays and the standard Python sequences:
@@ -18,10 +20,13 @@ Extract from [numpy documentation](https://numpy.org/doc/stable/user/whatisnumpy
 ````
 
 ```` {dropdown} [**Pandas: tabular labeled data**](https://pandas.pydata.org/docs/index.html):
+:name: pandas
+
 Built to work with tabular and timeseries data and make use of relational and label infomration associated with the main data. Pandas is useful to slice, index, group data in complex ways. It has timeseries specific functionalities that makes working with time axis much easier. Pandas is based on numpy, iit is itself the base for xarray and integrates well with other libraries. Pandas has two main data structures Series which is a 1-dimensional homogeneous array, and Dataframe which is a 2-dimensional tabular format. 
 ````
 
 ```` {dropdown} [**Xarray: multidimensional labeled data**](http://xarray.pydata.org/en/stable/#)
+:name: xarray
 xarray (formerly xray) is an open source project and Python package that makes working with labeled multi-dimensional arrays simple, efficient, and fun!
 
 Xarray introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy-like arrays, which allows for a more intuitive, more concise, and less error-prone developer experience. The package includes a large and growing library of domain-agnostic functions for advanced analytics and visualization with these data structures.
@@ -115,19 +120,31 @@ Some extends the formats supported by xarray, others are used for specific analy
 
 `wrf-python` - [wrf-python](https://wrf-python.readthedocs.io/en/latest/) is a collection of diagnostic and interpolation routines for use with output of the Weather Research and Forecasting (WRF-ARW) Model.
 
+(iris)=
 ### Iris
 Iris is an alternative to xarray ...
 
 ## Working in parallel
-`dask` - [dask](https://docs.dask.org/en/stable/) to parallelise tasks and manage memory more efficiently , integrates with numpy, pandas and xarray. In fact, dask arrays are built on numpy arrays and the dask dataframe is based on Pandas dataframe. Dask is a general purpose parallel programming solution.
+(dask)=
+### Dask
+[dask](https://docs.dask.org/en/stable/) to parallelise tasks and manage memory more efficiently , integrates with numpy, pandas and xarray. In fact, dask arrays are built on numpy arrays and the dask dataframe is based on Pandas dataframe. Dask is a general purpose parallel programming solution.
 Dask allows to scale up your code and notebooks to a cluster, 
 Dask usually can work with your existing code with just small modifications, it will try to work out the best scaling based on the memory and cpus it detects on the system. You can tune dask performance using The thread/process mixture to deal with GIL-holding computations (which are rare in Numpy/Pandas/Scikit-Learn workflows)
 Partition size, like if should you have 100 MB chunks or 1 GB chunks
 dask support several data formats among which: HDF5, NetCDF, Zarr, GRIB 
+Dask is a library for working with larger-than memory arrays and parallel data analysis transparently. Xarray can use Dask arrays as a backend when opening a NetCDF file with the chunks attribute, and Dask has its own Pandas-like DataFrame implementation.
+Dask splits an array up into chunks. When doing operations on a Dask array, rather than evaluating the operation immediately Dask will create a task graph of what operations need to be run to create the output array chunks from the input array chunks. The task graph is only evaluated when results are needed (e.g. by saving to a file or creating a plot), and different chunks can be evaluated in parallel.
+It's best to start a [dask.distributed.Client]{https://docs.dask.org/en/latest/how-to/deploy-dask/single-distributed.html} to allow Dask to process data in parallel with multiple processes.
 
-`multiprocessing` - 
+
+(multiprocessing)=
+`multiprocessing` - The built-in Python [multiprocessing]{https://docs.python.org/3/library/multiprocessing.html} library has low-level tools for parallel computing. You can create a 'pool' of processes, then given a function and a list of arguments it can run that function on each argument in parallel. 
+
+(mpi4py)=
+`mpi4py` - [mpi4py]{https://mpi4py.readthedocs.io/en/stable/} is an implementation of the MPI library for Python, from which you can create parallel methods the same way as Fortran sending data between processes via messages.
 
 ## running environment
+(jupyter)=
 `jupyter` - The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
 While jupyter is a python package it supports more than 40 languages including R, Julia and of course python.
 `jupyterlab` - JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones. 
@@ -174,6 +191,7 @@ Pygrib -m to handle grib file
 
 
 ## Plotting
+(matplotlib)=
 `matplotlib` - to create plots
 
 Other plotting packages: https://mode.com/blog/python-data-visualization-libraries/: plotly, seaborn, holoviews
@@ -207,6 +225,7 @@ Earthpy -
 
 [miniconda](https://docs.conda.io/en/latest/miniconda.html): A lightweight version of anaconda which by default only includes core libraries, good for building specific environments for data analysis. This underpins the `conda` modules in the `hh5` project at NCI.
 
+(pangeo)=
 [Pangeo](https://pangeo.io/): A community for analysis of large scale climate data. Built on tools like python, xarray, dask, iris, cartopy.
 
 
