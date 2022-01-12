@@ -1,4 +1,4 @@
-# Welcome to the Australian Climate Data Guide: Working with Big/Challenging Data Collections
+# Overview
 
 This Jupyter Book is a compilation of resources and best practices for climate scientists in Australia who work with big/challenging datasets. This book is intended for both dataset creators and dataset users. While the focus is on Australian climate scientists, many of the resources listed here are generally applicable.
 
