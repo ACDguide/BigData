@@ -91,7 +91,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to the Australian Climate Data Guide: Working with Big/Challenging Data Collections
+   Overview
   </a>
  </li>
 </ul>
@@ -277,6 +277,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-best-ask-for-help">
+   How to best ask for help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#australia-specific-help-channels">
    Australia-specific help channels
   </a>
@@ -314,6 +319,11 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-best-ask-for-help">
+   How to best ask for help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#australia-specific-help-channels">
    Australia-specific help channels
   </a>
@@ -341,6 +351,26 @@
                 
   <div class="section" id="where-to-get-help">
 <h1>Where to get help<a class="headerlink" href="#where-to-get-help" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-best-ask-for-help">
+<h2>How to best ask for help<a class="headerlink" href="#how-to-best-ask-for-help" title="Permalink to this headline">¶</a></h2>
+<p>A list of <em>where</em> to get help is provided below, but there are also some best practices when asking for help with software. While a lot of the rules of thumb listed here are for reporting a potential bug, they are also very applicable when asking for help. If you use this advice, you are also more likely to get a quick response!</p>
+<p><strong>Rules of thumb</strong> (note that for general usage questions, these may not apply):</p>
+<ul class="simple">
+<li><p>Include a minimal, complete, reproducible example of the code that is creating an error. (Also called a minimal, complete, verifiable example.)</p>
+<ul>
+<li><p>Minimal: trim extra lines of code that don’t contribute to the error</p></li>
+<li><p>Complete: make sure all the necessary information needed to reproduce the error is included.</p></li>
+<li><p>Reproducible: ensure that the error you get can be reproduced with the minimal, complete lines of code that you provide.</p>
+<ul>
+<li><p>More details on creating minimal, complete, reproducible code: <a class="reference external" href="https://stackoverflow.com/help/minimal-reproducible-example">https://stackoverflow.com/help/minimal-reproducible-example</a> and <a class="reference external" href="http://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports">http://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports</a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>When including code that leads to an error, make it copy/pasteable (i.e. do not include code as an image).</p></li>
+<li><p>Create the data you need within your example; i.e. don’t use data that needs to be downloaded or is not publicly accessible. If communicating with someone at your own institution (e.g. at NCI), then they may have access to your dataset, but in general it’s a good habit to create some “dummy” data that can recreate your error if possible.</p></li>
+</ul>
+</div>
 <div class="section" id="australia-specific-help-channels">
 <h2>Australia-specific help channels<a class="headerlink" href="#australia-specific-help-channels" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -353,13 +383,13 @@
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Home">CLEX-CMS wiki</a></p></td>
 <td><p>Lots of info/links from Computation Modelling Systems team at the Climate Extremes ARC Centre of Excellence</p></td>
-<td><p>Browse content on you rown</p></td>
+<td><p>Browse content on your own</p></td>
 </tr>
 <tr class="row-odd"><td><p>ARCCSS Slack workspace</p></td>
 <td><p>Slack workspace open to anyone in the Australian climate community</p></td>
 <td><p>Ask/answer questions via chat</p></td>
 </tr>
-<tr class="row-even"><td><p>BoM Data Science CoP</p></td>
+<tr class="row-even"><td><p>BoM Data Science Community of Practice</p></td>
 <td><p>Community of data scientsists at BoM</p></td>
 <td><p>?</p></td>
 </tr>
@@ -377,11 +407,25 @@
 <div class="section" id="global-help-channels">
 <h2>Global help channels<a class="headerlink" href="#global-help-channels" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>search for help pages specific to packages/languages</p></li>
-<li><p>Stackoverflow</p></li>
+<li><p>Search for help pages specific to packages/languages</p>
+<ul>
+<li><p>Xarray-specific:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/pydata/xarray/discussions">Xarray Discussions</a>: for Q&amp;A with Xarray developers and other community members. This is a great place to ask general usage questions.</p></li>
+</ul>
+</li>
+<li><p>Dask-specific:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/support.html">Dask Community page</a>: this site contains a list of 5 different platforms where Dask users can get help, with explanations for which one to use depending on the help you need.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://stackoverflow.com">Stackoverflow</a></p></li>
 <li><p>Pangeo <a class="reference external" href="https://discourse.pangeo.io/">Discourse</a> Forum</p></li>
-<li><p>GitHub - reach out to developers</p></li>
-<li><p>topic-specific Slack workspaces (e.g. Dask, RSE)</p></li>
+<li><p><a class="reference external" href="https://github.com">GitHub</a> - reach out to developers</p></li>
+<li><p>Topic-specific Slack workspaces (e.g. Dask, RSE)</p></li>
+<li><p>Use Google! Or your favorite search engine! (This is especially helpful when you get an unkown error while coding.)</p></li>
 </ul>
 <div class="section" id="take-a-look-at-this-flowchart-to-help-you-figure-out-where-to-get-help-depending-on-your-problem">
 <h3>Take a look at this flowchart to help you figure out where to get help depending on your problem<a class="headerlink" href="#take-a-look-at-this-flowchart-to-help-you-figure-out-where-to-get-help-depending-on-your-problem" title="Permalink to this headline">¶</a></h3>
