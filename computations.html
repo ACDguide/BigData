@@ -41,7 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -238,7 +238,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -289,86 +289,13 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-tools">
-   General tools
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python">
-     Python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pandas">
-       Pandas
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#xarray">
-       Xarray
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dask">
-       Dask
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#multiprocessing">
-       multiprocessing
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mpi4py">
-       mpi4py
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fortran-c">
-     Fortran/C
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mpi">
-       MPI
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#command-line-tools">
-     Command-line tools
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cdo">
-       CDO
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nco">
-       NCO
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-languages-matlab-r-etc">
-     Other languages (Matlab, R, etc.)
-    </a>
-   </li>
-  </ul>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-tasks">
    Common Tasks
@@ -436,7 +363,84 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Computations with large datasets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-tasks">
+   Common Tasks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#min-max-mean-stddev">
+     Min / Max / Mean / Stddev
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#percentiles-median">
+     Percentiles / Median
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#climatologies">
+     Climatologies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-resampling">
+     Time Resampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#horizontal-regridding">
+     Horizontal Regridding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vertical-regridding">
+     Vertical Regridding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rolling-averages">
+     Rolling Averages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generic-operations">
+   Generic Operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-reduce">
+     Map / Reduce
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rechunking">
+     Rechunking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="computations-with-large-datasets">
@@ -513,72 +517,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="general-tools">
-<h2>General tools<a class="headerlink" href="#general-tools" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="pandas">
-<h4>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> is a data analysis library based around tabular data, like spreadsheets or CSV files.</p>
-</div>
-<div class="section" id="xarray">
-<h4>Xarray<a class="headerlink" href="#xarray" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://xarray.pydata.org">Xarray</a> is a data analysis library based around the NetCDF data model, with Datasets having variables, dimensions, and attributes.</p>
-<p>It has a similar philosophy and set of functions to <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>, only for multidimensional datasets instead of tabular data.</p>
-</div>
-<div class="section" id="dask">
-<h4>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://docs.dask.org">Dask</a> is a library for working with larger-than memory arrays and parallel data analysis transparently. Xarray can use Dask arrays as a backend when opening a NetCDF file with the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> attribute, and Dask has its own Pandas-like DataFrame implementation.</p>
-<p>Dask splits an array up into chunks. When doing operations on a Dask array, rather than evaluating the operation immediately Dask will create a task graph of what operations need to be run to create the output array chunks from the input array chunks. The task graph is only evaluated when results are needed (e.g. by saving to a file or creating a plot), and different chunks can be evaluated in parallel.</p>
-<p>It’s best to start a <a class="reference external" href="https://docs.dask.org/en/latest/setup/single-distributed.html">dask.distributed.Client</a> to allow Dask to process data in parallel with multiple processes.</p>
-</div>
-<div class="section" id="multiprocessing">
-<h4>multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h4>
-<p>The built-in Python <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> library has low-level tools for parallel computing. You can create a ‘pool’ of processes, then given a function and a list of arguments it can run that function on each argument in parallel.</p>
-</div>
-<div class="section" id="mpi4py">
-<h4>mpi4py<a class="headerlink" href="#mpi4py" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://mpi4py.readthedocs.io/">mpi4py</a> is an implementation of the MPI library for Python, from which you can create parallel methods the same way as Fortran sending data between processes via messages.</p>
-</div>
-</div>
-<div class="section" id="fortran-c">
-<h3>Fortran/C<a class="headerlink" href="#fortran-c" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="mpi">
-<h4>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a> is a generic method of parallising to more than one computer, it’s commonly used in HPC to enable programs running on different compute nodes to communicate.</p>
-<p>MPI is a low-level library, which makes it flexible to a lot of use cases but also more difficult to set up. Numerical models often use MPI with a program running on each compute node computing part of the model grid, the boundaries between domains being syncronised with MPI messages.</p>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.open-mpi.org/doc/current/">MPI function list</a></p></li>
-<li><p><a class="reference external" href="https://www.mpi-forum.org/docs/">MPI standard</a></p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="command-line-tools">
-<h3>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="cdo">
-<h4>CDO<a class="headerlink" href="#cdo" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://code.mpimet.mpg.de/projects/cdo">CDO</a> has a large number of common climate analysis functions that can be used to analyse cf-compliant netcdf data.</p>
-<p>For large datasets, if you can process each file independently you can parallelise using e.g. <a class="reference external" href="https://www.gnu.org/software/parallel/">GNU Parallel</a> or a Python <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool.map</span></code>.</p>
-<p>You can use multiple parallel threads in CDO with <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">-P</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code></p>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span></code> will give a list of all available commands</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--help</span> <span class="pre">COMMAND</span></code> will show detailed help</p></li>
-</ul>
-</div>
-<div class="section" id="nco">
-<h4>NCO<a class="headerlink" href="#nco" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="http://nco.sourceforge.net/">NCO</a> is a powerful tool for working with NetCDF files and metadata, though alongside that power it is also very complex to use. It can extract variables, modify attributes, change file chunking and compression and combine ensembles and timeseries alongside other functions.</p>
-<p>You can use multiple parallel threads in NCO with <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--thr_nbr</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code></p>
-</div>
-</div>
-<div class="section" id="other-languages-matlab-r-etc">
-<h3>Other languages (Matlab, R, etc.)<a class="headerlink" href="#other-languages-matlab-r-etc" title="Permalink to this headline">¶</a></h3>
-<p>While we’re not aware of anything quite as nice as Xarray and Dask for other languages, most languages have libraries for reading NetCDF files and working with MPI.</p>
-<p>If you have suggestions for other libraries we can list here please let us know by <a class="reference external" href="https://github.com/ACDguide/BigData/issues/new">opening a ticket</a></p>
-</div>
-</div>
 <div class="section" id="common-tasks">
 <h2>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this headline">¶</a></h2>
 <p>The chunking illustrations in this section show approximately how these operations are done in Xarray + Dask, to give an idea of their complexity when working with large datasets and a basic idea of how these operations can be implemented manually. Normal arrows mean one chunk on the left gets mapped to one chunk on the right, a left square bracket means the number of chunks is reduced after this operation, a right square bracket means the number of chunks is increased. The most intensive operations are rechunking, as these require a lot of data in-memory, which are indicated with a large square bracket on both left and right.</p>
@@ -627,7 +565,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_4_0.png" src="_images/computations_4_0.png" />
+<img alt="_images/computations_3_0.png" src="_images/computations_3_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -678,7 +616,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_6_0.png" src="_images/computations_6_0.png" />
+<img alt="_images/computations_5_0.png" src="_images/computations_5_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -730,7 +668,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_9_0.png" src="_images/computations_9_0.png" />
+<img alt="_images/computations_8_0.png" src="_images/computations_8_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -780,7 +718,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_12_0.png" src="_images/computations_12_0.png" />
+<img alt="_images/computations_11_0.png" src="_images/computations_11_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -830,7 +768,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_15_0.png" src="_images/computations_15_0.png" />
+<img alt="_images/computations_14_0.png" src="_images/computations_14_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -918,7 +856,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_19_0.png" src="_images/computations_19_0.png" />
+<img alt="_images/computations_18_0.png" src="_images/computations_18_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -982,8 +920,8 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="accessing_data.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1000,19 +938,17 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By ACD Working Group<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By ACD Working Group<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
