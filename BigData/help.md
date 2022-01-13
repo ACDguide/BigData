@@ -1,7 +1,12 @@
 # Where to get help
 
 ## How to best ask for help
-A list of *where* to get help is provided below, but there are also some best practices when asking for help with software. While a lot of the rules of thumb listed here are for reporting a potential bug, they are also very applicable when asking for help. If you use this advice, you are also more likely to get a quick response! 
+
+A list of *where* to get help is provided below, but there are also some best practices when asking for help with software. 
+
+**CLEX have compiled [this excellent guide](http://climate-cms.wikis.unsw.edu.au/Getting_Help) for how to write help requests.**
+
+While a lot of the rules of thumb listed here are for reporting a potential bug, they are also very applicable when asking for help. If you use this advice, you are also more likely to get a quick response! 
 
 **DO NOT BE AFRAID TO ASK FOR HELP!** It is normal to get stuck sometimes and we have all been there, either learning a new tool, or struggling with something we feel like we should be able to do but need a second set of eyes on. We are all learners in some areas, and needing help is nothing to be embarrassed or apologetic about.
 
@@ -14,8 +19,6 @@ A list of *where* to get help is provided below, but there are also some best pr
         - More details on creating minimal, complete, reproducible code: https://stackoverflow.com/help/minimal-reproducible-example and http://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports.
 - When including code that leads to an error, make it copy/pasteable (i.e. do not include code as an image).
 - Create the data you need within your example; i.e. don't use data that needs to be downloaded or is not publicly accessible. If communicating with someone at your own institution (e.g. at NCI), then they may have access to your dataset, but in general it's a good habit to create some "dummy" data that can recreate your error if possible.
-
-CLEX have compiled [this excellent guide](http://climate-cms.wikis.unsw.edu.au/Getting_Help) for how to write help requests.
 
 ## Australia-specific help channels
 | Name | Description | How to use |
