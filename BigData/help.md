@@ -27,7 +27,7 @@ While a lot of the rules of thumb listed here are for reporting a potential bug,
 | [ARCCSS Slack workspace](arccss.slack.com) | Slack workspace open to anyone in the Australian climate community | Ask/answer questions via chat |
 | BoM Data Science Community of Practice | Community of data scientsists at BoM | For BoM staff only |
 | [COSIMA Recipes](https://github.com/COSIMA/cosima-recipes) | GitHub repo with example notebooks relevant for ACCESS-OM2 models | Browse on your own |
-| CSC Data Science Network | Community of data scientists in CSIRO's climate science centre | CSIRO MS Teams group - request membership from Chloe Mackallah or Claire Trenham |
+| CSC Data Science Network | Community of data scientists in CSIRO's climate science centre | MS Teams group for CSIRO CSC staff - request membership from Chloe Mackallah or Claire Trenham |
 
 ## Global help channels
 - Search for help pages specific to packages/languages
