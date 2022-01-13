@@ -34,6 +34,12 @@ For further information, see the [Gadi user guide](https://opus.nci.org.au/displ
 
 The NCI also provide a virtual desktop infrastructure hosted on their internal cloud infrastructure and providing an interface to the HPC infrastructure. The current generation of the VDI is web-based, and supports a web-based terminal on Gadi, a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
 
+The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the reqeusted compute resources and looks like this:
+![OOD launcher](images/OOD-launcher.PNG)
+
+Launching the VDI desktop via the button gives access to a familiar linux graphical interface with a terminal, browser and various applications.
+![OOD interface](images/OOD-interface.PNG)
+
 ### When would I use the OOD VDI?
 The "OOD" or "VDI" is ideal for exploratory and interactive work such as code development, data exploration and visualistaion, and tasks requiring internet access (e.g. working with data from external sources via OPeNDAP or S3).
 
