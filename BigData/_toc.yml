@@ -1,6 +1,10 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Accessing data
+    chapters:
+    - file: platforms
+    - file: accessing_data
   - caption: Data storage
     chapters:
     - file: data_storage
@@ -8,10 +12,7 @@ parts:
       - file : nczarr_test
   - caption: Metadata
     chapters:
-    - file: format_metadata   
-  - caption: Accessing data
-    chapters:
-    - file: accessing_data       
+    - file: format_metadata         
   - caption: Computations
     chapters:
     - file: computations     
