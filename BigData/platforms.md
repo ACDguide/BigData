@@ -65,7 +65,10 @@ For more information, see the [Pangeo website](https://pangeo.io/index.html). To
 
 ### When would I use Pangeo?
 
-Pangeo as a paradigm, all the time. The pangeo cloud infrastructure though??
+If you use any of the tools like `xarray` or `dask`, then you are already "using" Pangeo. 
+
+Pangeo Cloud can be used for any Earth-related research you undertake. It would be especially useful if you want to analyze across many datasets that are already stored in the Pangeo Cloud. Additionally, as a cloud computing service, it allows users to scale up computations very easily and on-demand, making it especially useful for data analysis on very large datasets. Pangeo Cloud is not currently optimized for running models, but rather for data analysis.
+
 
 ### How do I get access?
 
