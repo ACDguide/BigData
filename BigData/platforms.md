@@ -53,7 +53,13 @@ Same as Gadi (see above).
 
 ## Pangeo
 
-Pangeo is a community built aroudn analysis of large scale Earth systems data. Pangeo recommend use of python tools like jupyter, xarray and dask. Pangeo supports collections of selected datasets publicly in commercial cloud. The pangeo documentation also hosts not only examples, but jupyter 'binders' in which users can spin up their own notebooks to interact with data in the cloud.
+[Pangeo](https://pangeo.io) is a community of people built around big data geoscience, and supports many aspects related to big data in the geosciences, including (but not limited to):
+- the use and development of python tools like `jupyter`, `xarray` and `dask`. 
+- a software environment that includes core libraries used by the Pangeo community (aka the "Pangeo Stack"). A current list of packages in the Pangeo environment can be found [here](https://pangeo-data.github.io/pangeo-stacks/images.html) under "Pangeo-notebook>conda list".
+- educational resources to learn more about the software and infrastructure Pangeo uses, including a [gallery of example coding use cases](https://pangeo.io/gallery.html), as well as a [Pangeo-specific Jupyter Binder](https://pangeo-binder.readthedocs.io/en/prod/) in which users can spin up their own notebooks to interact with data in the cloud.
+- hosting collections of selected datasets publicly in commercial cloud ([Pangeo Data Catalog](https://catalog.pangeo.io/browse/master/)). 
+- cloud computing services ([Pangeo Cloud](https://pangeo.io/cloud.html)).
+
 For more information, see ??? join the Pangeo Oceania community ??
 
 ### When would I use Pangeo?
