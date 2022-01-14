@@ -72,6 +72,9 @@ Pangeo Cloud can be used for any Earth-related research you undertake. It would 
 
 ### How do I get access?
 
+Anyone can request access to Pangeo Cloud on the [Pangeo Cloud documentation site](https://pangeo.io/cloud.html), under "Sign Up". This will take you to a Google form where you can fill in details of the research you would like to use Pangeo Cloud for, and after submission you should hear back within a few days if your request was approved. At this time, most projects related to climate and geoscience get approved. The link above also contains other pertinent information to using Pangeo Cloud.
+
+*Note that the Pangeo Cloud is currently being run with limited funds, and should therefore not be used as a reliable computing platform for long-term projects, as funding could run out at any time. However, if you have funding and are able to pay for cloud computing resources, you can request your own Pangeo-like cloud environment from [2i2c](https://2i2c.org) - the same company that runs and maintains the Pangeo Cloud.*
 ## Pawsey HPC
 
 There are a number of academic HPC systems in Australia outside of those hosted by specific institutions. [Pawsey](https://pawsey.org.au/) in WA hosts a peak HPC machine, local cloud, and data storage. Pawsey is a facility managed by CSIRO. Access to large scale compute quotas is available through the National Computaitonal Merit Allocation Scheme (NCMAS) as with Gadi, as well as a separate Pawsey allocation process which can be accessed more frequently. Currently only limited climate work is being done on the Pawsey peak system but this is likely to increase in the future.
