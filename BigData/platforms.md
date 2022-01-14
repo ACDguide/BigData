@@ -60,7 +60,8 @@ Same as Gadi (see above).
 - hosting collections of selected datasets publicly in commercial cloud ([Pangeo Data Catalog](https://catalog.pangeo.io/browse/master/)). 
 - cloud computing services ([Pangeo Cloud](https://pangeo.io/cloud.html)).
 
-For more information, see ??? join the Pangeo Oceania community ??
+For more information, see the [Pangeo website](https://pangeo.io/index.html). To get involved in the community, you can post on the [Pangeo Discourse Forum](https://discourse.pangeo.io) or attend [Pangeo community meetings](https://pangeo.io/meeting-notes.html). The Pangeo Oceania group meets monthly at Australian-friendly times: 3rd Friday of the month at 1pm Australian Eastern Time. All are welcome and meeting agendas and connection details are posted [here](https://discourse.pangeo.io/t/pangeo-oceania-meetings-and-agendas/1762).
+
 
 ### When would I use Pangeo?
 
