@@ -2,7 +2,7 @@
 
 In Australia, there is a vast quantity of climate and related datasets hosted at the [National Computational Infrastructure](https://nci.org.au/) (NCI) High Performance Computing (HPC) facility located at the Australian National University in Canberra. As such, much of our documentation assumes use of this system, but this page covers a few options and notes about various systems people might work on.
 
-The datasets hosted on NCI maybe centrally managed, e.g. by NCI (CMIP, ERA5) or the community (precipitation data, other reanalyses). An interface to help researchers idenitfy what climate data is available and where is under development. *This sentence in particular won't age well, but I'm reluctant to link to NCI's geonetwork here and InvenioRDM isn't ready to go yet. Maybe we should just leave it out completely and add it in later when Invenio launches?*
+The datasets hosted on NCI may be centrally managed, e.g. by NCI (CMIP, ERA5) or the community (precipitation data, other reanalyses). An interface to help researchers identify what climate data is available and where is under development.
 
 ## NCI Gadi HPC
 
@@ -15,6 +15,7 @@ NCI provides:
 - a `/scratch` area for each project which is a highly performant filesystem appropriate for IO intensive jobs, 
 - a `/g/data` global filesystem space for most projects for longer term storage of data such as for sharing and publication,
 - the `MDSS` mass datastore facility for data archiving/backup.
+- help via help@nci.org.au as well as specialised climate support from CLEX, BoM and CSIRO support staff via cws-help@nci.org.au.
 
 ### When would I use this system? 
 - Gadi is intended for large scale modelling and data processing jobs. If you are running parallel numerical models at scale then you would likely work exclusively on Gadi or a similar system. It is also useful for "high throughput computing" like AI/ML workflows, and "high performance data" parallel data processing using Pangeo tools like python's `dask` library - though usually you would start exploratory data work on the NCI's OOD (see below) and only move to Gadi when greater scalability is required.
@@ -32,16 +33,16 @@ For further information, see the [Gadi user guide](https://opus.nci.org.au/displ
 
 ## NCI OOD virtual desktop
 
-The NCI also provide a virtual desktop infrastructure hosted on their internal cloud infrastructure and providing an interface to the HPC infrastructure. The current generation of the VDI is web-based, and supports a web-based terminal on Gadi, a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
+The NCI also support a virtual desktop infrastructure (VDI) called "Open, On-Demand" (OOD) hosted on their internal cloud infrastructure, and which provides an interface to the HPC infrastructure. The current generation of the VDI is web-based, offering a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
 
-The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the reqeusted compute resources and looks like this:
+The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the requested compute resources and looks like this:
 ![OOD launcher](images/OOD-launcher.PNG)
 
 Launching the VDI desktop via the button gives access to a familiar linux graphical interface with a terminal, browser and various applications.
 ![OOD interface](images/OOD-interface.PNG)
 
 ### When would I use the OOD VDI?
-The "OOD" or "VDI" is ideal for exploratory and interactive work such as code development, data exploration and visualistaion, and tasks requiring internet access (e.g. working with data from external sources via OPeNDAP or S3).
+The "OOD" or "VDI" is ideal for exploratory and interactive work such as code development, data exploration and visualisation, and tasks requiring internet access (e.g. working with data from external sources via OPeNDAP or S3).
 
 As with Gadi, the OOD VDI has access to all the climate data stored at NCI*, so it is an ideal place to work when large scale input data is required (as this minimises effort and risk associated with creating copies of input data). 
 
@@ -53,28 +54,15 @@ Same as Gadi (see above).
 
 ## Pangeo
 
-[Pangeo](https://pangeo.io) is a community of people built around big data geoscience, and supports many aspects related to big data in the geosciences, including (but not limited to):
-- the use and development of python tools like `jupyter`, `xarray` and `dask`. 
-- a software environment that includes core libraries used by the Pangeo community (aka the "Pangeo Stack"). A current list of packages in the Pangeo environment can be found [here](https://pangeo-data.github.io/pangeo-stacks/images.html) under "Pangeo-notebook>conda list".
-- educational resources to learn more about the software and infrastructure Pangeo uses, including a [gallery of example coding use cases](https://pangeo.io/gallery.html), as well as a [Pangeo-specific Jupyter Binder](https://pangeo-binder.readthedocs.io/en/prod/) in which users can spin up their own notebooks to interact with data in the cloud.
-- hosting collections of selected datasets publicly in commercial cloud ([Pangeo Data Catalog](https://catalog.pangeo.io/browse/master/)). 
-- cloud computing services ([Pangeo Cloud](https://pangeo.io/cloud.html)).
-
-For more information, see the [Pangeo website](https://pangeo.io/index.html). To get involved in the community, you can post on the [Pangeo Discourse Forum](https://discourse.pangeo.io) or attend [Pangeo community meetings](https://pangeo.io/meeting-notes.html). The Pangeo Oceania group meets monthly at Australian-friendly times: 3rd Friday of the month at 1pm Australian Eastern Time. All are welcome and meeting agendas and connection details are posted [here](https://discourse.pangeo.io/t/pangeo-oceania-meetings-and-agendas/1762).
-
+Pangeo is a community built aroudn analysis of large scale Earth systems data. Pangeo recommend use of python tools like jupyter, xarray and dask. Pangeo supports collections of selected datasets publicly in commercial cloud. The pangeo documentation also hosts not only examples, but jupyter 'binders' in which users can spin up their own notebooks to interact with data in the cloud.
+For more information, see ??? join the Pangeo Oceania community ??
 
 ### When would I use Pangeo?
 
-If you use any of the tools like `xarray` or `dask`, then you are already "using" Pangeo. 
-
-Pangeo Cloud can be used for any Earth-related research you undertake. It would be especially useful if you want to analyze across many datasets that are already stored in the Pangeo Cloud. Additionally, as a cloud computing service, it allows users to scale up computations very easily and on-demand, making it especially useful for data analysis on very large datasets. Pangeo Cloud is not currently optimized for running models, but rather for data analysis.
-
+Pangeo as a paradigm, all the time. The pangeo cloud infrastructure though??
 
 ### How do I get access?
 
-Anyone can request access to Pangeo Cloud on the [Pangeo Cloud documentation site](https://pangeo.io/cloud.html), under "Sign Up". This will take you to a Google form where you can fill in details of the research you would like to use Pangeo Cloud for, and after submission you should hear back within a few days if your request was approved. At this time, most projects related to climate and geoscience get approved. The link above also contains other pertinent information to using Pangeo Cloud.
-
-*Note that the Pangeo Cloud is currently being run with limited funds, and should therefore not be used as a reliable computing platform for long-term projects, as funding could run out at any time. However, if you have funding and are able to pay for cloud computing resources, you can request your own Pangeo-like cloud environment from [2i2c](https://2i2c.org) - the same company that runs and maintains the Pangeo Cloud.*
 ## Pawsey HPC
 
 There are a number of academic HPC systems in Australia outside of those hosted by specific institutions. [Pawsey](https://pawsey.org.au/) in WA hosts a peak HPC machine, local cloud, and data storage. Pawsey is a facility managed by CSIRO. Access to large scale compute quotas is available through the National Computaitonal Merit Allocation Scheme (NCMAS) as with Gadi, as well as a separate Pawsey allocation process which can be accessed more frequently. Currently only limited climate work is being done on the Pawsey peak system but this is likely to increase in the future.
@@ -113,11 +101,11 @@ The Australian Bureau of Meteorology run an internal HPC "Australis" for operati
 
 ## Institutional shared resources
 
-Many universities support internal HPCs on a much smaller scale than NCI and Pawsey, but that are often beneficial at a research group level. UTas (TPAC), UniMelb (Spartan), and UNSW (??) all have systems that researchers may be able to access for tasks that do not require the shared data on NCI but are too big for the researcher's laptop.
+Many universities support internal HPCs on a much smaller scale than NCI and Pawsey, but that are often beneficial at a research group level. UTas (TPAC's Kunanyi), UniMelb (Spartan), and UNSW (Katana) all have systems that researchers may be able to access for tasks that do not require the shared data on NCI but are too big for the researcher's laptop. The main drawback of these options is that they limit collaboration with peers at other institutions, as well as support available as you will have to rely on internal support staff, unlike when using NCI where mutiple help channels are available.
 
 ### When would I use this sytem?
 
-When working only with other researchers from your local institution and when you are not dependent on large-scale reference data at NCI.
+When working only with other researchers from your local institution and when you are not dependent on large-scale reference data at NCI and do not require assistance from community support staff.
 
 ### How do I get access?
 
