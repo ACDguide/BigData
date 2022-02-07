@@ -24,7 +24,7 @@
   - `Methods of accessing data`: Paige (@paigem)
   - `Data formats and metadata`: Chloe (@chloemackallah)
   - `Computations with large datasets`: Scott (@ScottWales)
-  - `Methods of data storage`: Alicia and Paola (@AliciaTak and @paolap)
+  - `Available tools`: Alicia and Paola (@AliciaTak and @paolap)
   - any other pages, for structural changes, or if you are unsure who to assign: Paige (@paigem)
 You can also assign multiple reviewers if you think your PR would benefit from other/more reviewers.
 

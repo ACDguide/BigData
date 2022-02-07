@@ -5,15 +5,15 @@ To identify the best tool/s for a task the following factors should be considere
 
 - the data: most languages and packages provide the same or overlapping functionalities, so often the data format, size and the way is structured determines which tool is best.
 - the kind of analysis: some operations can be performed with several different tools, but for specific tasks you might need a specific tool, also the packages performance might be different for different operations.
-- user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community eperience is also important, having others around you that are using the same software and can provide code and help. 
+- user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community experience is also important, having others around you that are using the same software and can provide code and help. 
 
 
 Included are:
-- [Python](#python)
-- [R](#r)
-- [MATLAB](#matlab)
-- [NCO](#nco-netcdf-operators)
-- [CDO](#cdo-climate-data-operators)
+- {ref}`python`
+- {ref}`rcran`
+- {ref}`matlab`
+- {ref}`nco`
+- {ref}`cdo`
 
-Other languages and tools exist which can work with netCDF data (e.g. C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for *analysis* of large scale (typically netCDF) climate data.
+Other languages and tools exist which can work with netCDF data (e.g., C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for *analysis* of large scale (typically netCDF) climate data.
 
