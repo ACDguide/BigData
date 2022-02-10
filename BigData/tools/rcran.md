@@ -14,16 +14,16 @@ This is a free, open-source statistical programming language. It is used mainly 
 [rio](https://cloud.r-project.org/web/packages/rio/index.html)
      - data import/export
 
-[shiny]() 
+[shiny](https://shiny.rstudio.com) 
     - report results, e.g., build interactive web apps
 
-[mlr]()
+[mlr](https://mlr.mlr-org.com)
     - machine learning tasks
 
-[leaflet]()
+[leaflet](https://rstudio.github.io/leaflet/)
     - mapping and working on interactive maps
 
-[tidymodels]()
+[tidymodels](https://www.tidymodels.org)
      - modeling and machine learning
 
 [sp](https://github.com/edzer/sp)
@@ -32,10 +32,10 @@ This is a free, open-source statistical programming language. It is used mainly 
 [maptools](https://www.rptools.net/toolbox/maptool/)
     - processing spatial data
 
-[zoo]()
+[zoo](https://r-forge.r-project.org/projects/zoo/)
      - for time series data
 
-[xls]()
+[xlsx](https://colearendt.github.io/xlsx/)
      - for time series data
 
 [climpact](https://github.com/ARCCSS-extremes/climpact)
@@ -46,6 +46,6 @@ This is a free, open-source statistical programming language. It is used mainly 
 Recommended list of packages: 
  * [Quick list of useful R packages](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages) from Rstudio website
 
-## Specific toolsets
+## Development environments
 
 [Rstudio](https://support.rstudio.com/hc/en-us) IDE
