@@ -7,7 +7,8 @@ To identify the best tool/s for a task the following factors should be considere
 - the data: most languages and packages provide the same or overlapping functionalities, so often the data format, size and the way it is structured determines which tool is best.
 - the kind of analysis: some operations can be performed with several different tools, but for specific tasks you might need a specific tool, and the performance might vary significantly for different operations.
 
-- user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community experience is also important, meaning, having others around you that are using the same software and can provide code and help. 
+- user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community experience is also important, i.e. it can be useful to have others around you that use the same software and can provide code and help. 
+
 
 
 Included are:
