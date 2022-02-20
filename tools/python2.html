@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data handling in Python &#8212; Working with Big/Challenging Data Collections</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="R" href="rcran.html" />
+    <link rel="prev" title="Python" href="python1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Working with Big/Challenging Data Collections</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Accessing data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../platforms.html">
+   Computing Platforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accessing_data.html">
+   Methods of accessing data and metadata
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data storage
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data_storage.html">
+   Data storage methods for big datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../nczarr_test.html">
+     In-depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       nczarr
+      </span>
+     </code>
+     testing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Metadata
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../format_metadata.html">
+   Data formats, variables, and metadata
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Computations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computations.html">
+   Computations with large datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Available tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Available tools and their best use
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="python1.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data handling in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rcran.html">
+     R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="other.html">
+     MATLAB
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../help.html">
+   Where to get help
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tools/python2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ACDguide/BigData"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/python2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data handling in Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdf-data-access">
+     HDF data access
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-raster-data-access">
+     Other raster data access
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grid-handling">
+     Grid handling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-purpose-packages">
+     General purpose packages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   Visualization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interfaces-to-other-software">
+   Interfaces to other software
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-in-parallel">
+   Working in parallel
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data handling in Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data handling in Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdf-data-access">
+     HDF data access
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-raster-data-access">
+     Other raster data access
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grid-handling">
+     Grid handling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-purpose-packages">
+     General purpose packages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   Visualization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interfaces-to-other-software">
+   Interfaces to other software
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-in-parallel">
+   Working in parallel
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="data-handling-in-python">
+<span id="python-data"></span><h1>Data handling in Python<a class="headerlink" href="#data-handling-in-python" title="Permalink to this headline">¶</a></h1>
+<p>The data formats most commonty used in climate science are covered in more detail in our section on <a class="reference internal" href="../data_storage.html#data-storage"><span class="std std-ref">data storage</span></a>.
+Both <a class="reference internal" href="python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="python1.html#iris"><span class="std std-ref">Iris</span></a> can access most of them, provided that the dependencies for the formats are also installed.
+A full list and guide of formats accessible via xarray is available from the <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/io.html">package documentation</a>. The open_dataset() function can be called with different <code class="docutils literal notranslate"><span class="pre">engines</span></code>.
+NetCDF4 is the main library to read netcdf data, another option is to use h5netcdf, which is based on h5py, this can be faster depending on the file structure.
+To open grib files in xarray either cfgrib or PyNIO needs to be installed. Xarray also has additional features, sometimes developed by a third-party, that can extend further the list of accessible data formats.
+Iris is preferable if you need to access grib files and can also access <code class="docutils literal notranslate"><span class="pre">pp</span> <span class="pre">files</span></code>, a binary data format used by the UM model. Main dependencies for iris are  netCDF4 and scipy.
+Other libraries are useful to manage or access dataset collections both local and remote. Siphon and pydap helps accessing remote files on thredds and/or OpenDAP services. <a class="reference internal" href="../accessing_data.html#intake"><span class="std std-ref">Intake</span></a> can be used to build a catalogue to help locate and query local datasets.</p>
+<dl class="glossary simple">
+<dt id="term-netCDF4"><a class="reference external" href="http://unidata.github.io/netcdf4-python/">netCDF4</a> <a class="headerlink" href="#term-netCDF4" title="Permalink to this term">¶</a></dt><dd><p>netCDF4 is the Unidata library to handle netcdf files</p>
+</dd>
+<dt id="term-h5netcdf"><a class="reference external" href="https://github.com/h5netcdf/h5netcdf">h5netcdf</a><a class="headerlink" href="#term-h5netcdf" title="Permalink to this term">¶</a></dt><dd><p>h5netcdf is an interface for the netCDF4 file-format that reads and writes local or remote HDF5 files directly via h5py or h5pyd, without need for netCDF4. It can be faster than the latter depending on the actual file structure (any example??)</p>
+</dd>
+<dt id="term-Zarr"><a class="reference external" href="https://zarr.readthedocs.io">Zarr</a><a class="headerlink" href="#term-Zarr" title="Permalink to this term">¶</a></dt><dd><p>zarr is a relatively new format to store chunked, compressed, N-dimensional arrays, optimised for cloud data access</p>
+</dd>
+<dt id="term-cfgrib"><a class="reference external" href="https://github.com/ecmwf/cfgrib">cfgrib</a><a class="headerlink" href="#term-cfgrib" title="Permalink to this term">¶</a></dt><dd><p>cfgrib is a python interface to <a class="reference external" href="https://confluence.ecmwf.int//display/ECC/ecCodes+Home">ecCodes</a>, a set of tools for decoding and encoding grib1 and grib2 files. ecCodes replaced the grib-api. Cfgrib allows to open a grib file with xarray and iris.</p>
+</dd>
+<dt id="term-Pygrib"><a class="reference external" href="https://jswhit.github.io/pygrib/">Pygrib</a><a class="headerlink" href="#term-Pygrib" title="Permalink to this term">¶</a></dt><dd><p>pygrib is another high-level interface to ecCodes to read and write grib files</p>
+</dd>
+<dt id="term-cfunits"><a class="reference external" href="https://ncas-cms.github.io/cfunits/">cfunits</a><a class="headerlink" href="#term-cfunits" title="Permalink to this term">¶</a></dt><dd><p>cfunits is an interface the UDUNITS-2 library with CF extensions, to store, combine and compare physical units and convert numeric values to different units.</p>
+</dd>
+<dt id="term-cftime"><a class="reference external" href="https://unidata.github.io/cftime/">cftime</a><a class="headerlink" href="#term-cftime" title="Permalink to this term">¶</a></dt><dd><p>cftime is used to decode time units and variable values in a CF compliant netCDF file.</p>
+</dd>
+<dt id="term-intake"><a class="reference external" href="https://intake.readthedocs.io/en/latest/index.html">intake</a><a class="headerlink" href="#term-intake" title="Permalink to this term">¶</a></dt><dd><p>intake supports building catalogues of datasets, which are easy to naviagte, query and that can be augmented with metadata. We are covering intake and its extensions in more depth <a class="reference internal" href="../accessing_data.html#intake"><span class="std std-ref">here</span></a>.</p>
+</dd>
+<dt id="term-siphon"><a class="reference external" href="https://unidata.github.io/siphon/latest/index.html">siphon</a><a class="headerlink" href="#term-siphon" title="Permalink to this term">¶</a></dt><dd><p>siphon provides utilities to navigate and download data from remote data services, in particular thredds servers.</p>
+</dd>
+<dt id="term-CleF"><a class="reference external" href="https://clef.readthedocs.io/en/stable/">CleF</a><a class="headerlink" href="#term-CleF" title="Permalink to this term">¶</a></dt><dd><p>CleF Climate Finder is a python based command line tool to discover ESGF datasets at NCI, the functions can also be loaded and called in a interactive session or script.</p>
+</dd>
+<dt id="term-IOOS-Compliance-Checker"><a class="reference external" href="https://github.com/ioos/compliance-checker">IOOS Compliance Checker</a><a class="headerlink" href="#term-IOOS-Compliance-Checker" title="Permalink to this term">¶</a></dt><dd><p>to check netcdf files metadata against CF and ACDD conventions</p>
+</dd>
+</dl>
+<div class="section" id="hdf-data-access">
+<h2>HDF data access<a class="headerlink" href="#hdf-data-access" title="Permalink to this headline">¶</a></h2>
+<p>Satellite data is more commonly available as HDF.
+There are several packages to handle HDF data what is best it really depends on the specific HDF format, as HDF files can really varies in characteristic and complexity.
+Some HDF files can also be read as raster using libraries like rio-xarray.</p>
+<dl class="glossary simple">
+<dt id="term-hdf5"><a class="reference external" href="https://docs.h5py.org/en/stable/">hdf5</a><a class="headerlink" href="#term-hdf5" title="Permalink to this term">¶</a></dt><dd><p>interface specific to the HDF5 data format</p>
+</dd>
+<dt id="term-h5py"><a class="reference external" href="https://docs.h5py.org/en/stable/">h5py</a><a class="headerlink" href="#term-h5py" title="Permalink to this term">¶</a></dt><dd><p>h5py is an interface to the HDF5 data format</p>
+</dd>
+<dt id="term-pyhdf"><a class="reference external" href="https://hdfeos.org/software/pyhdf.php">pyhdf</a><a class="headerlink" href="#term-pyhdf" title="Permalink to this term">¶</a></dt><dd><p>pyhdf (previously known as python-hdf4) is an interface to the HDF4 data format, including the HDF4-EOS format</p>
+</dd>
+<dt id="term-pytables"><a class="reference external" href="https://www.pytables.org/index.html">pytables</a> <a class="headerlink" href="#term-pytables" title="Permalink to this term">¶</a></dt><dd><p>pytables allows to manipulate data tables and array objects in a hierarchical structure based on the HDF5 library.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="other-raster-data-access">
+<h2>Other raster data access<a class="headerlink" href="#other-raster-data-access" title="Permalink to this headline">¶</a></h2>
+<p>While less commonly used in core climate science research, geographical data formats as raster data is not uncommon in meteorology and GIS data is becoming more common in climate adaptation and impact studies.
+An example of this is the <a class="reference external" href="https://www.cogeo.org">Cloud Optimised GeoTIFF</a> (COG)format, which is becoming more popular to serve satellite data on cloud servers.
+As for the hdf format there is a variety of libraries whose usefulness will depend on the exact nature of your raster or GIS data.</p>
+<dl class="glossary simple">
+<dt id="term-xgrads"><a class="reference external" href="https://github.com/miniufo/xgrads">xgrads</a><a class="headerlink" href="#term-xgrads" title="Permalink to this term">¶</a></dt><dd><p>xgrads parses the ctl descriptor of GrADS binary data to load data as a xarray dataset.</p>
+</dd>
+<dt id="term-rasterio"><a class="reference external" href="https://rasterio.readthedocs.io">rasterio</a><a class="headerlink" href="#term-rasterio" title="Permalink to this term">¶</a></dt><dd><p>raster data library based on GDAL data model</p>
+</dd>
+<dt id="term-rio-xarray"><a class="reference external" href="https://corteva.github.io/rioxarray/stable/index.html">rio-xarray</a><a class="headerlink" href="#term-rio-xarray" title="Permalink to this term">¶</a></dt><dd><p>exote4nds xarray to work seamlessly with rasterio</p>
+</dd>
+<dt id="term-rasterstats"><a class="reference external" href="https://pythonhosted.org/rasterstats/">rasterstats</a><a class="headerlink" href="#term-rasterstats" title="Permalink to this term">¶</a></dt><dd><p>summarizing geospatial raster datasets based on vector geometries. It includes functions for zonal statistics and interpolated point queries.</p>
+</dd>
+<dt id="term-shapely"><a class="reference external" href="https://shapely.readthedocs.io/en/stable/">shapely</a><a class="headerlink" href="#term-shapely" title="Permalink to this term">¶</a></dt><dd><p>shapely is a module to manipulate and analyse geometric objects in the Cartesian plane.</p>
+</dd>
+<dt id="term-geopandas"><a class="reference external" href="https://geopandas.org/en/stable/">geopandas</a><a class="headerlink" href="#term-geopandas" title="Permalink to this term">¶</a></dt><dd><p>geopandas combines the capabilities of pandas and shapely, providing geospatial operations in pandas and a high-level interface to multiple geometries to shapely.</p>
+</dd>
+<dt id="term-fiona"><a class="reference external" href="https://fiona.readthedocs.io/en/latest/">fiona</a><a class="headerlink" href="#term-fiona" title="Permalink to this term">¶</a></dt><dd><p>Fiona reads and writes geographic data files; it contains extension modules for GDAL.</p>
+</dd>
+<dt id="term-gdal"><a class="reference external" href="https://gdal.org/api/python.html">gdal</a><a class="headerlink" href="#term-gdal" title="Permalink to this term">¶</a></dt><dd><p>gdal python bindings provide a wrapper to the C <a class="reference external" href="https://gdal.org">Geospatial Data Abstraction Library</a> library. Gdal can manipulate a lot of geospatial data including netcdf, hdf, grib gis data formats and several image format, so it can be useful to convert between formats.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="grid-handling">
+<h2>Grid handling<a class="headerlink" href="#grid-handling" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary simple">
+<dt id="term-xESMF"><a class="reference external" href="https://pangeo-xesmf.readthedocs.io/en/latest/">xESMF</a><a class="headerlink" href="#term-xESMF" title="Permalink to this term">¶</a></dt><dd><p>xESMF is a universal regridder for geospatial data. It is part of the Pangeo ecosystem.</p>
+</dd>
+<dt id="term-xgcm"><a class="reference external" href="https://xgcm.readthedocs.io">xgcm</a><a class="headerlink" href="#term-xgcm" title="Permalink to this term">¶</a></dt><dd><p>xgcm extends the xarray data model to finite volume grid cells (common in General Circulation Models) and provides interpolation and difference operations for such grids.</p>
+</dd>
+<dt id="term-gridded"><a class="reference external" href="https://noaa-orr-erd.github.io/gridded/">gridded</a><a class="headerlink" href="#term-gridded" title="Permalink to this term">¶</a></dt><dd><p>gridded is a single API for accessing / working with gridded ocean model results on multiple grid types</p>
+</dd>
+<dt id="term-pyproj"><a class="reference external" href="https://pyproj4.github.io/pyproj/stable/">pyproj</a><a class="headerlink" href="#term-pyproj" title="Permalink to this term">¶</a></dt><dd><p>pyproj is an interface to proj a cartographic projections and coordinate transformations library.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="general-purpose-packages">
+<h2>General purpose packages<a class="headerlink" href="#general-purpose-packages" title="Permalink to this headline">¶</a></h2>
+<p>The following packages are not specific to climate or science but they are really useful to handle generic tasks. <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">sys</span></code> perform operating system functions and together with <code class="docutils literal notranslate"><span class="pre">glob</span></code> are useful to handle directories and files. Datetime and calendar help managing time related information. The package <code class="docutils literal notranslate"><span class="pre">csv</span></code> is useful to handle tabular ascii data, while <code class="docutils literal notranslate"><span class="pre">pyyaml</span></code> and <code class="docutils literal notranslate"><span class="pre">json</span></code> are often used for configuration files as well as other kind of metadata.
+Finally to pass input parameters to python script you can use sys.argv() function for a basic approach, <code class="docutils literal notranslate"><span class="pre">argparse</span></code> and <code class="docutils literal notranslate"><span class="pre">click</span></code> provide more features. Both packages provides automatically generated help message, you can define input type, default and valid values. The package <code class="docutils literal notranslate"><span class="pre">click</span></code> is also used to create command-line based programs.
+Some of these modules are distributed with the main python library (indicated with *). You still need to import them in a script but there is no need to install them.</p>
+<p>—COMMENT: as for all the other introduction this could be massively improved, particularly in terms of highlighting usage of time related libraries.</p>
+<dl class="glossary simple">
+<dt id="term-os"><a class="reference external" href="https://docs.python.org/3/library/os.html">os</a><a class="headerlink" href="#term-os" title="Permalink to this term">¶</a></dt><dd><p>os offers an operative system interface (*)</p>
+</dd>
+<dt id="term-sys"><a class="reference external" href="https://docs.python.org/3/library/sys.html">sys</a><a class="headerlink" href="#term-sys" title="Permalink to this term">¶</a></dt><dd><p>sys is the interface to system specific parameters and functions, an example is sys.argv() that allows to access input parameters passed to a python script. (*)</p>
+</dd>
+<dt id="term-glob"><a class="reference external" href="https://docs.python.org/3/library/glob.html">glob</a><a class="headerlink" href="#term-glob" title="Permalink to this term">¶</a></dt><dd><p>glob finds all the pathnames matching a specified pattern according to the rules used by the Unix shell. (*)</p>
+</dd>
+<dt id="term-time"><a class="reference external" href="https://docs.python.org/3/library/time.html">time</a><a class="headerlink" href="#term-time" title="Permalink to this term">¶</a></dt><dd><p>time provides time related functions. (*)</p>
+</dd>
+<dt id="term-datetime"><a class="reference external" href="https://docs.python.org/3/library/datetime.html">datetime</a><a class="headerlink" href="#term-datetime" title="Permalink to this term">¶</a></dt><dd><p>datetime is used to manipulate date and time. (*)</p>
+</dd>
+<dt id="term-dateutil"><a class="reference external" href="https://dateutil.readthedocs.io/en/stable/">dateutil</a><a class="headerlink" href="#term-dateutil" title="Permalink to this term">¶</a></dt><dd><p>dateutil is an extension to datetime.</p>
+</dd>
+<dt id="term-calendar"><a class="reference external" href="https://docs.python.org/3/library/calendar.html#module-calendar">calendar</a><a class="headerlink" href="#term-calendar" title="Permalink to this term">¶</a></dt><dd><p>calendar provides calendar related functions. (*)</p>
+</dd>
+<dt id="term-csv"><a class="reference external" href="https://docs.python.org/3/library/csv.html">csv</a><a class="headerlink" href="#term-csv" title="Permalink to this term">¶</a></dt><dd><p>csv is used to read and write csv files. (*)</p>
+</dd>
+<dt id="term-json"><a class="reference external" href="https://docs.python.org/3/library/json.html">json</a> <a class="headerlink" href="#term-json" title="Permalink to this term">¶</a></dt><dd><p>to handle json files which are useful to store table information and pass schema, vocabularies, and other dictionary style information to programs. (*)</p>
+</dd>
+<dt id="term-pyyaml"><a class="reference external" href="https://pyyaml.org/wiki/PyYAMLDocumentation">pyyaml</a><a class="headerlink" href="#term-pyyaml" title="Permalink to this term">¶</a></dt><dd><p>to load and parse yaml files, these are often used to handle programs/models’ configurations</p>
+</dd>
+<dt id="term-argparse"><a class="reference external" href="https://docs.python.org/3/library/argparse.html">argparse</a><a class="headerlink" href="#term-argparse" title="Permalink to this term">¶</a></dt><dd><p>argparse is useful to handle inputs and to write user-friendly command-line interfaces. (*)</p>
+</dd>
+<dt id="term-click"><a class="reference external" href="https://click.palletsprojects.com/en/8.0.x/">click</a><a class="headerlink" href="#term-click" title="Permalink to this term">¶</a></dt><dd><p>click allows to create command line interfaces, it is more powerful than argparse.</p>
+</dd>
+<dt id="term-sqlite3"><a class="reference external" href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a><a class="headerlink" href="#term-sqlite3" title="Permalink to this term">¶</a></dt><dd><p>sqlite3 is an interface to sqlite databases. It is easier to use than other libraries but fairly basic. (*)</p>
+</dd>
+<dt id="term-SQLalchemy"><a class="reference external" href="http://www.sqlalchemy.org">SQLalchemy</a><a class="headerlink" href="#term-SQLalchemy" title="Permalink to this term">¶</a></dt><dd><p>SQLalchemy is an interface to SQL based databases, including postgres, mysql and sqlite. It is very powerful but complex to use.</p>
+</dd>
+<dt id="term-requests"><a class="reference external" href="https://docs.python-requests.org/en/latest/">requests</a><a class="headerlink" href="#term-requests" title="Permalink to this term">¶</a></dt><dd><p>requests is an HTTP interface which is useful to download data from a website.</p>
+</dd>
+<dt id="term-ftplib"><a class="reference external" href="https://docs.python.org/3/library/ftplib.html">ftplib</a><a class="headerlink" href="#term-ftplib" title="Permalink to this term">¶</a></dt><dd><p>ftplib is an interface to the FTP protocol, it is useful to dowload data from a FTP server. (*)</p>
+</dd>
+<dt id="term-BeautifulSoup"><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a><a class="headerlink" href="#term-BeautifulSoup" title="Permalink to this term">¶</a></dt><dd><p>BeautifulSoup is a very useful library to parse xml/html content. It can be handy when trying to download data from a website.</p>
+</dd>
+<dt id="term-tkinter"><a class="reference external" href="https://docs.python.org/3/library/tkinter.html">tkinter</a><a class="headerlink" href="#term-tkinter" title="Permalink to this term">¶</a></dt><dd><p>The tkinter package (“Tk interface”) is the standard Python interface to the Tcl/Tk GUI toolkit (*)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="visualization">
+<h1>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h1>
+<p>Matplotlib is a popular and useful plotting library, it integrates seamlessly with other packages and the JupyterLab environment. As it is so widely used, there are also a lot of <a class="reference external" href="https://matplotlib.org/mpl-third-party/">third-party libraries</a> that extend its capabilities.
+Cartopy is used to visualise data on accurate maps, cartopy replaced basemap which is now considered obsolete.<br />
+Other packages to consider are seaborn, holoviews, plotly.</p>
+<dl class="glossary simple">
+<dt id="term-matplotlib"><a class="reference external" href="https://matplotlib.org">matplotlib</a><a class="headerlink" href="#term-matplotlib" title="Permalink to this term">¶</a></dt><dd><p>matplotlib is a comprehensive library for creating static, animated, and interactive visualizations</p>
+</dd>
+<dt id="term-cartopy"><a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">cartopy</a><a class="headerlink" href="#term-cartopy" title="Permalink to this term">¶</a></dt><dd><p>cartopy helps handling and visualising cartographic data</p>
+</dd>
+<dt id="term-cmocean"><a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a><a class="headerlink" href="#term-cmocean" title="Permalink to this term">¶</a></dt><dd><p>cmocean provides colourmaps specifically created for common oceanographic variables to use with matplotlib</p>
+</dd>
+<dt id="term-seaborn"><a class="reference external" href="https://seaborn.pydata.org">seaborn</a><a class="headerlink" href="#term-seaborn" title="Permalink to this term">¶</a></dt><dd><p>seaborn is based on matplotlib and is used to make statistical graphics</p>
+</dd>
+<dt id="term-plotly"><a class="reference external" href="https://plotly.com/python/">plotly</a><a class="headerlink" href="#term-plotly" title="Permalink to this term">¶</a></dt><dd><p>plotly python allows to make quality interactive graphs, plotly is at the base of <a class="reference external" href="https://dash.plotly.com">dash</a> a framework to quickly create web data applications.</p>
+</dd>
+<dt id="term-bokeh"><a class="reference external" href="https://docs.bokeh.org/en/latest/">bokeh</a><a class="headerlink" href="#term-bokeh" title="Permalink to this term">¶</a></dt><dd><p>bokeh is a library for creating interactive visualizations for web browsers and dashboards.</p>
+</dd>
+<dt id="term-holoviews"><a class="reference external" href="https://holoviews.org">holoviews</a><a class="headerlink" href="#term-holoviews" title="Permalink to this term">¶</a></dt><dd><p>holoviews helps visualizing data for exploration rather that to create graphs</p>
+</dd>
+<dt id="term-hvPlot"><a class="reference external" href="https://hvplot.holoviz.org">hvPlot</a><a class="headerlink" href="#term-hvPlot" title="Permalink to this term">¶</a></dt><dd><p>hvPlot provides a high-level plotting API built on HoloViews that provides a general and consistent API for plotting data in a wide variety of formats.</p>
+</dd>
+<dt id="term-home-runner-work-BigData-BigData-BigData-tools-python2.md-25-WARNING-2-Reference-not-found"><a class="headerlink" href="#term-home-runner-work-BigData-BigData-BigData-tools-python2.md-25-WARNING-2-Reference-not-found" title="Permalink to this term">¶</a></dt><dd><p>GeoViews makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets. Is is built on holoviews</p>
+</dd>
+<dt id="term-xhistogram"><a class="reference external" href="https://xhistogram.readthedocs.io/en/latest/">xhistogram</a> <a class="headerlink" href="#term-xhistogram" title="Permalink to this term">¶</a></dt><dd><p>xhistogram Xhistogram makes it easier to calculate flexible, complex histograms with multi-dimensional data. It integrates with xarray and dask.</p>
+</dd>
+</dl>
+<p>—-COMMENT: this part is even more a work in progress than others!</p>
+</div>
+<div class="section" id="interfaces-to-other-software">
+<h1>Interfaces to other software<a class="headerlink" href="#interfaces-to-other-software" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary simple">
+<dt id="term-CDO-python"><a class="reference external" href="https://code.mpimet.mpg.de/projects/cdo/wiki/Cdo%7Brbpy%7D">CDO-python</a><a class="headerlink" href="#term-CDO-python" title="Permalink to this term">¶</a></dt><dd><p>CDO for python is a wrapper around the CDO binary. It parses method arguments and options, builds a command line and executes it. NB (Scott has a regridding function that exploit this)</p>
+</dd>
+<dt id="term-PyNCML"><a class="reference external" href="https://github.com/axiom-data-science/pyncml">PyNCML</a><a class="headerlink" href="#term-PyNCML" title="Permalink to this term">¶</a></dt><dd><p>PyNCML is a simple python library to apply NcML logic to NetCDF files. (last updates were in 2017 potentially obsolete)</p>
+</dd>
+<dt id="term-PyNIO"><a class="reference external" href="http://www.pyngl.ucar.edu/Nio.shtml">PyNIO</a><a class="headerlink" href="#term-PyNIO" title="Permalink to this term">¶</a></dt><dd><p>PyNIO is a python interface to NCL, as NCL is currently in maintenance node (last updates were in 2019)</p>
+</dd>
+<dt id="term-PyNGL"><a class="reference external" href="http://www.pyngl.ucar.edu">PyNGL</a><a class="headerlink" href="#term-PyNGL" title="Permalink to this term">¶</a></dt><dd><p>PyNGL is also an interface to NCL but for visualization</p>
+</dd>
+</dl>
+<p>—-COMMENT!!! This section could be moved elsewhere? I’m not sure what’s the best placement maybe after dealing with data formats and visualization? hence it appears twice —-</p>
+</div>
+<div class="section" id="working-in-parallel">
+<h1>Working in parallel<a class="headerlink" href="#working-in-parallel" title="Permalink to this headline">¶</a></h1>
+<p>–COMMENT I’ve copied most of the dask definition from what Scott had in the coputations notebook. Probably, aside fro the first paragraph, the rest could be better used in an introduction/compariosn with the other libraries here.</p>
+<dl class="glossary simple">
+<dt id="term-Dask"><a class="reference external" href="https://docs.dask.org/en/stable/">Dask</a><a class="headerlink" href="#term-Dask" title="Permalink to this term">¶</a></dt><dd><p>Dask is a library for working with larger-than memory arrays and parallel data analysis transparently. Xarray can use Dask arrays as a backend when opening a netCDF file with the chunks attribute, and Dask has its own Pandas-like DataFrame implementation. Dask splits an array up into chunks. When doing operations on a Dask array, rather than evaluating the operation immediately Dask will create a task graph of what operations need to be run to create the output array chunks from the input array chunks. The task graph is only evaluated when results are needed (e.g. by saving to a file or creating a plot), and different chunks can be evaluated in parallel. Dask usually can work with your existing code with just small modifications, it will try to work out the best scaling based on the memory and cpus it detects on the system. You can tune dask performance using the thread/process mixture to deal with GIL-holding computations (which are rare in Numpy/Pandas/Scikit-Learn workflows). It is best to start a [dask.distributed.Client]{<a class="reference external" href="https://docs.dask.org/en/latest/how-to/deploy-dask/single-distributed.html">https://docs.dask.org/en/latest/how-to/deploy-dask/single-distributed.html</a>} to allow Dask to process data in parallel with multiple processes.</p>
+</dd>
+<dt id="term-multiprocessing"><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a><a class="headerlink" href="#term-multiprocessing" title="Permalink to this term">¶</a></dt><dd><p>The built-in Python multiprocessing library has low-level tools for parallel computing. You can create a ‘pool’ of processes, then given a function and a list of arguments it can run that function on each argument in parallel.</p>
+</dd>
+<dt id="term-mpi4py"><a class="reference external" href="https://mpi4py.readthedocs.io/en/stable/">mpi4py</a><a class="headerlink" href="#term-mpi4py" title="Permalink to this term">¶</a></dt><dd><p>mpi4py is an implementation of the MPI library for Python, from which you can create parallel methods the same way as Fortran sending data between processes via messages.</p>
+</dd>
+<dt id="term-xarray-beam"><a class="reference external" href="https://xarray-beam.readthedocs.io/en/latest/">xarray-beam</a><a class="headerlink" href="#term-xarray-beam" title="Permalink to this term">¶</a></dt><dd><p>xarray-beam is a library for writing Apache Beam pipelines consisting of xarray Dataset objects. This is a new module in development as part of the Pangeo stack. The main aim of xarray-beam is to provide an alternative to dask in climate data analysis cases where applying dask is not suitable or efficient. Xarray-beam aims to facilitate data transformations and analysis on large-scale multi-dimensional labeled arrays. (provide examples???)</p>
+</dd>
+</dl>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="python1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="rcran.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">R</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By ACD Working Group<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

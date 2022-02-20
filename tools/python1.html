@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python &#8212; Working with Big/Challenging Data Collections</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data handling in Python" href="python2.html" />
+    <link rel="prev" title="Available tools and their best use" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Working with Big/Challenging Data Collections</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Accessing data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../platforms.html">
+   Computing Platforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accessing_data.html">
+   Methods of accessing data and metadata
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data storage
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data_storage.html">
+   Data storage methods for big datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../nczarr_test.html">
+     In-depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       nczarr
+      </span>
+     </code>
+     testing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Metadata
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../format_metadata.html">
+   Data formats, variables, and metadata
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Computations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computations.html">
+   Computations with large datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Available tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Available tools and their best use
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python2.html">
+     Data handling in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rcran.html">
+     R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="other.html">
+     MATLAB
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../help.html">
+   Where to get help
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tools/python1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ACDguide/BigData"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/python1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development-environments">
+   Development environments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-and-environment-management">
+   Package and environment management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#community">
+   Community
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iris">
+     Iris
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning-packages">
+     Machine learning packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#climate-science-related-packages">
+     Climate science related packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-packages">
+     Other Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development-environments">
+   Development environments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-and-environment-management">
+   Package and environment management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#community">
+   Community
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iris">
+     Iris
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning-packages">
+     Machine learning packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#climate-science-related-packages">
+     Climate science related packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-packages">
+     Other Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="python">
+<span id="id1"></span><h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets.</p>
+<div class="section" id="development-environments">
+<span id="jupyter"></span><h2>Development environments<a class="headerlink" href="#development-environments" title="Permalink to this headline">¶</a></h2>
+<p>—COMMENT should have an introductory paragraph for comparison of packages</p>
+<dl class="glossary simple">
+<dt id="term-jupyter"><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/">jupyter</a><a class="headerlink" href="#term-jupyter" title="Permalink to this term">¶</a></dt><dd><p>Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization, machine learning, and much more. While jupyter is a python package it supports more than 40 languages including R, Julia and of course python.</p>
+</dd>
+<dt id="term-jupyterlab"><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">jupyterlab</a> <a class="headerlink" href="#term-jupyterlab" title="Permalink to this term">¶</a></dt><dd><p>JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.</p>
+</dd>
+<dt id="term-spyder"><a class="reference external" href="https://www.spyder-ide.org">spyder</a><a class="headerlink" href="#term-spyder" title="Permalink to this term">¶</a></dt><dd><p>Spyder is a graphical user interface that provides an interface similar to matlab.</p>
+</dd>
+<dt id="term-PyCharm"><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a><a class="headerlink" href="#term-PyCharm" title="Permalink to this term">¶</a></dt><dd><p>PyCharm is a python IDE, not all the versions are free, but a free license is available for single accademic use for the PyCharm Community editon and the <a class="reference external" href="https://www.jetbrains.com/pycharm-edu/">Educational</a> edition. The educational edition includes python training modules.</p>
+</dd>
+<dt id="term-VSCode">[VSCode]<a class="headerlink" href="#term-VSCode" title="Permalink to this term">¶</a></dt><dd><p>VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager">Python</a>, <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a> and <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a>. !!!! this needs review from someone who actually use VSCode!!!!</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="package-and-environment-management">
+<h2>Package and environment management<a class="headerlink" href="#package-and-environment-management" title="Permalink to this headline">¶</a></h2>
+<p>–COMMENT needs introduction</p>
+<dl class="glossary simple">
+<dt id="term-conda"><a class="reference external" href="https://conda.io">conda</a><a class="headerlink" href="#term-conda" title="Permalink to this term">¶</a></dt><dd><p>Conda is an open source package management system and environment management system that runs on Windows, macOS and Linux. Conda quickly installs, runs and updates packages and their dependencies. Conda easily creates, saves, loads and switches between environments on your local computer. It was created for Python programs, but it can package and distribute software for any language.</p>
+</dd>
+<dt id="term-Anaconda"><a class="reference external" href="https://www.anaconda.com/">Anaconda</a><a class="headerlink" href="#term-Anaconda" title="Permalink to this term">¶</a></dt><dd><p>Anaconda contains pretty much all the python libraries you would want to get started, great for newcomers but takes up a lot of space. Not recommended on shared systems with quotas but good on local laptops. Includes Spyder, a Matlab-like programming environment (IDE).</p>
+</dd>
+<dt id="term-miniconda"><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a><a class="headerlink" href="#term-miniconda" title="Permalink to this term">¶</a></dt><dd><p>A lightweight version of anaconda which by default only includes core libraries, good for building specific environments for data analysis. This underpins the <code class="docutils literal notranslate"><span class="pre">conda</span></code> modules in the <code class="docutils literal notranslate"><span class="pre">hh5</span></code> project at NCI.</p>
+</dd>
+<dt id="term-mamba"><a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a><a class="headerlink" href="#term-mamba" title="Permalink to this term">¶</a></dt><dd><p>mamba is a fast, robust, and cross-platform package manager.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="community">
+<h2>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h2>
+<p>–COMMENT needs introduction</p>
+<dl class="glossary simple">
+<dt id="term-Pangeo"><a class="reference external" href="https://pangeo.io/">Pangeo</a><a class="headerlink" href="#term-Pangeo" title="Permalink to this term">¶</a></dt><dd><p>Pangeo is a community of people working collaboratively to develop software and infrastructure to enable Big Data geoscience research. A Pangeo environment is made of up of many different open-source software packages for ocean, atmosphere, land and climate science.</p>
+</dd>
+<dt id="term-PyAOS"><a class="reference external" href="https://pyaos.github.io">PyAOS</a><a class="headerlink" href="#term-PyAOS" title="Permalink to this term">¶</a></dt><dd><p>PyAOS is a community project that offers a stack of python libraries used by the Atmosphere and Ocean Science communities.</p>
+</dd>
+<dt id="term-ProjectPythia"><a class="reference external" href="https://projectpythia.org/">ProjectPythia</a><a class="headerlink" href="#term-ProjectPythia" title="Permalink to this term">¶</a></dt><dd><p>Project Pythia aims to provide a public, web-accessible training resource that will help educate current, and aspiring, earth scientists to more effectively use both the Scientific Python Ecosystem and Cloud Computing to make sense of huge volumes of numerical scientific data</p>
+</dd>
+<dt id="term-EarthPy"><a class="reference external" href="http://earthpy.org">EarthPy</a><a class="headerlink" href="#term-EarthPy" title="Permalink to this term">¶</a></dt><dd><p>EarthPy is a collection of IPython notebooks with examples of Earth Science related Python code: tutorials, descriptions of the modules, small scripts, or just tricks. They welcome contributions.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="analysis">
+<span id="pyanalysis"></span><h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<p>The three main python packages used in climate science are numpy, pandas and xarray. Lots of the other analysis are based of them, xarray is itself based on pandas which is based on numpy.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<a class="reference external" href="https://numpy.org/doc/stable/"><strong>Numpy: numerical math</strong></a><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.</p>
+<p class="card-text">At the core of the NumPy package, is the ndarray object. This encapsulates n-dimensional arrays of homogeneous data types, with many operations being performed in compiled code for performance. There are several important differences between NumPy arrays and the standard Python sequences:</p>
+<ul class="simple">
+<li><p class="card-text">NumPy arrays have a fixed size at creation, unlike Python lists (which can grow dynamically). Changing the size of a ndarray will create a new array and delete the original.</p></li>
+<li><p class="card-text">The elements in a NumPy array are all required to be of the same data type, and thus will be the same size in memory. The exception: one can have arrays of (Python, including NumPy) objects, thereby allowing for arrays of different sized elements.</p></li>
+<li><p class="card-text">NumPy arrays facilitate advanced mathematical and other types of operations on large numbers of data. Typically, such operations are executed more efficiently and with less code than is possible using Python’s built-in sequences.
+A growing plethora of scientific and mathematical Python-based packages are using NumPy arrays; though these typically support Python-sequence input, they convert such input to NumPy arrays prior to processing, and they often output NumPy arrays. In other words, in order to efficiently use much (perhaps even most) of today’s scientific/mathematical Python-based software, just knowing how to use Python’s built-in sequence types is insufficient - one also needs to know how to use NumPy arrays.<br>
+Extract from the <a class="reference external" href="https://numpy.org/doc/stable/user/whatisnumpy.html">package documentation</a></p></li>
+</ul>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<a class="reference external" href="https://pandas.pydata.org/docs/index.html"><strong>Pandas: tabular labeled data</strong></a><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Built to work with tabular and timeseries data and make use of relational and label infomration associated with the main data. Pandas is useful to slice, index, group data in complex ways. It has timeseries specific functionalities that makes working with time axis much easier. Pandas is based on numpy, it is itself the base for xarray and integrates well with other libraries. Pandas has two main data structures Series which is a 1-dimensional homogeneous array, and Dataframe which is a 2-dimensional tabular format.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<a class="reference external" href="http://xarray.pydata.org/en/stable/"><strong>Xarray: multidimensional labeled data</strong></a><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">xarray (formerly xray) is an open source project and Python package that makes working with labeled multi-dimensional arrays simple, efficient, and fun!</p>
+<p class="card-text">Xarray introduces labels in the form of dimensions, coordinates, and attributes on top of raw NumPy-like arrays, which allows for a more intuitive, more concise, and less error-prone developer experience. The package includes a large and growing library of domain-agnostic functions for advanced analytics and visualization with these data structures.</p>
+<p class="card-text">Xarray is inspired by and borrows heavily from pandas, the popular data analysis package focused on labeled tabular data. It is particularly tailored to working with netCDF files, which were the source of xarray’s data model, and integrates tightly with dask for parallel computing.
+Extract from the <a class="reference external" href="http://xarray.pydata.org/en/stable/">package documentation</a>
+Xarray depends on numpy and pandas, it can use several other python packages as optional dependencies. A full list is available on the <a class="reference external" href="http://xarray.pydata.org/en/stable/getting-started-guide/installing.html">installation page</a> of its documentation. As long as these packages are already installed, they can be used directly from xarray. Examples are matplotlib, dask and netcdf4. The hh5 conda environments available on the NCI servers will have all these dependencies except for PyNIO and pseudonetcdf.</p>
+</div>
+</details><p>When to use numpy vs pandas vs xarray?<br>
+As most big climate data is multidimensional and stored as netCDF files, xarray is usually the best tool to base your analysis. Still numpy and pandas can be faster than xarray for certain operations. For example pandas is faster for groupby operation and generally querying data.<br>
+As numpy is the base of the other two packages even when your analysis is not fully based on numpy, you are often dealing with numpy arrays and operations when using them.<br>
+Xarray provides several ways to convert your arrays to and from pandas dataframes and the arrays values are numpy arrays. So these three packages can and are often used interchangeably in the same analysis code.<br>
+The table below provides a schematic of the main differences, more on the reletionship between xarray and pandas is also available from the <a class="reference external" href="http://xarray.pydata.org/en/stable/getting-started-guide/faq.html">xarray FAQ page</a>.<br></p>
+<table class="table" id="np-pd-xr-table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Numpy</p></th>
+<th class="head"><p>Pandas</p></th>
+<th class="head"><p>Xarray</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Best use</p></td>
+<td><p>numerical computations</p></td>
+<td><p>tabular data analysis</p></td>
+<td><p>multidim labeled data analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data structure</p></td>
+<td><p>homogeneous array</p></td>
+<td><p>Series (columns), Dataframes (table)</p></td>
+<td><p>Labelled data arrays and datasets</p></td>
+</tr>
+<tr class="row-even"><td><p>Data input/output</p></td>
+<td><p>Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and zarr. Can output binary, csv, txt files</p></td>
+<td><p>Read/write <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">many formats</a>, including hdf5, for netcdf you need other libraries</p></td>
+<td><p>best tool for netcdf, including multiple files at once, includes support for openDAP and compression, chunks can easily convert arrays to pandas and numpy (<a class="reference external" href="http://xarray.pydata.org/en/stable/user-guide/io.html">http://xarray.pydata.org/en/stable/user-guide/io.html</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vectorised operations</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Dimensions</p></td>
+<td><p>multi-dimensional</p></td>
+<td><p>2D with multi-index support</p></td>
+<td><p>multi-dimensional</p></td>
+</tr>
+<tr class="row-odd"><td><p>Time handling</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed</p></td>
+<td><p>Faster &lt; 50K elements, fast indexing</p></td>
+<td><p>Faster &gt; 500K rows</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Based on</p></td>
+<td><p>C uses multiple functionalities</p></td>
+<td><p>R provides similar functions</p></td>
+<td><p>pandas</p></td>
+</tr>
+<tr class="row-even"><td><p>memory use</p></td>
+<td><p>more efficient</p></td>
+<td><p>uses more memory</p></td>
+<td><p>uses more memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>Plotting</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Attributes</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Labels selection</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<p>As xarray gains popularity there are more and more xarray based packages.
+A list of the major ones is provided by on the <a class="reference external" href="http://xarray.pydata.org/en/stable/ecosystem.html">package documentation</a>.
+Some extends the formats supported by xarray, others are used for specific analysis.</p>
+<div class="section" id="iris">
+<span id="id2"></span><h3>Iris<a class="headerlink" href="#iris" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://scitools-iris.readthedocs.io/en/stable">Iris</a> is an alternative general analysis package to xarray. It is developed by the UK MetOffice as part of their <a class="reference external" href="https://scitools.org.uk">SciTools</a> stack, as <a class="reference internal" href="python2.html#term-cartopy"><span class="xref std std-term">cartopy</span></a> and <a class="reference internal" href="python2.html#term-cfunits"><span class="xref std std-term">cfunits</span></a>. Iris is specifically designed for weather, climate and ocean data, so has a lot of relevant functions and examples. Iris requires CF compliance for netCDF files, as it uses these conventions as a data model.
+Iris can also handle both grib (1 and 2) formats and pp binary files. These last are specific to the UK MetOffice and is what the UM atmospheric uses as a output format.
+<a class="reference external" href="https://scipy.github.io/devdocs/index.html">SciPy</a> is a collection of mathematical algorithms and convenience functions built on NumPy. SciPy is still a core dependency of Iris but it is not as often used now for analysis on its own</p>
+</div>
+<div class="section" id="machine-learning-packages">
+<h3>Machine learning packages<a class="headerlink" href="#machine-learning-packages" title="Permalink to this headline">¶</a></h3>
+<p>—COMMENT just starting this, so feel free to add on/edit etc freely</p>
+<p>PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments.</p>
+<dl class="glossary simple">
+<dt id="term-scikit-learn"><a class="reference external" href="https://scikit-learn.org">scikit-learn</a><a class="headerlink" href="#term-scikit-learn" title="Permalink to this term">¶</a></dt><dd><p>Scikit-learn is …</p>
+</dd>
+<dt id="term-PyTorch"><a class="reference external" href="https://pytorch.org">PyTorch</a><a class="headerlink" href="#term-PyTorch" title="Permalink to this term">¶</a></dt><dd><p>PyTorch is a ML framework based on the C library Torch. Basic data structure is a tensor. It allows to write highly customized neural network components.</p>
+</dd>
+<dt id="term-TensorFlow"><a class="reference external" href="https://www.tensorflow.org">TensorFlow</a><a class="headerlink" href="#term-TensorFlow" title="Permalink to this term">¶</a></dt><dd><p>TensorFlow is developed by Google to develop and train ML models. Basic data structure is a tensor.</p>
+</dd>
+<dt id="term-Keras"><a class="reference external" href="https://keras.io">Keras</a><a class="headerlink" href="#term-Keras" title="Permalink to this term">¶</a></dt><dd><p>Keras …</p>
+</dd>
+</dl>
+<p>—- Work in progress!!! —-
+The following two paragraph with lists could be unified or separated in a more coherent way
+This is because I’m trying to move further into separating packages based on functionality rather than origin. However, I would still like to put somewhere a “NB” this is a development package for stuff like xmhw</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="climate-science-related-packages">
+<h3>Climate science related packages<a class="headerlink" href="#climate-science-related-packages" title="Permalink to this headline">¶</a></h3>
+<p>—COMMENT needs intro
+Some of these packages were developed for very specific tasks from members of the climate community. While their scope is limited and the packages might be maintained on a need base, they still can be very useful as they have been tailored to the community needs.</p>
+<dl class="glossary simple">
+<dt id="term-climate-indices"><a class="reference external" href="https://climate-indices.readthedocs.io/en/latest/">climate-indices</a><a class="headerlink" href="#term-climate-indices" title="Permalink to this term">¶</a></dt><dd><p>climate-indices provides implementations of various climate index algorithms in python.</p>
+</dd>
+<dt id="term-climpred"><a class="reference external" href="https://climpred.readthedocs.io/en/stable/">climpred</a><a class="headerlink" href="#term-climpred" title="Permalink to this term">¶</a></dt><dd><p>climpred is a library that helps assessing weather and climate forecast output against a validation product.</p>
+</dd>
+<dt id="term-ClimTas"><a class="reference external" href="https://climtas.readthedocs.io/en/latest/">ClimTas</a><a class="headerlink" href="#term-ClimTas" title="Permalink to this term">¶</a></dt><dd><p>Climtas is a package for working with large climate analyses. It focuses on the time domain with custom functions for Xarray and Dask data.</p>
+</dd>
+<dt id="term-cmip6-preprocessing"><a class="reference external" href="https://cmip6-preprocessing.readthedocs.io/">cmip6-preprocessing</a><a class="headerlink" href="#term-cmip6-preprocessing" title="Permalink to this term">¶</a></dt><dd><p>cmip6-preprocessing offers tools for cleaning/standardization of the metadata associated with CMIP6 data files</p>
+</dd>
+<dt id="term-Cosima-cookbook"><a class="reference external" href="https://github.com/COSIMA/cosima-cookbook">Cosima cookbook</a><a class="headerlink" href="#term-Cosima-cookbook" title="Permalink to this term">¶</a></dt><dd><p>Cosima Cookbook is a framework for analysing model output from the ACCESS-OM2 suite of ocean-sea ice models. The model output itself is usually available at NCI where the cookbook is centrally installed in the hh5 project conda environments (possibly also the NCI python env?)</p>
+</dd>
+<dt id="term-ESMValTool"><a class="reference external" href="https://docs.esmvaltool.org/">ESMValTool</a><a class="headerlink" href="#term-ESMValTool" title="Permalink to this term">¶</a></dt><dd><p>ESMValTool is community-based a framework to perform diagnostics and performance metrics for the evaluation of CMIP models</p>
+</dd>
+<dt id="term-marineHeatWaves"><a class="reference external" href="http://www.marineheatwaves.org">marineHeatWaves</a><a class="headerlink" href="#term-marineHeatWaves" title="Permalink to this term">¶</a></dt><dd><p>calculate MHW statistics for one grid point, mostly numpy based</p>
+</dd>
+<dt id="term-PMP-PCMDI-Metrics-Package"><a class="reference external" href="http://pcmdi.github.io/pcmdi_metrics/index.html">PMP - PCMDI Metrics Package</a><a class="headerlink" href="#term-PMP-PCMDI-Metrics-Package" title="Permalink to this term">¶</a></dt><dd><p>PMP provides a variety of metrics to quickly produce summary statistics comparing climate model simulations and available observations</p>
+</dd>
+<dt id="term-xclim"><a class="reference external" href="https://xclim.readthedocs.io/en/stable/">xclim</a><a class="headerlink" href="#term-xclim" title="Permalink to this term">¶</a></dt><dd><p>xclim is a library of functions to compute climate indices from observations or model simulations.</p>
+</dd>
+<dt id="term-xmhw"><a class="reference external" href="https://github.com/coecms/xmhw">xmhw</a><a class="headerlink" href="#term-xmhw" title="Permalink to this term">¶</a></dt><dd><p>as marineHeatWaves but based on xarray and dask, taking care of MHW detection and statistics for a multidimensional grid.</p>
+</dd>
+<dt id="term-wrf-python"><a class="reference external" href="https://wrf-python.readthedocs.io/en/latest/">wrf-python</a><a class="headerlink" href="#term-wrf-python" title="Permalink to this term">¶</a></dt><dd><p>wrf-python is a collection of diagnostic and interpolation routines for use with output of the Weather Research and Forecasting (WRF-ARW) Model.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="other-packages">
+<h3>Other Packages<a class="headerlink" href="#other-packages" title="Permalink to this headline">¶</a></h3>
+<p>—COMMENT still need intro, better title , basically I’m chucking here anything which isn’t “exclusive” for climate and it’s used for analysis</p>
+<p>Also unless we have some specific to say about these packages we could just refer to several existing lists. Provided we don’t need to create references to them in other part of the book.</p>
+<dl class="glossary simple">
+<dt id="term-eof"><a class="reference external" href="https://ajdawson.github.io/eofs/latest/">eof</a><a class="headerlink" href="#term-eof" title="Permalink to this term">¶</a></dt><dd><p>eof is used for EOF (empirical orthogonal functions) analysis. NB eof has also an interface for Iris.</p>
+</dd>
+<dt id="term-gsw-Python"><a class="reference external" href="https://teos-10.github.io/GSW-Python/">gsw-Python</a><a class="headerlink" href="#term-gsw-Python" title="Permalink to this term">¶</a></dt><dd><p>gsw-Python is an implementation of the Thermodynamic Equation of Seawater 2010 (TEOS-10). It is based primarily on numpy ufunc wrappers of the GSW-C implementation.
+It aims to replace python-gsw which is purely python based.</p>
+</dd>
+<dt id="term-metpy"><a class="reference external" href="https://unidata.github.io/MetPy/latest/index.html">metpy</a><a class="headerlink" href="#term-metpy" title="Permalink to this term">¶</a></dt><dd><p>MetPy is a collection of tools in Python for reading, visualizing, and performing calculations with weather data.</p>
+</dd>
+<dt id="term-Py-ART"><a class="reference external" href="https://arm-doe.github.io/pyart/">Py-ART</a><a class="headerlink" href="#term-Py-ART" title="Permalink to this term">¶</a></dt><dd><p>Py-ART the Python ARM Radar Toolkit is a collection of weather and radar utilities</p>
+</dd>
+<dt id="term-windspharm"><a class="reference external" href="https://ajdawson.github.io/windspharm/latest/">windspharm</a><a class="headerlink" href="#term-windspharm" title="Permalink to this term">¶</a></dt><dd><p>windspharm is a package for performing computations on global wind fields in spherical geometry.</p>
+</dd>
+<dt id="term-xrft"><a class="reference external" href="https://xrft.readthedocs.io/en/latest/">xrft</a><a class="headerlink" href="#term-xrft" title="Permalink to this term">¶</a></dt><dd><p>xrft is used for taking the discrete Fourier transform (DFT) on xarray and dask arrays</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Available tools and their best use</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data handling in Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By ACD Working Group<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

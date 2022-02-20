@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Identifying which languages/tools are best suited to specific tasks" href="different_tools.html" />
+    <link rel="next" title="Available tools and their best use" href="tools/intro.html" />
     <link rel="prev" title="Data formats, variables, and metadata" href="format_metadata.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -175,10 +175,37 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="different_tools.html">
-   Identifying which languages/tools are best suited to specific tasks
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools/intro.html">
+   Available tools and their best use
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/python1.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/python2.html">
+     Data handling in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/rcran.html">
+     R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/other.html">
+     MATLAB
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -302,6 +329,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-tools">
+   General tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-line-tools">
+     Command-line tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-languages-matlab-r-etc">
+     Other languages (Matlab, R, etc.)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-tasks">
    Common Tasks
   </a>
@@ -380,6 +424,23 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-tools">
+   General tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-line-tools">
+     Command-line tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-languages-matlab-r-etc">
+     Other languages (Matlab, R, etc.)
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-tasks">
    Common Tasks
@@ -522,6 +583,23 @@
 </div>
 </div>
 </div>
+<div class="section" id="general-tools">
+<h2>General tools<a class="headerlink" href="#general-tools" title="Permalink to this headline">¶</a></h2>
+<p>If you are a <a class="reference internal" href="tools/python1.html#python"><span class="std std-ref">Python</span></a> user, the most useful packages for climate data are <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">numpy</span></a>, <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="tools/python2.html#term-Dask"><span class="xref std std-term">dask</span></a> to work with larger-than memory arrays and parallel data analysis transparently.</p>
+<p>Other useful packages are <a class="reference internal" href="tools/python2.html#term-multiprocessing"><span class="xref std std-term">multiprocessing</span></a> for simple workflows or <a class="reference internal" href="tools/python2.html#term-mpi4py"><span class="xref std std-term">mpi4py</span></a> which is an implementation of the MPI library for Python.</p>
+<p>If you are a <a class="reference internal" href="tools/other.html#fortran"><span class="std std-ref">Fortran/C</span></a> user then <a class="reference internal" href="tools/other.html#mpi"><span class="std std-ref">MPI - Message Passing Interface</span></a> is a low-level library, which is very flexible but also more difficult to set up.</p>
+<div class="section" id="command-line-tools">
+<h3>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="tools/other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="tools/other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> are powerful command line tools.</p>
+<p>For large datasets, if you can process each file independently you can parallelise using e.g. <a class="reference external" href="https://www.gnu.org/software/parallel/">GNU Parallel</a> or a Python <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool.map</span></code>.</p>
+<p>You can also use multiple parallel threads in CDO with <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">-P</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code> and in NCO with <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--thr_nbr</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code></p>
+</div>
+<div class="section" id="other-languages-matlab-r-etc">
+<h3>Other languages (Matlab, R, etc.)<a class="headerlink" href="#other-languages-matlab-r-etc" title="Permalink to this headline">¶</a></h3>
+<p>While we’re not aware of anything quite as nice as Xarray and Dask for other languages, most languages have libraries for reading NetCDF files and working with MPI.</p>
+<p>If you have suggestions for other libraries we can list here please let us know by <a class="reference external" href="https://github.com/ACDguide/BigData/issues/new">opening a ticket</a></p>
+</div>
+</div>
 <div class="section" id="common-tasks">
 <h2>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this headline">¶</a></h2>
 <p>The chunking illustrations in this section show approximately how these operations are done in Xarray + Dask, to give an idea of their complexity when working with large datasets and a basic idea of how these operations can be implemented manually. Normal arrows mean one chunk on the left gets mapped to one chunk on the right, a left square bracket means the number of chunks is reduced after this operation, a right square bracket means the number of chunks is increased. The most intensive operations are rechunking, as these require a lot of data in-memory, which are indicated with a large square bracket on both left and right.</p>
@@ -570,7 +648,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_3_0.png" src="_images/computations_3_0.png" />
+<img alt="_images/computations_4_0.png" src="_images/computations_4_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -621,7 +699,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_5_0.png" src="_images/computations_5_0.png" />
+<img alt="_images/computations_6_0.png" src="_images/computations_6_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -673,7 +751,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_8_0.png" src="_images/computations_8_0.png" />
+<img alt="_images/computations_9_0.png" src="_images/computations_9_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -723,7 +801,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_11_0.png" src="_images/computations_11_0.png" />
+<img alt="_images/computations_12_0.png" src="_images/computations_12_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -773,7 +851,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_14_0.png" src="_images/computations_14_0.png" />
+<img alt="_images/computations_15_0.png" src="_images/computations_15_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -861,7 +939,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_18_0.png" src="_images/computations_18_0.png" />
+<img alt="_images/computations_19_0.png" src="_images/computations_19_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -935,10 +1013,10 @@
             <p class="prev-next-title">Data formats, variables, and metadata</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="different_tools.html" title="next page">
+    <a class='right-next' id="next-link" href="tools/intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Identifying which languages/tools are best suited to specific tasks</p>
+        <p class="prev-next-title">Available tools and their best use</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
