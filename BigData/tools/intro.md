@@ -1,6 +1,7 @@
 # Available tools and their best use
 
-There are many languages and packages available to analyse and handle data. Each of them will have its own strengths and weaknesses, this section of the book aims to help identifying which languages/tools are best suited to specific tasks.
+There are many languages and packages available to analyse and handle data. Each has its own strengths and weaknesses, but this section aims to help identify which languages/tools are best suited to specific tasks.
+
 To identify the best tool/s for a task the following factors should be considered:
 
 - the data: most languages and packages provide the same or overlapping functionalities, so often the data format, size and the way it is structured determines which tool is best.
