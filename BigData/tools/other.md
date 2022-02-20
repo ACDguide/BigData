@@ -37,5 +37,6 @@ Resources
 * [MPI function list](https://www.open-mpi.org/doc/current/)
 * [MPI standard](https://www.mpi-forum.org/docs/)
 
-We tried to list most of libraries and packages we know of that are used in climate science. There are many other potentially useful.<br>
+We tried to list most of libraries and packages we know of that are used in climate science. There are many other potentially useful tools not included here.<br>
+
 If you have suggestions for other libraries we can list here please let us know by [opening a ticket](https://github.com/ACDguide/BigData/issues/new).
