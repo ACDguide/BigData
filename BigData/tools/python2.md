@@ -67,6 +67,7 @@ Some HDF files can also be read as raster using libraries like rio-xarray.
 
 ## Other raster data access
 While less commonly used in core climate science research, geographical data formats as raster data is not uncommon in meteorology and GIS data is becoming more common in climate adaptation and impact studies.
+An example of this is the [Cloud Optimised GeoTIFF](https://www.cogeo.org) (COG)format, which is becoming more popular to serve satellite data on cloud servers. 
 As for the hdf format there is a variety of libraries whose usefulness will depend on the exact nature of your raster or GIS data. 
 
 ```{glossary}
@@ -117,7 +118,7 @@ As for the hdf format there is a variety of libraries whose usefulness will depe
 ## General purpose packages 
 
 The following packages are not specific to climate or science but they are really useful to handle generic tasks. `os` and `sys` perform operating system functions and together with `glob` are useful to handle directories and files. Datetime and calendar help managing time related information. The package `csv` is useful to handle tabular ascii data, while `pyyaml` and `json` are often used for configuration files as well as other kind of metadata. 
-Finally to pass input parameters to python script you can use sys.argv() function for a basic approach, `argparse` and `click` provide more features. Both packages provides automatically generated help message, you can define input type, default and valid values. The package click is also used to create command-line based programs. 
+Finally to pass input parameters to python script you can use sys.argv() function for a basic approach, `argparse` and `click` provide more features. Both packages provides automatically generated help message, you can define input type, default and valid values. The package `click` is also used to create command-line based programs. 
 Some of these modules are distributed with the main python library (indicated with *). You still need to import them in a script but there is no need to install them.
 
 ---COMMENT: as for all the other introduction this could be massively improved, particularly in terms of highlighting usage of time related libraries.
@@ -233,7 +234,7 @@ Other packages to consider are seaborn, holoviews, plotly.
     PyNIO is a python interface to NCL, as NCL is currently in maintenance node (last updates were in 2019)
 
 [PyNGL](http://www.pyngl.ucar.edu)
-    PyNGL is alsoan interface to NCL but for visualization
+    PyNGL is also an interface to NCL but for visualization
 
 ```
 ----COMMENT!!! This section could be moved elsewhere? I'm not sure what's the best placement maybe after dealing with data formats and visualization? hence it appears twice ----
@@ -252,6 +253,6 @@ Other packages to consider are seaborn, holoviews, plotly.
     mpi4py is an implementation of the MPI library for Python, from which you can create parallel methods the same way as Fortran sending data between processes via messages.
 
 [xarray-beam](https://xarray-beam.readthedocs.io/en/latest/)
-    xarray-beam is a library for writing Apache Beam pipelines consisting of xarray Dataset objects. This is a new module in development as part of the PyAOS stack. The main aim of xarray-beam is to provide an alternative to dask in climate data analysis cases where applying dask is not suitable or efficient. Xarray-beam aims to facilitate data transformations and analysis on large-scale multi-dimensional labeled arrays. (provide examples???)
+    xarray-beam is a library for writing Apache Beam pipelines consisting of xarray Dataset objects. This is a new module in development as part of the Pangeo stack. The main aim of xarray-beam is to provide an alternative to dask in climate data analysis cases where applying dask is not suitable or efficient. Xarray-beam aims to facilitate data transformations and analysis on large-scale multi-dimensional labeled arrays. (provide examples???)
 
 ```

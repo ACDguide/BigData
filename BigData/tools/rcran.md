@@ -2,14 +2,31 @@
 # R
 This is a free, open-source statistical programming language. It is used mainly in research, but it is also a standard tool in many organisations. This tool is great for statistical analysis.
 
-`dplyr, tidyr, tidyverse` - Dataframe manipulation
+
+## Tidyverse
+[tidyverse](https://www.tidyverse.org) is a collection of packages designed for data science, they share the same design and data structures. .... (followed by list of tidyverse packages) ...
 
 ```{glossary}
 [ggplot2](https://ggplot2.tidyverse.org)
      - Creating graphics
 
+[dplyr](https://dplyr.tidyverse.org)
+   dplyr helps with common data manipulation like selcting, filtering, adding or rearranging columns, aggreagtion etc. 
+
 [purrr](http://purrr.tidyverse.org)
-     - data wrangling
+     purrr helps with data wrangling
+
+[tidymodels](https://www.tidymodels.org)
+     - modeling and machine learning
+
+[tidyr](https://tidyr.tidyverse.org)
+    tidyr helps creating tidy data, defined as data where every column is a variable, every row is an observation, and every cell is a single value.
+
+```
+
+## Other packages ... [using this header for convenience until we have more categories]
+
+```{glossary}
 
 [rio](https://cloud.r-project.org/web/packages/rio/index.html)
      - data import/export
@@ -22,9 +39,6 @@ This is a free, open-source statistical programming language. It is used mainly 
 
 [leaflet](https://rstudio.github.io/leaflet/)
     - mapping and working on interactive maps
-
-[tidymodels](https://www.tidymodels.org)
-     - modeling and machine learning
 
 [sp](https://github.com/edzer/sp)
     - processing spatial data

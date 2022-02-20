@@ -19,6 +19,8 @@ This is a free, open-source language that is a standard tool used in many organi
 
 [PyCharm](https://www.jetbrains.com/pycharm/)
     PyCharm is a python IDE, not all the versions are free, but a free license is available for single accademic use for the PyCharm Community editon and the [Educational](https://www.jetbrains.com/pycharm-edu/) edition. The educational edition includes python training modules. 
+[VSCode]
+    VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). !!!! this needs review from someone who actually use VSCode!!!! 
 
 ```
 
@@ -50,7 +52,7 @@ This is a free, open-source language that is a standard tool used in many organi
 [PyAOS](https://pyaos.github.io)
     PyAOS is a community project that offers a stack of python libraries used by the Atmosphere and Ocean Science communities.
 
-[ProjectPhytia](https://projectpythia.org/)
+[ProjectPythia](https://projectpythia.org/)
     Project Pythia aims to provide a public, web-accessible training resource that will help educate current, and aspiring, earth scientists to more effectively use both the Scientific Python Ecosystem and Cloud Computing to make sense of huge volumes of numerical scientific data
 
 [EarthPy](http://earthpy.org)
