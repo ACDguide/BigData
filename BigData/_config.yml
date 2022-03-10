@@ -7,8 +7,8 @@
 # Book settings
 title                       : Working with Big/Challenging Data Collections  # The title of the book. Will be placed in the left navbar.
 author                      : ACD Working Group  # The author of the book
-copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+copyright                   : "2022"  # Copyright year to be placed in the footer
+logo                        : ACDG-logo_v2.png  # A path to the book logo
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
