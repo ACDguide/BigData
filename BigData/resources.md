@@ -23,11 +23,12 @@ This page provides a list of resources related to working with large and challen
 |------|-------------|------|
 |**CLEX Training** | ARC Centre of Excellence computing training sessions | [Videos](https://climateextremes.org.au/cms-videos/), [interactive notebooks](https://github.com/coecms-training), [youtube channel](https://www.youtube.com/user/COECSSCMS/videos)
 **Xarray tutorial**	| 90-minute course introducing data scientists already familiar with Numpy to Xarray |	[Video](https://www.youtube.com/watch?v=a339Q5F48UQ)
-|**PyAOS Training**	| Python for Atmosphere and Ocean Scientists - training materials	| [Website with links](https://protect-au.mimecast.com/s/s22CCmOxBVhgDqm9u9kXDJ?domain=pyaos.github.io/)
+|**PyAOS Training Resource Guide**	| Python for Atmosphere and Ocean Scientists - training materials	| [Website with links](https://pyaos.github.io/training/)
 |**An Introduction to Earth and Environmental Data Science**	| Course materials from Ryan Abernathey	| [Jupyter Book](https://earth-env-data-science.github.io/intro)
 | **Intake-ESM -- Making It Easier To Consume Climate Data**	| By Anderson Banihirwe (NCAR)	| [Video screencast](https://www.youtube.com/watch?v=zjjpByZ0nOk)
 | **Research Software Engineering with Python** |	By Damien Irving et al	| [eBook](https://merely-useful.tech/py-rse/)
 |**Intro to Dask** |	In Pangeo Gallery	| [Notebook (interactive via Binder or noninteractive on website)](https://gallery.pangeo.io/repos/pangeo-data/pangeo-tutorial-gallery/dask.html)
+| **Project Pythia** | An education and training hub for the geoscientific Python community | [Website](https://foundations.projectpythia.org/landing-page.html)
 </details>
 
 <details><summary><span style="font-size:xx-large;">Example workflows</span></summary>
