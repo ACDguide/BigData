@@ -15,7 +15,8 @@ parts:
     - file: format_metadata         
   - caption: Computations
     chapters:
-    - file: computations     
+    - file: computations 
+    - file: chunking    
   - caption: Available tools
     chapters:
     - file: tools/intro.md   
