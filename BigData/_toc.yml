@@ -3,7 +3,16 @@ root: intro
 parts:
   - caption: Accessing data
     chapters:
-    - file: platforms
+    - file: platforms/platforms-intro
+      sections:
+      - file: platforms/platforms-nci-gadi
+      - file: platforms/platforms-nci-ood
+      - file: platforms/platforms-pangeo
+      - file: platforms/platforms-pawsey
+      - file: platforms/platforms-CSIRO
+      - file: platforms/platforms-BoM
+      - file: platforms/platforms-institutional
+      - file: platforms/platforms-PC
     - file: accessing_data
   - caption: Data storage
     chapters:
