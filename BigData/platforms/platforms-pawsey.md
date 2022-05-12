@@ -1,3 +1,4 @@
+(pawsey)=
 ## Pawsey HPC
 
 There are a number of academic HPC systems in Australia outside of those hosted by specific institutions. [Pawsey](https://pawsey.org.au/) in WA hosts a peak HPC machine, local cloud, and data storage. Pawsey is a facility managed by CSIRO. Access to large scale compute quotas is available through the National Computaitonal Merit Allocation Scheme (NCMAS) as with Gadi, as well as a separate Pawsey allocation process which can be accessed more frequently. Currently only limited climate work is being done on the Pawsey peak system but this is likely to increase in the future.
