@@ -24,8 +24,9 @@ parts:
     - file: format_metadata         
   - caption: Computations
     chapters:
-    - file: computations 
-    - file: chunking    
+    - file: computations/computations 
+    - file: computations/chunking    
+    - file: computations/time-axis    
   - caption: Available tools
     chapters:
     - file: tools/intro.md   
