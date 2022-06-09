@@ -70,3 +70,16 @@ For a description of the tests performed, see [In-depth `nczarr` testing](https:
 
 In summary, the library is functional but currently lacking, but it will be worth monitoring updates to the library in the coming years as additional capability is added.
 NetCDF remains the standards-compliant file format for climate data which is broadly supported by many tools, but lacks optimal parallel performance. As this library matures it should be possible eventually to store our data in standards- and tools-compliant netCDF format but with zarr performance.
+
+## Pangeo Forge: an open source framework for extraction, transformation, and loading of scientific data
+
+[Pangeo Forge](https://pangeo-forge.readthedocs.io/en/latest/index.html) is a combination of two things, with the ultimate goal of uploading datasets into the cloud in an analysis-ready, cloud-optimized (ARCO) format:
+
+1. Pangeo Forge Recipes - an open source Python package, which allows you to create and run extraction, transformation, and loading pipelines (“recipes”) and run them from your own computer
+2. Pangeo Forge Cloud - a cloud-based automation framework which runs these recipes in the cloud from code stored in GitHub
+
+Pangeo Forge is inspired directly by Conda Forge, a community-led collection of recipes for building conda packages (see the [Python Tools page](https://acdguide.github.io/BigData/tools/python1.html#python) for more info on conda). Pangeo Forge seeks to play the same role for datasets.
+
+### When to use Pangeo Forge
+
+Pangeo Forge is useful if you have access to some data, and would like to work with the data on the cloud. It is optimized for multidimensional array data (e.g. NetCDF, GRIB, Zarr) that can be opened with Xarray. To upload a dataset to the cloud via Pangeo Forge, a user should submit a Pull Request to the Pangeo Forge [staged-recipes](https://github.com/pangeo-forge/staged-recipes) GitHub repository, following the [introductory guide in their documentation](https://pangeo-forge.readthedocs.io/en/latest/introduction_tutorial/index.html).
