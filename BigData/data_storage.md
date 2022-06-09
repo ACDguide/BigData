@@ -51,7 +51,9 @@ CLEX CMS team have produced [some very useful advice](http://climate-cms.wikis.u
 * chunking, and 
 * command line tools to control file storage structure (some are specific to [NCI](https://nci.org.au/)).
 
-All of these things can have massive impacts on file performance for both regular access but in particular parallelised access using `dask` (e.g. with `xarray`). Data will be most performant with a tool like `dask` if it is structured appropriately for the read patterns, and chunk arguments supplied to `dask` must align with the chunk sizes the data is physically stored in, otherwise you can end up with *worse* performance.
+All of these things can have massive impacts on file performance for both regular access but in particular parallelised access using `dask` (e.g. with `xarray`). Data will be most performant with a tool like `dask` if it is structured appropriately for the read patterns, and chunk arguments supplied to `dask` must align with the chunk sizes the data is physically stored in, otherwise you can end up with *worse* performance. See also the [Tools](https://acdguide.github.io/BigData/tools/intro.html) section of this book for further information.
+
+If working in `xarray`, data can be saved to NetCDF or Zarr format using the [`xarray.Dataset.to_netcdf()`](https://docs.xarray.dev/en/latest/generated/xarray.Dataset.to_netcdf.html) and [`xarray.Dataset.to_zarr()`](https://docs.xarray.dev/en/latest/generated/xarray.Dataset.to_zarr.html) functions respectively.
 
 Also consider things like data and metadata standards and ease of use for other researchers or data consumers. For example, data should be [CF-compliant](http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html), but also consider [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3) for metadata, [UGRID](https://ugrid-conventions.github.io/ugrid-conventions/) for unstructured data, and [CMOR](https://pcmdi.github.io/cmor-site/) and other data request requirements for Earth System Grid Federation data submission.
 
@@ -68,3 +70,16 @@ For a description of the tests performed, see [In-depth `nczarr` testing](https:
 
 In summary, the library is functional but currently lacking, but it will be worth monitoring updates to the library in the coming years as additional capability is added.
 NetCDF remains the standards-compliant file format for climate data which is broadly supported by many tools, but lacks optimal parallel performance. As this library matures it should be possible eventually to store our data in standards- and tools-compliant netCDF format but with zarr performance.
+
+## Pangeo Forge: an open source framework for extraction, transformation, and loading of scientific data
+
+[Pangeo Forge](https://pangeo-forge.readthedocs.io/en/latest/index.html) is a combination of two things, with the ultimate goal of uploading datasets into the cloud in an analysis-ready, cloud-optimized (ARCO) format:
+
+1. Pangeo Forge Recipes - an open source Python package, which allows you to create and run extraction, transformation, and loading pipelines (“recipes”) and run them from your own computer
+2. Pangeo Forge Cloud - a cloud-based automation framework which runs these recipes in the cloud from code stored in GitHub
+
+Pangeo Forge is inspired directly by Conda Forge, a community-led collection of recipes for building conda packages (see the [Python Tools page](https://acdguide.github.io/BigData/tools/python1.html#python) for more info on conda). Pangeo Forge seeks to play the same role for datasets.
+
+### When to use Pangeo Forge
+
+Pangeo Forge is useful if you have access to some data, and would like to work with the data on the cloud. It is optimized for multidimensional array data (e.g. NetCDF, GRIB, Zarr) that can be opened with Xarray. To upload a dataset to the cloud via Pangeo Forge, a user should submit a Pull Request to the Pangeo Forge [staged-recipes](https://github.com/pangeo-forge/staged-recipes) GitHub repository, following the [introductory guide in their documentation](https://pangeo-forge.readthedocs.io/en/latest/introduction_tutorial/index.html).

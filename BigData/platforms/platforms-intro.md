@@ -7,11 +7,11 @@ The datasets hosted on NCI may be centrally managed, e.g. by NCI (CMIP, ERA5) or
 This section contains information on when and how to access the following systems, as well as FAQs as they emerge.
 
 ## Index
-- NCI's HPC Gadi
-- NCI's OOD Virtual Desktop Infrastructure
-- Pangeo
-- Pawsey infrastructure
-- CSIRO infrastructure
-- BoM infrastructure
-- Institutional shared resources (e.g. university systems)
-- Your personal computer/desktop/laptop
+- {ref}`gadi`
+- {ref}`ood`
+- {ref}`pangeo`
+- {ref}`pawsey`
+- {ref}`csiro`
+- {ref}`bom`
+- {ref}`institutional` (e.g. university systems)
+- {ref}`pc` (desktop/laptop etc)
