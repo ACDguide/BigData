@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NCI OOD virtual desktop &#8212; Working with Big/Challenging Data Collections</title>
+    <title>NCI OOD Virtual Desktop Infrastructure &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -119,7 +119,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     NCI OOD virtual desktop
+     NCI OOD Virtual Desktop Infrastructure
     </a>
    </li>
    <li class="toctree-l2">
@@ -386,7 +386,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>NCI OOD virtual desktop</h1>
+                <h1>NCI OOD Virtual Desktop Infrastructure</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -420,13 +420,13 @@
             
               <div>
                 
-  <div class="section" id="nci-ood-virtual-desktop">
-<h1>NCI OOD virtual desktop<a class="headerlink" href="#nci-ood-virtual-desktop" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="nci-ood-virtual-desktop-infrastructure">
+<h1>NCI OOD Virtual Desktop Infrastructure<a class="headerlink" href="#nci-ood-virtual-desktop-infrastructure" title="Permalink to this headline">¶</a></h1>
 <p>The NCI also support a virtual desktop infrastructure (VDI) called “Open, On-Demand” (OOD) hosted on their internal cloud infrastructure, and which provides an interface to the HPC infrastructure. The current generation of the VDI is web-based, offering a virtual desktop service mimicking the older ‘Strudel’ interface, and a Jupyter Notebook server. Documentation can be <a class="reference external" href="https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service">found here</a>.</p>
 <p>The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the requested compute resources and looks like this:
-<img alt="OOD launcher" src="platforms/images/OOD-launcher.PNG" /></p>
+<img alt="OOD launcher" src="../_images/OOD-launcher.PNG" /></p>
 <p>Launching the VDI desktop via the button gives access to a familiar linux graphical interface with a terminal, browser and various applications.
-<img alt="OOD interface" src="platforms/images/OOD-interface.PNG" /></p>
+<img alt="OOD interface" src="../_images/OOD-interface.PNG" /></p>
 <div class="section" id="when-would-i-use-the-ood-vdi">
 <h2>When would I use the OOD VDI?<a class="headerlink" href="#when-would-i-use-the-ood-vdi" title="Permalink to this headline">¶</a></h2>
 <p>The “OOD” or “VDI” is ideal for exploratory and interactive work such as code development, data exploration and visualisation, and tasks requiring internet access (e.g. working with data from external sources via OPeNDAP or S3, or installing python libraries).</p>
@@ -439,12 +439,17 @@
 </div>
 <div class="section" id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
-<p>The OOD documentation contains a few <a class="reference external" href="https://opus.nci.org.au/display/OOD/OOD+FAQ">useful FAQs</a>, including</p>
+<p>The OOD documentation contains a few <a class="reference external" href="https://opus.nci.org.au/display/OOD/OOD+FAQ">useful FAQs</a>, including:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/home</span></code> space over quota</p></li>
 <li><p>sessions go straight from launching to “completed”, can’t log in (this is a conda issue!)</p></li>
 <li><p>resource limitations</p></li>
 <li><p>other assorted login problems</p></li>
+</ul>
+<p>Additional tips:</p>
+<ul class="simple">
+<li><p>Sometimes users report seeing <code class="docutils literal notranslate"><span class="pre">Bad</span> <span class="pre">Request</span> <span class="pre">Your</span> <span class="pre">browser</span> <span class="pre">sent</span> <span class="pre">a</span> <span class="pre">request</span> <span class="pre">that</span> <span class="pre">this</span> <span class="pre">server</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">understand.</span> <span class="pre">Size</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">request</span> <span class="pre">header</span> <span class="pre">field</span> <span class="pre">exceeds</span> <span class="pre">server</span> <span class="pre">limit.</span></code>
+This can be resolved by deleting the cookies for OOD, it is a known issue and NCI recommend working in a private/incognito browser window.</p></li>
 </ul>
 </div>
 </div>

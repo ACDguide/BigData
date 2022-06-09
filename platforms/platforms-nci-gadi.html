@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NCI OOD virtual desktop" href="platforms-nci-ood.html" />
+    <link rel="next" title="NCI OOD Virtual Desktop Infrastructure" href="platforms-nci-ood.html" />
     <link rel="prev" title="Computing Platforms" href="platforms-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -119,7 +119,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="platforms-nci-ood.html">
-     NCI OOD virtual desktop
+     NCI OOD Virtual Desktop Infrastructure
     </a>
    </li>
    <li class="toctree-l2">
@@ -412,7 +412,7 @@
                 
   <div class="section" id="nci-gadi-hpc">
 <h1>NCI Gadi HPC<a class="headerlink" href="#nci-gadi-hpc" title="Permalink to this headline">¶</a></h1>
-<p>The NCI’s peak system “Gadi” is a large high performance computer ideal for numerical modelling and computationally intensive jobs. This HPC supports the ACCESS climate model that contributes to CMIP submissions as well as development by ACCESS staff at BoM, CSIRO and university collaborators. NCI’s Gadi system is also used to run regional models such as WRF and CCAM, as well as many field-specific models (CABLE, WaveWatchIII, AWRA to name a few).</p>
+<p>The NCI’s peak system “Gadi” is a large high performance computer ideal for numerical modelling and computationally intensive jobs. This HPC supports the ACCESS climate model that contributes to CMIP submissions as well as development by ACCESS staff at ACCESS-NRI, BoM, CSIRO and university collaborators. NCI’s Gadi system is also used to run regional models such as WRF and CCAM, as well as many field-specific models (CABLE, WaveWatchIII, AWRA to name a few).</p>
 <p>The HPC is accessed via the command line and does not have a graphical user interface. Tasks are described in “job scripts” which are submitted to a batch queuing system to ensure fair use of the resources. No internet access is available from Gadi compute nodes, so all downloads/repository cloning needs to be done on login nodes.</p>
 <p>NCI provides:</p>
 <ul class="simple">
@@ -428,6 +428,7 @@
 <li><p>Gadi is intended for large scale modelling and data processing jobs. If you are running parallel numerical models at scale then you would likely work exclusively on Gadi or a similar system. It is also useful for “high throughput computing” like AI/ML workflows, and “high performance data” parallel data processing using Pangeo tools like python’s <code class="docutils literal notranslate"><span class="pre">dask</span></code> library - though usually you would start exploratory data work on the NCI’s OOD (see below) and only move to Gadi when greater scalability is required.</p></li>
 <li><p>NCI is an ideal platform to use when collaborating with peers from other institutions as it is available to all Australian researchers.</p></li>
 <li><p>If you are wanting to use large reference climate datasets as input for your research, chances are the data you want may already be available at NCI, which saves you time downloading and managing the datasets, and it is more efficient for everyone to use these centralised collections.</p></li>
+<li><p>If you need to work interactively using code in your Gadi <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory instead of the <a class="reference external" href="https://acdguide.github.io/BigData/platforms/platforms-nci-ood.html">OOD</a>, there are <a class="reference external" href="https://github.com/coecms/nci_scripts">helper scripts</a> such as <code class="docutils literal notranslate"><span class="pre">gadi_jupyter</span></code> provided by the CLEX CMS team.</p></li>
 </ul>
 </div>
 <div class="section" id="how-do-i-get-access">
@@ -474,7 +475,7 @@
     <a class='right-next' id="next-link" href="platforms-nci-ood.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">NCI OOD virtual desktop</p>
+        <p class="prev-next-title">NCI OOD Virtual Desktop Infrastructure</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
