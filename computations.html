@@ -815,6 +815,7 @@
 <ul class="simple">
 <li><p>Python - <a class="reference external" href="http://xarray.pydata.org/en/stable/examples/monthly-means.html">Seasonal average demo</a> from Xarray documentation</p></li>
 <li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/climatology_multivar.html">Monthly climatology</a> from CLEX CMS</p></li>
+<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-07-29-coarsen_climatology.html">Monthly climatology with <code class="docutils literal notranslate"><span class="pre">coarsen</span></code></a> from CLEX-CMS</p></li>
 </ul>
 </div>
 <div class="section" id="time-resampling">
@@ -911,13 +912,17 @@
 <li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.coarsen.html">coarsen</a> can only lower the resolution, combining an integer number of gridpoints in each direction</p></li>
 <li><p><a class="reference external" href="https://xesmf.readthedocs.io/en/latest/"><strong>xesmf</strong></a> Xarray interface to ESMF’s regridder</p></li>
 <li><p><a class="reference external" href="https://earthsystemmodeling.org/docs/release/ESMF_8_0_1/ESMF_refdoc/node3.html"><strong>ESMF</strong></a> has some useful command line tools, can generate weights with <code class="docutils literal notranslate"><span class="pre">ESMF_RegridWeightGen</span></code> or regrid with <code class="docutils literal notranslate"><span class="pre">ESMF_Regrid</span></code>, lots of options</p></li>
+<li><p><a class="reference external" href="https://climtas.readthedocs.io/en/latest/api/regrid.html"><strong>climtas</strong></a> helps setting up a dask-aware regridding</p></li>
 <li><p><strong>NCO</strong> Can apply CDO or ESMF weights with <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--map</span></code></p></li>
 <li><p><strong>CDO</strong> Can generate weights and regrid - <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">gen</span></code>, <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">remap</span></code></p></li>
 </ul>
 <p><strong>Demonstrations</strong></p>
 <ul class="simple">
-<li><p>Python - <a class="reference external" href="https://nbviewer.jupyter.org/github/COSIMA/cosima-recipes/blob/master/DocumentedExamples/Regridding.ipynb">xesmf regridding</a> from COSIMA</p></li>
-<li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/regridding.html">xesmf regridding</a> from CLEX CMS</p></li>
+<li><p>Python - <a class="reference external" href="https://nbviewer.jupyter.org/github/COSIMA/cosima-recipes/blob/master/DocumentedExamples/Regridding.ipynb">xesmf regridding 1</a> from COSIMA</p></li>
+<li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/regridding.html">xesmf regridding 2</a> from CLEX CMS</p></li>
+<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-04-09-xesmf-regrid.html">xesmf regridding 3</a> from CLEX CMS</p></li>
+<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-10-01-pyproj.html">regridding to a different coordinate system using pyproj part 1</a> from CLEX-CMS</p></li>
+<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-11-02-pyproj-regrid.html">regridding to a different coordinate system using pyproj part 2</a> from CLEX-CMS</p></li>
 </ul>
 </div>
 <div class="section" id="vertical-regridding">
