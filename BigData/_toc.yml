@@ -26,15 +26,15 @@ parts:
     chapters:
     - file: computations/computations 
     - file: computations/chunking    
-    - file: computations/time-axis    
+    - file: computations/time_axis    
   - caption: Available tools
     chapters:
-    - file: tools/intro.md   
+    - file: tools/tools-intro.md   
       sections:
-      - file: tools/python1.md   
-      - file: tools/python2.md   
-      - file: tools/rcran.md   
-      - file: tools/other.md   
+      - file: tools/tools-python1.md   
+      - file: tools/tools-python2.md   
+      - file: tools/tools-rcran.md   
+      - file: tools/tools-other.md   
   - caption: Resources
     chapters:
     - file: resources 
