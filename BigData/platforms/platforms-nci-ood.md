@@ -1,6 +1,8 @@
 (OOD)=
 ## NCI OOD Virtual Desktop Infrastructure
 
+**NOTE that NCI have recently launced their ARE platform, which may ultimately replace this OOD offerring, this information is current as of July 2022.**
+
 The NCI also support a virtual desktop infrastructure (VDI) called "Open, On-Demand" (OOD) hosted on their internal cloud infrastructure, and which provides an interface to the HPC infrastructure. The current generation of the VDI is web-based, offering a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
 
 The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the requested compute resources and looks like this:
