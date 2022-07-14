@@ -1,4 +1,4 @@
-(pc)=
+(PC)=
 ## Personal computer
 
 For some researchers, the computational power of their own laptop may be sufficient for much of their work. Online access to data via cloud resources or online data access protocols (e.g. OPeNDAP) means that in some cases, direct access to HPC facilities may not be required. See the [Tools](https://acdguide.github.io/BigData/different_tools.html) page and other parts of this book for advice on working with large scale data using tools like Anaconda and Jupyter notebooks.
