@@ -7,8 +7,8 @@ The datasets hosted on NCI may be centrally managed, e.g. by NCI (CMIP, ERA5) or
 This section contains information on when and how to access the following systems, as well as FAQs as they emerge.
 
 ## Index
-- {ref}`Gadi`
-- {ref}`OOD`
+- {ref}`Gadi` and ARE
+- {ref}`OOD` or cloud VDI
 - {ref}`Pangeo`
 - {ref}`Pawsey`
 - {ref}`CSIRO`
