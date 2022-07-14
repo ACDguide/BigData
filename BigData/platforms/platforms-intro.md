@@ -7,11 +7,11 @@ The datasets hosted on NCI may be centrally managed, e.g. by NCI (CMIP, ERA5) or
 This section contains information on when and how to access the following systems, as well as FAQs as they emerge.
 
 ## Index
-- {ref}`gadi`
-- {ref}`ood`
-- {ref}`pangeo`
-- {ref}`pawsey`
-- {ref}`csiro`
-- {ref}`bom`
-- {ref}`institutional` (e.g. university systems)
-- {ref}`pc` (desktop/laptop etc)
+- {ref}`Gadi`
+- {ref}`OOD`
+- {ref}`Pangeo`
+- {ref}`Pawsey`
+- {ref}`CSIRO`
+- {ref}`BoM`
+- {ref}`Institutional` (e.g. university systems)
+- {ref}`PC` (desktop/laptop etc)
