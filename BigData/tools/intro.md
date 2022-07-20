@@ -17,3 +17,9 @@ Included are:
 
 Other languages and tools exist which can work with netCDF data (e.g., C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for *analysis* of large scale climate data (typically netCDF).
 
+# Analysis environments
+
+It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing [conda](https://docs.conda.io/en/latest/), for example, it's a good idea to check whether a shared conda installation and environment that serves your needs doesn't already exist. Some examples are:
+- the [CLEX-CMS](http://climate-cms.wikis.unsw.edu.au/Conda) team maintain a conda Python environment on NCI that includes a wide variety of climate- and weather-related libraries. They also provide instructions on how to create your own custom conda environment using their conda installation.
+- the NCI team manage an open project, [dk92](https://opus.nci.org.au/pages/viewpage.action?pageId=134742126), that provides a module for data analysis that integrates Python, R and Julia platforms together with hundreds of pre-built packages.
+- Petrichor users (CSIRO employees only) can `module load miniconda3` to use an conda installation managed by IM&T. Custom conda environments and packages can be installed to a preferred location using the [`.condarc` configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-env-directories)
