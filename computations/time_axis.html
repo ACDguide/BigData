@@ -5,43 +5,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computations with large datasets &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Dealing with the time-axis &#8212; Working with Big/Challenging Data Collections</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -50,11 +50,11 @@
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Chunking" href="chunking.html" />
-    <link rel="prev" title="Data formats, variables, and metadata" href="format_metadata.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Available tools and their best use" href="../tools/tools-intro.html" />
+    <link rel="prev" title="Data chunking" href="chunking.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -74,26 +74,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="_static/ACDG-logo_v2.png" class="logo" alt="logo">
+      <img src="../_static/ACDG-logo_v2.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Working with Big/Challenging Data Collections</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="../intro.html">
    Overview
   </a>
  </li>
@@ -105,7 +105,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="platforms/platforms-intro.html">
+  <a class="reference internal" href="../platforms/platforms-intro.html">
    Computing Platforms
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -115,49 +115,49 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-nci-gadi.html">
+    <a class="reference internal" href="../platforms/platforms-nci-gadi.html">
      NCI Gadi HPC
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-nci-ood.html">
+    <a class="reference internal" href="../platforms/platforms-nci-ood.html">
      NCI OOD Virtual Desktop Infrastructure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-pangeo.html">
+    <a class="reference internal" href="../platforms/platforms-pangeo.html">
      Pangeo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-pawsey.html">
+    <a class="reference internal" href="../platforms/platforms-pawsey.html">
      Pawsey HPC
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-CSIRO.html">
+    <a class="reference internal" href="../platforms/platforms-CSIRO.html">
      CSIRO facilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-BoM.html">
+    <a class="reference internal" href="../platforms/platforms-BoM.html">
      BoM facilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-institutional.html">
+    <a class="reference internal" href="../platforms/platforms-institutional.html">
      Institutional shared resources
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-PC.html">
+    <a class="reference internal" href="../platforms/platforms-PC.html">
      Personal computer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="accessing_data.html">
+  <a class="reference internal" href="../accessing_data.html">
    Methods of accessing data and metadata
   </a>
  </li>
@@ -169,7 +169,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="data_storage.html">
+  <a class="reference internal" href="../data_storage.html">
    Data storage methods for big datasets
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -179,7 +179,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="nczarr_test.html">
+    <a class="reference internal" href="../nczarr_test.html">
      In-depth
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -199,7 +199,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="format_metadata.html">
+  <a class="reference internal" href="../format_metadata.html">
    Data formats, variables, and metadata
   </a>
  </li>
@@ -210,14 +210,19 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="computations.html">
    Computations with large datasets
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chunking.html">
-   Data Chunking
+   Data chunking
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dealing with the time-axis
   </a>
  </li>
 </ul>
@@ -228,7 +233,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="tools/intro.html">
+  <a class="reference internal" href="../tools/tools-intro.html">
    Available tools and their best use
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -238,22 +243,22 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools/python1.html">
+    <a class="reference internal" href="../tools/tools-python1.html">
      Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools/python2.html">
+    <a class="reference internal" href="../tools/tools-python2.html">
      Data handling in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools/rcran.html">
+    <a class="reference internal" href="../tools/tools-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools/other.html">
+    <a class="reference internal" href="../tools/tools-other.html">
      MATLAB
     </a>
    </li>
@@ -267,12 +272,12 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="resources.html">
+  <a class="reference internal" href="../resources.html">
    Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="help.html">
+  <a class="reference internal" href="../help.html">
    Where to get help
   </a>
  </li>
@@ -317,7 +322,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/computations.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/computations/time_axis.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -337,7 +342,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fcomputations.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fcomputations/time_axis.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -358,10 +363,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ACDguide/BigData/main?urlpath=tree/docs/computations.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ACDguide/BigData/main?urlpath=tree/docs/computations/time_axis.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
+                    src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -381,8 +386,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-tools">
-   General tools
+  <a class="reference internal nav-link" href="#useful-python-packages">
+   Useful python packages
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -413,45 +418,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#climatologies">
-     Climatologies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#time-resampling">
      Time Resampling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#horizontal-regridding">
-     Horizontal Regridding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vertical-regridding">
-     Vertical Regridding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rolling-averages">
-     Rolling Averages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generic-operations">
-   Generic Operations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#map-reduce">
-     Map / Reduce
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rechunking">
-     Rechunking
     </a>
    </li>
   </ul>
@@ -466,7 +434,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Computations with large datasets</h1>
+                <h1>Dealing with the time-axis</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -477,8 +445,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-tools">
-   General tools
+  <a class="reference internal nav-link" href="#useful-python-packages">
+   Useful python packages
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -509,45 +477,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#climatologies">
-     Climatologies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#time-resampling">
      Time Resampling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#horizontal-regridding">
-     Horizontal Regridding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vertical-regridding">
-     Vertical Regridding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rolling-averages">
-     Rolling Averages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generic-operations">
-   Generic Operations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#map-reduce">
-     Map / Reduce
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rechunking">
-     Rechunking
     </a>
    </li>
   </ul>
@@ -561,9 +492,9 @@
             
               <div>
                 
-  <div class="section" id="computations-with-large-datasets">
-<h1>Computations with large datasets<a class="headerlink" href="#computations-with-large-datasets" title="Permalink to this headline">¶</a></h1>
-<p>This notebook introduces a number of commonly-used tools for performing computations with large climate datasets, and demonstrates how common tasks are carried out on chunked data using tools like <code class="docutils literal notranslate"><span class="pre">dask</span></code></p>
+  <div class="section" id="dealing-with-the-time-axis">
+<h1>Dealing with the time-axis<a class="headerlink" href="#dealing-with-the-time-axis" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows some strategies to deal with time-axis related issues. Here we are focusing mostly on python based solutions, but some of these tips can be adapted to other tools.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This is setup for the plots later on in the notebook - on the website this</span>
@@ -635,16 +566,13 @@
 </div>
 </div>
 </div>
-<div class="section" id="general-tools">
-<h2>General tools<a class="headerlink" href="#general-tools" title="Permalink to this headline">¶</a></h2>
-<p>If you are a <a class="reference internal" href="tools/python1.html#python"><span class="std std-ref">Python</span></a> user, the most useful packages for climate data are <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">numpy</span></a>, <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="tools/python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="tools/python2.html#term-Dask"><span class="xref std std-term">dask</span></a> to work with larger-than memory arrays and parallel data analysis transparently.</p>
-<p>Other useful packages are <a class="reference internal" href="tools/python2.html#term-multiprocessing"><span class="xref std std-term">multiprocessing</span></a> for simple workflows or <a class="reference internal" href="tools/python2.html#term-mpi4py"><span class="xref std std-term">mpi4py</span></a> which is an implementation of the MPI library for Python.</p>
-<p>If you are a <a class="reference internal" href="tools/other.html#fortran"><span class="std std-ref">Fortran/C</span></a> user then <a class="reference internal" href="tools/other.html#mpi"><span class="std std-ref">MPI - Message Passing Interface</span></a> is a low-level library, which is very flexible but also more difficult to set up.</p>
+<div class="section" id="useful-python-packages">
+<h2>Useful python packages<a class="headerlink" href="#useful-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>If you are a <a class="reference internal" href="../tools/tools-python1.html#python"><span class="std std-ref">Python</span></a> user, the most useful package to deal with time is <a class="reference internal" href="../tools/tools-python1.html#pyanalysis"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="../tools/tools-python1.html#pyanalysis"><span class="std std-ref">calendar</span></a> and <a class="reference internal" href="../tools/tools-python2.html#term-Dask"><span class="xref std std-term">dask</span></a> .</p>
 <div class="section" id="command-line-tools">
 <h3>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="tools/other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="tools/other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> are powerful command line tools.</p>
-<p>For large datasets, if you can process each file independently you can parallelise using e.g. <a class="reference external" href="https://www.gnu.org/software/parallel/">GNU Parallel</a> or a Python <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool.map</span></code>.</p>
-<p>You can also use multiple parallel threads in CDO with <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">-P</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code> and in NCO with <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--thr_nbr</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code></p>
+<p><a class="reference internal" href="../tools/tools-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="../tools/tools-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> also offer some useful.</p>
+<p><a class="reference external" href="http://nco.sourceforge.net/nco.html#Timeseries-Reshaping-mode_002c-aka-Splitting">http://nco.sourceforge.net/nco.html#Timeseries-Reshaping-mode_002c-aka-Splitting</a></p>
 </div>
 <div class="section" id="other-languages-matlab-r-etc">
 <h3>Other languages (Matlab, R, etc.)<a class="headerlink" href="#other-languages-matlab-r-etc" title="Permalink to this headline">¶</a></h3>
@@ -700,7 +628,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_4_0.png" src="_images/computations_4_0.png" />
+<img alt="../_images/time_axis_5_0.png" src="../_images/time_axis_5_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
@@ -751,72 +679,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_6_0.png" src="_images/computations_6_0.png" />
+<img alt="../_images/time_axis_7_0.png" src="../_images/time_axis_7_0.png" />
 </div>
 </div>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Numpy</strong> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a> and the more expensive <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanpercentile.html">nanpercentile</a></p></li>
-<li><p><strong>Dask</strong> <a class="reference external" href="https://docs.dask.org/en/latest/array-api.html#dask.array.percentile">percentile</a> uses approximate methods so is less memory intensive, but only works on 1D data</p></li>
-<li><p><strong>Xarray</strong> <span class="xref myst">quantile</span> uses values between 0 and 1 instead of percents, Dask data must not be chunked along the axis of interest</p></li>
-<li><p><strong>CDO</strong> <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">pctl</span></code> will give a list of percentile related operations.</p></li>
-</ul>
-</div>
-<div class="section" id="climatologies">
-<h3>Climatologies<a class="headerlink" href="#climatologies" title="Permalink to this headline">¶</a></h3>
-<p>Climatologies combine multiple years worth of data into a single sample year, for instance a daily mean climatology would output a year of data, with each day in the output the mean of all the days with the same month and day in the input.</p>
-<p>Leap years require some consideration in a daily climatology, as those days will have 1/4 the samples of other days. Also consider how you are counting - with a day of year counting Feb 29 in a leap year will be matched up with 1 Mar in a non-leap year.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">colors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([[</span><span class="s1">&#39;#b3e2cd&#39;</span><span class="p">,</span> <span class="s1">&#39;#fdcdac&#39;</span><span class="p">,</span> <span class="s1">&#39;#cbd5e8&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">chunk_color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;File Layout&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">)</span>
-
-<span class="n">group_colors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">group_colors</span><span class="p">[</span><span class="n">i</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">chunk_size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">chunk_color</span><span class="o">=</span><span class="n">group_colors</span><span class="p">)</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">chunk_size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-[&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-    
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">sort_conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;]-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">sort_conn</span><span class="p">)</span>
-    
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.375</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Groupby&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Reduce Groups&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-
-<span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/computations_9_0.png" src="_images/computations_9_0.png" />
-</div>
-</div>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.groupby.html">groupby</a> then a reduction operator like <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> etc.</p></li>
-<li><p><strong>CDO</strong> <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">'Multi-year'</span></code> for a list of climatology operations</p></li>
-</ul>
-<p><strong>Demonstrations</strong></p>
-<ul class="simple">
-<li><p>Python - <a class="reference external" href="http://xarray.pydata.org/en/stable/examples/monthly-means.html">Seasonal average demo</a> from Xarray documentation</p></li>
-<li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/climatology_multivar.html">Monthly climatology</a> from CLEX CMS</p></li>
-<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-07-29-coarsen_climatology.html">Monthly climatology with <code class="docutils literal notranslate"><span class="pre">coarsen</span></code></a> from CLEX-CMS</p></li>
-</ul>
 </div>
 <div class="section" id="time-resampling">
 <h3>Time Resampling<a class="headerlink" href="#time-resampling" title="Permalink to this headline">¶</a></h3>
@@ -854,185 +719,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/computations_12_0.png" src="_images/computations_12_0.png" />
+<img alt="../_images/time_axis_9_0.png" src="../_images/time_axis_9_0.png" />
 </div>
 </div>
 <p><strong>Resources</strong></p>
 <ul class="simple">
 <li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.resample.html">resample</a> knows about time values, <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.coarsen.html">coarsen</a> uses sample counts but can work in all dimensions. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset strings</a> for how to specify different resample windows. Use a reduction operator like <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> etc. after either of these to go from high to low frequency, or use <code class="docutils literal notranslate"><span class="pre">.resample().interpolate()</span></code> to go from low to high frequency</p></li>
 <li><p><strong>CDO</strong> see e.g. <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">mean</span></code> for means on different timescales</p></li>
-</ul>
-</div>
-<div class="section" id="horizontal-regridding">
-<h3>Horizontal Regridding<a class="headerlink" href="#horizontal-regridding" title="Permalink to this headline">¶</a></h3>
-<p>Regridding converts data to a different resolution, useful when comparing two datasets. Note regridding only fills in gaps, it doesn’t give any information at a finer scale than the source data.</p>
-<p>There’s a number of different regridding methods that can be used</p>
-<ul class="simple">
-<li><p>Conservative</p></li>
-<li><p>Bilinear</p></li>
-<li><p>Patch</p></li>
-<li><p>Nearest source to destination / Nearest grid point</p></li>
-</ul>
-<p>See the <a class="reference external" href="https://xesmf.readthedocs.io/en/latest/notebooks/Compare_algorithms.html">Xesmf comparison of regridding algorithms</a> for illustrations of each method.</p>
-<p>If the source dataset is masked, check the output along coastlines to make sure that it has been dealt with correctly. Most regridders can fill in masked regions using different extrapolation methods, which is useful if masks don’t line up exactly. Conservative regridding has different behaviour along coastlines in normed and un-normed modes, in normed mode it will consider the mask on the target grid.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;File Layout&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">)</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-
-<span class="n">regrid_conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;]-[&#39;</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">regrid_conn</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">sort_conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">sort_conn</span><span class="p">)</span>
-    
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.375</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Rechunk along &#39;x&#39;&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Regrid&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-
-<span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/computations_15_0.png" src="_images/computations_15_0.png" />
-</div>
-</div>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.coarsen.html">coarsen</a> can only lower the resolution, combining an integer number of gridpoints in each direction</p></li>
-<li><p><a class="reference external" href="https://xesmf.readthedocs.io/en/latest/"><strong>xesmf</strong></a> Xarray interface to ESMF’s regridder</p></li>
-<li><p><a class="reference external" href="https://earthsystemmodeling.org/docs/release/ESMF_8_0_1/ESMF_refdoc/node3.html"><strong>ESMF</strong></a> has some useful command line tools, can generate weights with <code class="docutils literal notranslate"><span class="pre">ESMF_RegridWeightGen</span></code> or regrid with <code class="docutils literal notranslate"><span class="pre">ESMF_Regrid</span></code>, lots of options</p></li>
-<li><p><a class="reference external" href="https://climtas.readthedocs.io/en/latest/api/regrid.html"><strong>climtas</strong></a> helps setting up a dask-aware regridding</p></li>
-<li><p><strong>NCO</strong> Can apply CDO or ESMF weights with <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--map</span></code></p></li>
-<li><p><strong>CDO</strong> Can generate weights and regrid - <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">gen</span></code>, <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">remap</span></code></p></li>
-</ul>
-<p><strong>Demonstrations</strong></p>
-<ul class="simple">
-<li><p>Python - <a class="reference external" href="https://nbviewer.jupyter.org/github/COSIMA/cosima-recipes/blob/master/DocumentedExamples/Regridding.ipynb">xesmf regridding 1</a> from COSIMA</p></li>
-<li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/regridding.html">xesmf regridding 2</a> from CLEX CMS</p></li>
-<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-04-09-xesmf-regrid.html">xesmf regridding 3</a> from CLEX CMS</p></li>
-<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-10-01-pyproj.html">regridding to a different coordinate system using pyproj part 1</a> from CLEX-CMS</p></li>
-<li><p>Python - <a class="reference external" href="https://climate-cms.org/posts/2021-11-02-pyproj-regrid.html">regridding to a different coordinate system using pyproj part 2</a> from CLEX-CMS</p></li>
-</ul>
-</div>
-<div class="section" id="vertical-regridding">
-<h3>Vertical Regridding<a class="headerlink" href="#vertical-regridding" title="Permalink to this headline">¶</a></h3>
-<p>There are a wide variety of different vertical coordinate types used in climate datasets, including</p>
-<ul class="simple">
-<li><p>Height/Depth</p></li>
-<li><p>Hybrid Height / Hybrid Pressure</p></li>
-<li><p>Isosurfaces (pressure, temperature, etc.)</p></li>
-</ul>
-<p>Swapping between these normally uses a vertical interpolation, you will need some form of mapping from one to the other (e.g. the pressure field on the same levels as the input dataset to convert to pressure levels).</p>
-<p>Remember that the height above/below sea level of hybrid height levels will vary with location, and the height above/below sea level of isosurfaces will vary with both location and time.</p>
-<p>‘Hybrid’ coordinates may refer to either hybrid height or hybrid pressure in different tools/models - be sure to check definitions match!</p>
-<p>Some transformations may benefit from calculating the interpolation logarithmically.</p>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>xgcm</strong> <a class="reference external" href="https://xgcm.readthedocs.io/en/latest/transform.html">Vertical interpolation</a> of Xarray datasets</p></li>
-<li><p><strong>metpy</strong> <a class="reference external" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.interpolate.interpolate_1d.html#metpy.interpolate.interpolate_1d">linear</a> and <a class="reference external" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.interpolate.log_interpolate_1d.html#metpy.interpolate.log_interpolate_1d">log</a> interpolation along an axis</p></li>
-</ul>
-</div>
-<div class="section" id="rolling-averages">
-<h3>Rolling Averages<a class="headerlink" href="#rolling-averages" title="Permalink to this headline">¶</a></h3>
-<p>A rolling operation combines input at multiple adjacent points into a single output value, producing a smoother result.</p>
-<p>Consider what should happen at the start and end of the dataset, possibilities for boundary conditions include</p>
-<ul class="simple">
-<li><p>Set values to  NaN</p></li>
-<li><p>Reflected - value at <code class="docutils literal notranslate"><span class="pre">x[-n]</span></code> equals value at <code class="docutils literal notranslate"><span class="pre">x[n]</span></code></p></li>
-<li><p>Periodic - value at <code class="docutils literal notranslate"><span class="pre">x[-n]</span></code> equals value at <code class="docutils literal notranslate"><span class="pre">x[len(x)</span> <span class="pre">-</span> <span class="pre">n]</span></code></p></li>
-</ul>
-<p>When manually implementing this, you can read values from adjacent chunks to create a halo around the target data to get the boundary conditions of that chunk</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">colors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([[</span><span class="s1">&#39;#b3e2cd&#39;</span><span class="p">,</span> <span class="s1">&#39;#fdcdac&#39;</span><span class="p">,</span> <span class="s1">&#39;#cbd5e8&#39;</span><span class="p">,</span> <span class="s1">&#39;#f4cae4&#39;</span><span class="p">,</span> <span class="s1">&#39;#e6f5c9&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">chunk_color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;File Layout&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">)</span>
-
-<span class="n">halo_colors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">halo_colors</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">halo_colors</span><span class="p">[</span><span class="mi">0</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="n">halo_colors</span><span class="p">[</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nchunks</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">chunk_size</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">chunk_color</span><span class="o">=</span><span class="n">halo_colors</span><span class="p">)</span>
-
-<span class="n">draw_chunks</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">chunk_color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-[&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">sort_conn</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">ConnectionPatch</span><span class="p">((</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;]-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">sort_conn</span><span class="p">)</span>
-    
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.375</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Add Halos&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">,</span>  <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
-
-<span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/computations_19_0.png" src="_images/computations_19_0.png" />
-</div>
-</div>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Xarray</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.rolling.html">rolling</a> then a reduction operator like <code class="docutils literal notranslate"><span class="pre">.mean()</span></code></p></li>
-<li><p><strong>Dask</strong> <a class="reference external" href="https://docs.dask.org/en/latest/array-overlap.html">map_overlap</a> adds a halo to map_blocks</p></li>
-<li><p><a class="reference external" href="https://github.com/pydata/bottleneck"><strong>bottleneck</strong></a> provides optimised rolling operations on Numpy arrays, used by Xarray automatically</p></li>
-<li><p><strong>CDO</strong> see <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">--operators</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">run</span></code> for related function names</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="generic-operations">
-<h2>Generic Operations<a class="headerlink" href="#generic-operations" title="Permalink to this headline">¶</a></h2>
-<p>These operations are the building blocks of the analyses above, they may be useful for your own calculations</p>
-<div class="section" id="map-reduce">
-<h3>Map / Reduce<a class="headerlink" href="#map-reduce" title="Permalink to this headline">¶</a></h3>
-<p>Mapping just refers to applying a function to an array, returning a new array. Reduction is similar, however it returns an array with less dimensions than you started with (e.g. a mean over time).</p>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Xarray</strong> functions keep metadata - <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.apply_ufunc.html">apply_ufunc</a> runs an arbitrary function that works on a numpy array, <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.map_blocks.html">map_blocks</a> applys a function to each dask chunk with the coordinates and attributes available</p></li>
-<li><p><strong>Dask</strong> <a class="reference external" href="https://docs.dask.org/en/latest/array-api.html#dask.array.map_blocks">map_blocks</a> provides more low-level control than the Xarray version, but you don’t get the metadata</p></li>
-</ul>
-<p><strong>Demonstrations</strong></p>
-<ul class="simple">
-<li><p>Python - <a class="reference external" href="https://coecms-training.github.io/parallel/case-studies/oned_to_nd_rewrite.html">Converting a function from 1D to ND</a> from CLEX CMS</p></li>
-</ul>
-</div>
-<div class="section" id="rechunking">
-<h3>Rechunking<a class="headerlink" href="#rechunking" title="Permalink to this headline">¶</a></h3>
-<p>To rechunk a dataset is to read it in and write it back out again, but in a way that’s optimised for analysis in a different dimension - e.g. you might have a dataset that’s optimised to read lat-lon slices, but you want to create a time-series climatology.</p>
-<p>Rechunking may also combine multiple input files - say a dataset has one file per model day that contains all of its variables, for a timeseries analysis you may want to swap this to one file per variable per model year to reduce the number of files that need to be opened in the analysis.</p>
-<p><strong>Resources</strong></p>
-<ul class="simple">
-<li><p><strong>Xarray</strong> The <a class="reference external" href="http://xarray.pydata.org/en/stable/user-guide/io.html#chunk-based-compression">encoding</a> argument to <code class="docutils literal notranslate"><span class="pre">to_dataset()</span></code> can specify file chunking, combine multiple files with <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_mfdataset.html">open_mfdataset</a> or <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.concat.html">concat</a></p></li>
-<li><p><a class="reference external" href="https://github.com/pangeo-data/rechunker"><strong>Rechunker</strong></a> A Python library for rechunking files in <em>Zarr</em> format</p></li>
-<li><p><strong>NCO</strong> There are several arguments to specify output chunking, see e.g. <code class="docutils literal notranslate"><span class="pre">ncks</span> <span class="pre">--help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">cnk</span></code>. To combine input files along time see <code class="docutils literal notranslate"><span class="pre">ncrcat</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -1051,7 +744,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./."
+            path: "./computations"
         },
         predefinedOutput: true
     }
@@ -1063,17 +756,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="format_metadata.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="chunking.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data formats, variables, and metadata</p>
+            <p class="prev-next-title">Data chunking</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="chunking.html" title="next page">
+    <a class='right-next' id="next-link" href="../tools/tools-intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Chunking</p>
+        <p class="prev-next-title">Available tools and their best use</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1095,7 +788,7 @@
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

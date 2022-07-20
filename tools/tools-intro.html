@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>R &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Available tools and their best use &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MATLAB" href="other.html" />
-    <link rel="prev" title="Data handling in Python" href="python2.html" />
+    <link rel="next" title="Python" href="tools-python1.html" />
+    <link rel="prev" title="Dealing with the time-axis" href="../computations/time_axis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -209,13 +209,18 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../computations.html">
+  <a class="reference internal" href="../computations/computations.html">
    Computations with large datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chunking.html">
-   Data Chunking
+  <a class="reference internal" href="../computations/chunking.html">
+   Data chunking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computations/time_axis.html">
+   Dealing with the time-axis
   </a>
  </li>
 </ul>
@@ -226,7 +231,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="current reference internal" href="#">
    Available tools and their best use
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -234,24 +239,24 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="python1.html">
+    <a class="reference internal" href="tools-python1.html">
      Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="python2.html">
+    <a class="reference internal" href="tools-python2.html">
      Data handling in Python
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="other.html">
+    <a class="reference internal" href="tools-other.html">
      MATLAB
     </a>
    </li>
@@ -315,7 +320,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tools/rcran.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tools/tools-intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -335,7 +340,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/rcran.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/tools-intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -356,29 +361,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tidyverse">
-   Tidyverse
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-packages-using-this-header-for-convenience-until-we-have-more-categories">
-   Other packages … [using this header for convenience until we have more categories]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#development-environments">
-   Development environments
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -386,111 +368,36 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>R</h1>
+                <h1>Available tools and their best use</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tidyverse">
-   Tidyverse
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-packages-using-this-header-for-convenience-until-we-have-more-categories">
-   Other packages … [using this header for convenience until we have more categories]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#development-environments">
-   Development environments
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="section" id="r">
-<span id="rcran"></span><h1>R<a class="headerlink" href="#r" title="Permalink to this headline">¶</a></h1>
-<p>This is a free, open-source statistical programming language. It is used mainly in research, but it is also a standard tool in many organisations. This tool is great for statistical analysis.</p>
-<div class="section" id="tidyverse">
-<h2>Tidyverse<a class="headerlink" href="#tidyverse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.tidyverse.org">tidyverse</a> is a collection of packages designed for data science, they share the same design and data structures. …. (followed by list of tidyverse packages) …</p>
-<dl class="glossary simple">
-<dt id="term-ggplot2"><a class="reference external" href="https://ggplot2.tidyverse.org">ggplot2</a><a class="headerlink" href="#term-ggplot2" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>Creating graphics</p></li>
-</ul>
-</dd>
-<dt id="term-dplyr"><a class="reference external" href="https://dplyr.tidyverse.org">dplyr</a><a class="headerlink" href="#term-dplyr" title="Permalink to this term">¶</a></dt><dd><p>dplyr helps with common data manipulation like selcting, filtering, adding or rearranging columns, aggreagtion etc.</p>
-</dd>
-<dt id="term-purrr"><a class="reference external" href="http://purrr.tidyverse.org">purrr</a><a class="headerlink" href="#term-purrr" title="Permalink to this term">¶</a></dt><dd><p>purrr helps with data wrangling</p>
-</dd>
-<dt id="term-tidymodels"><a class="reference external" href="https://www.tidymodels.org">tidymodels</a><a class="headerlink" href="#term-tidymodels" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>modeling and machine learning</p></li>
-</ul>
-</dd>
-<dt id="term-tidyr"><a class="reference external" href="https://tidyr.tidyverse.org">tidyr</a><a class="headerlink" href="#term-tidyr" title="Permalink to this term">¶</a></dt><dd><p>tidyr helps creating tidy data, defined as data where every column is a variable, every row is an observation, and every cell is a single value.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="other-packages-using-this-header-for-convenience-until-we-have-more-categories">
-<h2>Other packages … [using this header for convenience until we have more categories]<a class="headerlink" href="#other-packages-using-this-header-for-convenience-until-we-have-more-categories" title="Permalink to this headline">¶</a></h2>
-<dl class="glossary simple">
-<dt id="term-rio"><a class="reference external" href="https://cloud.r-project.org/web/packages/rio/index.html">rio</a><a class="headerlink" href="#term-rio" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>data import/export</p></li>
-</ul>
-</dd>
-<dt id="term-shiny"><a class="reference external" href="https://shiny.rstudio.com">shiny</a> <a class="headerlink" href="#term-shiny" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>report results, e.g., build interactive web apps</p></li>
-</ul>
-</dd>
-<dt id="term-mlr"><a class="reference external" href="https://mlr.mlr-org.com">mlr</a><a class="headerlink" href="#term-mlr" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>machine learning tasks</p></li>
-</ul>
-</dd>
-<dt id="term-leaflet"><a class="reference external" href="https://rstudio.github.io/leaflet/">leaflet</a><a class="headerlink" href="#term-leaflet" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>mapping and working on interactive maps</p></li>
-</ul>
-</dd>
-<dt id="term-sp"><a class="reference external" href="https://github.com/edzer/sp">sp</a><a class="headerlink" href="#term-sp" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>processing spatial data</p></li>
-</ul>
-</dd>
-<dt id="term-maptools"><a class="reference external" href="https://www.rptools.net/toolbox/maptool/">maptools</a><a class="headerlink" href="#term-maptools" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>processing spatial data</p></li>
-</ul>
-</dd>
-<dt id="term-zoo"><a class="reference external" href="https://r-forge.r-project.org/projects/zoo/">zoo</a><a class="headerlink" href="#term-zoo" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>for time series data</p></li>
-</ul>
-</dd>
-<dt id="term-xlsx"><a class="reference external" href="https://colearendt.github.io/xlsx/">xlsx</a><a class="headerlink" href="#term-xlsx" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>for time series data</p></li>
-</ul>
-</dd>
-<dt id="term-climpact"><a class="reference external" href="https://github.com/ARCCSS-extremes/climpact">climpact</a><a class="headerlink" href="#term-climpact" title="Permalink to this term">¶</a></dt><dd><ul class="simple">
-<li><p>heatwave/extremes statistics</p></li>
-</ul>
-</dd>
-</dl>
-<p>Recommended list of packages:</p>
+  <div class="section" id="available-tools-and-their-best-use">
+<h1>Available tools and their best use<a class="headerlink" href="#available-tools-and-their-best-use" title="Permalink to this headline">¶</a></h1>
+<p>There are many languages and packages available to analyse and handle data. Each has its own strengths and weaknesses, but this section of the book aims to help identify which languages/tools are best suited to specific tasks.</p>
+<p>To identify the best tool/s for a task the following factors should be considered:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages">Quick list of useful R packages</a> from Rstudio website</p></li>
+<li><p>the data: most languages and packages provide the same or overlapping functionalities, so often the data format, size and the way it is structured determines which tool is best.</p></li>
+<li><p>the kind of analysis: some operations can be performed with several different tools, but for specific tasks you might need a specific tool, and the performance might vary significantly for different operations.</p></li>
+<li><p>user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community experience is also important, i.e. it can be useful to have others around you that use the same software and can provide code and help.</p></li>
 </ul>
-</div>
-<div class="section" id="development-environments">
-<h2>Development environments<a class="headerlink" href="#development-environments" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://support.rstudio.com/hc/en-us">Rstudio</a> IDE</p>
+<p>Included are:</p>
+<ul class="simple">
+<li><p>[]{tools-python1}</p></li>
+<li><p>[]{tools-rcran}</p></li>
+<li><p><a class="reference internal" href="tools-other.html#matlab"><span class="std std-ref">MATLAB</span></a></p></li>
+<li><p><a class="reference internal" href="tools-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a></p></li>
+<li><p><a class="reference internal" href="tools-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a></p></li>
+</ul>
+<p>Other languages and tools exist which can work with netCDF data (e.g., C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for <em>analysis</em> of large scale climate data (typically netCDF).</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -519,17 +426,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="python2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../computations/time_axis.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data handling in Python</p>
+            <p class="prev-next-title">Dealing with the time-axis</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="other.html" title="next page">
+    <a class='right-next' id="next-link" href="tools-python1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MATLAB</p>
+        <p class="prev-next-title">Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

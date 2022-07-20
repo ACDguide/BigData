@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="R" href="rcran.html" />
-    <link rel="prev" title="Python" href="python1.html" />
+    <link rel="next" title="R" href="tools-rcran.html" />
+    <link rel="prev" title="Python" href="tools-python1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -209,13 +209,18 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../computations.html">
+  <a class="reference internal" href="../computations/computations.html">
    Computations with large datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chunking.html">
-   Data Chunking
+  <a class="reference internal" href="../computations/chunking.html">
+   Data chunking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computations/time_axis.html">
+   Dealing with the time-axis
   </a>
  </li>
 </ul>
@@ -226,7 +231,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="tools-intro.html">
    Available tools and their best use
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -236,7 +241,7 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="python1.html">
+    <a class="reference internal" href="tools-python1.html">
      Python
     </a>
    </li>
@@ -246,12 +251,12 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="rcran.html">
+    <a class="reference internal" href="tools-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="other.html">
+    <a class="reference internal" href="tools-other.html">
      MATLAB
     </a>
    </li>
@@ -315,7 +320,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tools/python2.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tools/tools-python2.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -335,7 +340,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/python2.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/tools-python2.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -477,7 +482,7 @@
   <div class="section" id="data-handling-in-python">
 <span id="python-data"></span><h1>Data handling in Python<a class="headerlink" href="#data-handling-in-python" title="Permalink to this headline">¶</a></h1>
 <p>The data formats most commonty used in climate science are covered in more detail in our section on <a class="reference internal" href="../data_storage.html#data-storage"><span class="std std-ref">data storage</span></a>.
-Both <a class="reference internal" href="python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="python1.html#iris"><span class="std std-ref">Iris</span></a> can access most of them, provided that the dependencies for the formats are also installed.
+Both <a class="reference internal" href="tools-python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="tools-python1.html#iris"><span class="std std-ref">Iris</span></a> can access most of them, provided that the dependencies for the formats are also installed.
 A full list and guide of formats accessible via xarray is available from the <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/io.html">package documentation</a>. The open_dataset() function can be called with different <code class="docutils literal notranslate"><span class="pre">engines</span></code>.
 NetCDF4 is the main library to read netcdf data, another option is to use h5netcdf, which is based on h5py, this can be faster depending on the file structure.
 To open grib files in xarray either cfgrib or PyNIO needs to be installed. Xarray also has additional features, sometimes developed by a third-party, that can extend further the list of accessible data formats.
@@ -628,7 +633,7 @@ Other packages to consider are seaborn, holoviews, plotly.</p>
 </dd>
 <dt id="term-hvPlot"><a class="reference external" href="https://hvplot.holoviz.org">hvPlot</a><a class="headerlink" href="#term-hvPlot" title="Permalink to this term">¶</a></dt><dd><p>hvPlot provides a high-level plotting API built on HoloViews that provides a general and consistent API for plotting data in a wide variety of formats.</p>
 </dd>
-<dt id="term-home-runner-work-BigData-BigData-BigData-tools-python2.md-25-WARNING-2-Reference-not-found"><a class="headerlink" href="#term-home-runner-work-BigData-BigData-BigData-tools-python2.md-25-WARNING-2-Reference-not-found" title="Permalink to this term">¶</a></dt><dd><p>GeoViews makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets. Is is built on holoviews</p>
+<dt id="term-home-runner-work-BigData-BigData-BigData-tools-tools-python2.md-25-WARNING-2-Reference-not-found"><a class="headerlink" href="#term-home-runner-work-BigData-BigData-BigData-tools-tools-python2.md-25-WARNING-2-Reference-not-found" title="Permalink to this term">¶</a></dt><dd><p>GeoViews makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets. Is is built on holoviews</p>
 </dd>
 <dt id="term-xhistogram"><a class="reference external" href="https://xhistogram.readthedocs.io/en/latest/">xhistogram</a> <a class="headerlink" href="#term-xhistogram" title="Permalink to this term">¶</a></dt><dd><p>xhistogram Xhistogram makes it easier to calculate flexible, complex histograms with multi-dimensional data. It integrates with xarray and dask.</p>
 </dd>
@@ -689,14 +694,14 @@ Other packages to consider are seaborn, holoviews, plotly.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="python1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="tools-python1.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="rcran.html" title="next page">
+    <a class='right-next' id="next-link" href="tools-rcran.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">R</p>
