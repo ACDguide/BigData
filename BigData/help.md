@@ -24,7 +24,7 @@ While a lot of the rules of thumb listed here are for reporting a potential bug,
 | Name | Description | How to use |
 |------|-------------|------|
 |[CLEX-CMS wiki](http://climate-cms.wikis.unsw.edu.au/Home) | Lots of info/links from Computation Modelling Systems team at the Climate Extremes ARC Centre of Excellence | Browse content on your own |
-| [ARCCSS Slack workspace](arccss.slack.com) | Slack workspace open to anyone in the Australian climate community | Ask/answer questions via chat |
+| [ARCCSS Slack workspace](https://arccss.slack.com) | Slack workspace open to anyone in the Australian climate community | Ask/answer questions via chat |
 | BoM Data Science Community of Practice | Community of data scientsists at BoM | For BoM staff only |
 | [COSIMA Recipes](https://github.com/COSIMA/cosima-recipes) | GitHub repo with example notebooks relevant for ACCESS-OM2 models | Browse on your own |
 | CSC Data Science Network | Community of data scientists in CSIRO's climate science centre | MS Teams group for CSIRO CSC staff - request membership from Chloe Mackallah or Claire Trenham |

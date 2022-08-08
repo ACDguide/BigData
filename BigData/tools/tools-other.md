@@ -10,6 +10,33 @@ One of these is that MATLAB does not automatically apply scale factors and offse
 It also chooses a different HDF back end to save netCDF files according to how large they are, meaning dimension ordering and performance can be inconsistent for downstream users. 
 ---COMMENT this part needs still a lot of work, I'm not a Matlabl user so i put down here some of the comments, but they need to be verified. I also add this as data handling in matlab as it might be worth to cover some detail on hdf and/or other formats as we didd for python. Finally, I also found this https://www.unidata.ucar.edu/software/netcdf/software.html#CSIRO-MATLAB I'm not sure how outdated this might be, but might potentially help with the reading part at least ---- 
 
+(julia)=
+# Julia
+Julia is a recent addition to the programming languages used in climate science. Julia was designed from the beginning for high performance and parallelism. It can integrate with Python, R and other languages, has a machine learning, visualization, dataframe and netcdf packages.
+In Australia is becoming popular with the oceanographic community. 
+
+```{glossary}
+
+[DataFrames.jl](https://dataframes.juliadata.org/stable/)
+   DataFrames allows tabular data manipulation with Julia, its functionality is similar to Pandas (python) and dplyr (R).
+
+[JuliaPy](https://github.com/JuliaPy)
+   JuliaPy includes interfaces to Pythin and some of its most common packages as Pandas and pyplot.
+
+[MLJ.jl](https://alan-turing-institute.github.io/MLJ.jl/dev/)
+   MLJ is a machine learning framework for Julia which includes the most commo machine learning models. 
+
+[NetCDF.jl](https://github.com/JuliaGeo/NetCDF.jl)
+    NetCDF su[port for Julia
+
+[Plots.jl](https://docs.juliaplots.org/stable/)
+   A visualization ecosystem for Julia
+
+[RJuliaCall](https://cran.r-project.org/web/packages/JuliaCall/JuliaCall.pdf)
+   JuliaCall is a R package that allows to call Julia from R 
+
+```
+
 (nco)=
 # NCO - NetCDF Operators
 [NetCDF Operators](http://nco.sourceforge.net/) is a toolkit of command-line operators to both handle and perform analysis on netCDF files. It is the tool of choice to add, rename, and modify attributes and variables. It can add internal compression to netCDF4 files and convert between different formats. It is also useful to concatenate files, performing averages and other simple mathematical operations on an entire variable, extracting, or deleting variables. Results will be automatically saved in a netCDF file and NCO can also be used to set chunking and compression.
