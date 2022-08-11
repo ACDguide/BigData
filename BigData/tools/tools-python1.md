@@ -30,6 +30,10 @@ An integrated development environment (IDE) is a tool that helps managing your w
 A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages, they can handle dependencies. Some package manager are also environment managers as they allow to create separate enviroments and handle potential conflicts between packages belonging to the same environment. An evironment manager will also keep track of all the packages and versions installed, so that is easier to reproduce the same environment again in a consistent manner.<br>
 Here we are covering some of the package and environment managers most used for Python, for a full list check the [python documentation](https://packaging.python.org/en/latest/key_projects/). Some are python specific as venv, virtualenv and pipenv, the conda managers can also be used for R, Julia and many other analysis softwares.
 
+```{warning}
+Always check if a pre-defined software environment is available already! See here for {ref}`examples<condaenvs>`
+```
+
 ```{glossary}
 
 [conda](https://conda.io)
@@ -50,6 +54,7 @@ Here we are covering some of the package and environment managers most used for 
 [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
   Pipenv creates and manages separate virtualenv in a project-based way. The project specific requirements are listed in the Pipfile, of which a locked version is automatically created once the packages are installed. Pipenv works well on Windows, which can be sometimes problematic for other tools.
 
+COMMENT this could be removed from here !
 ```
 It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing conda, for example, it's a good idea to check whether a shared conda installation and environment that serves your needs doesn't already exist. 
 Some examples of managed analysis environments include:

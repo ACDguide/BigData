@@ -1,7 +1,26 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Accessing data
+  - caption: Data
+    chapters:
+    - file: data/data-intro
+    - file: data/data-format
+      sections:
+      - file: data/nczarr_test
+    - file: data/data-advice
+      sections:
+      - file: data/data-metadata
+      - file: data/data-chunking
+      - file: data/data-troubleshooting
+  - caption: Computations
+    chapters:
+    - file: computations/intro
+      sections:
+      - file: computations/computations 
+      - file: computations/dask    
+      - file: computations/time_axis    
+      - file: computations/machine-learning    
+  - caption: Working environments 
     chapters:
     - file: platforms/platforms-intro
       sections:
@@ -13,20 +32,12 @@ parts:
       - file: platforms/platforms-BoM
       - file: platforms/platforms-institutional
       - file: platforms/platforms-PC
-    - file: accessing_data
-  - caption: Data storage
+  - caption: Accessing data
     chapters:
-    - file: data_storage
+    - file: access/access-intro
       sections:
-      - file : nczarr_test
-  - caption: Metadata
-    chapters:
-    - file: format_metadata         
-  - caption: Computations
-    chapters:
-    - file: computations/computations 
-    - file: computations/chunking    
-    - file: computations/time_axis    
+      - file: access/accessing_data
+      - file: access/analysis-ready
   - caption: Available tools
     chapters:
     - file: tools/tools-intro.md   

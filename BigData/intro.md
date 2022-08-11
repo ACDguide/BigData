@@ -1,5 +1,12 @@
 # Overview
 
+COMMENT this should become 
+ better overview of what's in the book, how to use it if:
+-  you're a newbie
+- you're looking for specific advice
+- you're familiar with climate science analysis moving from a different system/language etc.  
+
+
 This Jupyter Book is a compilation of resources and best practices for climate scientists in Australia who work with big/challenging datasets. This book is intended for both dataset creators and dataset users. While the focus is on Australian climate scientists, many of the resources listed here are generally applicable.
 
 :::{note}
