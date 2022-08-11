@@ -21,13 +21,13 @@ In Australia is becoming popular with the oceanographic community.
    DataFrames allows tabular data manipulation with Julia, its functionality is similar to Pandas (python) and dplyr (R).
 
 [JuliaPy](https://github.com/JuliaPy)
-   JuliaPy includes interfaces to Pythin and some of its most common packages as Pandas and pyplot.
+   JuliaPy includes interfaces to Python and some of its most common packages, such as Pandas and pyplot.
 
 [MLJ.jl](https://alan-turing-institute.github.io/MLJ.jl/dev/)
-   MLJ is a machine learning framework for Julia which includes the most commo machine learning models. 
+   MLJ is a machine learning framework for Julia which includes the most common machine learning models. 
 
 [NetCDF.jl](https://github.com/JuliaGeo/NetCDF.jl)
-    NetCDF su[port for Julia
+    NetCDF support for Julia
 
 [Plots.jl](https://docs.juliaplots.org/stable/)
    A visualization ecosystem for Julia
