@@ -1,4 +1,4 @@
-# Available tools and their best use
+# Software list and their best use
 
 There are many languages and packages available to analyse and handle data. Each has its own strengths and weaknesses, but this section of the book aims to help identify which languages/tools are best suited to specific tasks.
 

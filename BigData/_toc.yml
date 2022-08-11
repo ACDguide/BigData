@@ -38,7 +38,7 @@ parts:
       sections:
       - file: access/accessing_data
       - file: access/analysis-ready
-  - caption: Available tools
+  - caption: Software 
     chapters:
     - file: tools/tools-intro.md   
       sections:
