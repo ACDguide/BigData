@@ -21,7 +21,8 @@ The ARE service is accessed via an OpenOnDemand launcher page which creates a jo
 
 Launching the VDI via the button gives access to a familiar linux graphical interface, while the JupyterLab support connection to existing conda environments.
 
-# When would I use this system? 
+## When would I use this system? 
+
 - Gadi is intended for large scale modelling and data processing jobs. If you are running parallel numerical models at scale then you would likely work exclusively on Gadi or a similar system. It is also useful for "high throughput computing" like AI/ML workflows, and "high performance data" parallel data processing using Pangeo tools like python's `dask` library - though usually you would start exploratory data work on the NCI's OOD (see below) and only move to Gadi when greater scalability is required.
 - NCI is an ideal platform to use when collaborating with peers from other institutions as it is available to all Australian researchers. 
 - If you are wanting to use large reference climate datasets as input for your research, chances are the data you want may already be available at NCI, which saves you time downloading and managing the datasets, and it is more efficient for everyone to use these centralised collections.
