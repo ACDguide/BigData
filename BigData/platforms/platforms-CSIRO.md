@@ -11,10 +11,10 @@ Of note on Petrichor/Bracewell,
 - `/datasets` contains mounts of Bowen cloud storage to the HPC - this is disk-based storage which is faster than datastore but slower than scratch, so not ideal for running models but good for persistent storage of model output datasets.
 - `/home` is shared across CSIRO HPC systems but cloud machines typically have their own /home area.
 
-### When would I use this sytem?
+## When would I use this sytem?
 
 When working only with other CSIRO researchers and/or when publishing data to CSIRO's Data Access Portal (DAP) which is >10TB.
 
-### How do I get access?
+## How do I get access?
 
 Access is available to CSIRO staff via the [Scientific Computing platform](https://sc.it.csiro.au/).
