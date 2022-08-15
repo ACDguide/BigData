@@ -23,7 +23,6 @@ An integrated development environment (IDE) is a tool that helps managing your w
     VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). 
 
 ```
-!!!! COMMENT: this needs review from someone who actually use VSCode!!!! 
 
 ## Package and environment management
 
