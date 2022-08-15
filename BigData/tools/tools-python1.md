@@ -23,7 +23,6 @@ An integrated development environment (IDE) is a tool that helps managing your w
     VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). 
 
 ```
-!!!! COMMENT: this needs review from someone who actually use VSCode!!!! 
 
 ## Package and environment management
 
@@ -51,6 +50,8 @@ Here we are covering some of the package and environment managers most used for 
   Pipenv creates and manages separate virtualenv in a project-based way. The project specific requirements are listed in the Pipfile, of which a locked version is automatically created once the packages are installed. Pipenv works well on Windows, which can be sometimes problematic for other tools.
 
 ```
+
+````{warning}
 It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing conda, for example, it's a good idea to check whether a shared conda installation and environment that serves your needs doesn't already exist. 
 Some examples of managed analysis environments include:
 
@@ -63,6 +64,7 @@ The NCI team manage an open project, [dk92](https://opus.nci.org.au/pages/viewpa
 ```{dropdown} **miniconda environment for Petrichor (CSIRO)**
 Petrichor users (CSIRO employees only) can `module load miniconda3` to use a conda installation managed by IM&T. Custom conda environments and packages can be installed to a preferred location using the [`.condarc` configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-env-directories)
 ```
+````
 
 ## Community  
 
