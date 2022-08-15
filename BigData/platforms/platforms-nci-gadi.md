@@ -10,21 +10,23 @@ NCI provides:
 - the `MDSS` mass datastore facility for data archiving/backup.
 - help via help@nci.org.au as well as specialised climate support from CLEX, BoM and CSIRO support staff via cws-help@nci.org.au.
 
-The HPC is usually accessed via the command line to login nodes, which support internet access. Tasks to be run on the HPC compute nodes are described in "job scripts" which are submitted to a batch queuing system to ensure fair use of the resources. No internet access is available from Gadi compute nodes, so all downloads/repository cloning needs to be done on login nodes.
+The HPC ("Gadi") is usually accessed via the command line to login nodes, which support internet access. Tasks to be run on the HPC compute nodes are described in "job scripts" which are submitted to a batch queuing system to ensure fair use of the resources. 
 
-The NCI also support a virtual desktop infrastructure (VDI) and JupyterLab via the Australian Research Environment (ARE), provides an interface to the HPC infrastructure (currently limited to broadwell CPU and GPU nodes). The ARE provides a web-based interface to Gadi, a virtual desktop on a compute node, or a JupyterLab session. Internet access is not available on broadwell queue nodes so the VDI cannot be used for downloading or external `git` work but is excellent for dask-based data analysis. Documentation can be [found here](https://opus.nci.org.au/display/Help/ARE+User+Guide).
+The NCI also supports an interface to the HPC infrastructure called the Australian Research Environment (ARE). The ARE provides a web-based interface to Gadi via a virtual desktop infrastructure (VDI) on a compute node, or a JupyterLab session. Gadi terminals can also be accessed in a browser via the ARE. 
+
+Internet access is not available from Gadi compute nodes, so all downloads/repository cloning and `git` work needs to be done on login nodes (terminal) or in `analysis` or `copyq` ARE jobs. Despite general lack of internet access, the ARE is excellent for dask-based data analysis. Documentation can be [found here](https://opus.nci.org.au/display/Help/ARE+User+Guide).
 
 The ARE service is accessed via an OpenOnDemand launcher page which creates a job with access to the requested compute and storage resources.
 ![ARE launcher](../images/ARE-launcher1.png)
 
-Launching the VDI desktop via the button gives access to a familiar linux graphical interface, while the JupyterLab support connection to existing conda environments.
+Launching the VDI via the button gives access to a familiar linux graphical interface, while the JupyterLab support connection to existing conda environments.
 
 
 ### When would I use this system? 
 - Gadi is intended for large scale modelling and data processing jobs. If you are running parallel numerical models at scale then you would likely work exclusively on Gadi or a similar system. It is also useful for "high throughput computing" like AI/ML workflows, and "high performance data" parallel data processing using Pangeo tools like python's `dask` library - though usually you would start exploratory data work on the NCI's OOD (see below) and only move to Gadi when greater scalability is required.
 - NCI is an ideal platform to use when collaborating with peers from other institutions as it is available to all Australian researchers. 
 - If you are wanting to use large reference climate datasets as input for your research, chances are the data you want may already be available at NCI, which saves you time downloading and managing the datasets, and it is more efficient for everyone to use these centralised collections.
-- If you need to work interactively using code in your Gadi `/home` directory instead of the [OOD](https://acdguide.github.io/BigData/platforms/platforms-nci-ood.html), there are [helper scripts](https://github.com/coecms/nci_scripts) such as `gadi_jupyter` provided by the CLEX CMS team.
+- If you need to work interactively using code in your Gadi `/home` directory instead of the [OOD](https://acdguide.github.io/BigData/platforms/platforms-nci-ood.html), the ARE provides a JupyterLab or VDI environment with access to Gadi `/home` and is the recommended tool for users looking to perform interactive large-scale data analysis. There are also [helper scripts](https://github.com/coecms/nci_scripts) such as `gadi_jupyter` provided by the CLEX CMS team. 
 - If you want to use large numbers of compute cores or memory to perform large-scale data analysis, the ARE is the tool of choice.
 
 ### How do I get access? 
