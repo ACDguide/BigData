@@ -17,6 +17,9 @@ In Australia is becoming popular with the oceanographic community.
 
 ```{glossary}
 
+[CFTime.jl](https://github.com/JuliaGeo/CFTime.jl)
+   CFTime encodes and decodes time units conforming to the CF conventions, originally as part of the NCDatasets package
+
 [DataFrames.jl](https://dataframes.juliadata.org/stable/)
    DataFrames allows tabular data manipulation with Julia, its functionality is similar to Pandas (python) and dplyr (R).
 
@@ -26,8 +29,11 @@ In Australia is becoming popular with the oceanographic community.
 [MLJ.jl](https://alan-turing-institute.github.io/MLJ.jl/dev/)
    MLJ is a machine learning framework for Julia which includes the most commo machine learning models. 
 
+[NCDatasets.jl](https://github.com/Alexander-Barth/NCDatasets.jl)
+    NCDatasets allows to read and create netCDF files. NetCDF data set and attribute list behave like Julia dictionaries and variables like Julia arrays.
+
 [NetCDF.jl](https://github.com/JuliaGeo/NetCDF.jl)
-    NetCDF su[port for Julia
+    NetCDF support for Julia
 
 [Plots.jl](https://docs.juliaplots.org/stable/)
    A visualization ecosystem for Julia
