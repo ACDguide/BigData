@@ -18,7 +18,7 @@ Other libraries are useful to manage or access dataset collections both local an
     h5netcdf is an interface for the netCDF4 file-format that reads and writes local or remote HDF5 files directly via h5py or h5pyd, without need for netCDF4. It can be faster than the latter depending on the actual file structure (any example??)
 
 [Zarr](https://zarr.readthedocs.io/en/stable)
-    zarr is a relatively new format to store chunked, compressed, N-dimensional arrays, optimised for cloud data access
+    Zarr is a relatively new format to store chunked, compressed, N-dimensional arrays, optimised for cloud data access
   
 [cfgrib](https://github.com/ecmwf/cfgrib)
     cfgrib is a python interface to [ecCodes](https://confluence.ecmwf.int/display/ECC), a set of tools for decoding and encoding grib1 and grib2 files. ecCodes replaced the grib-api. Cfgrib allows to open a grib file with xarray and iris. 
@@ -234,7 +234,7 @@ Other packages to consider are seaborn, holoviews, plotly.
     CDO for python is a wrapper around the CDO binary. It parses method arguments and options, builds a command line and executes it. NB (Scott has a regridding function that exploit this)
 
 [PyNCML](https://github.com/axiom-data-science/pyncml)
-    PyNCML is a simple python library to apply NcML logic to NetCDF files. (last updates were in 2017 potentially obsolete)
+    PyNCML is a simple python library to apply NcML logic to netCDF files. (last updates were in 2017 potentially obsolete)
 
 [PyNIO](http://www.pyngl.ucar.edu/Nio.shtml)
     PyNIO is a python interface to NCL, as NCL is currently in maintenance node (last updates were in 2019)

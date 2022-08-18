@@ -29,7 +29,7 @@ In Australia is becoming popular with the oceanographic community.
    MLJ is a machine learning framework for Julia which includes the most commo machine learning models. 
 
 [NetCDF.jl](https://github.com/JuliaGeo/NetCDF.jl)
-    NetCDF su[port for Julia
+    NetCDF support for Julia
 
 [Plots.jl](https://docs.juliaplots.org/stable/)
    A visualization ecosystem for Julia

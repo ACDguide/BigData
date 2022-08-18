@@ -139,7 +139,7 @@ The table below provides a schematic of the main differences, more on the releti
   - Series (columns), Dataframes (table)
   - Labelled data arrays and datasets
 * - Data input/output 
-  - Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and zarr. Can output binary, csv, txt files
+  - Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and Zarr. Can output binary, csv, txt files
   - Read/write [many formats](https://pandas.pydata.org/docs/user_guide/io.html), including hdf5, for netcdf you need other libraries
   - best tool for netcdf, including multiple files at once, includes support for openDAP and compression, chunks can easily convert arrays to pandas and numpy (http://xarray.pydata.org/en/stable/user-guide/io.html)
 * - Vectorised operations
