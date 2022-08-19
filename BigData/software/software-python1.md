@@ -20,14 +20,14 @@ An integrated development environment (IDE) is a tool that helps managing your w
     PyCharm is a python IDE, not all the versions are free, but a free license is available for single accademic use for the PyCharm Community editon and the [Educational](https://www.jetbrains.com/pycharm-edu/) edition. The educational edition includes python training modules. 
 
 [VSCode](https://code.visualstudio.com)
-    VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). 
+    VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to be lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter).
 
 ```
 
 ## Package and environment management
 
-A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages, they can handle dependencies. Some package manager are also environment managers as they allow to create separate enviroments and handle potential conflicts between packages belonging to the same environment. An evironment manager will also keep track of all the packages and versions installed, so that is easier to reproduce the same environment again in a consistent manner.<br>
-Here we are covering some of the package and environment managers most used for Python, for a full list check the [python documentation](https://packaging.python.org/en/latest/key_projects/). Some are python specific as venv, virtualenv and pipenv, the conda managers can also be used for R, Julia and many other analysis softwares.
+A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages and handles dependencies. Some package managers are also environment managers as they allow users to create separate environments and handle potential conflicts between packages belonging to the same environment. An environment manager will also keep track of all the packages and versions installed, so that it's easier to reproduce the same environment again in a consistent manner.<br>
+Here we cover some of the package and environment managers most used for Python. For a full list, check the Python documentation. Some managers are Python specific, such as venv, virtualenv and pipenv. The conda managers can also be used for R, Julia and many other analysis softwares.
 
 ```{warning}
 Always check if a pre-defined software environment is available already! See here for {ref}`examples<condaenvs>`
@@ -198,7 +198,7 @@ Iris can also handle both grib (1 and 2) formats and pp binary files. These last
 
 ### Machine learning packages
 
-PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments it has a better memory optimisation management and allows more fine-grained control of the model structure.
+PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments since it has a better memory optimisation management and allows more fine-grained control of the model structure.
 
 ```{glossary}
 
@@ -215,7 +215,7 @@ PyTorch and TensorFlow are very similar in terms of features but PyTorch is more
     Scikit-learn is built on top of viz., NumPy and SciPy. Scikit-learn supports most of the classical supervised and unsupervised learning algorithms. Scikit-learn can also be used for data-mining and data-analysis.
     
 [TensorFlow](https://www.tensorflow.org)
-    TensorFlow is developed by Google to develop and train ML models. Basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.
+    TensorFlow is developed by Google to develop and train ML models. The basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.
 
 ```
 As machine learning is very popular there are plenty of resources available online. The [Realpython website](https://realpython.com/tutorials/machine-learning/), for example has several machine learning related tutorials.
