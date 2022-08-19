@@ -257,7 +257,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tools-other.html">
-     MATLAB
+     Other software
     </a>
    </li>
   </ul>
@@ -367,8 +367,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#development-environments">
-   Development environments
+  <a class="reference internal nav-link" href="#integrated-development-environments">
+   Integrated Development Environments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -429,8 +429,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#development-environments">
-   Development environments
+  <a class="reference internal nav-link" href="#integrated-development-environments">
+   Integrated Development Environments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -482,9 +482,9 @@
   <div class="section" id="python">
 <span id="id1"></span><h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
 <p>This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets.</p>
-<div class="section" id="development-environments">
-<span id="jupyter"></span><h2>Development environments<a class="headerlink" href="#development-environments" title="Permalink to this headline">¶</a></h2>
-<p>—COMMENT should have an introductory paragraph for comparison of packages</p>
+<div class="section" id="integrated-development-environments">
+<h2>Integrated Development Environments<a class="headerlink" href="#integrated-development-environments" title="Permalink to this headline">¶</a></h2>
+<p>An integrated development environment (IDE) is a tool that helps managing your workspace when working on a software code. At its most basic an IDE is an editor that understand and can highlight the programming language syntax. They can have integration with testing packages, version control and other developers tools. Some can be setup to work remotely (jupyterlab, VSCode).</p>
 <dl class="glossary simple">
 <dt id="term-jupyter"><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/">jupyter</a><a class="headerlink" href="#term-jupyter" title="Permalink to this term">¶</a></dt><dd><p>Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization, machine learning, and much more. While jupyter is a python package it supports more than 40 languages including R, Julia and of course python.</p>
 </dd>
@@ -494,13 +494,14 @@
 </dd>
 <dt id="term-PyCharm"><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a><a class="headerlink" href="#term-PyCharm" title="Permalink to this term">¶</a></dt><dd><p>PyCharm is a python IDE, not all the versions are free, but a free license is available for single accademic use for the PyCharm Community editon and the <a class="reference external" href="https://www.jetbrains.com/pycharm-edu/">Educational</a> edition. The educational edition includes python training modules.</p>
 </dd>
-<dt id="term-VSCode">[VSCode]<a class="headerlink" href="#term-VSCode" title="Permalink to this term">¶</a></dt><dd><p>VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager">Python</a>, <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a> and <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a>. !!!! this needs review from someone who actually use VSCode!!!!</p>
+<dt id="term-VSCode"><a class="reference external" href="https://code.visualstudio.com">VSCode</a><a class="headerlink" href="#term-VSCode" title="Permalink to this term">¶</a></dt><dd><p>VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to be lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager">Python</a>, <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a> and <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a>.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="package-and-environment-management">
 <h2>Package and environment management<a class="headerlink" href="#package-and-environment-management" title="Permalink to this headline">¶</a></h2>
-<p>–COMMENT needs introduction</p>
+<p>A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages and handles dependencies. Some package managers are also environment managers as they allow users to create separate environments and handle potential conflicts between packages belonging to the same environment. An environment manager will also keep track of all the packages and versions installed, so that it’s easier to reproduce the same environment again in a consistent manner.<br>
+Here we cover some of the package and environment managers most used for Python. For a full list, check the <a class="reference external" href="https://packaging.python.org/en/latest/key_projects/">python documentation</a>. Some managers are Python specific, such as venv, virtualenv and pipenv. The conda managers can also be used for R, Julia and many other analysis softwares.</p>
 <dl class="glossary simple">
 <dt id="term-conda"><a class="reference external" href="https://conda.io">conda</a><a class="headerlink" href="#term-conda" title="Permalink to this term">¶</a></dt><dd><p>Conda is an open source package management system and environment management system that runs on Windows, macOS and Linux. Conda quickly installs, runs and updates packages and their dependencies. Conda easily creates, saves, loads and switches between environments on your local computer. It was created for Python programs, but it can package and distribute software for any language.</p>
 </dd>
@@ -508,13 +509,49 @@
 </dd>
 <dt id="term-miniconda"><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a><a class="headerlink" href="#term-miniconda" title="Permalink to this term">¶</a></dt><dd><p>A lightweight version of anaconda which by default only includes core libraries, good for building specific environments for data analysis. This underpins the <code class="docutils literal notranslate"><span class="pre">conda</span></code> modules in the <code class="docutils literal notranslate"><span class="pre">hh5</span></code> project at NCI.</p>
 </dd>
-<dt id="term-mamba"><a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a><a class="headerlink" href="#term-mamba" title="Permalink to this term">¶</a></dt><dd><p>mamba is a fast, robust, and cross-platform package manager.</p>
+<dt id="term-mamba"><a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a><a class="headerlink" href="#term-mamba" title="Permalink to this term">¶</a></dt><dd><p>A reimplementation of the conda package manager in C++, mamba is a fast, robust, and cross-platform package manager.</p>
+</dd>
+<dt id="term-virtualenv"><a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> <a class="headerlink" href="#term-virtualenv" title="Permalink to this term">¶</a></dt><dd><p>Virtualenv allows to create isolated Python environments. Since Python 3.3, a basic version (venv module) is integrated into the standard library.</p>
+</dd>
+<dt id="term-pipenv"><a class="reference external" href="https://pipenv-fork.readthedocs.io/en/latest/">pipenv</a><a class="headerlink" href="#term-pipenv" title="Permalink to this term">¶</a></dt><dd><p>Pipenv creates and manages separate virtualenv in a project-based way. The project specific requirements are listed in the Pipfile, of which a locked version is automatically created once the packages are installed. Pipenv works well on Windows, which can be sometimes problematic for other tools.</p>
 </dd>
 </dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing conda, for example, it’s a good idea to check whether a shared conda installation and environment that serves your needs doesn’t already exist.
+Some examples of managed analysis environments include:</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>hh5 conda environment at NCI</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">The CLEX-CMS (<a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Conda">http://climate-cms.wikis.unsw.edu.au/Conda</a>) team maintains a [conda environment]((<a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Conda">http://climate-cms.wikis.unsw.edu.au/Conda</a>) on NCI that includes a wide variety of climate and weather related libraries. This includes mostly python based packages, but also community software and some custom-built NCI related command line programs, for a <a class="reference external" href="https://github.com/coecms/conda-envs/blob/analysis3/environment.yml">full list</a>. They also provide instructions on how to create your own custom conda environment using their conda installation. Additional packages can be requested via the cws_help-at-nci.org.au helpdesk.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>dk92 conda environment at NCI</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">The NCI team manage an open project, <a class="reference external" href="https://opus.nci.org.au/pages/viewpage.action?pageId=134742126">dk92</a>, that provides a module for data analysis that includes Python, and , in the latest version, R and Julia packages. This environment is updated every 3 months. It is also possible to clone notebooks with related analysis examples.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>miniconda environment for Petrichor (CSIRO)</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Petrichor users (CSIRO employees only) can <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">miniconda3</span></code> to use a conda installation managed by IM&amp;T. Custom conda environments and packages can be installed to a preferred location using the <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-env-directories"><code class="docutils literal notranslate"><span class="pre">.condarc</span></code> configuration file</a></p>
+</div>
+</details></div>
 </div>
 <div class="section" id="community">
 <h2>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h2>
-<p>–COMMENT needs introduction</p>
+<p>There are a few community based projects that aim to provide stacks of python packages selected for climate or related fields analysis. They often also provides examples of how to use these packages in the forms of notebooks and/or tutorials.</p>
 <dl class="glossary simple">
 <dt id="term-Pangeo"><a class="reference external" href="https://pangeo.io/">Pangeo</a><a class="headerlink" href="#term-Pangeo" title="Permalink to this term">¶</a></dt><dd><p>Pangeo is a community of people working collaboratively to develop software and infrastructure to enable Big Data geoscience research. A Pangeo environment is made of up of many different open-source software packages for ocean, atmosphere, land and climate science.</p>
 </dd>
@@ -599,7 +636,7 @@ The table below provides a schematic of the main differences, more on the releti
 <td><p>Labelled data arrays and datasets</p></td>
 </tr>
 <tr class="row-even"><td><p>Data input/output</p></td>
-<td><p>Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and zarr. Can output binary, csv, txt files</p></td>
+<td><p>Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and Zarr. Can output binary, csv, txt files</p></td>
 <td><p>Read/write <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">many formats</a>, including hdf5, for netcdf you need other libraries</p></td>
 <td><p>best tool for netcdf, including multiple files at once, includes support for openDAP and compression, chunks can easily convert arrays to pandas and numpy (<a class="reference external" href="http://xarray.pydata.org/en/stable/user-guide/io.html">http://xarray.pydata.org/en/stable/user-guide/io.html</a>)</p></td>
 </tr>
@@ -661,27 +698,24 @@ Iris can also handle both grib (1 and 2) formats and pp binary files. These last
 </div>
 <div class="section" id="machine-learning-packages">
 <h3>Machine learning packages<a class="headerlink" href="#machine-learning-packages" title="Permalink to this headline">¶</a></h3>
-<p>—COMMENT just starting this, so feel free to add on/edit etc freely</p>
-<p>PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments.</p>
+<p>PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments since it has a better memory optimisation management and allows more fine-grained control of the model structure.</p>
 <dl class="glossary simple">
-<dt id="term-scikit-learn"><a class="reference external" href="https://scikit-learn.org">scikit-learn</a><a class="headerlink" href="#term-scikit-learn" title="Permalink to this term">¶</a></dt><dd><p>Scikit-learn is …</p>
+<dt id="term-aesara"><a class="reference external" href="https://aesara.readthedocs.io/en/latest/">aesara</a><a class="headerlink" href="#term-aesara" title="Permalink to this term">¶</a></dt><dd><p>Aesara, previously know as Theano, is used to define, evaluate and optimize mathematical expressions involving multi-dimensional arrays in an efficient manner. It optimizes the utilization of CPU and GPU and is often used in large-scale computationally intensive scientific projects, but it is simple and approachable enough to be used for smaller projects too.</p>
+</dd>
+<dt id="term-Keras"><a class="reference external" href="https://keras.io">Keras</a><a class="headerlink" href="#term-Keras" title="Permalink to this term">¶</a></dt><dd><p>Keras is a high-level neural networks API for TensorFlow2. It provides essential abstractions and building blocks for developing and shipping machine learning solutions with high iteration velocity.</p>
 </dd>
 <dt id="term-PyTorch"><a class="reference external" href="https://pytorch.org">PyTorch</a><a class="headerlink" href="#term-PyTorch" title="Permalink to this term">¶</a></dt><dd><p>PyTorch is a ML framework based on the C library Torch. Basic data structure is a tensor. It allows to write highly customized neural network components.</p>
 </dd>
-<dt id="term-TensorFlow"><a class="reference external" href="https://www.tensorflow.org">TensorFlow</a><a class="headerlink" href="#term-TensorFlow" title="Permalink to this term">¶</a></dt><dd><p>TensorFlow is developed by Google to develop and train ML models. Basic data structure is a tensor.</p>
+<dt id="term-scikit-learn"><a class="reference external" href="https://scikit-learn.org">scikit-learn</a><a class="headerlink" href="#term-scikit-learn" title="Permalink to this term">¶</a></dt><dd><p>Scikit-learn is built on top of viz., NumPy and SciPy. Scikit-learn supports most of the classical supervised and unsupervised learning algorithms. Scikit-learn can also be used for data-mining and data-analysis.</p>
 </dd>
-<dt id="term-Keras"><a class="reference external" href="https://keras.io">Keras</a><a class="headerlink" href="#term-Keras" title="Permalink to this term">¶</a></dt><dd><p>Keras …</p>
+<dt id="term-TensorFlow"><a class="reference external" href="https://www.tensorflow.org">TensorFlow</a><a class="headerlink" href="#term-TensorFlow" title="Permalink to this term">¶</a></dt><dd><p>TensorFlow is developed by Google to develop and train ML models. The basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.</p>
 </dd>
 </dl>
-<p>—- Work in progress!!! —-
-The following two paragraph with lists could be unified or separated in a more coherent way
-This is because I’m trying to move further into separating packages based on functionality rather than origin. However, I would still like to put somewhere a “NB” this is a development package for stuff like xmhw</p>
+<p>As machine learning is very popular there are plenty of resources available online. The <a class="reference external" href="https://realpython.com/tutorials/machine-learning/">Realpython website</a>, for example has several machine learning related tutorials.</p>
 </div>
-<hr class="docutils" />
 <div class="section" id="climate-science-related-packages">
 <h3>Climate science related packages<a class="headerlink" href="#climate-science-related-packages" title="Permalink to this headline">¶</a></h3>
-<p>—COMMENT needs intro
-Some of these packages were developed for very specific tasks from members of the climate community. While their scope is limited and the packages might be maintained on a need base, they still can be very useful as they have been tailored to the community needs.</p>
+<p>Some of these packages were developed for very specific tasks from members of the climate community. While their scope is limited and the packages might be maintained on a need base, they still can be very useful as they have been tailored to the community needs.</p>
 <dl class="glossary simple">
 <dt id="term-climate-indices"><a class="reference external" href="https://climate-indices.readthedocs.io/en/latest/">climate-indices</a><a class="headerlink" href="#term-climate-indices" title="Permalink to this term">¶</a></dt><dd><p>climate-indices provides implementations of various climate index algorithms in python.</p>
 </dd>

@@ -257,7 +257,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tools/tools-other.html">
-     MATLAB
+     Other software
     </a>
    </li>
   </ul>
@@ -427,46 +427,46 @@
                 
   <div class="section" id="in-depth-nczarr-testing">
 <h1>In-depth <code class="docutils literal notranslate"><span class="pre">nczarr</span></code> testing<a class="headerlink" href="#in-depth-nczarr-testing" title="Permalink to this headline">¶</a></h1>
-<p>This page documents tests performed to understand the newly released <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/entry/overview-of-zarr-support-in">netCDF v4.8.0</a> library with zarr back-end support.</p>
+<p>This page documents tests performed to understand the newly released <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/entry/overview-of-zarr-support-in">netCDF v4.8.0</a> library with Zarr back-end support.</p>
 <ul class="simple">
-<li><p>When netCDF is built with zarr enabled, it is possible to write a netCDF file out in Zarr format.</p></li>
-<li><p>At this stage, reading of Zarr files is not yet enabled by the python NetCDF library, but that will be added in due course.</p></li>
-<li><p>netCDF 4.8.0 does not (yet) support zip output, so at this stage, writing a netCDF file out in zarr format creates many file objects (one per chunk)</p></li>
+<li><p>When netCDF is built with Zarr enabled, it is possible to write a netCDF file out in Zarr format.</p></li>
+<li><p>At this stage, reading of Zarr files is not yet enabled by the python netCDF library, but that will be added in due course.</p></li>
+<li><p>netCDF 4.8.0 does not (yet) support zip output, so at this stage, writing a netCDF file out in Zarr format creates many file objects (one per chunk)</p></li>
 <li><p>“nczarr” does not support unlimited dimensions like HDF5 does, as such netCDFs must have all dimensions of defined length.</p></li>
 </ul>
-<p><strong>TL;DR: It kind of works, but not in a practical sense. It will be worth montioring updates to the netCDF zarr library over the next couple of years.</strong></p>
+<p><strong>TL;DR: It kind of works, but not in a practical sense. It will be worth montioring updates to the netCDF Zarr library over the next couple of years.</strong></p>
 <div class="section" id="description-of-tests-performed">
 <h2>Description of tests performed<a class="headerlink" href="#description-of-tests-performed" title="Permalink to this headline">¶</a></h2>
 <p>We tested <code class="docutils literal notranslate"><span class="pre">nczarr</span></code> on NCI’s Gadi system.</p>
-<p>I took an existing netCDF file and attempted to convert it to zarr so we could test the conversion mechanism and performance.
+<p>I took an existing netCDF file and attempted to convert it to Zarr so we could test the conversion mechanism and performance.
 This test was done in project <code class="docutils literal notranslate"><span class="pre">p66</span></code>, members of that project should be able to see it: <code class="docutils literal notranslate"><span class="pre">/scratch/p66/ct5255/nczarr</span></code>.</p>
 <p>Thanks to Dale Roberts at NCI for installing a new version of netCDF on Gadi to support these tests and rebuilding with a bunch of different flags as I tried and failed at things in this process!</p>
 <p><em>I attempted to write an existing netCDF file, which I knew would be fully compliant with all relevant standards, to Zarr format.</em></p>
 <ol class="simple">
-<li><p>Could not generate a zarr directly from the netCDF because it was not consistent with current nczarr limitations. <br>
+<li><p>Could not generate a Zarr directly from the netCDF because it was not consistent with current nczarr limitations. <br>
 <code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span></code> <br>
 fails (you can test this yourself, just <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">netcdf/4.8.0</span></code>).</p></li>
 <li><p>I dumped the input netCDF file to its plain ASCII representation (.cdl), <br>
 <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">/g/data/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/tas/gn/v20191108/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412.nc</span> <span class="pre">&gt;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code> <br>
 This needed to be edited to change the time dimension from <code class="docutils literal notranslate"><span class="pre">UNLIMITED</span></code> to the actual length of the time dimension in that file (<code class="docutils literal notranslate"><span class="pre">1980</span></code> in this case).</p></li>
-<li><p>I then used <code class="docutils literal notranslate"><span class="pre">ncgen</span></code> to convert it to zarr: <br>
+<li><p>I then used <code class="docutils literal notranslate"><span class="pre">ncgen</span></code> to convert it to Zarr: <br>
 <code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz#mode=nczarr,file&quot;</span> <span class="pre">tas_Amon_hist_ACCESS-CM2_test.cdl</span></code> <br> (per vague instructions at <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in">https://www.unidata.ucar.edu/blogs/developer/en/entry/overview-of-zarr-support-in</a>). <br>
 This produces a directory which looks like a filename <br>
 <code class="docutils literal notranslate"><span class="pre">drwxr-s---</span> <span class="pre">10</span> <span class="pre">ct5255</span> <span class="pre">p66</span>&#160;&#160;&#160;&#160; <span class="pre">16384</span> <span class="pre">Jul</span> <span class="pre">16</span> <span class="pre">16:58</span> <span class="pre">tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test.ncz</span></code><br>
 and contains each dimension and variable as subdirectories, which in turn contain numbered files representing each data chunk.<br>
 This can (I believe), be read with <code class="docutils literal notranslate"><span class="pre">xarray.open_zarr</span></code></p></li>
-<li><p>It seems that it is possible to handle zipped zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn’t be enabled in the current version.
+<li><p>It seems that it is possible to handle zipped Zarr files (at least on read), presumably also on write? However, I found this was not supported, and indeed NCI investigated the build for this module and it seemed like it couldn’t be enabled in the current version.
 So this is not possible <br>
 <code class="docutils literal notranslate"><span class="pre">ncgen</span> <span class="pre">-4</span> <span class="pre">-lb</span> <span class="pre">-o</span> <span class="pre">&quot;file:///scratch/p66/ct5255/nczarr/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_test2.ncz#mode=nczarr,zip&quot;</span> <span class="pre">tas_</span> <span class="pre">Amon_hist_ACCESS-CM2_test.cdl</span></code></br>
-<code class="docutils literal notranslate"><span class="pre">ncgen:</span> <span class="pre">NetCDF:</span> <span class="pre">Attempt</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">feature</span> <span class="pre">that</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">turned</span> <span class="pre">on</span> <span class="pre">when</span> <span class="pre">netCDF</span> <span class="pre">was</span> <span class="pre">built.</span>&#160; <span class="pre">(../../ncgen/genbin.c:genbin_netcdf:63)</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">ncgen:</span> <span class="pre">netCDF:</span> <span class="pre">Attempt</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">feature</span> <span class="pre">that</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">turned</span> <span class="pre">on</span> <span class="pre">when</span> <span class="pre">netCDF</span> <span class="pre">was</span> <span class="pre">built.</span>&#160; <span class="pre">(../../ncgen/genbin.c:genbin_netcdf:63)</span></code></p></li>
 </ol>
 </div>
 <div class="section" id="findings">
 <h2>Findings:<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>It is not viable to translate existing netCDF to zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
-<li><p>It is not a good idea to write much data to zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
-<li><p>It is important to watch this library as it (rapidly) evolves to better supoort zarr read/write.</p></li>
+<li><p>It is not viable to translate existing netCDF to Zarr-backed netCDF, because we liberally use unlimited time dimensions.</p></li>
+<li><p>It is not a good idea to write much data to Zarr format using this tool at the moment because it doesn’t support the zip archiving, so uses a lot of inodes, which will affect quotas.</p></li>
+<li><p>It is important to watch this library as it (rapidly) evolves to better supoort Zarr read/write.</p></li>
 </ul>
 </div>
 <div class="section" id="other-people-s-tests">

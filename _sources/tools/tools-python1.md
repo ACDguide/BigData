@@ -2,12 +2,11 @@
 # Python
 This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets. 
 
-(jupyter)=
-## Development environments
-
----COMMENT should have an introductory paragraph for comparison of packages
+## Integrated Development Environments
+An integrated development environment (IDE) is a tool that helps managing your workspace when working on a software code. At its most basic an IDE is an editor that understand and can highlight the programming language syntax. They can have integration with testing packages, version control and other developers tools. Some can be setup to work remotely (jupyterlab, VSCode). 
 
 ```{glossary}
+
 [jupyter](https://jupyter-notebook.readthedocs.io/en/stable/)
     Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization, machine learning, and much more. While jupyter is a python package it supports more than 40 languages including R, Julia and of course python.
 
@@ -19,15 +18,19 @@ This is a free, open-source language that is a standard tool used in many organi
 
 [PyCharm](https://www.jetbrains.com/pycharm/)
     PyCharm is a python IDE, not all the versions are free, but a free license is available for single accademic use for the PyCharm Community editon and the [Educational](https://www.jetbrains.com/pycharm-edu/) edition. The educational edition includes python training modules. 
-[VSCode]
-    VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). !!!! this needs review from someone who actually use VSCode!!!! 
+
+[VSCode](https://code.visualstudio.com)
+    VSCode is a source code editor which is available for Windows, macOS and Linux. You can edit code locally, or use plugins to remotely connect to servers over SSH. It also integrates with Anaconda, letting you run Python programs in different environments. VSCode is designed to be lightweight and adaptable, so has just basic functionalities out of the box and you need to install extensions to add more. In particular, useful extensions for python are: [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter).
 
 ```
 
 ## Package and environment management
---COMMENT needs introduction
+
+A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages and handles dependencies. Some package managers are also environment managers as they allow users to create separate environments and handle potential conflicts between packages belonging to the same environment. An environment manager will also keep track of all the packages and versions installed, so that it's easier to reproduce the same environment again in a consistent manner.<br>
+Here we cover some of the package and environment managers most used for Python. For a full list, check the [python documentation](https://packaging.python.org/en/latest/key_projects/). Some managers are Python specific, such as venv, virtualenv and pipenv. The conda managers can also be used for R, Julia and many other analysis softwares.
 
 ```{glossary}
+
 [conda](https://conda.io)
     Conda is an open source package management system and environment management system that runs on Windows, macOS and Linux. Conda quickly installs, runs and updates packages and their dependencies. Conda easily creates, saves, loads and switches between environments on your local computer. It was created for Python programs, but it can package and distribute software for any language.
     
@@ -38,14 +41,37 @@ This is a free, open-source language that is a standard tool used in many organi
      A lightweight version of anaconda which by default only includes core libraries, good for building specific environments for data analysis. This underpins the `conda` modules in the `hh5` project at NCI.
 
 [mamba](https://mamba.readthedocs.io/en/latest/)
-    mamba is a fast, robust, and cross-platform package manager.
+    A reimplementation of the conda package manager in C++, mamba is a fast, robust, and cross-platform package manager.
+
+[virtualenv](https://virtualenv.pypa.io/en/latest/) 
+   Virtualenv allows to create isolated Python environments. Since Python 3.3, a basic version (venv module) is integrated into the standard library.
+
+[pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
+  Pipenv creates and manages separate virtualenv in a project-based way. The project specific requirements are listed in the Pipfile, of which a locked version is automatically created once the packages are installed. Pipenv works well on Windows, which can be sometimes problematic for other tools.
 
 ```
 
-## Community  
---COMMENT needs introduction
+````{warning}
+It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing conda, for example, it's a good idea to check whether a shared conda installation and environment that serves your needs doesn't already exist. 
+Some examples of managed analysis environments include:
 
+```{dropdown} **hh5 conda environment at NCI**
+The CLEX-CMS (http://climate-cms.wikis.unsw.edu.au/Conda) team maintains a [conda environment]((http://climate-cms.wikis.unsw.edu.au/Conda) on NCI that includes a wide variety of climate and weather related libraries. This includes mostly python based packages, but also community software and some custom-built NCI related command line programs, for a [full list](https://github.com/coecms/conda-envs/blob/analysis3/environment.yml). They also provide instructions on how to create your own custom conda environment using their conda installation. Additional packages can be requested via the cws_help-at-nci.org.au helpdesk.
+```
+```{dropdown} **dk92 conda environment at NCI**
+The NCI team manage an open project, [dk92](https://opus.nci.org.au/pages/viewpage.action?pageId=134742126), that provides a module for data analysis that includes Python, and , in the latest version, R and Julia packages. This environment is updated every 3 months. It is also possible to clone notebooks with related analysis examples.
+```
+```{dropdown} **miniconda environment for Petrichor (CSIRO)**
+Petrichor users (CSIRO employees only) can `module load miniconda3` to use a conda installation managed by IM&T. Custom conda environments and packages can be installed to a preferred location using the [`.condarc` configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-env-directories)
+```
+````
+
+## Community  
+
+There are a few community based projects that aim to provide stacks of python packages selected for climate or related fields analysis. They often also provides examples of how to use these packages in the forms of notebooks and/or tutorials.
+  
 ```{glossary}
+
 [Pangeo](https://pangeo.io/)
     Pangeo is a community of people working collaboratively to develop software and infrastructure to enable Big Data geoscience research. A Pangeo environment is made of up of many different open-source software packages for ocean, atmosphere, land and climate science. 
 
@@ -113,7 +139,7 @@ The table below provides a schematic of the main differences, more on the releti
   - Series (columns), Dataframes (table)
   - Labelled data arrays and datasets
 * - Data input/output 
-  - Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and zarr. Can output binary, csv, txt files
+  - Read from csv, txt and simple binary files. Needs other libraries to input/output formats like netcdf, hdf5 and Zarr. Can output binary, csv, txt files
   - Read/write [many formats](https://pandas.pydata.org/docs/user_guide/io.html), including hdf5, for netcdf you need other libraries
   - best tool for netcdf, including multiple files at once, includes support for openDAP and compression, chunks can easily convert arrays to pandas and numpy (http://xarray.pydata.org/en/stable/user-guide/io.html)
 * - Vectorised operations
@@ -166,32 +192,30 @@ Iris can also handle both grib (1 and 2) formats and pp binary files. These last
 [SciPy](https://scipy.github.io/devdocs/index.html) is a collection of mathematical algorithms and convenience functions built on NumPy. SciPy is still a core dependency of Iris but it is not as often used now for analysis on its own
 
 ### Machine learning packages
----COMMENT just starting this, so feel free to add on/edit etc freely
 
-PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments.
+PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments since it has a better memory optimisation management and allows more fine-grained control of the model structure.
 
 ```{glossary}
-[scikit-learn](https://scikit-learn.org)
-    Scikit-learn is ...
-    
+
+[aesara](https://aesara.readthedocs.io/en/latest/)
+  Aesara, previously know as Theano, is used to define, evaluate and optimize mathematical expressions involving multi-dimensional arrays in an efficient manner. It optimizes the utilization of CPU and GPU and is often used in large-scale computationally intensive scientific projects, but it is simple and approachable enough to be used for smaller projects too. 
+
+[Keras](https://keras.io)
+    Keras is a high-level neural networks API for TensorFlow2. It provides essential abstractions and building blocks for developing and shipping machine learning solutions with high iteration velocity.
+
 [PyTorch](https://pytorch.org)
     PyTorch is a ML framework based on the C library Torch. Basic data structure is a tensor. It allows to write highly customized neural network components. 
 
+[scikit-learn](https://scikit-learn.org)
+    Scikit-learn is built on top of viz., NumPy and SciPy. Scikit-learn supports most of the classical supervised and unsupervised learning algorithms. Scikit-learn can also be used for data-mining and data-analysis.
+    
 [TensorFlow](https://www.tensorflow.org)
-    TensorFlow is developed by Google to develop and train ML models. Basic data structure is a tensor.
-
-[Keras](https://keras.io)
-    Keras ...
+    TensorFlow is developed by Google to develop and train ML models. The basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.
 
 ```
-
----- Work in progress!!! ----
-The following two paragraph with lists could be unified or separated in a more coherent way
-This is because I'm trying to move further into separating packages based on functionality rather than origin. However, I would still like to put somewhere a "NB" this is a development package for stuff like xmhw
------ --------
+As machine learning is very popular there are plenty of resources available online. The [Realpython website](https://realpython.com/tutorials/machine-learning/), for example has several machine learning related tutorials.
 
 ### Climate science related packages
----COMMENT needs intro
 Some of these packages were developed for very specific tasks from members of the climate community. While their scope is limited and the packages might be maintained on a need base, they still can be very useful as they have been tailored to the community needs.
 
 ```{glossary}
@@ -237,6 +261,7 @@ Some of these packages were developed for very specific tasks from members of th
 Also unless we have some specific to say about these packages we could just refer to several existing lists. Provided we don't need to create references to them in other part of the book.
 
 ```{glossary}
+
 [eof](https://ajdawson.github.io/eofs/latest/)
     eof is used for EOF (empirical orthogonal functions) analysis. NB eof has also an interface for Iris.
 
