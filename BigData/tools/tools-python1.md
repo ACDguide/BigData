@@ -3,7 +3,7 @@
 This is a free, open-source language that is a standard tool used in many organisations and industries. Python is easy to learn and read, hence is popularity. It also interfaces with many other programs and tools. Compared to other languages python is slow and has high memory usage, this can become a challenge when working with big datasets. 
 
 ## Integrated Development Environments
-An integrated development environment (IDE) is a tool that helps managing your workspace when working on a software code. At its most basic an IDE is an editor that understand and can highlight the programming language syntax. They can haveintegration with testing packages, version control and other developers tools. Some can be setup to work remotely (jupyterlab, VSCode). 
+An integrated development environment (IDE) is a tool that helps managing your workspace when working on a software code. At its most basic an IDE is an editor that understand and can highlight the programming language syntax. They can have integration with testing packages, version control and other developers tools. Some can be setup to work remotely (jupyterlab, VSCode). 
 
 ```{glossary}
 
@@ -26,8 +26,8 @@ An integrated development environment (IDE) is a tool that helps managing your w
 
 ## Package and environment management
 
-A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages, they can handle dependencies. Some package manager are also environment managers as they allow to create separate enviroments and handle potential conflicts between packages belonging to the same environment. An evironment manager will also keep track of all the packages and versions installed, so that is easier to reproduce the same environment again in a consistent manner.<br>
-Here we are covering some of the package and environment managers most used for Python, for a full list check the [python documentation](https://packaging.python.org/en/latest/key_projects/). Some are python specific as venv, virtualenv and pipenv, the conda managers can also be used for R, Julia and many other analysis softwares.
+A package manager is a collection of tools that automates the configuration, installation, upgrades and removal of software packages and handles dependencies. Some package managers are also environment managers as they allow users to create separate environments and handle potential conflicts between packages belonging to the same environment. An environment manager will also keep track of all the packages and versions installed, so that it's easier to reproduce the same environment again in a consistent manner.<br>
+Here we cover some of the package and environment managers most used for Python. For a full list, check the [python documentation](https://packaging.python.org/en/latest/key_projects/). Some managers are Python specific, such as venv, virtualenv and pipenv. The conda managers can also be used for R, Julia and many other analysis softwares.
 
 ```{glossary}
 
@@ -193,7 +193,7 @@ Iris can also handle both grib (1 and 2) formats and pp binary files. These last
 
 ### Machine learning packages
 
-PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments it has a better memory optimisation management and allows more fine-grained control of the model structure.
+PyTorch and TensorFlow are very similar in terms of features but PyTorch is more used in research environments since it has a better memory optimisation management and allows more fine-grained control of the model structure.
 
 ```{glossary}
 
@@ -210,7 +210,7 @@ PyTorch and TensorFlow are very similar in terms of features but PyTorch is more
     Scikit-learn is built on top of viz., NumPy and SciPy. Scikit-learn supports most of the classical supervised and unsupervised learning algorithms. Scikit-learn can also be used for data-mining and data-analysis.
     
 [TensorFlow](https://www.tensorflow.org)
-    TensorFlow is developed by Google to develop and train ML models. Basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.
+    TensorFlow is developed by Google to develop and train ML models. The basic data structure is a tensor. TensorFlow can efficiently execute low-level tensor operations on CPU, GPU, TPU.
 
 ```
 As machine learning is very popular there are plenty of resources available online. The [Realpython website](https://realpython.com/tutorials/machine-learning/), for example has several machine learning related tutorials.
