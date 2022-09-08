@@ -27,6 +27,7 @@ parts:
     - file: computations/computations 
     - file: computations/chunking    
     - file: computations/time_axis    
+    - file: computations/machine-learning    
   - caption: Software 
     chapters:
     - file: software/software-intro.md   
