@@ -10,17 +10,18 @@ Iris is preferable if you need to access grib files and can also access `pp file
 Other libraries are useful to manage or access dataset collections both local and remote. Siphon and pydap helps accessing remote files on thredds and/or OpenDAP services. {ref}`intake` can be used to build a catalogue to help locate and query local datasets. 
 
 ```{glossary}
+
 [netCDF4](http://unidata.github.io/netcdf4-python/) 
      netCDF4 is the Unidata library to handle netcdf files 
 
 [h5netcdf](https://github.com/h5netcdf/h5netcdf)
     h5netcdf is an interface for the netCDF4 file-format that reads and writes local or remote HDF5 files directly via h5py or h5pyd, without need for netCDF4. It can be faster than the latter depending on the actual file structure (any example??)
 
-[Zarr](https://zarr.readthedocs.io)
-    zarr is a relatively new format to store chunked, compressed, N-dimensional arrays, optimised for cloud data access
+[Zarr](https://zarr.readthedocs.io/en/stable)
+    Zarr is a relatively new format to store chunked, compressed, N-dimensional arrays, optimised for cloud data access
   
 [cfgrib](https://github.com/ecmwf/cfgrib)
-    cfgrib is a python interface to [ecCodes](https://confluence.ecmwf.int//display/ECC/ecCodes+Home), a set of tools for decoding and encoding grib1 and grib2 files. ecCodes replaced the grib-api. Cfgrib allows to open a grib file with xarray and iris. 
+    cfgrib is a python interface to [ecCodes](https://confluence.ecmwf.int/display/ECC), a set of tools for decoding and encoding grib1 and grib2 files. ecCodes replaced the grib-api. Cfgrib allows to open a grib file with xarray and iris. 
 
 [Pygrib](https://jswhit.github.io/pygrib/)
     pygrib is another high-level interface to ecCodes to read and write grib files
@@ -51,6 +52,7 @@ There are several packages to handle HDF data what is best it really depends on 
 Some HDF files can also be read as raster using libraries like rio-xarray.
 
 ```{glossary}
+
 [hdf5](https://docs.h5py.org/en/stable/)
    interface specific to the HDF5 data format
 
@@ -71,6 +73,7 @@ An example of this is the [Cloud Optimised GeoTIFF](https://www.cogeo.org) (COG)
 As for the hdf format there is a variety of libraries whose usefulness will depend on the exact nature of your raster or GIS data. 
 
 ```{glossary}
+
 [xgrads](https://github.com/miniufo/xgrads)
     xgrads parses the ctl descriptor of GrADS binary data to load data as a xarray dataset.
 
@@ -101,6 +104,7 @@ As for the hdf format there is a variety of libraries whose usefulness will depe
 ## Grid handling
 
 ```{glossary}
+
 [xESMF](https://pangeo-xesmf.readthedocs.io/en/latest/)
     xESMF is a universal regridder for geospatial data. It is part of the Pangeo ecosystem.
 
@@ -124,6 +128,7 @@ Some of these modules are distributed with the main python library (indicated wi
 ---COMMENT: as for all the other introduction this could be massively improved, particularly in terms of highlighting usage of time related libraries.
 
 ```{glossary}
+
 [os](https://docs.python.org/3/library/os.html)
     os offers an operative system interface (*)
 
@@ -186,6 +191,7 @@ Cartopy is used to visualise data on accurate maps, cartopy replaced basemap whi
 Other packages to consider are seaborn, holoviews, plotly. 
 
 ```{glossary}
+
 [matplotlib](https://matplotlib.org)
     matplotlib is a comprehensive library for creating static, animated, and interactive visualizations
 
@@ -211,7 +217,7 @@ Other packages to consider are seaborn, holoviews, plotly.
    hvPlot provides a high-level plotting API built on HoloViews that provides a general and consistent API for plotting data in a wide variety of formats.
  
 [GeoViews]()
-    GeoViews makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets. Is is built on holoviews
+    GeoViews makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets. It is built on holoviews
 
 [xhistogram](https://xhistogram.readthedocs.io/en/latest/) 
     xhistogram Xhistogram makes it easier to calculate flexible, complex histograms with multi-dimensional data. It integrates with xarray and dask.
@@ -223,12 +229,12 @@ Other packages to consider are seaborn, holoviews, plotly.
 # Interfaces to other software 
 
 ```{glossary}
+
 [CDO-python](https://code.mpimet.mpg.de/projects/cdo/wiki/Cdo%7Brbpy%7D)
     CDO for python is a wrapper around the CDO binary. It parses method arguments and options, builds a command line and executes it. NB (Scott has a regridding function that exploit this)
 
-
 [PyNCML](https://github.com/axiom-data-science/pyncml)
-    PyNCML is a simple python library to apply NcML logic to NetCDF files. (last updates were in 2017 potentially obsolete)
+    PyNCML is a simple python library to apply NcML logic to netCDF files. (last updates were in 2017 potentially obsolete)
 
 [PyNIO](http://www.pyngl.ucar.edu/Nio.shtml)
     PyNIO is a python interface to NCL, as NCL is currently in maintenance node (last updates were in 2019)
@@ -243,6 +249,7 @@ Other packages to consider are seaborn, holoviews, plotly.
 --COMMENT I've copied most of the dask definition from what Scott had in the coputations notebook. Probably, aside fro the first paragraph, the rest could be better used in an introduction/compariosn with the other libraries here.
 
 ```{glossary}
+
 [Dask](https://docs.dask.org/en/stable/)
     Dask is a library for working with larger-than memory arrays and parallel data analysis transparently. Xarray can use Dask arrays as a backend when opening a netCDF file with the chunks attribute, and Dask has its own Pandas-like DataFrame implementation. Dask splits an array up into chunks. When doing operations on a Dask array, rather than evaluating the operation immediately Dask will create a task graph of what operations need to be run to create the output array chunks from the input array chunks. The task graph is only evaluated when results are needed (e.g. by saving to a file or creating a plot), and different chunks can be evaluated in parallel. Dask usually can work with your existing code with just small modifications, it will try to work out the best scaling based on the memory and cpus it detects on the system. You can tune dask performance using the thread/process mixture to deal with GIL-holding computations (which are rare in Numpy/Pandas/Scikit-Learn workflows). It is best to start a [dask.distributed.Client]{https://docs.dask.org/en/latest/how-to/deploy-dask/single-distributed.html} to allow Dask to process data in parallel with multiple processes.
 

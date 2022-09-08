@@ -5,8 +5,8 @@
 MATLAB (Matrix Laboratory) is a licenced tool. It is the best tool when dealing with large matrices and matrix manipulations. It allows examining the content of data quickly in a built-in docked or undocked window within the tool to gain an overview of the pattern and structures presented in the data. This tool is helpful because many data types, for example, large image files and large tabular data, can be converted into matrices and analysed efficiently in MATLAB. MATLAB provides an easy-to-use environment with interactive applications, which is excellent for novel programmers. 
 As a licensed tool MATLAB might not be available to other researchers and collaborators, so even if you are producing data with MATLAB, avoid saving the data as `.mat` files, and use the best alternative open source format instead. 
 
-## Data handling with MATLAB
-MATLAB has two sets of functions to read and write netCDF files, the high-level functions simplify the process, while the low-level functions allow more control on the way the data is imported from or written to a file.
+### Data handling with MATLAB
+MATLAB has two sets of functions to read and write netCDF files, the high-level functions simplify the process, while the low-level functions allow more control on the way the data is imported from or written to a file. 
 While with recent versions of MATLAB you can import and export netCDF and OPeNDAP files without needing any external package, there are some limitations in the way netCDF support is implemented.
 One of these is that MATLAB does not automatically apply scale factors and offsets, which can cause confusion with some data.
 It also chooses a different HDF back end to save netCDF files according to how large they are, meaning dimension ordering and performance can be inconsistent for downstream users.
