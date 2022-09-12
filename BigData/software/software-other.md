@@ -9,24 +9,30 @@ As a licensed tool MATLAB might not be available to other researchers and collab
 MATLAB has two sets of functions to read and write netCDF files, the high-level functions simplify the process, while the low-level functions allow more control on the way the data is imported from or written to a file. 
 While with recent versions of MATLAB you can import and export netCDF and OPeNDAP files without needing any external package, there are some limitations in the way netCDF support is implemented.
 One of these is that MATLAB does not automatically apply scale factors and offsets, which can cause confusion with some data.
-It also chooses a different HDF back end to save netCDF files according to how large they are, meaning dimension ordering and performance can be inconsistent for downstream users. 
+It also chooses a different HDF back end to save netCDF files according to how large they are, meaning dimension ordering and performance can be inconsistent for downstream users.
 ---COMMENT this part needs still a lot of work, I'm not a Matlabl user so i put down here some of the comments, but they need to be verified. I also add this as data handling in matlab as it might be worth to cover some detail on hdf and/or other formats as we didd for python. Finally, I also found this https://www.unidata.ucar.edu/software/netcdf/software.html#CSIRO-MATLAB I'm not sure how outdated this might be, but might potentially help with the reading part at least ---- 
 
 (julia)=
 ## Julia
 Julia is a recent addition to the programming languages used in climate science. Julia was designed from the beginning for high performance and parallelism. It can integrate with Python, R and other languages, has a machine learning, visualization, dataframe and netcdf packages.
-In Australia is becoming popular with the oceanographic community. 
+In Australia is becoming popular with the oceanographic community.
 
 ```{glossary}
+
+[CFTime.jl](https://github.com/JuliaGeo/CFTime.jl)
+   CFTime encodes and decodes time units conforming to the CF conventions, originally as part of the NCDatasets package
 
 [DataFrames.jl](https://dataframes.juliadata.org/stable/)
    DataFrames allows tabular data manipulation with Julia, its functionality is similar to Pandas (python) and dplyr (R).
 
 [JuliaPy](https://github.com/JuliaPy)
-   JuliaPy includes interfaces to Pythin and some of its most common packages as Pandas and pyplot.
+   JuliaPy includes interfaces to Python and some of its most common packages, such as Pandas and pyplot.
 
 [MLJ.jl](https://alan-turing-institute.github.io/MLJ.jl/dev/)
-   MLJ is a machine learning framework for Julia which includes the most commo machine learning models. 
+   MLJ is a machine learning framework for Julia which includes the most common machine learning models.
+
+[NCDatasets.jl](https://github.com/Alexander-Barth/NCDatasets.jl)
+    NCDatasets allows to read and create netCDF files. NetCDF data set and attribute list behave like Julia dictionaries and variables like Julia arrays.
 
 [NetCDF.jl](https://github.com/JuliaGeo/NetCDF.jl)
     NetCDF support for Julia
@@ -35,7 +41,7 @@ In Australia is becoming popular with the oceanographic community.
    A visualization ecosystem for Julia
 
 [RJuliaCall](https://cran.r-project.org/web/packages/JuliaCall/JuliaCall.pdf)
-   JuliaCall is a R package that allows to call Julia from R 
+   JuliaCall is a R package that allows to call Julia from R
 
 ```
 
