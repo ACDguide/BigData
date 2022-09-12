@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data handling in Python" href="tools-python2.html" />
-    <link rel="prev" title="Available tools and their best use" href="tools-intro.html" />
+    <link rel="next" title="Data handling in Python" href="software-python2.html" />
+    <link rel="prev" title="Software list and advice" href="software-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -215,7 +215,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../computations/chunking.html">
-   Data chunking
+   Data chunking with dask examples
   </a>
  </li>
  <li class="toctree-l1">
@@ -226,13 +226,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Available tools
+  Software
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="tools-intro.html">
-   Available tools and their best use
+  <a class="reference internal" href="software-intro.html">
+   Software list and advice
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -246,17 +246,17 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-python2.html">
+    <a class="reference internal" href="software-python2.html">
      Data handling in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-rcran.html">
+    <a class="reference internal" href="software-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-other.html">
+    <a class="reference internal" href="software-other.html">
      Other software
     </a>
    </li>
@@ -320,7 +320,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tools/tools-python1.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/software/software-python1.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -340,7 +340,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/tools-python1.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fsoftware/software-python1.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -692,7 +692,7 @@ A list of the major ones is provided by on the <a class="reference external" hre
 Some extends the formats supported by xarray, others are used for specific analysis.</p>
 <div class="section" id="iris">
 <span id="id2"></span><h3>Iris<a class="headerlink" href="#iris" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://scitools-iris.readthedocs.io/en/stable">Iris</a> is an alternative general analysis package to xarray. It is developed by the UK MetOffice as part of their <a class="reference external" href="https://scitools.org.uk">SciTools</a> stack, as <a class="reference internal" href="tools-python2.html#term-cartopy"><span class="xref std std-term">cartopy</span></a> and <a class="reference internal" href="tools-python2.html#term-cfunits"><span class="xref std std-term">cfunits</span></a>. Iris is specifically designed for weather, climate and ocean data, so has a lot of relevant functions and examples. Iris requires CF compliance for netCDF files, as it uses these conventions as a data model.
+<p><a class="reference external" href="https://scitools-iris.readthedocs.io/en/stable">Iris</a> is an alternative general analysis package to xarray. It is developed by the UK MetOffice as part of their <a class="reference external" href="https://scitools.org.uk">SciTools</a> stack, as <a class="reference internal" href="software-python2.html#term-cartopy"><span class="xref std std-term">cartopy</span></a> and <a class="reference internal" href="software-python2.html#term-cfunits"><span class="xref std std-term">cfunits</span></a>. Iris is specifically designed for weather, climate and ocean data, so has a lot of relevant functions and examples. Iris requires CF compliance for netCDF files, as it uses these conventions as a data model.
 Iris can also handle both grib (1 and 2) formats and pp binary files. These last are specific to the UK MetOffice and is what the UM atmospheric uses as a output format.
 <a class="reference external" href="https://scipy.github.io/devdocs/index.html">SciPy</a> is a collection of mathematical algorithms and convenience functions built on NumPy. SciPy is still a core dependency of Iris but it is not as often used now for analysis on its own</p>
 </div>
@@ -777,7 +777,7 @@ It aims to replace python-gsw which is purely python based.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./tools"
+            path: "./software"
         },
         predefinedOutput: true
     }
@@ -789,14 +789,14 @@ It aims to replace python-gsw which is purely python based.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="tools-intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="software-intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Available tools and their best use</p>
+            <p class="prev-next-title">Software list and advice</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="tools-python2.html" title="next page">
+    <a class='right-next' id="next-link" href="software-python2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Data handling in Python</p>

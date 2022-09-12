@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Resources" href="../resources.html" />
-    <link rel="prev" title="R" href="tools-rcran.html" />
+    <link rel="prev" title="R" href="software-rcran.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -215,7 +215,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../computations/chunking.html">
-   Data chunking
+   Data chunking with dask examples
   </a>
  </li>
  <li class="toctree-l1">
@@ -226,13 +226,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Available tools
+  Software
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="tools-intro.html">
-   Available tools and their best use
+  <a class="reference internal" href="software-intro.html">
+   Software list and advice
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -241,17 +241,17 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-python1.html">
+    <a class="reference internal" href="software-python1.html">
      Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-python2.html">
+    <a class="reference internal" href="software-python2.html">
      Data handling in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-rcran.html">
+    <a class="reference internal" href="software-rcran.html">
      R
     </a>
    </li>
@@ -320,7 +320,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tools/tools-other.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/software/software-other.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -340,7 +340,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/tools-other.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fsoftware/software-other.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -489,11 +489,15 @@ It also chooses a different HDF back end to save netCDF files according to how l
 <p>Julia is a recent addition to the programming languages used in climate science. Julia was designed from the beginning for high performance and parallelism. It can integrate with Python, R and other languages, has a machine learning, visualization, dataframe and netcdf packages.
 In Australia is becoming popular with the oceanographic community.</p>
 <dl class="glossary simple">
+<dt id="term-CFTime.jl"><a class="reference external" href="https://github.com/JuliaGeo/CFTime.jl">CFTime.jl</a><a class="headerlink" href="#term-CFTime.jl" title="Permalink to this term">¶</a></dt><dd><p>CFTime encodes and decodes time units conforming to the CF conventions, originally as part of the NCDatasets package</p>
+</dd>
 <dt id="term-DataFrames.jl"><a class="reference external" href="https://dataframes.juliadata.org/stable/">DataFrames.jl</a><a class="headerlink" href="#term-DataFrames.jl" title="Permalink to this term">¶</a></dt><dd><p>DataFrames allows tabular data manipulation with Julia, its functionality is similar to Pandas (python) and dplyr (R).</p>
 </dd>
-<dt id="term-JuliaPy"><a class="reference external" href="https://github.com/JuliaPy">JuliaPy</a><a class="headerlink" href="#term-JuliaPy" title="Permalink to this term">¶</a></dt><dd><p>JuliaPy includes interfaces to Pythin and some of its most common packages as Pandas and pyplot.</p>
+<dt id="term-JuliaPy"><a class="reference external" href="https://github.com/JuliaPy">JuliaPy</a><a class="headerlink" href="#term-JuliaPy" title="Permalink to this term">¶</a></dt><dd><p>JuliaPy includes interfaces to Python and some of its most common packages, such as Pandas and pyplot.</p>
 </dd>
-<dt id="term-MLJ.jl"><a class="reference external" href="https://alan-turing-institute.github.io/MLJ.jl/dev/">MLJ.jl</a><a class="headerlink" href="#term-MLJ.jl" title="Permalink to this term">¶</a></dt><dd><p>MLJ is a machine learning framework for Julia which includes the most commo machine learning models.</p>
+<dt id="term-MLJ.jl"><a class="reference external" href="https://alan-turing-institute.github.io/MLJ.jl/dev/">MLJ.jl</a><a class="headerlink" href="#term-MLJ.jl" title="Permalink to this term">¶</a></dt><dd><p>MLJ is a machine learning framework for Julia which includes the most common machine learning models.</p>
+</dd>
+<dt id="term-NCDatasets.jl"><a class="reference external" href="https://github.com/Alexander-Barth/NCDatasets.jl">NCDatasets.jl</a><a class="headerlink" href="#term-NCDatasets.jl" title="Permalink to this term">¶</a></dt><dd><p>NCDatasets allows to read and create netCDF files. NetCDF data set and attribute list behave like Julia dictionaries and variables like Julia arrays.</p>
 </dd>
 <dt id="term-NetCDF.jl"><a class="reference external" href="https://github.com/JuliaGeo/NetCDF.jl">NetCDF.jl</a><a class="headerlink" href="#term-NetCDF.jl" title="Permalink to this term">¶</a></dt><dd><p>NetCDF support for Julia</p>
 </dd>
@@ -553,7 +557,7 @@ If you have suggestions for other libraries we can list here please let us know 
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./tools"
+            path: "./software"
         },
         predefinedOutput: true
     }
@@ -565,7 +569,7 @@ If you have suggestions for other libraries we can list here please let us know 
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="tools-rcran.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="software-rcran.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>

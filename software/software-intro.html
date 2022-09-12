@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Available tools and their best use &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Software list and advice &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python" href="tools-python1.html" />
+    <link rel="next" title="Python" href="software-python1.html" />
     <link rel="prev" title="Dealing with the time-axis" href="../computations/time_axis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -215,7 +215,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../computations/chunking.html">
-   Data chunking
+   Data chunking with dask examples
   </a>
  </li>
  <li class="toctree-l1">
@@ -226,13 +226,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Available tools
+  Software
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Available tools and their best use
+   Software list and advice
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -241,22 +241,22 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-python1.html">
+    <a class="reference internal" href="software-python1.html">
      Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-python2.html">
+    <a class="reference internal" href="software-python2.html">
      Data handling in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-rcran.html">
+    <a class="reference internal" href="software-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tools-other.html">
+    <a class="reference internal" href="software-other.html">
      Other software
     </a>
    </li>
@@ -320,7 +320,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tools/tools-intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/software/software-intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -340,7 +340,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Ftools/tools-intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fsoftware/software-intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -368,7 +368,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Available tools and their best use</h1>
+                <h1>Software list and advice</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -379,9 +379,9 @@
             
               <div>
                 
-  <div class="section" id="available-tools-and-their-best-use">
-<h1>Available tools and their best use<a class="headerlink" href="#available-tools-and-their-best-use" title="Permalink to this headline">¶</a></h1>
-<p>There are many languages and packages available to analyse and handle data. Each has its own strengths and weaknesses, but this section of the book aims to help identify which languages/tools are best suited to specific tasks.</p>
+  <div class="section" id="software-list-and-advice">
+<h1>Software list and advice<a class="headerlink" href="#software-list-and-advice" title="Permalink to this headline">¶</a></h1>
+<p>There are many languages and packages available to analyse and handle data. Each has its own strengths and weaknesses, but this section of the book aims to help identify which languages/software packages are best suited to specific tasks.</p>
 <p>To identify the best tool/s for a task the following factors should be considered:</p>
 <ul class="simple">
 <li><p>the data: most languages and packages provide the same or overlapping functionalities, so often the data format, size and the way it is structured determines which tool is best.</p></li>
@@ -390,15 +390,15 @@
 </ul>
 <p>Included are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="tools-python1.html"><span class="doc std std-doc">Python</span></a></p></li>
-<li><p><a class="reference internal" href="tools-rcran.html"><span class="doc std std-doc">R</span></a></p></li>
-<li><p><a class="reference internal" href="tools-other.html#matlab"><span class="std std-ref">MATLAB</span></a></p></li>
-<li><p><a class="reference internal" href="tools-other.html#julia"><span class="std std-ref">Julia</span></a></p></li>
-<li><p><a class="reference internal" href="tools-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a></p></li>
-<li><p><a class="reference internal" href="tools-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a></p></li>
-<li><p><a class="reference internal" href="tools-other.html#fortran"><span class="std std-ref">Fortran/C</span></a></p></li>
+<li><p>[]{software-python1}</p></li>
+<li><p>[]{software-rcran}</p></li>
+<li><p><a class="reference internal" href="software-other.html#matlab"><span class="std std-ref">MATLAB</span></a></p></li>
+<li><p><a class="reference internal" href="software-other.html#julia"><span class="std std-ref">Julia</span></a></p></li>
+<li><p><a class="reference internal" href="software-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a></p></li>
+<li><p><a class="reference internal" href="software-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a></p></li>
+<li><p><a class="reference internal" href="software-other.html#fortran"><span class="std std-ref">Fortran/C</span></a></p></li>
 </ul>
-<p>Other languages and tools exist which can work with netCDF data (e.g., C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on tools commonly used for <em>analysis</em> of large scale climate data (typically netCDF).</p>
+<p>Other languages and software exist which can work with netCDF data (e.g., C, FORTRAN, ArcGIS, QGIS, paraview, panoply, Ferret, as well as the deprecated NCL), but on this page we focus on software commonly used for <em>analysis</em> of large scale climate data (typically netCDF).</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -416,7 +416,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./tools"
+            path: "./software"
         },
         predefinedOutput: true
     }
@@ -435,7 +435,7 @@
             <p class="prev-next-title">Dealing with the time-axis</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="tools-python1.html" title="next page">
+    <a class='right-next' id="next-link" href="software-python1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Python</p>

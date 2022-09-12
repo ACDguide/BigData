@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data chunking" href="chunking.html" />
+    <link rel="next" title="Data chunking with dask examples" href="chunking.html" />
     <link rel="prev" title="Data formats, variables, and metadata" href="../format_metadata.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -217,7 +217,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chunking.html">
-   Data chunking
+   Data chunking with dask examples
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,13 +228,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Available tools
+  Software
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tools/tools-intro.html">
-   Available tools and their best use
+  <a class="reference internal" href="../software/software-intro.html">
+   Software list and advice
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -243,22 +243,22 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../tools/tools-python1.html">
+    <a class="reference internal" href="../software/software-python1.html">
      Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../tools/tools-python2.html">
+    <a class="reference internal" href="../software/software-python2.html">
      Data handling in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../tools/tools-rcran.html">
+    <a class="reference internal" href="../software/software-rcran.html">
      R
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../tools/tools-other.html">
+    <a class="reference internal" href="../software/software-other.html">
      Other software
     </a>
    </li>
@@ -642,12 +642,12 @@
 </div>
 <div class="section" id="general-tools">
 <h2>General tools<a class="headerlink" href="#general-tools" title="Permalink to this headline">¶</a></h2>
-<p>If you are a <a class="reference internal" href="../tools/tools-python1.html#python"><span class="std std-ref">Python</span></a> user, the most useful packages for climate data are <a class="reference internal" href="../tools/tools-python1.html#pyanalysis"><span class="std std-ref">numpy</span></a>, <a class="reference internal" href="../tools/tools-python1.html#pyanalysis"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="../tools/tools-python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="../tools/tools-python2.html#term-Dask"><span class="xref std std-term">dask</span></a> to work with larger-than memory arrays and parallel data analysis transparently.</p>
-<p>Other useful packages are <a class="reference internal" href="../tools/tools-python2.html#term-multiprocessing"><span class="xref std std-term">multiprocessing</span></a> for simple workflows or <a class="reference internal" href="../tools/tools-python2.html#term-mpi4py"><span class="xref std std-term">mpi4py</span></a> which is an implementation of the MPI library for Python.</p>
-<p>If you are a <a class="reference internal" href="../tools/tools-other.html#fortran"><span class="std std-ref">Fortran/C</span></a> user then <a class="reference internal" href="../tools/tools-other.html#mpi"><span class="std std-ref">MPI - Message Passing Interface</span></a> is a low-level library, which is very flexible but also more difficult to set up.</p>
+<p>If you are a <a class="reference internal" href="../software/software-python1.html#python"><span class="std std-ref">Python</span></a> user, the most useful packages for climate data are <a class="reference internal" href="../software/software-python1.html#pyanalysis"><span class="std std-ref">numpy</span></a>, <a class="reference internal" href="../software/software-python1.html#pyanalysis"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="../software/software-python1.html#pyanalysis"><span class="std std-ref">xarray</span></a> and <a class="reference internal" href="../software/software-python2.html#term-Dask"><span class="xref std std-term">dask</span></a> to work with larger-than memory arrays and parallel data analysis transparently.</p>
+<p>Other useful packages are <a class="reference internal" href="../software/software-python2.html#term-multiprocessing"><span class="xref std std-term">multiprocessing</span></a> for simple workflows or <a class="reference internal" href="../software/software-python2.html#term-mpi4py"><span class="xref std std-term">mpi4py</span></a> which is an implementation of the MPI library for Python.</p>
+<p>If you are a <a class="reference internal" href="../software/software-other.html#fortran"><span class="std std-ref">Fortran/C</span></a> user then <a class="reference internal" href="../software/software-other.html#mpi"><span class="std std-ref">MPI - Message Passing Interface</span></a> is a low-level library, which is very flexible but also more difficult to set up.</p>
 <div class="section" id="command-line-tools">
 <h3>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../tools/tools-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="../tools/tools-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> are powerful command line tools.</p>
+<p><a class="reference internal" href="../software/software-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="../software/software-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> are powerful command line tools.</p>
 <p>For large datasets, if you can process each file independently you can parallelise using e.g. <a class="reference external" href="https://www.gnu.org/software/parallel/">GNU Parallel</a> or a Python <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool.map</span></code>.</p>
 <p>You can also use multiple parallel threads in CDO with <br>
 <code class="docutils literal notranslate"><span class="pre">cdo</span> <span class="pre">-P</span> <span class="pre">&lt;nthreads&gt;</span> <span class="pre">...</span></code>  <br>
@@ -1100,7 +1100,7 @@ and in NCO with <br>
     <a class='right-next' id="next-link" href="chunking.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data chunking</p>
+        <p class="prev-next-title">Data chunking with dask examples</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
