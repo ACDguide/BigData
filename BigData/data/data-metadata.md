@@ -6,16 +6,20 @@ Deflate level and chunking attributes define the way the data is stored in memor
 ## Simple tools for viewing netCDF data and metadata 
 The `ncdump` command (contained within the standard netcdf library) is the most common way of probing netCDF files, particularly metadata attributes.
 
-- Dimensions are listed first in ncdump, and descibe the overall structure of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be 'real' dimensions (such as time, lat, lon), or 'pseudo' dimensions (such as land-use tiles, or spectral bands), and can be cardinal, continous or nominal, i.e. described using values or strings (such as a numbered or named list, or floating point values).
+- Dimensions are listed first in ncdump, and describe the overall structure of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be 'real' dimensions (such as time, lat, lon), or 'pseudo' dimensions (such as land-use tiles, or spectral bands), and can be cardinal, continous or nominal, i.e. described using values or strings (such as a numbered or named list, or floating point values).
 
 - Variables contain the bulk of the information with a netCDF file. Each is defined along one or more dimension, and is self-described with associate attributes. The variable attributes can technically include and be titled anything, however there are some common standards to which most data adheres (the most common of which is the [CF conventions](http://cfconventions.org/)), including bounds, units, standard_name, etc.
 
 - Global attributes descibe the entire dataset. While these are typically chosen according to the use case of the data and can vary significantly between modelling realms or scientific need, standards also exist for these. Common global attributes include title, data provenance information (i.e. where the data came from), license, and contact information, as well as any conventions implemented in the file.
 
+```{admonition} **zarrdump**
+`zarrdump` works similarly to ncdump but to display the content of a zarr file from teh command line 
+```
+
 The `ncview` tool, while very simple, can easily display netCDF data and highlight metadata issues. This is because `ncview` looks for standard metadata attributes to quickly decide how to plot the data. Files that are missing vital attributes, or are otherwise lacking adequate description will quickly break `ncview`, allowing for a fast diagnostic tool for both metadata quality and the data itself. Note that being a basic tool, it can not handle reprojections of non-cartesian grids, so plots may not *look* right, this tool is used to sanity check data, not assess its quality.
 
 ```{admonition} **metadata standards**
-Metadata standards are used as a base to develop NetCDF related software, a badly defined file can cause all sort of unexpected issues. They are also important when sharing data, as they mprovide a reading key to potential users.
+Metadata standards are used as a base to develop netCDF related software, a badly defined file can cause all sort of unexpected issues. They are also important when sharing data, as they mprovide a reading key to potential users.
 Information about metadata standards and conventions can be found in the AGCD book [Climate Data Guidelines](https://acdguide.github.io/Governance/introduction.html), as they are an important part of the dataset creation and publication processes covered by the guidelines.
 This covers the [most commonly used conventions](https://acdguide.github.io/Governance/concepts/conventions.html) and [how to apply them effectively](https://acdguide.github.io/Governance/tech/conventions.html)
 ```

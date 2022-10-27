@@ -1,35 +1,36 @@
 format: jb-book
 root: intro 
 parts:
-  - caption: Large scale climate data 
+  - caption: Large-scale climate data 
     chapters:
-    - file: chunking
-    - file: accessing_data
-  - caption: Data storage
-    chapters:
-    - file: data_storage
+    - file: data/data-intro
+    - file: data/data-chunking
+    - file: data/data-format
+    - file: data/data-metadata
+    - file: data/homeless.md 
       sections:
-      - file : nczarr_test
-  - caption: Metadata
-    chapters:
-    - file: format_metadata         
-  - caption: Computations
+      - file: data/data-troubleshooting
+      - file: data/nczarr_test
+  - caption: Large-scale data analysis 
     chapters:
     - file: computations/computations 
-    - file: computations/chunking    
-    - file: computations/time_axis    
-    - file: computations/machine-learning    
   - caption: Working environments 
+    chapters:
     - file: platforms/platforms-intro
       sections:
       - file: platforms/platforms-nci-gadi
       - file: platforms/platforms-nci-ood
       - file: platforms/platforms-pangeo
       - file: platforms/platforms-pawsey
-      - file: platforms/platforms-CSIRO
-      - file: platforms/platforms-BoM
+      - file: platforms/platforms-csiro
+      - file: platforms/platforms-bom
       - file: platforms/platforms-institutional
-      - file: platforms/platforms-PC
+      - file: platforms/platforms-pc
+    chapters:
+    - file: access/access-intro
+      sections:
+      - file: access/access-data
+      - file: access/access-envs
     chapters:
     - file: software/software-intro.md   
       sections:
@@ -39,5 +40,5 @@ parts:
       - file: software/software-other.md  
   - caption: Resources
     chapters:
-    - file: resources 
-    - file: help 
+    - file: resources/resources 
+    - file: resources/help 
