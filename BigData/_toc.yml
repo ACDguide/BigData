@@ -1,18 +1,9 @@
 format: jb-book
-root: intro
+root: intro 
 parts:
-  - caption: Accessing data
+  - caption: Large scale climate data 
     chapters:
-    - file: platforms/platforms-intro
-      sections:
-      - file: platforms/platforms-nci-gadi
-      - file: platforms/platforms-nci-ood
-      - file: platforms/platforms-pangeo
-      - file: platforms/platforms-pawsey
-      - file: platforms/platforms-CSIRO
-      - file: platforms/platforms-BoM
-      - file: platforms/platforms-institutional
-      - file: platforms/platforms-PC
+    - file: chunking
     - file: accessing_data
   - caption: Data storage
     chapters:
@@ -28,7 +19,17 @@ parts:
     - file: computations/chunking    
     - file: computations/time_axis    
     - file: computations/machine-learning    
-  - caption: Software 
+  - caption: Working environments 
+    - file: platforms/platforms-intro
+      sections:
+      - file: platforms/platforms-nci-gadi
+      - file: platforms/platforms-nci-ood
+      - file: platforms/platforms-pangeo
+      - file: platforms/platforms-pawsey
+      - file: platforms/platforms-CSIRO
+      - file: platforms/platforms-BoM
+      - file: platforms/platforms-institutional
+      - file: platforms/platforms-PC
     chapters:
     - file: software/software-intro.md   
       sections:
