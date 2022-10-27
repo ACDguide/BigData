@@ -1,19 +1,21 @@
 format: jb-book
-root: intro 
+root: intro
 parts:
-  - caption: Large-scale climate data 
+  - caption: Large-scale climate data
     chapters:
-    - file: data/data-intro
-    - file: data/data-chunking
-    - file: data/data-format
-    - file: data/data-metadata
-    - file: data/homeless.md 
+    - file: data/data-intro.md
+    - file: data/data-chunking.md
+    - file: data/data-format.md
+    - file: data/data-metadata.md
+    - file: data/homeless.md
       sections:
-      - file: data/data-troubleshooting
-      - file: data/nczarr_test
-  - caption: Large-scale data analysis 
+      - file: data/data-troubleshooting.md
+      - file: data/nczarr_test.md
+  - caption: Large-scale data analysis
     chapters:
-    - file: computations/computations 
+    - file: computations/computations-intro.md
+      sections:
+      - file: computations/computations.ipynb
   - caption: Working environments 
     chapters:
     - file: platforms/platforms-intro
@@ -26,18 +28,16 @@ parts:
       - file: platforms/platforms-bom
       - file: platforms/platforms-institutional
       - file: platforms/platforms-pc
-    chapters:
     - file: access/access-intro
       sections:
       - file: access/access-data
       - file: access/access-envs
-    chapters:
     - file: software/software-intro.md   
       sections:
       - file: software/software-python1.md   
       - file: software/software-python2.md   
       - file: software/software-rcran.md   
-      - file: software/software-other.md  
+      - file: software/software-other.md   
   - caption: Resources
     chapters:
     - file: resources/resources 

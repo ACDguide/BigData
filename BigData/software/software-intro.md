@@ -9,8 +9,8 @@ To identify the best tool/s for a task the following factors should be considere
 - user experience: the previous experience matters, acquiring new skills is good but can take time, it can also be safer to stick with the same tool as you get to know its limitations better. The community experience is also important, i.e. it can be useful to have others around you that use the same software and can provide code and help. 
 
 Included are:
-* []{software-python1.md}
-* []{software-rcran.md}
+* [](software-python1)
+* [](software-rcran)
 * {ref}`matlab`
 * {ref}`julia`
 * {ref}`nco`
