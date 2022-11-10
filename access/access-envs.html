@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis ready data &#8212; Working with Big/Challenging Data Collections</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software list and advice" href="../software/software-intro.html" />
+    <link rel="prev" title="Methods of accessing data and metadata" href="access-data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ACDG-logo_v2.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Working with Big/Challenging Data Collections</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Large-scale climate data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/data-intro.html">
+   About large-scale data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/data-structure.html">
+   Data structure on disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/data-format.html">
+   Climate data formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/data-netcdf.html">
+   NetCDF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/data-zarr.html">
+   Zarr
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Large-scale data analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../computations/computations-intro.html">
+   Large-scale data analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../computations/computations.html">
+     Computations with large datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Working environments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../platforms/platforms-intro.html">
+   Computing Platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-nci-gadi.html">
+     NCI Gadi HPC and ARE australian research environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-nci-ood.html">
+     NCI OOD Virtual Desktop Infrastructure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-pangeo.html">
+     Pangeo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-pawsey.html">
+     Pawsey HPC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-institutional.html">
+     Institutional shared resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="access-intro.html">
+   Accessing data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="access-data.html">
+     Methods of accessing data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Analysis ready data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../software/software-intro.html">
+   Software list and advice
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-python1.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-python2.html">
+     Data handling in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-rcran.html">
+     R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-other.html">
+     Other software
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/help.html">
+   Where to get help
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/access/access-envs.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ACDguide/BigData"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Faccess/access-envs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-data-collections-and-tools">
+   Local data collections and tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-defined-conda-environments">
+     Pre-defined conda environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cosima-cookbook">
+     Cosima cookbook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stac-collection-example">
+     STAC collection example?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nci-and-acs-replica-intake-catalogues">
+     NCI and acs-replica intake catalogues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remote-resources">
+   Remote resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thredds-catalogues-with-opendap-access">
+     Thredds catalogues with opendap access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#community-projects">
+     Community projects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pangeo-forge-an-open-source-framework-for-extraction-transformation-and-loading-of-scientific-data">
+     Pangeo Forge: an open source framework for extraction, transformation, and loading of scientific data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-to-use-pangeo-forge">
+       When to use Pangeo Forge
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Analysis ready data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-data-collections-and-tools">
+   Local data collections and tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-defined-conda-environments">
+     Pre-defined conda environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cosima-cookbook">
+     Cosima cookbook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stac-collection-example">
+     STAC collection example?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nci-and-acs-replica-intake-catalogues">
+     NCI and acs-replica intake catalogues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remote-resources">
+   Remote resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thredds-catalogues-with-opendap-access">
+     Thredds catalogues with opendap access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#community-projects">
+     Community projects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pangeo-forge-an-open-source-framework-for-extraction-transformation-and-loading-of-scientific-data">
+     Pangeo Forge: an open source framework for extraction, transformation, and loading of scientific data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-to-use-pangeo-forge">
+       When to use Pangeo Forge
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="analysis-ready-data">
+<h1>Analysis ready data<a class="headerlink" href="#analysis-ready-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="local-data-collections-and-tools">
+<h2>Local data collections and tools<a class="headerlink" href="#local-data-collections-and-tools" title="Permalink to this headline">¶</a></h2>
+<p>data projects on gadi and related tool</p>
+<div class="section" id="pre-defined-conda-environments">
+<span id="condaenvs"></span><h3>Pre-defined conda environments<a class="headerlink" href="#pre-defined-conda-environments" title="Permalink to this headline">¶</a></h3>
+<p>It is good practice, where possible, to use existing/provided analysis environments in order to avoid generating large numbers of duplicate files. Before installing conda, for example, it’s a good idea to check whether a shared conda installation and environment that serves your needs doesn’t already exist.
+Some examples of managed analysis environments include:</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>hh5 conda environment at NCI</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">The CLEX-CMS (<a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Conda">http://climate-cms.wikis.unsw.edu.au/Conda</a>) team maintains a [conda environment]((<a class="reference external" href="http://climate-cms.wikis.unsw.edu.au/Conda">http://climate-cms.wikis.unsw.edu.au/Conda</a>) on NCI that includes a wide variety of climate and weather related libraries. This includes mostly python based packages, but also community software and some custom-built NCI related command line programs, for a <a class="reference external" href="https://github.com/coecms/conda-envs/blob/analysis3/environment.yml">full list</a>. They also provide instructions on how to create your own custom conda environment using their conda installation. Additional packages can be requested via the cws_help-at-nci.org.au helpdesk.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>dk92 conda environment at NCI</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">The NCI team manage an open project, <a class="reference external" href="https://opus.nci.org.au/pages/viewpage.action?pageId=134742126">dk92</a>, that provides a module for data analysis that includes Python, and , in the latest version, R and Julia packages. This environment is updated every 3 months. It is also possible to clone notebooks with related analysis examples.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>miniconda environment for Petrichor (CSIRO)</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Petrichor users (CSIRO employees only) can <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">miniconda3</span></code> to use a conda installation managed by IM&amp;T. Custom conda environments and packages can be installed to a preferred location using the <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-env-directories"><code class="docutils literal notranslate"><span class="pre">.condarc</span></code> configuration file</a></p>
+</div>
+</details></div>
+<div class="section" id="cosima-cookbook">
+<h3>Cosima cookbook<a class="headerlink" href="#cosima-cookbook" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="stac-collection-example">
+<h3>STAC collection example?<a class="headerlink" href="#stac-collection-example" title="Permalink to this headline">¶</a></h3>
+<p>COMMENT we’re mentioning STAC in previous pages but it’s not clear to me where it is used in climate science.</p>
+</div>
+<div class="section" id="nci-and-acs-replica-intake-catalogues">
+<h3>NCI and acs-replica intake catalogues<a class="headerlink" href="#nci-and-acs-replica-intake-catalogues" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+</div>
+<div class="section" id="remote-resources">
+<h2>Remote resources<a class="headerlink" href="#remote-resources" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="thredds-catalogues-with-opendap-access">
+<h3>Thredds catalogues with opendap access<a class="headerlink" href="#thredds-catalogues-with-opendap-access" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="community-projects">
+<h3>Community projects<a class="headerlink" href="#community-projects" title="Permalink to this headline">¶</a></h3>
+<p>There are a few community based projects that aim to provide stacks of python packages selected for climate or related fields analysis. They often also provides examples of how to use these packages in the forms of notebooks and/or tutorials.</p>
+<dl class="glossary simple">
+<dt id="term-Pangeo"><a class="reference external" href="https://pangeo.io/">Pangeo</a><a class="headerlink" href="#term-Pangeo" title="Permalink to this term">¶</a></dt><dd><p>Pangeo is a community of people working collaboratively to develop software and infrastructure to enable Big Data geoscience research. A Pangeo environment is made of up of many different open-source software packages for ocean, atmosphere, land and climate science.</p>
+</dd>
+<dt id="term-PyAOS"><a class="reference external" href="https://pyaos.github.io">PyAOS</a><a class="headerlink" href="#term-PyAOS" title="Permalink to this term">¶</a></dt><dd><p>PyAOS is a community project that offers a stack of python libraries used by the Atmosphere and Ocean Science communities.</p>
+</dd>
+<dt id="term-ProjectPythia"><a class="reference external" href="https://projectpythia.org/">ProjectPythia</a><a class="headerlink" href="#term-ProjectPythia" title="Permalink to this term">¶</a></dt><dd><p>Project Pythia aims to provide a public, web-accessible training resource that will help educate current, and aspiring, earth scientists to more effectively use both the Scientific Python Ecosystem and Cloud Computing to make sense of huge volumes of numerical scientific data</p>
+</dd>
+<dt id="term-EarthPy"><a class="reference external" href="http://earthpy.org">EarthPy</a><a class="headerlink" href="#term-EarthPy" title="Permalink to this term">¶</a></dt><dd><p>EarthPy is a collection of IPython notebooks with examples of Earth Science related Python code: tutorials, descriptions of the modules, small scripts, or just tricks. They welcome contributions.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="pangeo-forge-an-open-source-framework-for-extraction-transformation-and-loading-of-scientific-data">
+<h3>Pangeo Forge: an open source framework for extraction, transformation, and loading of scientific data<a class="headerlink" href="#pangeo-forge-an-open-source-framework-for-extraction-transformation-and-loading-of-scientific-data" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pangeo-forge.readthedocs.io/en/latest/index.html">Pangeo Forge</a> is a combination of two things, with the ultimate goal of uploading datasets into the cloud in an analysis-ready, cloud-optimized (ARCO) format:</p>
+<ol class="simple">
+<li><p>Pangeo Forge Recipes - an open source Python package, which allows you to create and run extraction, transformation, and loading pipelines (“recipes”) and run them from your own computer</p></li>
+<li><p>Pangeo Forge Cloud - a cloud-based automation framework which runs these recipes in the cloud from code stored in GitHub</p></li>
+</ol>
+<p>Pangeo Forge is inspired directly by Conda Forge, a community-led collection of recipes for building conda packages (see the <a class="reference external" href="https://acdguide.github.io/BigData/tools/python1.html#python">Python Tools page</a> for more info on conda). Pangeo Forge seeks to play the same role for datasets.</p>
+<div class="section" id="when-to-use-pangeo-forge">
+<h4>When to use Pangeo Forge<a class="headerlink" href="#when-to-use-pangeo-forge" title="Permalink to this headline">¶</a></h4>
+<p>Pangeo Forge is useful if you have access to some data, and would like to work with the data on the cloud. It is optimized for multidimensional array data (e.g. NetCDF, GRIB, Zarr) that can be opened with Xarray. To upload a dataset to the cloud via Pangeo Forge, a user should submit a Pull Request to the Pangeo Forge <a class="reference external" href="https://github.com/pangeo-forge/staged-recipes">staged-recipes</a> GitHub repository, following the <a class="reference external" href="https://pangeo-forge.readthedocs.io/en/latest/introduction_tutorial/index.html">introductory guide in their documentation</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="access-data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Methods of accessing data and metadata</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../software/software-intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Software list and advice</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By ACD Working Group<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

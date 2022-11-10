@@ -43,4 +43,4 @@ While a lot of the rules of thumb listed here are for reporting a potential bug,
 
 ### Take a look at this flowchart to help you figure out where to get help depending on your problem 
 (created by Dougie Squire)
-![Help Flowchart](images/help_flowchart.png)
+![Help Flowchart](../images/help_flowchart.png)

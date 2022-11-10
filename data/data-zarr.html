@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSIRO facilities &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Zarr &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Large-scale data analysis" href="../computations/computations-intro.html" />
+    <link rel="prev" title="NetCDF" href="data-netcdf.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,29 +101,29 @@
   Large-scale climate data
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../data/data-intro.html">
+  <a class="reference internal" href="data-intro.html">
    About large-scale data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data/data-structure.html">
+  <a class="reference internal" href="data-structure.html">
    Data structure on disk
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data/data-format.html">
+  <a class="reference internal" href="data-format.html">
    Climate data formats
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data/data-netcdf.html">
+  <a class="reference internal" href="data-netcdf.html">
    NetCDF
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data/data-zarr.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Zarr
   </a>
  </li>
@@ -157,7 +159,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="platforms-intro.html">
+  <a class="reference internal" href="../platforms/platforms-intro.html">
    Computing Platforms
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -167,27 +169,27 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-nci-gadi.html">
+    <a class="reference internal" href="../platforms/platforms-nci-gadi.html">
      NCI Gadi HPC and ARE australian research environment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-nci-ood.html">
+    <a class="reference internal" href="../platforms/platforms-nci-ood.html">
      NCI OOD Virtual Desktop Infrastructure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-pangeo.html">
+    <a class="reference internal" href="../platforms/platforms-pangeo.html">
      Pangeo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-pawsey.html">
+    <a class="reference internal" href="../platforms/platforms-pawsey.html">
      Pawsey HPC
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-institutional.html">
+    <a class="reference internal" href="../platforms/platforms-institutional.html">
      Institutional shared resources
     </a>
    </li>
@@ -305,7 +307,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/platforms/platforms-CSIRO.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/data/data-zarr.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -325,7 +327,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fplatforms/platforms-CSIRO.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fdata/data-zarr.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -352,13 +354,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#when-would-i-use-this-sytem">
-   When would I use this sytem?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-do-i-get-access">
-   How do I get access?
+  <a class="reference internal nav-link" href="#netcdf-zarr">
+   NetCDF-Zarr
   </a>
  </li>
 </ul>
@@ -371,7 +368,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>CSIRO facilities</h1>
+                <h1>Zarr</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -382,13 +379,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#when-would-i-use-this-sytem">
-   When would I use this sytem?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-do-i-get-access">
-   How do I get access?
+  <a class="reference internal nav-link" href="#netcdf-zarr">
+   NetCDF-Zarr
   </a>
  </li>
 </ul>
@@ -400,24 +392,32 @@
             
               <div>
                 
-  <div class="section" id="csiro-facilities">
-<span id="csiro"></span><h1>CSIRO facilities<a class="headerlink" href="#csiro-facilities" title="Permalink to this headline">¶</a></h1>
-<p>CSIRO researchers have access to internal HPC facilities. The current generation are known as “Petrichor” (peak HPC) and Bracewell (GPU-enabled cluster). There is also a Bowen research cloud (storage and compute), as well as the Digital Workbench (internal cloud-based infrastructure particularly targetting Machine Learning applications), and Cloud Right programme for accessing public cloud (AWS, GCP, Azure).</p>
-<p>When collaborating with researchers from other institutions, it is more likely that CSIRO staff will work on NCI or similar shared systems, however for internal work and data delivery CSIRO systems are often used.</p>
-<p>Of note on Petrichor/Bracewell,</p>
+  <div class="section" id="zarr">
+<h1>Zarr<a class="headerlink" href="#zarr" title="Permalink to this headline">¶</a></h1>
+<p>An alternative storage back-end for NetCDF has recently been released (since v4.8.0) enabling a NetCDF to be written as a zarr.
+<a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a> is a new data format that is optimised for cloud interaction with data. Zarr is a portmanteau of “zipped archive”, it is used by python’s <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to more performantly store data, by writing a separate file object for each data chunk. This makes data indexing and access much faster than on a monolithic NetCDF file, and performance improvements are seen on local HPC storage as well as cloud.</p>
+<p>Tools (that we know of at this time) for converting files to zarr format include:</p>
 <ul class="simple">
-<li><p>when accessing data, <code class="docutils literal notranslate"><span class="pre">/datastore</span></code> is the tape archive (similar to NCI’s MDSS), it operates as a filesystem and was the home area on the previous Ruby system. Data in this area may be slow to access and <code class="docutils literal notranslate"><span class="pre">dm</span></code> commands should be used - see inernal documentation for futher details.</p></li>
-<li><p>Disk-based storage is provided via the <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> filesystems (of which there are currently two), which is regularly purged and cannot be used for longterm storage,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/datasets</span></code> contains mounts of Bowen cloud storage to the HPC - this is disk-based storage which is faster than datastore but slower than scratch, so not ideal for running models but good for persistent storage of model output datasets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/home</span></code> is shared across CSIRO HPC systems but cloud machines typically have their own /home area.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xarray</span></code>, data can be saved to NetCDF or Zarr format using the <a class="reference external" href="https://docs.xarray.dev/en/latest/generated/xarray.Dataset.to_netcdf.html"><code class="docutils literal notranslate"><span class="pre">xarray.Dataset.to_netcdf()</span></code></a> and <a class="reference external" href="https://docs.xarray.dev/en/latest/generated/xarray.Dataset.to_zarr.html"><code class="docutils literal notranslate"><span class="pre">xarray.Dataset.to_zarr()</span></code></a> functions respectively;</p></li>
+<li><p><a class="reference external" href="https://gdal.org/drivers/raster/zarr.html#examples">GDAL</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncgen</span></code> (see NetCDF-zarr below).</p></li>
 </ul>
-<div class="section" id="when-would-i-use-this-sytem">
-<h2>When would I use this sytem?<a class="headerlink" href="#when-would-i-use-this-sytem" title="Permalink to this headline">¶</a></h2>
-<p>When working only with other CSIRO researchers and/or when publishing data to CSIRO’s Data Access Portal (DAP) which is &gt;10TB.</p>
+<div class="section" id="netcdf-zarr">
+<h2>NetCDF-Zarr<a class="headerlink" href="#netcdf-zarr" title="Permalink to this headline">¶</a></h2>
+<p>Since <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/entry/overview-of-zarr-support-in">NetCDF v4.8.0</a>, support for zarr as a storage backend has been added.</p>
+<ul class="simple">
+<li><p>When NetCDF is built with zarr enabled, it is possible to write a NetCDF file out in Zarr format.</p></li>
+<li><p>At this stage, reading of Zarr files is not yet enabled by the python NetCDF library, but that will be added in due course.</p></li>
+<li><p>NetCDF 4.8.0 does not (yet) support for zip output, so at this stage, writing a NetCDF file out in zarr format creates many file objects (one per chunk)</p></li>
+<li><p>“nczarr” does not support unlimited dimensions like HDF5 does, as such NetCDFs must have all dimensions of defined length.</p></li>
+</ul>
+<p>For a description of the tests performed, see <a class="reference external" href="https://acdguide.github.io/BigData/nczarr_test.html">In-depth <code class="docutils literal notranslate"><span class="pre">nczarr</span></code> testing</a>.</p>
+<p>In summary, the library is functional but currently lacking, but it will be worth monitoring updates to the library in the coming years as additional capability is added.
+NetCDF remains the standards-compliant file format for climate data which is broadly supported by many tools, but lacks optimal parallel performance. As this library matures it should be possible eventually to store our data in standards- and tools-compliant NetCDF format but with zarr performance.</p>
+<div class="admonition-zarrdump admonition">
+<p class="admonition-title"><strong>zarrdump</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">zarrdump</span></code> works similarly to ncdump but to display the content of a zarr file from teh command line</p>
 </div>
-<div class="section" id="how-do-i-get-access">
-<h2>How do I get access?<a class="headerlink" href="#how-do-i-get-access" title="Permalink to this headline">¶</a></h2>
-<p>Access is available to CSIRO staff via the <a class="reference external" href="https://sc.it.csiro.au/">Scientific Computing platform</a>.</p>
 </div>
 </div>
 
@@ -434,7 +434,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./platforms"
+            path: "./data"
         },
         predefinedOutput: true
     }
@@ -445,7 +445,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="data-netcdf.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">NetCDF</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../computations/computations-intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Large-scale data analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

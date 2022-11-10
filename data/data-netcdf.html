@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetCDF &#8212; Working with Big/Challenging Data Collections</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Zarr" href="data-zarr.html" />
+    <link rel="prev" title="Climate data formats" href="data-format.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ACDG-logo_v2.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Working with Big/Challenging Data Collections</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Large-scale climate data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-intro.html">
+   About large-scale data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-structure.html">
+   Data structure on disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-format.html">
+   Climate data formats
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   NetCDF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-zarr.html">
+   Zarr
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Large-scale data analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../computations/computations-intro.html">
+   Large-scale data analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../computations/computations.html">
+     Computations with large datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Working environments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../platforms/platforms-intro.html">
+   Computing Platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-nci-gadi.html">
+     NCI Gadi HPC and ARE australian research environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-nci-ood.html">
+     NCI OOD Virtual Desktop Infrastructure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-pangeo.html">
+     Pangeo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-pawsey.html">
+     Pawsey HPC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-institutional.html">
+     Institutional shared resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../access/access-intro.html">
+   Accessing data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../access/access-data.html">
+     Methods of accessing data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../access/access-envs.html">
+     Analysis ready data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../software/software-intro.html">
+   Software list and advice
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-python1.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-python2.html">
+     Data handling in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-rcran.html">
+     R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../software/software-other.html">
+     Other software
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/help.html">
+   Where to get help
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/data/data-netcdf.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ACDguide/BigData"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fdata/data-netcdf.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-what-s-under-the-hood">
+   NetCDF: what’s under the hood?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-chunking">
+   NetCDF chunking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-data-chunking">
+     What is data chunking?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-chunking-matters">
+     Why chunking matters?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-metadata">
+   NetCDF metadata
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-tools-for-viewing-netcdf-data-and-metadata">
+     Simple tools for viewing netCDF data and metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-metadata-issues">
+     Common metadata issues
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-dimension">
+       Time dimension
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#coordinates-and-grids">
+       Coordinates and grids
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-values">
+       Missing values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scaling-offsets">
+       Scaling &amp; offsets
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>NetCDF</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-what-s-under-the-hood">
+   NetCDF: what’s under the hood?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-chunking">
+   NetCDF chunking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-data-chunking">
+     What is data chunking?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-chunking-matters">
+     Why chunking matters?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-metadata">
+   NetCDF metadata
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-tools-for-viewing-netcdf-data-and-metadata">
+     Simple tools for viewing netCDF data and metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-metadata-issues">
+     Common metadata issues
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-dimension">
+       Time dimension
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#coordinates-and-grids">
+       Coordinates and grids
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-values">
+       Missing values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scaling-offsets">
+       Scaling &amp; offsets
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="netcdf">
+<h1>NetCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a> is the data format most commonly used in climate science. It is an open data format with full self-described metadata, though it is up to the data creator to ensure the metadata meets any relevant standards, such as the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html">CF Convention</a>.</p>
+<div class="section" id="netcdf-what-s-under-the-hood">
+<h2>NetCDF: what’s under the hood?<a class="headerlink" href="#netcdf-what-s-under-the-hood" title="Permalink to this headline">¶</a></h2>
+<p>NetCDF is the most commonly used format in climate science and related disciplines, hence it is covered in detail in this chapter.
+NetCDF4 is traditionally backed by <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a>, a self-describing metadata open data format which is extensible and underpins many large-scale data formats, e.g. HDFITS.</p>
+<p>Here we will be covering some aspects of netCDF files that influence analysis efficiency, like <code class="docutils literal notranslate"><span class="pre">chunking</span></code> and the interaction between metadata and analysis software.
+However, a lot of details and useful advice are already provided in the ACDG Governance book which includes guidelines on how to create netCDF files.
+In particular:</p>
+<ul class="simple">
+<li><p>information on <a class="reference external" href="https://acdguide.github.io/Governance/concepts/conventions.html">metadata standards</a> and <a class="reference external" href="https://acdguide.github.io/Governance/tech/conventions.html">how to apply them</a></p></li>
+<li><p>advice about <a class="reference external" href="https://acdguide.github.io/Governance/tech/tech-intro.html">compression</a> with a comprehensive list of tools to apply compression and chunking to files, some of these specific to <a class="reference internal" href="../platforms/platforms-nci-gadi.html"><span class="doc std std-doc">NCI</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="netcdf-chunking">
+<h2>NetCDF chunking<a class="headerlink" href="#netcdf-chunking" title="Permalink to this headline">¶</a></h2>
+<p>Since netCDF4, netCDF data supports compression on disk, as well as breaking the storage of the data down into logical “chunks”. This means instead of data being written from first to last dimension (for example all longitudes for each latitude for each time step), data can rather be written with a specified chunking which should align with expected most common read patterns.</p>
+<div class="section" id="what-is-data-chunking">
+<h3>What is data chunking?<a class="headerlink" href="#what-is-data-chunking" title="Permalink to this headline">¶</a></h3>
+<p>Large data arrays are composed of smaller units which are called <em>chunks</em>. This is why some software, like xarray, can load data lazily, i.e. load into memory only the data chunks it needs to perform a specific operation.
+All data stored in netcdf files have been written in chunks, following some chunking strategy. NCO has a list of different chunking policies that you can apply to write a netcdf file. The most common and default approach is to prioritise accessing the data as a grid, so that retrieving all grid points at one timestep will require loading only 1 or few chunks at one time. On the other side this strategy means that often time has a chunk size of 1, i.e. each timestep is on a different chunk, which means that when we want to analysis a timeseries from the same data we will be loading the entire dataset when we are expecting to only loading one grid point.<br>
+As an example, if a file has dimensions <code class="docutils literal notranslate"><span class="pre">(time=744,</span> <span class="pre">lat=180,</span> <span class="pre">lon=360)</span></code>, the default approach would result in chunks like e.g. <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">180,</span> <span class="pre">360)</span></code>, so that each disk read extracts an area at a single time step. If this file is expected to be used for timeseries analysis   better chunking strategy would be <code class="docutils literal notranslate"><span class="pre">(744,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>, so that each disk read extracts all of time steps at each point location.
+For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like <code class="docutils literal notranslate"><span class="pre">(100,</span> <span class="pre">180,</span> <span class="pre">360)</span></code> which would result in chunks that are approximately <code class="docutils literal notranslate"><span class="pre">25MB</span></code>. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).</p>
+</div>
+<div class="section" id="why-chunking-matters">
+<h3>Why chunking matters?<a class="headerlink" href="#why-chunking-matters" title="Permalink to this headline">¶</a></h3>
+<p>Chunks allow to manage memory more efficiently, and to create optimal parallelisation configurations. However, if the chunking is done in a suboptimal way, it can sometimes lead to slower computations or other negative performance outputs.
+For more details on why chunking can have significant implications for performance of both data reading/writing and data computation, see <a class="reference external" href="https://www.unidata.ucar.edu/blogs/developer/en/entry/chunking_data_why_it_matters">this article</a>.</p>
+<p><a class="reference internal" href="../software/software-other.html#cdo"><span class="std std-ref">CDO - Climate Data Operators</span></a> and <a class="reference internal" href="../software/software-other.html#nco"><span class="std std-ref">NCO - NetCDF Operators</span></a> also offer some useful.</p>
+<p><a class="reference external" href="http://nco.sourceforge.net/nco.html#Timeseries-Reshaping-mode_002c-aka-Splitting">http://nco.sourceforge.net/nco.html#Timeseries-Reshaping-mode_002c-aka-Splitting</a></p>
+<div class="admonition-if-rechunking-use-a-multiple-of-original-chunks admonition">
+<p class="admonition-title">If rechunking use a multiple of original chunks</p>
+<p>Some tools like <code class="docutils literal notranslate"><span class="pre">xarray</span></code> can re-chunk on the fly on reading data, and if the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> option is passed to <code class="docutils literal notranslate"><span class="pre">xr.open_dataset</span></code> then <code class="docutils literal notranslate"><span class="pre">dask</span></code> will be used under the hood to load the data in parallel. This seems like a great idea (!) and indeed it is, however, a <strong>note of caution</strong> is that when specifying chunking, it is important to make sure the xarray chunk specification is a multiple of that used in the file, if they are a complete mis-match performance can end up worse than a serial load! To check the size of chunks stored on disk, use <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-hs</span></code>.</p>
+</div>
+<p>Further information: See the <a class="reference internal" href="../computations/computations.html"><span class="doc std std-doc">Computations</span></a> section of this book.</p>
+</div>
+</div>
+<div class="section" id="netcdf-metadata">
+<h2>NetCDF metadata<a class="headerlink" href="#netcdf-metadata" title="Permalink to this headline">¶</a></h2>
+<p>When using self-describing data formats (such as netCDF), it is important to understand the various attributes contained in the metadata, how to interact with them, and potential issues of which to remain aware.</p>
+<div class="section" id="simple-tools-for-viewing-netcdf-data-and-metadata">
+<h3>Simple tools for viewing netCDF data and metadata<a class="headerlink" href="#simple-tools-for-viewing-netcdf-data-and-metadata" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> command (contained within the standard netcdf library) is the most common way of probing netCDF files, particularly metadata attributes.</p>
+<ul class="simple">
+<li><p>Dimensions are listed first in ncdump and describe the overall structure of the data within. These dimensions are not self-described, and therefore must also exist as a variable whose values and attributes then describe the associated dimension. Dimensions can be ‘real’ dimensions (such as time, lat, lon), or ‘pseudo’ dimensions (such as land-use tiles, or spectral bands), and can be cardinal, continuous or nominal, i.e. described using values or strings (such as a numbered or named list, or floating point values).</p></li>
+<li><p>Variables contain the bulk of the information with a netCDF file. Each is defined along one or more dimension and is self-described with associate attributes. The variable attributes can technically include and be titled anything, however, there are some common standards to which most data adheres (the most common of which is the <a class="reference external" href="http://cfconventions.org/">CF conventions</a>), including bounds, units, standard_name, etc.</p></li>
+<li><p>Global attributes describe the entire dataset. While these are typically chosen according to the use case of the data and can vary significantly between modelling realms or scientific need, standards also exist for these. Common global attributes include title, data provenance information (i.e., where the data came from), license, and contact information, as well as any conventions implemented in the file.</p></li>
+</ul>
+<div class="admonition-special-attributes admonition">
+<p class="admonition-title"><strong>special attributes</strong></p>
+<p>Attributes names commencing with underscore (‘_’) are reserved for use by the netCDF library. These include attributes indicating chunks, deflate level and other structural information, which are shown only if using the <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-sh</span></code>.
+To see the kind of netCDF format <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-k</span></code> .</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ncview</span></code> tool, while very simple, can easily display netCDF data and highlight metadata issues. This is because <code class="docutils literal notranslate"><span class="pre">ncview</span></code> looks for standard metadata attributes to quickly decide how to plot the data. Files that are missing vital attributes, or are otherwise lacking adequate description, will quickly break <code class="docutils literal notranslate"><span class="pre">ncview</span></code>, allowing for a fast diagnostic tool for both metadata quality and the data itself. Note that being a basic tool, it cannot handle reprojections of non-cartesian grids, so plots may not <em>look</em> right, this tool is used to sanity check data, not assess its quality.</p>
+</div>
+<div class="section" id="common-metadata-issues">
+<h3>Common metadata issues<a class="headerlink" href="#common-metadata-issues" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="time-dimension">
+<h4>Time dimension<a class="headerlink" href="#time-dimension" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><strong>UNLIMITED/record dimensions</strong></p></li>
+</ul>
+<p>Unlimited dimensions provide a data creator the opportunity to extend their dataset by appending new content to the file without having to rewrite the entire file (assuming the tools used permit <code class="docutils literal notranslate"><span class="pre">append</span></code> mode). This is particularly useful for datasets where we might want to add new observational data at later points in time, for example. Not all file formats support unlimited dimensions, and conversely netCDF4 supports exactly one unlimited dimension (the underlying HDF5 format supports multiple unlimited dimensions). Zarr does not support unlimited dimensions so conversion between the two can be an issue if this capability is important. It is common for netCDF files to contain <code class="docutils literal notranslate"><span class="pre">time</span></code> as an unlimited dimension (see <a class="reference external" href="https://acdguide.github.io/BigData/nczarr_test.html">our netCDF-Zarr testing</a> for an example).</p>
+<ul class="simple">
+<li><p><strong>Calendars</strong></p></li>
+</ul>
+<p>Calendar issues are possibly the most common cause of frustration with climate data! Not all models use a Gregorian calendar, which can make comparing data across models tricky. Furthermore, not all calendars found in netCDF files are necessarily recognised by the datetime libraries commonly used in tools. It may sometimes be necessary to resample data into a recognised calendar, and tools like <code class="docutils literal notranslate"><span class="pre">xarray</span></code> support a <code class="docutils literal notranslate"><span class="pre">calendar</span></code> argument where a non-standard calendar is used.</p>
+<ul class="simple">
+<li><p><strong>Units</strong></p></li>
+</ul>
+<p>The CF convention requires that time be defined with respect to a reference date, using unambiguous units. That is, “seconds since”, “days since”, “years since” as appropriate. Some time units are not valid, for example “months since” is not a valid time unit as it is ambiguous whether a month is a fixed number of days, or always refers to a particular date in a month. Nevertheless, some seasonal data does use this unit, which can cause issues.</p>
+<ul class="simple">
+<li><p><strong>Long timespans</strong></p></li>
+</ul>
+<p>Even if calendar units are clearly defined, not all datetime libraries can deal with dates far in the past or future. In this case it may be necessary to explicitly use <code class="docutils literal notranslate"><span class="pre">CFtime</span></code> when decoding a file in python, for example (e.g., in <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, using <code class="docutils literal notranslate"><span class="pre">decode_cf=True</span></code>).</p>
+</div>
+<div class="section" id="coordinates-and-grids">
+<h4>Coordinates and grids<a class="headerlink" href="#coordinates-and-grids" title="Permalink to this headline">¶</a></h4>
+<p>While often climate models are run on a regular cartesian grid, sometimes other grids are used in models which can cause confusion, both in terms of plotting and the coordinates used. A few examples follow.</p>
+<ul class="simple">
+<li><p><strong>Tripolar grids</strong>
+Ocean models are often run on a tripolar grid to avoid the existence of a singularity at the North Pole. Instead, a global grid is constructed with 3 poles all under continental land masses to permit non-ambiguous hydrodynamic modelling throughout the ocean basins. It may be necessary to “regrid” such data to a cartesian grid if it is to be combined with atmospheric data. Tools to do this include <a class="reference internal" href="../software/software-python2.html#term-xESMF"><span class="xref std std-term">xESMF</span></a> in python, as well as <code class="docutils literal notranslate"><span class="pre">NCO</span></code>, <code class="docutils literal notranslate"><span class="pre">CDO</span></code> and <code class="docutils literal notranslate"><span class="pre">GDAL</span></code>.
+Further information: See the <a class="reference internal" href="../computations/computations-intro.html"><span class="doc std std-doc">Computations</span></a> section of this book.</p></li>
+<li><p><strong>Unstructured grids</strong>
+Some models use mesh grids which conform to coastlines to permit higher resolution in areas of particular interest without needing to run the whole model at high resolution. In this case the <code class="docutils literal notranslate"><span class="pre">UGRID</span></code> convention may also be used, in which the file dimensions are required to specify mesh nodes, edges, and faces and their connectivity. When plotting data on an unstructured grid, reprojection may be required, though tools like <a class="reference internal" href="../software/software-python2.html#term-cartopy"><span class="xref std std-term">cartopy</span></a> typically make this task straightforward.</p></li>
+<li><p><strong>Coordinates of non-cartesian grids</strong>
+While a climate model using cartesian coordinates will usually have both dimensions and variables of “latitude” and “longitude”, for other grid types it is typical to have other dimensions which are then mapped in 2 dimensions to latitude and longitude. There are many nomenclatures used for this, but it is not uncommon for a model to use dimensions like <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">ny</span></code>, etc to define grid position, and then define variables <code class="docutils literal notranslate"><span class="pre">latitude(i,j)</span></code> to be a mapping of the coordinates onto projectable values.</p></li>
+</ul>
+</div>
+<div class="section" id="missing-values">
+<h4>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h4>
+<p>NetCDF files should not contain “<code class="docutils literal notranslate"><span class="pre">NaN</span></code>” values. Indeed, each variable should include a <code class="docutils literal notranslate"><span class="pre">_FillValue</span></code> attribute which defines the numerical value of NaN in this dataset. Common values used are <code class="docutils literal notranslate"><span class="pre">-999</span></code> and <code class="docutils literal notranslate"><span class="pre">1e+20</span></code>. By setting this variable attribute, netCDF-aware tools can decode files appropriately restoring a NaN mask where these values are recorded in the file, meanwhile the file itself contains only valid numerical values.</p>
+<p>Some datasets, for example those derived from observations, may differentiate between NaN values, and missing values. Sometimes the value <code class="docutils literal notranslate"><span class="pre">0</span></code> is recorded for “no data” which can cause problems for variables like precipitation. It is important that the user is aware of how these concerns are handled in the dataset they are using.</p>
+</div>
+<div class="section" id="scaling-offsets">
+<h4>Scaling &amp; offsets<a class="headerlink" href="#scaling-offsets" title="Permalink to this headline">¶</a></h4>
+<p>NetCDF has long supported using scale factors and offsets to reduce required precision in data storage, i.e., reducing required disk space. These capabilities are rarely used these days, but some tools will still automatically write netCDF files that optimise disk use through applying a <code class="docutils literal notranslate"><span class="pre">scale_factor</span></code> (multiplicative correction) and <code class="docutils literal notranslate"><span class="pre">add_offset</span></code> (additive correction) in order to store data using less bits. Most tools like <code class="docutils literal notranslate"><span class="pre">NCO</span></code> and python’s <code class="docutils literal notranslate"><span class="pre">xarray</span></code> are netCDF-aware and apply these corrections on loading, however, MATLAB’s netCDF operators do not automatically account for these corrections and they need to be applied manually.</p>
+<p>The scale_factor and add_offset form a linear equation of the form <code class="docutils literal notranslate"><span class="pre">y=mx+c</span></code>, where the true value of the data <code class="docutils literal notranslate"><span class="pre">dt</span></code> is found by the stored value <code class="docutils literal notranslate"><span class="pre">ds</span></code> multiplied by the <code class="docutils literal notranslate"><span class="pre">scale_factor</span></code>, and to this value we add the <code class="docutils literal notranslate"><span class="pre">add_offset</span></code>.</p>
+<p>It is uncommon to need to worry about these corrections, but the hint that they may exist and not be applied on data load is if a sanity check of the data produces values that seem wildly wrong and often by a consistent factor.</p>
+<p><strong>NOTE</strong> this is NOT used to convert between Celsius and Fahrenheit or Kelvin temperatures (although it could be!) so when working with data for which multiple common units exist, the cause of a failed sanity check is more likely that the units are not those expected.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="data-format.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Climate data formats</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data-zarr.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Zarr</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By ACD Working Group<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

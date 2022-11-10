@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSIRO facilities &#8212; Working with Big/Challenging Data Collections</title>
+    <title>Methods of accessing data and metadata &#8212; Working with Big/Challenging Data Collections</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysis ready data" href="access-envs.html" />
+    <link rel="prev" title="Accessing data" href="access-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -155,9 +157,9 @@
   Working environments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="platforms-intro.html">
+  <a class="reference internal" href="../platforms/platforms-intro.html">
    Computing Platforms
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -167,49 +169,49 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-nci-gadi.html">
+    <a class="reference internal" href="../platforms/platforms-nci-gadi.html">
      NCI Gadi HPC and ARE australian research environment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-nci-ood.html">
+    <a class="reference internal" href="../platforms/platforms-nci-ood.html">
      NCI OOD Virtual Desktop Infrastructure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-pangeo.html">
+    <a class="reference internal" href="../platforms/platforms-pangeo.html">
      Pangeo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-pawsey.html">
+    <a class="reference internal" href="../platforms/platforms-pawsey.html">
      Pawsey HPC
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms-institutional.html">
+    <a class="reference internal" href="../platforms/platforms-institutional.html">
      Institutional shared resources
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../access/access-intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="access-intro.html">
    Accessing data
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../access/access-data.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Methods of accessing data and metadata
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../access/access-envs.html">
+    <a class="reference internal" href="access-envs.html">
      Analysis ready data
     </a>
    </li>
@@ -305,7 +307,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/platforms/platforms-CSIRO.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/access/access-data.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -325,7 +327,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Fplatforms/platforms-CSIRO.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ACDguide/BigData/issues/new?title=Issue%20on%20page%20%2Faccess/access-data.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -352,14 +354,40 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#when-would-i-use-this-sytem">
-   When would I use this sytem?
+  <a class="reference internal nav-link" href="#stac-spatiotemporal-asset-catalog">
+   STAC (SpatioTemporal Asset Catalog)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-data-easily-searchable">
+     Making data easily searchable
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-do-i-get-access">
-   How do I get access?
+  <a class="reference internal nav-link" href="#intake">
+   Intake
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-authorised-catalogues">
+       Working with authorised catalogues
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#intake-and-distributed-client">
+       Intake and distributed client
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -371,7 +399,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>CSIRO facilities</h1>
+                <h1>Methods of accessing data and metadata</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -382,14 +410,40 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#when-would-i-use-this-sytem">
-   When would I use this sytem?
+  <a class="reference internal nav-link" href="#stac-spatiotemporal-asset-catalog">
+   STAC (SpatioTemporal Asset Catalog)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-data-easily-searchable">
+     Making data easily searchable
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-do-i-get-access">
-   How do I get access?
+  <a class="reference internal nav-link" href="#intake">
+   Intake
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-authorised-catalogues">
+       Working with authorised catalogues
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#intake-and-distributed-client">
+       Intake and distributed client
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -400,24 +454,68 @@
             
               <div>
                 
-  <div class="section" id="csiro-facilities">
-<span id="csiro"></span><h1>CSIRO facilities<a class="headerlink" href="#csiro-facilities" title="Permalink to this headline">¶</a></h1>
-<p>CSIRO researchers have access to internal HPC facilities. The current generation are known as “Petrichor” (peak HPC) and Bracewell (GPU-enabled cluster). There is also a Bowen research cloud (storage and compute), as well as the Digital Workbench (internal cloud-based infrastructure particularly targetting Machine Learning applications), and Cloud Right programme for accessing public cloud (AWS, GCP, Azure).</p>
-<p>When collaborating with researchers from other institutions, it is more likely that CSIRO staff will work on NCI or similar shared systems, however for internal work and data delivery CSIRO systems are often used.</p>
-<p>Of note on Petrichor/Bracewell,</p>
-<ul class="simple">
-<li><p>when accessing data, <code class="docutils literal notranslate"><span class="pre">/datastore</span></code> is the tape archive (similar to NCI’s MDSS), it operates as a filesystem and was the home area on the previous Ruby system. Data in this area may be slow to access and <code class="docutils literal notranslate"><span class="pre">dm</span></code> commands should be used - see inernal documentation for futher details.</p></li>
-<li><p>Disk-based storage is provided via the <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> filesystems (of which there are currently two), which is regularly purged and cannot be used for longterm storage,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/datasets</span></code> contains mounts of Bowen cloud storage to the HPC - this is disk-based storage which is faster than datastore but slower than scratch, so not ideal for running models but good for persistent storage of model output datasets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/home</span></code> is shared across CSIRO HPC systems but cloud machines typically have their own /home area.</p></li>
-</ul>
-<div class="section" id="when-would-i-use-this-sytem">
-<h2>When would I use this sytem?<a class="headerlink" href="#when-would-i-use-this-sytem" title="Permalink to this headline">¶</a></h2>
-<p>When working only with other CSIRO researchers and/or when publishing data to CSIRO’s Data Access Portal (DAP) which is &gt;10TB.</p>
+  <div class="section" id="methods-of-accessing-data-and-metadata">
+<h1>Methods of accessing data and metadata<a class="headerlink" href="#methods-of-accessing-data-and-metadata" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stac-spatiotemporal-asset-catalog">
+<h2>STAC (SpatioTemporal Asset Catalog)<a class="headerlink" href="#stac-spatiotemporal-asset-catalog" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Enabling online search and discovery of geospatial assets”</p>
+</div></blockquote>
+<p><a class="reference external" href="https://stacspec.org">STAC</a> is a specification aimed at standardizing the language around geospatial datasets in order to increase accessability and interoperability across many datasets. It is for use with data stored in the cloud.</p>
+<div class="section" id="making-data-easily-searchable">
+<h3>Making data easily searchable<a class="headerlink" href="#making-data-easily-searchable" title="Permalink to this headline">¶</a></h3>
+<p>At its core, <code class="docutils literal notranslate"><span class="pre">STAC</span></code> provides a <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> file wrapper around any geospatial data (i.e. any data relating to the Earth). The goal of this wrapper file is to contain all relevant information that a user may want to search for when finding a dataset. In this way, <code class="docutils literal notranslate"><span class="pre">STAC</span></code> seeks to make all earth-related cloud-optimized datasets easily searchable, but does not provide the search tools themselves. <code class="docutils literal notranslate"><span class="pre">STAC</span></code> integrates well with a tool like <code class="docutils literal notranslate"><span class="pre">intake</span></code> that can search for and load the desired datasets.</p>
 </div>
-<div class="section" id="how-do-i-get-access">
-<h2>How do I get access?<a class="headerlink" href="#how-do-i-get-access" title="Permalink to this headline">¶</a></h2>
-<p>Access is available to CSIRO staff via the <a class="reference external" href="https://sc.it.csiro.au/">Scientific Computing platform</a>.</p>
+</div>
+<div class="section" id="intake">
+<span id="id1"></span><h2>Intake<a class="headerlink" href="#intake" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Taking the pain out of data access and distribution”</p>
+</div></blockquote>
+<p><a class="reference external" href="https://intake.readthedocs.io/en/latest/">Intake</a> is a python package used to find, investigate, load, and disseminate data.</p>
+<div class="section" id="data-loading">
+<h3>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Intake</span></code> can be used to load many different types of data formats (e.g. tabular data, multi-dimensional data, etc.) into a python notebook or script using familiar containers (e.g. Pandas dataframes, Xarray DataArrays, etc.). Intake can work on local, remote, or cloud computing infrastructures, and is relatively fast due to its ability to integrate distirbuted computing (e.g. Dask).</p>
+<p>There are a number of <a class="reference external" href="https://intake.readthedocs.io/en/latest/plugin-directory.html#plugin-directory">plugins</a> that currently exist for different types of data. Several that may be of particular interest to the climate science community are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://intake-esm.readthedocs.io/en/latest/">intake-esm</a>: for ESM catalog datasets (including CMIP and CESM datasets)</p></li>
+<li><p><a class="reference external" href="https://github.com/intake/intake_geopandas">intake-geopandas</a>: for reading in geospatial datasets into a <a class="reference external" href="https://geopandas.org">geopandas</a> dataframe</p></li>
+<li><p><a class="reference external" href="https://intake-stac.readthedocs.io/en/latest/">intake-stac</a>: for SpatioTemporal Asset Catalogs (<a class="reference external" href="https://stacspec.org">STAC</a>); the <a class="reference external" href="https://pangeo.io/catalog.html">Pangeo Data Catalog</a> uses STAC to catalog its cloud-based datasets</p></li>
+<li><p><a class="reference external" href="https://intake-thredds.readthedocs.io/en/latest/">intake-thredds</a>: to retrieve data from THREDDS data servers (used by NCAR for example)</p></li>
+<li><p><a class="reference external" href="https://intake-xarray.readthedocs.io/en/latest/">intake-xarray</a>: to load datasets into <a class="reference external" href="http://xarray.pydata.org/en/stable/">Xarray</a> containers</p></li>
+</ul>
+<div class="admonition-intake-data-catalogues-at-nci admonition">
+<p class="admonition-title"><strong>Intake data catalogues at NCI</strong></p>
+<p>There are currently two Intake catalogues listing climate data hosted at NCI:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="https://github.com/coecms/nci-intake-catalogue/tree/main/docs">nci-intake-catalogue from CLEX</a> covering CMIP6, CMIP5, CORDEX, ERA5, ERA-Interim and Cosima dataset</p></li>
+<li><p>a catalogue for the <a class="reference external" href="https://github.com/aus-ref-clim-data-nci/acs-replica-intake/blob/main/acs-replica-demo.ipynb">Australian Community Reference Climate Data Collection</a>, which includes several climate reference data
+Their documentation includes demo on how to use access the data in the catalogue (links above).</p></li>
+</ul>
+</div>
+<p>####Other features
+Intake (and many of the plugins) can also be used for a few other tasks:</p>
+<ul class="simple">
+<li><p>cataloging system for listing data sources, metadata, and parameters</p></li>
+<li><p>convenience functions that can be used to, among other things, distribute data catalogs</p></li>
+<li><p>investigate data sources and create plots using a GUI</p></li>
+</ul>
+<div class="section" id="working-with-authorised-catalogues">
+<h4>Working with authorised catalogues<a class="headerlink" href="#working-with-authorised-catalogues" title="Permalink to this headline">¶</a></h4>
+<p>There is no direct way for intake to open and load authorised catalogues. Including the username and password in the URL helps open the catalogue, but further data processing using Dask generates an error message relating to the “nonnumeric port” in the URL. Nikhil Garg (Data61, CSIRO) advises on creating a .netrc file and a .dodsrc file in the home directory to resolve this issue. These files are used by the netCDF4 library; when intake uses Xarray and Dask to access the files, netCDF4 is utilised in the background. The .netrc file contains details about the machine, username, and password. It is a single-line file that can be written in the following format: machine machine_name login user_ID password user_password. The .dodsrc file points to the location of the .netrc file, and can be written as a single-line: HTTP.NETRC=YourHomeDirectory/.netrc. Note, when working on NCI OOD, these files need to be created in the OOD home directory. Hint: According to Nikhil, this method works for any tool (e.g., R, cdo, nco).</p>
+</div>
+<div class="section" id="intake-and-distributed-client">
+<h4>Intake and distributed client<a class="headerlink" href="#intake-and-distributed-client" title="Permalink to this headline">¶</a></h4>
+<p>Intake is not working currently with a distributed client. You can avoid using distributed client or open the data catalogue link with Xarray to work around this issue, e.g.,
+ds = xarray.open_dataset(“catalogue_link”, chunks={‘lat’: 100, ‘lon’: 100, ‘time’: 500})</p>
+<div class="alert alert-info" role="alert">
+<b>For dataset users:</b> if an intake catalog is already set up on your system, then all you need to know if the code to access the dataset you are interested in!
+</div>
+<div class="alert alert-warning" role="alert">
+  <b>For dataset maintainers:</b> more specialized knowledge will be necessary.
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -434,7 +532,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./platforms"
+            path: "./access"
         },
         predefinedOutput: true
     }
@@ -445,7 +543,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="access-intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Accessing data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="access-envs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analysis ready data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

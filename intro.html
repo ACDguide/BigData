@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Computing Platforms" href="platforms/platforms-intro.html" />
+    <link rel="next" title="About large-scale data" href="data/data-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,7 +97,63 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Accessing data
+  Large-scale climate data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data/data-intro.html">
+   About large-scale data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data/data-structure.html">
+   Data structure on disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data/data-format.html">
+   Climate data formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data/data-netcdf.html">
+   NetCDF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data/data-zarr.html">
+   Zarr
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Large-scale data analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="computations/computations-intro.html">
+   Large-scale data analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computations/computations.html">
+     Computations with large datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Working environments
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -105,8 +161,8 @@
   <a class="reference internal" href="platforms/platforms-intro.html">
    Computing Platforms
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -132,109 +188,40 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-CSIRO.html">
-     CSIRO facilities
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-BoM.html">
-     BoM facilities
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="platforms/platforms-institutional.html">
      Institutional shared resources
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="platforms/platforms-PC.html">
-     Personal computer
-    </a>
-   </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="accessing_data.html">
-   Methods of accessing data and metadata
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Data storage
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="data_storage.html">
-   Data storage methods for big datasets
+  <a class="reference internal" href="access/access-intro.html">
+   Accessing data
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="nczarr_test.html">
-     In-depth
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       nczarr
-      </span>
-     </code>
-     testing
+    <a class="reference internal" href="access/access-data.html">
+     Methods of accessing data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="access/access-envs.html">
+     Analysis ready data
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Metadata
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="format_metadata.html">
-   Data formats, variables, and metadata
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Computations
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="computations/computations.html">
-   Computations with large datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="computations/chunking.html">
-   Data chunking with dask examples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="computations/time_axis.html">
-   Dealing with the time-axis
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Software
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="software/software-intro.html">
    Software list and advice
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -269,12 +256,12 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="resources.html">
+  <a class="reference internal" href="resources/resources.html">
    Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="help.html">
+  <a class="reference internal" href="resources/help.html">
    Where to get help
   </a>
  </li>
@@ -360,48 +347,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Overview
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-group-goals">
-   Working Group Goals
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ultimate-goal">
-     Ultimate Goal:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-big-challenging-datasets">
-     Definition of big/challenging datasets:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#steps-to-achieve-our-goal">
-     Steps to achieve our goal:
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#topics-to-include-in-the-above-steps">
-       Topics to include in the above steps:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -414,48 +359,6 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Overview
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-group-goals">
-   Working Group Goals
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ultimate-goal">
-     Ultimate Goal:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-big-challenging-datasets">
-     Definition of big/challenging datasets:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#steps-to-achieve-our-goal">
-     Steps to achieve our goal:
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#topics-to-include-in-the-above-steps">
-       Topics to include in the above steps:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -471,40 +374,6 @@
 </div>
 <p>This Jupyter Book was created as part of a working group formed at the Australian Meteorological and Oceanographic Society’s Annual Conference 2021. Please see the goals below and governance (to be added soon) for more information about the working group.</p>
 <p>This is meant to be a collaborative resource, and we welcome contributions! Instructions on how to contribute can be found in the book’s <a class="reference external" href="https://github.com/ACDguide/BigData">github repository</a>.</p>
-</div>
-<div class="section" id="working-group-goals">
-<h1>Working Group Goals<a class="headerlink" href="#working-group-goals" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="ultimate-goal">
-<h2>Ultimate Goal:<a class="headerlink" href="#ultimate-goal" title="Permalink to this headline">¶</a></h2>
-<p><strong>Create a best practices framework for climate-related scientists in Australia working with big/challenging datasets.</strong></p>
-</div>
-<div class="section" id="definition-of-big-challenging-datasets">
-<h2>Definition of big/challenging datasets:<a class="headerlink" href="#definition-of-big-challenging-datasets" title="Permalink to this headline">¶</a></h2>
-<p>“Big/challenging/very large data”: when the size and complexity of the dataset is such that “traditional data-processing application software” is inadequate to handle the analysis or management of the dataset (<a class="reference external" href="https://en.wikipedia.org/wiki/Big_data">Wikipedia page for “Big data”</a>; <a class="reference external" href="https://pangeo.io/faq.html">Pangeo FAQ</a>)</p>
-</div>
-<div class="section" id="steps-to-achieve-our-goal">
-<h2>Steps to achieve our goal:<a class="headerlink" href="#steps-to-achieve-our-goal" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Consolidate a list of software, tools, learning/training modules, relevant documentation, and other resources that currently exist for dealing with, specifically for storing, accessing, and analyzing, big data.</p></li>
-<li><p>Identify weak points/missing gaps in existing resources</p></li>
-<li><p>Expand documentation, create learning modules, etc. to fill the identified gaps in currently available resources</p></li>
-<li><p>Communicate with other working groups (e.g. on data management guidelines) on issues related to improving data organization</p></li>
-</ul>
-<div class="section" id="topics-to-include-in-the-above-steps">
-<h3>Topics to include in the above steps:<a class="headerlink" href="#topics-to-include-in-the-above-steps" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Methods of data storage (e.g. compression techniques)</p></li>
-<li><p>Methods of accessing data and metadata quickly (e.g. <code class="docutils literal notranslate"><span class="pre">intake</span></code> example from Scott)</p></li>
-<li><p>Interpreting data format, variables, metadata (e.g. grids, chunking)</p></li>
-<li><p>Carrying out computations on large datasets (e.g. using <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and <code class="docutils literal notranslate"><span class="pre">dask</span></code>)</p></li>
-<li><p>Identifying which languages/tools are best suited to specific tasks</p></li>
-</ul>
-</div>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -540,10 +409,10 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="platforms/platforms-intro.html" title="next page">
+    <a class='right-next' id="next-link" href="data/data-intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Computing Platforms</p>
+        <p class="prev-next-title">About large-scale data</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
