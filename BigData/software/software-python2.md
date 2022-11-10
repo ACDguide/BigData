@@ -1,7 +1,7 @@
 (python-data)=
 # Data handling in Python
 
-The data formats most commonty used in climate science are covered in more detail in our section on {ref}`data storage<data-storage>`.
+The data formats most commonly used in climate science are covered in more detail in the [Large-scale climate data](../data/data-format.md) section of this book.
 Both {ref}`xarray<pyanalysis>` and {ref}`iris` can access most of them, provided that the dependencies for the formats are also installed.
 A full list and guide of formats accessible via xarray is available from the [package documentation](https://xarray.pydata.org/en/stable/user-guide/io.html). The open_dataset() function can be called with different `engines`.
 NetCDF4 is the main library to read netcdf data, another option is to use h5netcdf, which is based on h5py, this can be faster depending on the file structure.

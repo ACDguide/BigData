@@ -1,7 +1,19 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Accessing data
+  - caption: Large-scale climate data
+    chapters:
+    - file: data/data-intro.md
+    - file: data/data-structure.md
+    - file: data/data-format.md
+    - file: data/data-netcdf.md
+    - file: data/data-zarr.md
+  - caption: Large-scale data analysis
+    chapters:
+    - file: computations/computations-intro.md
+      sections:
+      - file: computations/computations.ipynb
+  - caption: Working environments 
     chapters:
     - file: platforms/platforms-intro
       sections:
@@ -9,34 +21,21 @@ parts:
       - file: platforms/platforms-nci-ood
       - file: platforms/platforms-pangeo
       - file: platforms/platforms-pawsey
-      - file: platforms/platforms-CSIRO
-      - file: platforms/platforms-BoM
+      - file: platforms/platforms-csiro
+      - file: platforms/platforms-bom
       - file: platforms/platforms-institutional
-      - file: platforms/platforms-PC
-    - file: accessing_data
-  - caption: Data storage
-    chapters:
-    - file: data_storage
+      - file: platforms/platforms-pc
+    - file: access/access-intro
       sections:
-      - file : nczarr_test
-  - caption: Metadata
-    chapters:
-    - file: format_metadata         
-  - caption: Computations
-    chapters:
-    - file: computations/computations 
-    - file: computations/chunking    
-    - file: computations/time_axis    
-    - file: computations/machine-learning    
-  - caption: Software 
-    chapters:
+      - file: access/access-data
+      - file: access/access-envs
     - file: software/software-intro.md   
       sections:
       - file: software/software-python1.md   
       - file: software/software-python2.md   
       - file: software/software-rcran.md   
-      - file: software/software-other.md  
+      - file: software/software-other.md   
   - caption: Resources
     chapters:
-    - file: resources 
-    - file: help 
+    - file: resources/resources 
+    - file: resources/help 
