@@ -61,7 +61,7 @@ The `ncview` tool, while very simple, can easily display netCDF data and highlig
 
 ### Common metadata issues
 
-```{admonition}
+```{admonition} Metadata in software
 Metadata standards are used as a base to develop netCDF related software, a badly defined file can cause all sort of unexpected issues. They are also important when sharing data, as they provide a reading key to potential users.
 ```
 
