@@ -189,8 +189,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-CSIRO.html">
+     CSIRO facilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-BoM.html">
+     BoM facilities
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../platforms/platforms-institutional.html">
      Institutional shared resources
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platforms/platforms-PC.html">
+     Personal computer
     </a>
    </li>
   </ul>
@@ -528,6 +543,10 @@ In particular:</p>
 All data stored in netcdf files have been written in chunks, following some chunking strategy. NCO has a list of different chunking policies that you can apply to write a netcdf file. The most common and default approach is to prioritise accessing the data as a grid, so that retrieving all grid points at one timestep will require loading only 1 or few chunks at one time. On the other side this strategy means that often time has a chunk size of 1, i.e. each timestep is on a different chunk, which means that when we want to analysis a timeseries from the same data we will be loading the entire dataset when we are expecting to only loading one grid point.<br>
 As an example, if a file has dimensions <code class="docutils literal notranslate"><span class="pre">(time=744,</span> <span class="pre">lat=180,</span> <span class="pre">lon=360)</span></code>, the default approach would result in chunks like e.g. <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">180,</span> <span class="pre">360)</span></code>, so that each disk read extracts an area at a single time step. If this file is expected to be used for timeseries analysis   better chunking strategy would be <code class="docutils literal notranslate"><span class="pre">(744,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>, so that each disk read extracts all of time steps at each point location.
 For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like <code class="docutils literal notranslate"><span class="pre">(100,</span> <span class="pre">180,</span> <span class="pre">360)</span></code> which would result in chunks that are approximately <code class="docutils literal notranslate"><span class="pre">25MB</span></code>. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).</p>
+<div class="admonition-dask-chunking admonition">
+<p class="admonition-title">Dask chunking</p>
+<p>Dask has a comprehensive but accessible <a class="reference external" href="https://blog.dask.org/2021/11/02/choosing-dask-chunk-sizes">blog introducing chunks</a>, including how to choose an optimal chunk size in dask and how to align chunks to the original file chunks.</p>
+</div>
 </div>
 <div class="section" id="why-chunking-matters">
 <h3>Why chunking matters?<a class="headerlink" href="#why-chunking-matters" title="Permalink to this headline">¶</a></h3>
@@ -562,6 +581,10 @@ To see the kind of netCDF format <code class="docutils literal notranslate"><spa
 </div>
 <div class="section" id="common-metadata-issues">
 <h3>Common metadata issues<a class="headerlink" href="#common-metadata-issues" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-metadata-in-software admonition">
+<p class="admonition-title">Metadata in software</p>
+<p>Metadata standards are used as a base to develop netCDF related software, a badly defined file can cause all sort of unexpected issues. They are also important when sharing data, as they provide a reading key to potential users.</p>
+</div>
 <div class="section" id="time-dimension">
 <h4>Time dimension<a class="headerlink" href="#time-dimension" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
