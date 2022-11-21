@@ -21,10 +21,10 @@ parts:
       - file: platforms/platforms-nci-ood
       - file: platforms/platforms-pangeo
       - file: platforms/platforms-pawsey
-      - file: platforms/platforms-csiro
-      - file: platforms/platforms-bom
+      - file: platforms/platforms-CSIRO
+      - file: platforms/platforms-BoM
       - file: platforms/platforms-institutional
-      - file: platforms/platforms-pc
+      - file: platforms/platforms-PC
     - file: access/access-intro
       sections:
       - file: access/access-data

@@ -20,7 +20,7 @@ All data stored in netcdf files have been written in chunks, following some chun
 As an example, if a file has dimensions `(time=744, lat=180, lon=360)`, the default approach would result in chunks like e.g. `(1, 180, 360)`, so that each disk read extracts an area at a single time step. If this file is expected to be used for timeseries analysis   better chunking strategy would be `(744, 1, 1)`, so that each disk read extracts all of time steps at each point location. 
 For data where mixed mode analysis is required, it is best to find a chunking scheme that balances these two approaches, and results in chunk sizes that are broadly commensurate with typical on-board memory. In other words, we might pick a chunking approach like `(100, 180, 360)` which would result in chunks that are approximately `25MB`. This is reasonably computationally efficient, though could be bigger. General advice is to aim for chunks between 100-500MB, to minimise file reads while balancing with typical available memory sizes (say 8GB).
 
-```{admonition}
+```{admonition} Dask chunking
 Dask has a comprehensive but accessible [blog introducing chunks](https://blog.dask.org/2021/11/02/choosing-dask-chunk-sizes), including how to choose an optimal chunk size in dask and how to align chunks to the original file chunks.
 ```
 
@@ -61,7 +61,7 @@ The `ncview` tool, while very simple, can easily display netCDF data and highlig
 
 ### Common metadata issues
 
-```{admonition}
+```{admonition} Metadata in software
 Metadata standards are used as a base to develop netCDF related software, a badly defined file can cause all sort of unexpected issues. They are also important when sharing data, as they provide a reading key to potential users.
 ```
 
