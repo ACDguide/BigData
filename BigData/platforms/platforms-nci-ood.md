@@ -1,9 +1,9 @@
 (OOD)=
 # NCI OOD Virtual Desktop Infrastructure
 
-**NOTE that NCI have recently launced their ARE platform, which may ultimately replace this OOD offering, this information is current as of July 2022.**
+**NOTE that NCI have recently launced their ARE platform, which may ultimately replace this OOD offering, this information is current as of November 2022.**
 
-The NCI also support a virtual desktop infrastructure (VDI) called "Open, On-Demand" (OOD) hosted on their internal cloud infrastructure, and which provides an interface to the HPC infrastructure. The current generation of the VDI is web-based, offering a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
+The NCI also support a virtual desktop infrastructure (VDI) called "Open, On-Demand" (OOD) hosted on their **internal cloud** infrastructure, and which provides an interface to the HPC infrastructure. The current generation of the VDI is web-based, offering a virtual desktop service mimicking the older 'Strudel' interface, and a Jupyter Notebook server. Documentation can be [found here](https://opus.nci.org.au/display/OOD/Open+OnDemand+%28OOD%29+Service).
 
 The OOD VDI service is accessed via a cloud launcher page which creates an image with access to the requested compute resources and looks like this:
 ![OOD launcher](../images/OOD-launcher.PNG)
@@ -12,7 +12,7 @@ Launching the VDI desktop via the button gives access to a familiar linux graphi
 ![OOD interface](../images/OOD-interface.PNG)
 
 ## When would I use the OOD VDI?
-The "OOD" or "VDI" is ideal for exploratory and interactive work such as code development, data exploration and visualisation, and tasks requiring internet access (e.g. working with data from external sources via OPeNDAP or S3, or installing python libraries).
+The "OOD" or "VDI" is ideal for exploratory and **interactive work** such as **code development, data exploration and visualisation**, and tasks requiring **internet access** (e.g. working with data from external sources via OPeNDAP or S3, or installing python libraries).
 
 As with Gadi, the OOD VDI has access to all the climate data stored at NCI*, so it is an ideal place to work when large scale input data is required (as this minimises effort and risk associated with creating copies of input data). 
 
