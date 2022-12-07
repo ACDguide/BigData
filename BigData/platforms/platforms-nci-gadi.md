@@ -29,9 +29,8 @@ Launching the VDI via the button gives access to a familiar linux graphical inte
 - If you need to work interactively using code in your Gadi `/home` directory, the ARE provides a JupyterLab or VDI environment with access to Gadi's `/home`, `/scratch` and `/g/data` filesystems and is the recommended tool for users looking to perform interactive large-scale data analysis. If internet access is required, however, you might consider using the [OOD](https://acdguide.github.io/BigData/platforms/platforms-nci-ood.html). 
 - If you want to use large numbers of compute cores or memory to perform large-scale data analysis, the ARE is the tool of choice.
 
-"""{clex-helper-scripts}
-There are also [helper scripts](https://github.com/coecms/nci_scripts) such as `gadi_jupyter` provided by the CLEX CMS team though these are largely deprecated in favour of the ARE or OOD. 
-"""
+> There are also [helper scripts](https://github.com/coecms/nci_scripts) such as `gadi_jupyter` provided by the CLEX CMS team though these are largely deprecated in favour of the ARE or OOD. 
+
 
 ## How do I get access? 
 Sign up for an account at [my.nci.org.au](https://my.nci.org.au/mancini/). You need to join an existing computational project - talk to your supervisors or colleagues for suggested project codes. As well as joining at least one "compute" project, once access is granted you will also need to use the same portal to request access to "data" projects for the data you need to work with, for example, `oi10` for replicated CMIP6 data, or `hh5` for the CLEX-run community conda environments.
@@ -44,6 +43,11 @@ For further information, see the [Gadi user guide](https://opus.nci.org.au/displ
 
 * To access the ARE, navigate to [are.nci.org.au/](https://are.nci.org.au/)
 
-"""{ARE-usage}
-Note that ARE usage is now charged against compute projects, unlike the older VDI and OOD.
-"""
+---
+**NOTE** 
+
+ARE usage is now charged against compute projects, unlike the older VDI and OOD. 
+
+Request only as much time/as many cores as you need.
+
+---
