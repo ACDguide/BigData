@@ -27,10 +27,11 @@ Membership
 - Chloe Mackallah (CSIRO)
 - Paola Petrelli (CLEX)
 - Claire Trenham (CSIRO)
-- Scott Wales(formerly CLEX)
+- Scott Wales(BoM, formerly CLEX)
 - Damien Irving (CSIRO)
 - Dougie Squire (ACCESS-NRI)
-
+- Alicia Takbash (CSIRO)
+- Thomas Moore (CSIRO)
 ## Guidelines for contributors
 
 Contributions to the Jupyter Book are welcomed and encouraged. The Jupyter Book is hosted on Github and can be edited by creating a pull request. Useful links below:
