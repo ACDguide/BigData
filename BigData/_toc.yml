@@ -8,7 +8,7 @@ parts:
     - file: data/data-format.md
     - file: data/data-netcdf.md
     - file: data/data-zarr.md
-  - caption: Large-scale data analysis
+  - caption: Analysis of large-scale datasets
     chapters:
     - file: computations/computations-intro.md
       sections:
