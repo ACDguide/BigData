@@ -130,7 +130,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Large-scale data analysis
+  Analysis of large-scale datasets
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -363,6 +363,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-analysis-on-large-scale-data-different-from-that-on-smaller-datasets">
+   How is analysis on large-scale data different from that on smaller datasets?
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -375,6 +393,24 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-analysis-on-large-scale-data-different-from-that-on-smaller-datasets">
+   How is analysis on large-scale data different from that on smaller datasets?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -383,8 +419,15 @@
                 
   <div class="section" id="large-scale-data-analysis">
 <h1>Large-scale data analysis<a class="headerlink" href="#large-scale-data-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Overview</p>
-<p>Index</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This section includes examples of common types of computations performed on large, climate datasets. We focus on the theory of how these computations are handled on chunked datasets when using tools like <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> and <code class="docutils literal notranslate"><span class="pre">Dask</span></code>. We then provide examples of the specific functions that are often used to carry out each computation and, where possible, demonstrations of these tools in use.</p>
+</div>
+<div class="section" id="how-is-analysis-on-large-scale-data-different-from-that-on-smaller-datasets">
+<h2>How is analysis on large-scale data different from that on smaller datasets?<a class="headerlink" href="#how-is-analysis-on-large-scale-data-different-from-that-on-smaller-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Large datasets are often too big to load into RAM on the computer or server that you use to do your analysis. However, we often don’t need to do a computation on the entire dataset. The <a class="reference external" href="https://acdguide.github.io/BigData/data/data-netcdf.html">section on large-scale climate data</a> discusses how large datasets are typically saved in “chunks”. Analysis on large-scale datasets also makes use of these chunks in order to apply computations only on the portion of the dataset needed for that particular calculation.</p>
+<p>An important concept for doing analysis on large datasets is the idea of “lazy computation”, previously mentioned in the <a class="reference external" href="https://acdguide.github.io/BigData/data/data-structure.html">data structure section</a>. This is what the software package <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> uses in conjunction with tools like <code class="docutils literal notranslate"><span class="pre">Dask</span></code>. When you read a dataset in <code class="docutils literal notranslate"><span class="pre">Xarray</span></code>, it will just read in the metadata (e.g. the variables names, the dimensions, the units, the size of each dimension, and any other metadata that the data creators provided). As you write code to do a computation, the actual calculation isn’t carried out until you specify it. These are typically in the form of <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">.load()</span></code>, etc. Only then is the computation performed by pulling in the specific chunks needed to complete the calculation. These concepts are incredibly powerful, and allow for quick analysis of big datasets!</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>

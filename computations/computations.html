@@ -132,7 +132,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Large-scale data analysis
+  Analysis of large-scale datasets
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -676,7 +676,7 @@ and in NCO with <br>
 <p>Tasks can be combined - you might calculate a climatology of 90th percentiles for each day in the year, or resample daily data to monthly maximums.</p>
 <div class="section" id="min-max-mean-stddev">
 <h3>Min / Max / Mean / Stddev<a class="headerlink" href="#min-max-mean-stddev" title="Permalink to this headline">¶</a></h3>
-<p>Functions like these are pretty simple to calculate regardless of dataset size, as they don’t require the entire dataset to be in memory. You can just loop over the dimension to be reduced calculating value so far up to that step</p>
+<p>Functions like these are pretty simple to calculate regardless of dataset size, as they don’t require the entire dataset to be in memory. You can just loop over the dimension to be reduced by calculating the value so far up to that step</p>
 <p>In pseudocode (in Python you’re better off using <code class="docutils literal notranslate"><span class="pre">data.min(axis=0)</span></code>, as that’s optimised compared to a loop)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="n">out_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">out_min</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>
@@ -786,7 +786,7 @@ and in NCO with <br>
 </div></div>
 <div class="section" id="climatologies">
 <h3>Climatologies<a class="headerlink" href="#climatologies" title="Permalink to this headline">¶</a></h3>
-<p>Climatologies combine multiple years worth of data into a single sample year, for instance a daily mean climatology would output a year of data, with each day in the output the mean of all the days with the same month and day in the input.</p>
+<p>Climatologies combine multiple years worth of data into a single sample year. For instance, a daily mean climatology would output a year of data, with each output day being the mean of all days with the same date from the input. In other words, the output for, e.g., March 3rd would be the average across all March 3rds in the multi-year dataset.</p>
 <p>Leap years require some consideration in a daily climatology, as those days will have 1/4 the samples of other days. Also consider how you are counting - with a day of year counting Feb 29 in a leap year will be matched up with 1 Mar in a non-leap year.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
