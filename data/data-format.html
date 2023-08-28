@@ -369,8 +369,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-large-scale-data-formats">
-   Other large-scale data formats
+  <a class="reference internal nav-link" href="#large-scale-data-formats-used-in-climate-weather">
+   Large-scale data formats used in climate &amp; weather
   </a>
  </li>
 </ul>
@@ -394,8 +394,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-large-scale-data-formats">
-   Other large-scale data formats
+  <a class="reference internal nav-link" href="#large-scale-data-formats-used-in-climate-weather">
+   Large-scale data formats used in climate &amp; weather
   </a>
  </li>
 </ul>
@@ -409,25 +409,33 @@
                 
   <div class="section" id="climate-data-formats">
 <h1>Climate data formats<a class="headerlink" href="#climate-data-formats" title="Permalink to this headline">¶</a></h1>
-<p>Traditionally, climate data have been stored as GRIB (GRIdded Binary) or NetCDF (Network Common Data Format) files. These file formats support large array data and metadata. NetCDF files can be subset to extract data over specified dimension ranges, including remotely over the internet using the <a class="reference external" href="https://www.opendap.org/">OPeNDAP protocol</a> via THREDDS, Hyrax or PyDAP. NetCDF4 supports data “chunking” to optimise performance for particular read patterns.</p>
+<p>Traditionally, climate data have been stored as GRIB (GRIdded Binary) or NetCDF (Network Common Data Format) files. These file formats support large array data and metadata. NetCDF files which follow appropriate data standards (e.g. the Climate &amp; Forecasting (CF) Conventions) can be subset to extract data over specified dimension ranges, including remotely over the internet using the <a class="reference external" href="https://www.opendap.org/">OPeNDAP protocol</a> via THREDDS, Hyrax or PyDAP. NetCDF4 supports data “chunking” to optimise performance for particular read patterns.</br>
+<strong>See page on <a class="reference internal" href="data-netcdf.html"><span class="doc std std-doc">netCDF</span></a></strong>.</p>
 <p>As the volume of climate datasets grows, a need for data formats that can perform more optimally with parallelised access patterns on cloud platforms and HPC has emerged. Zarr (zipped archive) is an alternate way to store climate data, whereby each netCDF “chunk” is written to a unique “object”, thereby permitting much higher levels of efficient parallelised access. However, on a traditional filesystem, each chunk is written as an individual file, which can affect quota limits. To avoid this problem, the Zarr representation of a dataset may be stored in a zip file so they are reduced to a single file-object but can still perform in parallel.</p>
 <p>Zarr is thus a format which we are particularly interested in, but its lack of widespread tool support at this time means it may limit reach if we only store data in this format.
-An interesting recent development is support for zarr as a storage back-end for netCDF, thereby potentially offering the best of both worlds.</p>
-<div class="section" id="other-large-scale-data-formats">
-<h2>Other large-scale data formats<a class="headerlink" href="#other-large-scale-data-formats" title="Permalink to this headline">¶</a></h2>
+An interesting recent development is support for zarr as a storage back-end for netCDF, thereby potentially offering the best of both worlds.</br>
+<strong>See page on <a class="reference internal" href="data-zarr.html"><span class="doc std std-doc">Zarr</span></a></strong>.</p>
+<div class="section" id="large-scale-data-formats-used-in-climate-weather">
+<h2>Large-scale data formats used in climate &amp; weather<a class="headerlink" href="#large-scale-data-formats-used-in-climate-weather" title="Permalink to this headline">¶</a></h2>
 <p>There are a few other file formats often used for large-scale data storage that we come across in climate science.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>format</p></th>
-<th class="head"><p>comment</p></th>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/GRIB">GRIB</a></p></td>
-<td><p>Common for distribution of weather data</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a></p></td>
+<td><p>Commonly used open format for sharing climate &amp; weather data, supports a number of data and metadata standards</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/GRIB">GRIB</a></p></td>
+<td><p>Common for distribution of weather and reanalysis data</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a></p></td>
+<td><p>A cloud-optimised format well suited to storing large climate datasets, best used with Python</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://www.cogeo.org/">GeoTIFF/CoG</a></p></td>
-<td><p>Cloud optimised geoTIFF, common in satellite data</p></td>
+<td><p>Cloud-optimised GeoTIFF, commonly used for satellite data, enables remote access and subsetting of GeoTIFF data</p></td>
 </tr>
 <tr class="row-even"><td><p>.zip/.tar/.tar.gz</p></td>
 <td><p>‘zip’ or ‘tar’ compression are often used to make data more movable</p></td>
